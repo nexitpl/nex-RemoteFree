@@ -5,11 +5,11 @@
     <TargetFramework>net5.0</TargetFramework>
     <TargetLatestRuntimePatch>true</TargetLatestRuntimePatch>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-    <Copyright>Copyright ©  2021 Translucency Software</Copyright>
-    <Description>Background service that maintains a connection to the Remotely server.  The service is used for remote support and maintenance by this computer's administrators.</Description>
-    <Authors>Jared Goodwin</Authors>
-    <Product>Remotely Agent</Product>
-    <Company>Translucency Software</Company>
+    <Copyright>Copyright ©  2021 nex-IT Jakub Potoczny</Copyright>
+    <Description>System Pomocy Zdalnej nex-IT</Description>
+    <Authors>Jakub Potoczny</Authors>
+    <Product>nex-IT Pomoc Zdalna</Product>
+    <Company>Usługi Informatyczne "nex-IT" Jakub Potoczny</Company>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
     <PackageProjectUrl>https://remotely.one</PackageProjectUrl>
     <Platforms>AnyCPU;x86;x64</Platforms>
