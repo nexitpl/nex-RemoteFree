@@ -9,12 +9,12 @@
     <RootNamespace>Remotely.Desktop.Win</RootNamespace>
     <ApplicationIcon>Assets\favicon.ico</ApplicationIcon>
     <ApplicationManifest>app.manifest</ApplicationManifest>
-    <Description>System zdalnej pomocy nex-IT Jakub Potoczny.</Description>
+    <Description>nex-IT Remote Support System.</Description>
     <Copyright>Copyright ©  2021 nex-IT Jakub Potoczny</Copyright>
     <PackageId>Remotely Desktop</PackageId>
     <Authors>Jakub Potoczny</Authors>
     <Company>nex-IT Jakub Potoczny</Company>
-    <Product>nex-IT Pomoc Zdalna</Product>
+    <Product>nex-IT Remote</Product>
     <PackageProjectUrl>https://nex-it.pl</PackageProjectUrl>
     <Platforms>AnyCPU;x86;x64</Platforms>
     <StartupObject>Remotely.Desktop.Win.App</StartupObject>

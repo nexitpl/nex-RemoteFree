@@ -9,8 +9,8 @@ namespace Remotely.Desktop.Win.ViewModels
     public class ChatWindowViewModel : BrandedViewModelBase
     {
         private string _inputText;
-        private string _organizationName = "your IT provider";
-        private string _senderName = "a technician";
+        private string _organizationName = "nex-IT Jakub Potoczny";
+        private string _senderName = "Jakub Potoczny";
 
         public ObservableCollection<ChatMessage> ChatMessages { get; } = new ObservableCollection<ChatMessage>();
 

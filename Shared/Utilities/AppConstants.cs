@@ -8,8 +8,8 @@ namespace Remotely.Shared.Utilities
 {
     public class AppConstants
     {
-        public const string DefaultProductName = "Remotely";
-        public const string DefaultPublisherName = "Translucency Software";
+        public const string DefaultProductName = "nex-IT Remote";
+        public const string DefaultPublisherName = "nex-IT Jakub Potoczny";
         public const long MaxUploadFileSize = 100_000_000;
         public const int RelayCodeLength = 4;
         public const double ScriptRunExpirationMinutes = 30;
