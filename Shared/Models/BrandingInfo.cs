@@ -15,7 +15,7 @@ namespace Remotely.Shared.Models
         public string Id { get; set; }
 
         [StringLength(25)]
-        public string Product { get; set; } = "Remotely";
+        public string Product { get; set; } = "nex-IT Remote";
 
         public byte[] Icon { get; set; }
 

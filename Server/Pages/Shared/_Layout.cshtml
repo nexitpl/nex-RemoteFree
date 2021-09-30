@@ -8,7 +8,7 @@
 @inject IDataService DataService
 
 @{
-    var organizationName = "Remotely";
+    var organizationName = "nex-IT";
     var user = DataService.GetUserByNameWithOrg(User?.Identity?.Name);
 
     if (user is null)
