@@ -5,12 +5,12 @@ using System.Windows;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Remotely Installer")]
-[assembly: AssemblyDescription("An installer for the Remotely service, which provides unattended remote access and remote scripting.")]
+[assembly: AssemblyTitle("nex-IT Remote Installer")]
+[assembly: AssemblyDescription("An installer for the nex-IT Remote service, which provides unattended remote access and remote scripting.")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Translucency Software")]
-[assembly: AssemblyProduct("Remotely Installer")]
-[assembly: AssemblyCopyright("Copyright ©  2020 Translucency Software")]
+[assembly: AssemblyCompany("nex-IT Jakub Potoczny")]
+[assembly: AssemblyProduct("nex-IT Remote Installer")]
+[assembly: AssemblyCopyright("Copyright ©  2021 nex-IT Jakub Potoczny")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

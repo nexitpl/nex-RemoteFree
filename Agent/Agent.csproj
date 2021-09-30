@@ -6,12 +6,12 @@
     <TargetLatestRuntimePatch>true</TargetLatestRuntimePatch>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <Copyright>Copyright ©  2021 nex-IT Jakub Potoczny</Copyright>
-    <Description>System Pomocy Zdalnej nex-IT</Description>
+    <Description>nex-IT Remote Support System</Description>
     <Authors>Jakub Potoczny</Authors>
-    <Product>nex-IT Remote Support</Product>
+    <Product>nex-IT Remote</Product>
     <Company>Usługi Informatyczne "nex-IT" Jakub Potoczny</Company>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
-    <PackageProjectUrl>https://remotely.one</PackageProjectUrl>
+    <PackageProjectUrl>https://nex-it.pl</PackageProjectUrl>
     <Platforms>AnyCPU;x86;x64</Platforms>
     <AssemblyName>Remotely_Agent</AssemblyName>
     <RootNamespace>Remotely.Agent</RootNamespace>
