@@ -1,13 +1,13 @@
 {
   "id": "Remotely Remote Control",
-  "name": "Remotely Remote Control",
-  "short_name": "Remotely Remote Control",
+  "name": "nex-IT Remote Support",
+  "short_name": "nex-IT Remote Support",
   "start_url": "./remotecontrol",
   "display": "standalone",
   "background_color": "black",
   "theme_color": "white",
   "categories": [ "remote control", "remote access", "IT tools" ],
-  "description": "Remote access tools designed to get things done quickly.",
+  "description": "nex-IT Remote Support System.",
   "icons": [
     {
       "src": "./images/Remotely_Icon_128.png",

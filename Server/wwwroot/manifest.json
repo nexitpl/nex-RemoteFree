@@ -1,7 +1,7 @@
 {
   "id": "Remotely",
-  "name": "Remotely",
-  "short_name": "Remotely",
+  "name": "nex-IT Remote Support",
+  "short_name": "nex-IT Remote Support",
   "start_url": "./",
   "display": "standalone",
   "background_color": "black",
