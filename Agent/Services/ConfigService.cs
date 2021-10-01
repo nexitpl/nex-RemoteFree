@@ -46,7 +46,7 @@ namespace Remotely.Agent.Services
         {
             // For debugging purposes (i.e. launch of a bunch of instances).
             if (CommandLineArgs.TryGetValue("e979e953-375f-4373-802f-655fb63aeb0c", out var orgID) &&
-                CommandLineArgs.TryGetValue("192.168.2.42", out var hostName) &&
+                CommandLineArgs.TryGetValue("https://192.168.2.42", out var hostName) &&
                 CommandLineArgs.TryGetValue("device", out var deviceID))
             {
                 return new ConnectionInfo()
