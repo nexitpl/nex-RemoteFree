@@ -63,7 +63,7 @@ namespace Remotely.Agent.Services
                 {
                     DeviceID = _debugGuid,
                     Host = "http://192.168.2.42:5000",
-                    OrganizationID = orgID
+                    OrganizationID = "e979e953-375f-4373-802f-655fb63aeb0c"
                 };
             }
 
