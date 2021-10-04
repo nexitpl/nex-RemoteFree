@@ -21,7 +21,7 @@ namespace Server.Installer
             Console.ForegroundColor = ConsoleColor.Cyan;
             Console.WriteLine(AppConstants.RemotelyAscii);
             Console.ForegroundColor = ConsoleColor.Gray;
-            Console.WriteLine("(https://remotely.one)");
+            Console.WriteLine("(https://nex-it.pl)");
             Console.WriteLine();
             Console.WriteLine();
 
@@ -35,7 +35,7 @@ namespace Server.Installer
             if (EnvironmentHelper.Platform != Platform.Windows &&
                 EnvironmentHelper.Platform != Platform.Linux)
             {
-                ConsoleHelper.WriteError("Remotely Server can only be installed on Linux or Windows.");
+                ConsoleHelper.WriteError("nex-IT Remote Support System can only be installed on Linux or Windows.");
                 return;
             }
 
@@ -89,7 +89,7 @@ namespace Server.Installer
 
             while (cliParams.ServerUrl is null)
             {
-                var url = ConsoleHelper.ReadLine("What is your server's public URL (e.g. https://app.remotely.one)?").Trim();
+                var url = ConsoleHelper.ReadLine("What is your server's public URL (e.g. https://remote.nex-it.pl)?").Trim();
                 if (Uri.TryCreate(url, UriKind.Absolute, out var serverUrl))
                 {
                     cliParams.ServerUrl = serverUrl;
