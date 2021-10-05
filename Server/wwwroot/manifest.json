@@ -1,13 +1,13 @@
 {
   "id": "Remotely",
-  "name": "nex-IT Remote Support System",
-  "short_name": "nex-IT Remote",
+  "name": "nex-Remote - System Pomocy Zdalnej",
+  "short_name": "nex-Remote",
   "start_url": "./",
   "display": "standalone",
   "background_color": "black",
   "theme_color": "white",
   "categories": [ "remote control", "remote access", "IT tools" ],
-  "description": "nex-IT Remote Support System",
+  "description": "nex-Remote System Pomocy Zdalnej",
   "icons": [
     {
       "src": "./images/Remotely_Icon_128.png",

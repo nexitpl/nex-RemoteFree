@@ -6,9 +6,9 @@
     <TargetLatestRuntimePatch>true</TargetLatestRuntimePatch>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <Copyright>Copyright ©  2021 nex-IT Jakub Potoczny</Copyright>
-    <Description>nex-IT Remote Support System</Description>
+    <Description>nex-Remote - System Pomocy Zdalnej</Description>
     <Authors>Jakub Potoczny</Authors>
-    <Product>nex-IT Remote</Product>
+    <Product>nex-Remote Agent</Product>
     <Company>Usługi Informatyczne "nex-IT" Jakub Potoczny</Company>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
     <PackageProjectUrl>https://nex-it.pl</PackageProjectUrl>

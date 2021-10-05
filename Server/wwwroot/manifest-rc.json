@@ -1,7 +1,7 @@
 {
   "id": "Remotely Remote Control",
-  "name": "nex-IT Remote Support",
-  "short_name": "nex-IT Remote Support",
+  "name": "nex-Remote Pomoc Zdalna",
+  "short_name": "nex-Remote Pomoc Zdalna",
   "start_url": "./remotecontrol",
   "display": "standalone",
   "background_color": "black",
