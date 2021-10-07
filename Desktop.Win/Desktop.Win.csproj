@@ -5,16 +5,16 @@
     <TargetFramework>net5.0-windows</TargetFramework>
     <UseWPF>true</UseWPF>
     <UseWindowsForms>true</UseWindowsForms>
-    <AssemblyName>Remotely_Desktop</AssemblyName>
+    <AssemblyName>nex-Remote</AssemblyName>
     <RootNamespace>Remotely.Desktop.Win</RootNamespace>
     <ApplicationIcon>Assets\favicon.ico</ApplicationIcon>
     <ApplicationManifest>app.manifest</ApplicationManifest>
     <Description>nex-IT Remote Support System.</Description>
-    <Copyright>Copyright ©  2021 nex-IT Jakub Potoczny</Copyright>
+    <Copyright>nex-IT Jakub Potoczny</Copyright>
     <PackageId>Remotely Desktop</PackageId>
     <Authors>Jakub Potoczny</Authors>
     <Company>nex-IT Jakub Potoczny</Company>
-    <Product>nex-IT Remote</Product>
+    <Product>nex-Remote</Product>
     <PackageProjectUrl>https://nex-it.pl</PackageProjectUrl>
     <Platforms>AnyCPU;x86;x64</Platforms>
     <StartupObject>Remotely.Desktop.Win.App</StartupObject>

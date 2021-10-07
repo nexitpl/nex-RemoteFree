@@ -20,7 +20,7 @@ else
     <div class="row">
         <div class="col-sm-8 col-lg-6 col-xl-5">
             <div class="form-group">
-                <label class="mb-1">Branding Areas</label>
+                <label class="mb-1">Strefy brandingu</label>
                 <br />
                 <img class="img-fluid" src="/images/Remotely_Desktop.png" />
             </div>
@@ -81,7 +81,7 @@ else
     {
         [StringLength(25)]
         [Required]
-        [Display(Name = "Product Name")]
+        [Display(Name = "Nazwa Produktu")]
         public string ProductName { get; set; }
 
         public ColorPickerModel TitleForegroundColor { get; set; } = new();
@@ -113,8 +113,8 @@ else
             _base64Icon = Convert.ToBase64String(_inputModel.IconBytes);
         }
 
-        _alertMessage = "Branding saved.";
-        ToastService.ShowToast("Branding saved.");
+        _alertMessage = "Branding zapisany.";
+        ToastService.ShowToast("Branding zapisany.");
     }
 
     private async Task IconUploadInputChanged(InputFileChangeEventArgs args)
@@ -126,7 +126,7 @@ else
 
         if (args.File.Size > 1_024_000)
         {
-            ToastService.ShowToast("File size must be under 1 MB.", classString: "bg-warning");
+            ToastService.ShowToast("Plik musi mieć poniżej 1 MB.", classString: "bg-warning");
             return;
         }
 
@@ -164,12 +164,12 @@ else
 
     private async Task ResetBranding()
     {
-        var result = await JsInterop.Confirm("Are you sure you want to reset branding to default?");
+        var result = await JsInterop.Confirm("Zresetować branding do domyślnych ustawień?");
         if (result)
         {
             await DataService.ResetBranding(User.OrganizationID);
             await LoadBrandingInfo();
-            ToastService.ShowToast("Branding reset.");
+            ToastService.ShowToast("Branding zresetowany.");
         }
     }
 }

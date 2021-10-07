@@ -9,9 +9,9 @@
     <div class="row mt-5">
         <div class="col-md-8 col-lg-6">
 
-            <h3>Device ID:</h3>
+            <h3>ID urządzenia:</h3>
             <div class="input-group mb-2">
-                <input type="text" class="form-control" placeholder="Enter a device ID to see its details"
+                <input type="text" class="form-control" placeholder="Wpisz ID urządzenia aby poznać szczegóły"
                        @bind="_inputDeviceId"
                        @bind:event="oninput"
                        @onkeydown="EvaluateDeviceIdInputKeyDown">
@@ -20,10 +20,10 @@
                 </div>
             </div>
             <div class="text-muted">
-                You can also go directly to a device's details by:
+                Możesz także przejść bezpośrednio do szczegółów urządzenia poprzez:
                 <ul>
-                    <li>Right-clicking a device card on the main page while it's collapsed</li>
-                    <li>Clicking the "Open in New Tab" button in a device card's header while it's expanded</li>
+                    <li>Wybierając prawym przyciskiem myszy na zwiniętej karcie urządzenia w Home</li>
+                    <li>Wybierając "Otwórz w nowym oknie" podczas gdy karta urządzenia jest rozwinięta </li>
                 </ul>
             </div>
         </div>
@@ -56,7 +56,7 @@ else
             <TabContent Name="device">
                 <div class="col-sm-8 mb-2">
                     <h3 class="mb-3 mt-3">
-                        Device Details
+                        Szczegóły urządzenia
                     </h3>
 
                     <EditForm Model="Device" OnValidSubmit="HandleValidSubmit" @onkeydown="EditFormKeyDown">
