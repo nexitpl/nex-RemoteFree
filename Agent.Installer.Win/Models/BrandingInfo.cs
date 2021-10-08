@@ -8,7 +8,7 @@ namespace Remotely.Agent.Installer.Win.Models
 {
     public class BrandingInfo
     {
-        public string Product { get; set; } = "nex-IT Remote";
+        public string Product { get; set; } = "nex-Remote";
 
         public string Icon { get; set; }
 
