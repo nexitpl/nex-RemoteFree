@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Remotely.Desktop.Win.Views"
         xmlns:vm="clr-namespace:Remotely.Desktop.Win.ViewModels"
         mc:Ignorable="d"
-        Title="File Transfer"
+        Title="Transfer Plików"
         Height="300" Width="400" 
         Topmost="True"
         ContentRendered="Window_ContentRendered"
@@ -23,15 +23,10 @@
             <RowDefinition />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
-        
-        <TextBlock FontWeight="Bold" FontSize="16" Grid.Row="0">
-            <Run>Upload files to</Run>
-            <Run Text="{Binding ViewerName}"></Run>
-        </TextBlock>
 
-        <TextBlock Grid.Row="1" Margin="0,10,0,0">
-            Current Uploads:
-        </TextBlock>
+        <TextBlock FontWeight="Bold" FontSize="16" Grid.Row="0"><Run Language="pl-pl" Text="Przekaż do"/></TextBlock>
+
+        <TextBlock Grid.Row="1" Margin="0,10,0,0"><Run Text="Aktualny "/><Run Language="pl-pl" Text="przekaz"/><Run Text=":"/></TextBlock>
 
         <Border Grid.Row="2" Margin="0,5,0,0" BorderBrush="LightGray" BorderThickness="1">
             <ScrollViewer >
@@ -61,8 +56,6 @@
             </ScrollViewer>
         </Border>
 
-        <Button Grid.Row="3" Margin="0,10,0,0" Height="60" Style="{StaticResource NormalButton}" Command="{Binding OpenFileUploadDialog}">
-            Click here to upload files.
-        </Button>
+        <Button Grid.Row="3" Margin="0,10,0,0" Height="60" Style="{StaticResource NormalButton}" Command="{Binding OpenFileUploadDialog}" Content="Kliknij tutaj aby wrzucić plik"/>
     </Grid>
 </Window>

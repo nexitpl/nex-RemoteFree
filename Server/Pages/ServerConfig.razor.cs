@@ -23,21 +23,21 @@ namespace Remotely.Server.Pages
 {
     public class AppSettingsModel
     {
-        [Display(Name = "Allow API Login")]
+        [Display(Name = "Zezwól na logowanie API")]
         public bool AllowApiLogin { get; set; }
 
-        [Display(Name = "Banned Devices")]
+        [Display(Name = "Zablokowane urządzenia")]
         public List<string> BannedDevices { get; set; } = new();
 
-        [Display(Name = "Data Retention (days)")]
+        [Display(Name = "Retencja danych (dni)")]
         public double DataRetentionInDays { get; set; }
 
-        [Display(Name = "Database Provider")]
+        [Display(Name = "Dostawca bazy danych")]
         [JsonConverter(typeof(JsonStringEnumConverter))]
         public DbProvider DBProvider { get; set; }
 
 
-        [Display(Name = "Enable Windows Event Log")]
+        [Display(Name = "Włącz Windows Event Log")]
         public bool EnableWindowsEventLog { get; set; }
 
         [Display(Name = "Enforce Attended Access")]

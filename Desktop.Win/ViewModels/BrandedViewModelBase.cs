@@ -28,7 +28,7 @@ namespace Remotely.Desktop.Win.ViewModels
             {
                 var brandingInfo = DeviceInitService?.BrandingInfo ?? new BrandingInfo();
 
-                ProductName = "nex-IT Remote";
+                ProductName = "nex-Remote";
 
                 if (!string.IsNullOrWhiteSpace(brandingInfo?.Product))
                 {

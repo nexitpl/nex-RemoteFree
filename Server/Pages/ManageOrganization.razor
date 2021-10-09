@@ -36,18 +36,18 @@
                     <input @onchange="OrganizationNameChanged"
                            value="@_organization?.OrganizationName"
                            maxlength="25"
-                           placeholder="Enter a name for your organization" 
+                           placeholder="Wpisz nazwę organizacji" 
                            class="form-control" 
                            autocomplete="off" />
                 </div>
                 <div class="text-info small">
-                    * Requires browser refresh.
+                    * Odśwież przeglądarkę.
                 </div>
             </div>
             @if (User.IsServerAdmin)
             {
                 <div class="form-group">
-                    <label class="mb-1">Default Organization For Server</label>
+                    <label class="mb-1">Domyślna organizacja dla serwera</label>
                     <button class="btn btn-sm btn-secondary ml-2" @onclick="ShowDefaultOrgHelp">
                         <span id="relayCodeHelp" class="oi oi-question-mark"></span>
                     </button>
@@ -62,7 +62,7 @@
         <div class="col-sm-8">
             @* Device Groups *@
             <div class="form-group">
-                <label class="mb-1">Device Groups</label>
+                <label class="mb-1">Grupy Urządzeń</label>
                 <button class="btn btn-sm btn-secondary ml-2" @onclick="ShowDeviceGroupHelp">
                     <span id="relayCodeHelp" class="oi oi-question-mark"></span>
                 </button>
@@ -75,7 +75,7 @@
                 </select>
 
                 <div class="text-right mb-3">
-                    <button type="button" class="btn btn-danger" @onclick="DeleteSelectedDeviceGroup">Delete</button>
+                    <button type="button" class="btn btn-danger" @onclick="DeleteSelectedDeviceGroup">Usuń</button>
                 </div>
 
                 <div class="input-group">
@@ -83,7 +83,7 @@
                            @bind="_newDeviceGroupName"
                            @bind:event="oninput"
                            @onkeypress="EvaluateNewDeviceGroupKeyPress" />
-                    <button type="submit" class="btn btn-secondary" @onclick="CreateNewDeviceGroup">Add</button>
+                    <button type="submit" class="btn btn-secondary" @onclick="CreateNewDeviceGroup">Dodaj</button>
                 </div>
             </div>
 
@@ -94,7 +94,7 @@
         <div class="col-sm-12">
             @* Users *@
             <div class="form-group">
-                <label class="control-label">Users</label>
+                <label class="control-label">Użytkownicy</label>
                 <button class="btn btn-sm btn-secondary ml-2" @onclick="ShowUsersHelp">
                     <span id="relayCodeHelp" class="oi oi-question-mark"></span>
                 </button>
@@ -123,9 +123,9 @@
                                 else
                                 {
                                     <td><input type="checkbox" @onchange="(ev) => SetUserIsAdmin(ev, orgUser)" checked="@orgUser.IsAdministrator" /></td>
-                                    <td><button type="button" class="btn btn-secondary" title="Edit" @onclick="() => EditDeviceGroups(orgUser)">Edit</button></td>
-                                    <td><button type="button" class="btn btn-danger" title="Reset Password" @onclick="() => ResetPassword(orgUser)">Reset</button></td>
-                                    <td><button type="button" class="btn btn-danger" title="Delete User" @onclick="() => DeleteUser(orgUser)">Delete</button></td>
+                                    <td><button type="button" class="btn btn-secondary" title="Edytuj" @onclick="() => EditDeviceGroups(orgUser)">Edit</button></td>
+                                    <td><button type="button" class="btn btn-danger" title="Reset hasła" @onclick="() => ResetPassword(orgUser)">Reset</button></td>
+                                    <td><button type="button" class="btn btn-danger" title="Usuń użytkownika" @onclick="() => DeleteUser(orgUser)">Delete</button></td>
                                 }
                             </tr>
                         }
@@ -140,7 +140,7 @@
     <div class="row">
         <div class="col-sm-12">
             <div class="form-group">
-                <label class="control-label">Invitations</label>
+                <label class="control-label">Zaproszenia</label>
                 <button class="btn btn-sm btn-secondary ml-2" @onclick="ShowInvitesHelp">
                     <span id="relayCodeHelp" class="oi oi-question-mark"></span>
                 </button>
@@ -161,7 +161,7 @@
                                 <td class="middle-aligned"><input type="checkbox" checked="@invite.IsAdmin" disabled /></td>
                                 <td class="middle-aligned">
                                     <label class="control-label">
-                                        <a href="@NavManager.BaseUri/Invite/?id=@invite.ID">Join Link</a>
+                                        <a href="@NavManager.BaseUri/Invite/?id=@invite.ID">Dołącz</a>
                                     </label>
                                 </td>
                                 <td><button type="button" class="btn btn-danger" invite="@invite.ID" @onclick="() => DeleteInvite(invite)">Delete</button></td>
@@ -179,10 +179,10 @@
         <div class="col-sm-8">
             <div class="text-danger"></div>
             <div class="form-group">
-                <label class="control-label">Add User</label>
+                <label class="control-label">Dodaj użytkownika</label>
                 <div class="input-group">
                     <input @bind="_inviteEmail" @bind:event="oninput"
-                           placeholder="Email of user to add"
+                           placeholder="Email użytkownika do dodania"
                            type="email"
                            required
                            class="form-control" />
@@ -196,7 +196,7 @@
                         </div>
                     </div>
                     <div class="input-group-append">
-                        <button type="submit" class="btn btn-secondary" @onclick="SendInvite">Add</button>
+                        <button type="submit" class="btn btn-secondary" @onclick="SendInvite">Dodaj</button>
                     </div>
                 </div>
             </div>
@@ -206,6 +206,6 @@
 }
 else
 {
-    <h5 class="text-muted">Only organization administrators can view this page.</h5>
+    <h5 class="text-muted">Tylko administratorzy organizacji mogą zobaczyć stronę.</h5>
 }
 

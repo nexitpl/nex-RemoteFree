@@ -41,5 +41,10 @@ namespace Remotely.Desktop.Win.Views
         {
             DragMove();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

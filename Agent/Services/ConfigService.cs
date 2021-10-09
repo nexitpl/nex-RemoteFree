@@ -52,7 +52,7 @@ namespace Remotely.Agent.Services
                 return new ConnectionInfo()
                 {
                     DeviceID = deviceID,
-                    Host = "https://remote.nex-it.pl:5002",
+                    Host = "https://5.185.41.99",
                     OrganizationID = "e979e953-375f-4373-802f-655fb63aeb0c"
                 };
             }
@@ -62,7 +62,7 @@ namespace Remotely.Agent.Services
                 return new ConnectionInfo()
                 {
                     DeviceID = _debugGuid,
-                    Host = "https://remote.nex-it.pl:5002",
+                    Host = "https://5.185.41.99",
                     OrganizationID = "e979e953-375f-4373-802f-655fb63aeb0c"
                 };
             }

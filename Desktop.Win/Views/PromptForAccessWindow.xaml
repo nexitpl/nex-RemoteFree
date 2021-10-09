@@ -42,32 +42,24 @@
                     <ColumnDefinition Width="Auto" />
                 </Grid.ColumnDefinitions>
                 <Image Grid.Column="0" Height="50" Width="50"  Margin="0,0,10,0" Source="{Binding Icon}"></Image>
-                <TextBlock Grid.Column="1" Text="Remote Control Request"  Foreground="{Binding TitleForegroundColor}" FontWeight="Bold" FontSize="20" VerticalAlignment="Center" />
+                <TextBlock Grid.Column="1"  Foreground="{Binding TitleForegroundColor}" FontWeight="Bold" FontSize="20" VerticalAlignment="Center" ><Run Language="pl-pl" Text="Żądanie kontroli zdalnej"/></TextBlock>
                 <Button Grid.Column="2" Style="{StaticResource TitlebarButton}" Click="MinimizeButton_Click" Content="____" Foreground="{Binding TitleButtonForegroundColor}" Background="{Binding TitleBackgroundColor}"/>
                 <Button Grid.Column="3" Style="{StaticResource TitlebarButton}" Click="CloseButton_Click" Content="X" Foreground="{Binding TitleButtonForegroundColor}" Background="{Binding TitleBackgroundColor}" />
             </Grid>
         </Border>
 
         <StackPanel Grid.Row="1">
-            <TextBlock Style="{StaticResource SectionHeader}" FontWeight="Bold" FontSize="18" Foreground="DimGray" Margin="10" TextWrapping="Wrap">
-                A remote control session has been requested.
-            </TextBlock>
+            <TextBlock Style="{StaticResource SectionHeader}" FontWeight="Bold" FontSize="18" Foreground="DimGray" Margin="10" TextWrapping="Wrap"><Run Language="pl-pl" Text="Uruchomiono żądanie sesji zdalnej"/><Run Text="."/></TextBlock>
 
-            <TextBlock Style="{StaticResource SectionHeader}" FontWeight="Bold" FontSize="18" Foreground="DimGray" Margin="10" TextWrapping="Wrap">
-                <Run>Would you like to allow </Run>
-                <Run Text="{Binding RequesterName}"></Run>
-                <Run> from </Run>
-                <Run Text="{Binding OrganizationName}"></Run>
-                <Run> to control your computer?</Run>
-            </TextBlock>
+            <TextBlock Style="{StaticResource SectionHeader}" FontWeight="Bold" FontSize="18" Foreground="DimGray" Margin="10" TextWrapping="Wrap"><Run Language="pl-pl" Text="Czy chcesz zezwolić na połączenie zdalne z tym komputerem"/><Run Text="?"/></TextBlock>
         </StackPanel>
       
         <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top">
-            <Button Width="60" Height="40" Content="Yes" Margin="10"
+            <Button Width="60" Height="40" Content="TAK" Margin="10"
                     Style="{StaticResource NormalButton}"
                     Command="{Binding SetResultYes}"
-                    CommandParameter="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:PromptForAccessWindow}}}"></Button>
-            <Button Width="60" Height="40" Content="No" Margin="10"
+                    CommandParameter="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:PromptForAccessWindow}}}" Click="Button_Click"></Button>
+            <Button Width="60" Height="40" Content="NIE" Margin="10"
                     Style="{StaticResource NormalButton}"
                     Command="{Binding SetResultNo}"
                     CommandParameter="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:PromptForAccessWindow}}}"></Button>

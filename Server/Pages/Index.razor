@@ -5,17 +5,17 @@
 <AuthorizeView>
     <NotAuthorized>
         <div class="jumbotron">
-            <h3 class="display-4">Remote Support System</h3>
+            <h3 class="display-4">nex-Remote</h3>
             <p class="lead">
                 Usługi Informatyczne "nex-IT" Jakub Potoczny".
             </p>
             <hr class="my-4">
             <p class="lead">
-                <a class="btn btn-primary btn-lg mr-2" href="Identity/Account/Login" role="button">Log In</a>
+                <a class="btn btn-primary btn-lg mr-2" href="Identity/Account/Login" role="button">Logowanie</a>
 
                 @if (AppConfig.MaxOrganizationCount < 0 || DataService.GetOrganizationCount() < AppConfig.MaxOrganizationCount)
                 {
-                    <a class="btn btn-primary btn-lg" href="Identity/Account/Register" role="button">Register</a>
+                    <a class="btn btn-primary btn-lg" href="Identity/Account/Register" role="button">Rejestracja</a>
                 }
             </p>
         </div>

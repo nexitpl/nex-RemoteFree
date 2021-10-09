@@ -14,7 +14,7 @@
         <div class="col-md-8">
             <div class="mb-4" style="display:flex; justify-content: space-evenly">
                 <div class="d-inline-block text-center mr-2">
-                    <label>Devices Online</label>
+                    <label>Urządzenia Online</label>
                     <br />
                     <span class="badge badge-primary p-2">@AgentHub.ServiceConnections.Count</span>
                 </div>
@@ -27,18 +27,18 @@
                         <i class="oi oi-question-mark"></i>
                     </button>
                     <span class="badge badge-primary p-2 mx-2">@(OutdatedDevices?.Count() ?? 0)</span>
-                    <button class="btn btn-secondary btn-sm" type="button" title="Update All" @onclick="UpdateAllDevices">
+                    <button class="btn btn-secondary btn-sm" type="button" title="Aktualizuj wszystkie" @onclick="UpdateAllDevices">
                         <span class="oi oi-reload"></span>
                     </button>
                 </div>
 
                 <div class="d-inline-block text-center mr-2">
-                    <label>Devices Total</label>
+                    <label>Wszystkie Urządzenia</label>
                     <br />
                     <span class="badge badge-primary p-2">@TotalDevices</span>
                 </div>
                 <div class="d-inline-block text-center mr-2">
-                    <label>Active Users</label>
+                    <label>Aktywni Użytkownicy</label>
                     <br />
                     <span class="badge badge-primary p-2">@CircuitManager.Connections.Count</span>
                 </div>
@@ -48,15 +48,15 @@
 
     <div class="row">
         <div class="col-md-8">
-            <h3 class="mt3">Server Admins</h3>
+            <h3 class="mt3">Administratorzy Serwera</h3>
 
             <div class="form-group">
-                <label class="control-label">Server Admins</label>
+                <label class="control-label">Administratorzy Serwera</label>
                 <br />
 
                 <div class="small">
                     <input class="align-middle mr-1" type="checkbox" @bind="_showMyOrgAdminsOnly" />
-                    <span class="align-middle">Show my organization only</span>
+                    <span class="align-middle">Pokaż tylko moją organizację</span>
                 </div>
                 <div class="small">
                     <input class="align-middle mr-1" type="checkbox" @bind="_showAdminsOnly" />
