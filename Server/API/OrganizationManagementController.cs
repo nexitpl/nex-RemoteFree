@@ -81,7 +81,7 @@ namespace Remotely.Server.API
             if (User.Identity.IsAuthenticated &&
               DataService.GetUserByNameWithOrg(User.Identity.Name).Id == userID)
             {
-                return BadRequest("You can't delete yourself here.  You must go to the Personal Data page to delete your own account.");
+                return BadRequest("Nie możesz tutaj usunąć swojego konta.  Przejdź do strony Dane Personalne aby usunąć swoje konto.");
             }
 
             Request.Headers.TryGetValue("OrganizationID", out var orgID);
@@ -146,7 +146,7 @@ namespace Remotely.Server.API
             Request.Headers.TryGetValue("OrganizationID", out var orgID);
             if (!await DataService.RemoveUserFromDeviceGroup(orgID, groupID, userID))
             {
-                return BadRequest("Failed to remove user from group.");
+                return BadRequest("Bład podczas usuwania użytkownika z grupy.");
             }
             return Ok();
         }
