@@ -44,7 +44,7 @@ namespace Remotely.Server.API
             if (User.Identity.IsAuthenticated &&
                 DataService.GetUserByNameWithOrg(User.Identity.Name).Id == userID)
             {
-                return BadRequest("You can't remove administrator rights from yourself.");
+                return BadRequest("Nie możesz odebrać uprawnień administratora samemu sobie.");
             }
 
             Request.Headers.TryGetValue("OrganizationID", out var orgID);
@@ -271,7 +271,7 @@ namespace Remotely.Server.API
                 }
                 else
                 {
-                    return BadRequest("There was an issue creating the new account.");
+                    return BadRequest("Wystąpił problem z utworzeniem nowego konta.");
                 }
             }
             else
@@ -279,19 +279,19 @@ namespace Remotely.Server.API
                 var newInvite = DataService.AddInvite(orgID, invite);
 
                 var inviteURL = $"{Request.Scheme}://{Request.Host}/Invite?id={newInvite.ID}";
-                var emailResult = await EmailSender.SendEmailAsync(invite.InvitedUser, "Invitation to Organization in Remotely",
+                var emailResult = await EmailSender.SendEmailAsync(invite.InvitedUser, "Zaproszenie do nex-Remote",
                             $@"<img src='{Request.Scheme}://{Request.Host}/images/Remotely_Logo.png'/>
                             <br><br>
-                            Hello!
+                            Witaj!
                             <br><br>
-                            You've been invited to join an organization in Remotely.
+                            Zostałeś zaproszony do systemu pomocy zdalnej nex-Remote by nex-IT Jakub Potoczny.
                             <br><br>
-                            You can join the organization by <a href='{HtmlEncoder.Default.Encode(inviteURL)}'>clicking here</a>.",
+                            Możesz dołaczyć poprzez <a href='{HtmlEncoder.Default.Encode(inviteURL)}'>kliknij tutaj</a>.",
                             orgID);
 
                 if (!emailResult)
                 {
-                    return Problem("There was an error sending the invitation email.");
+                    return Problem("Wystąpił problem z wysłaniem zaproszenia.");
                 }
 
                 return Ok();

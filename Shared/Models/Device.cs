@@ -11,7 +11,7 @@ namespace Remotely.Shared.Models
     public class Device
     {
         [Sortable]
-        [Display(Name = "Agent Version")]
+        [Display(Name = "Wersja Agenta")]
         public string AgentVersion { get; set; }
 
         public ICollection<Alert> Alerts { get; set; }
@@ -22,18 +22,18 @@ namespace Remotely.Shared.Models
         public string Alias { get; set; }
 
         [Sortable]
-        [Display(Name = "CPU Utilization")]
+        [Display(Name = "Utylizacja CPU")]
         public double CpuUtilization { get; set; }
 
         [Sortable]
-        [Display(Name = "Current User")]
+        [Display(Name = "Bieżacy użytkownik")]
         public string CurrentUser { get; set; }
 
         public DeviceGroup DeviceGroup { get; set; }
         public string DeviceGroupID { get; set; }
 
         [Sortable]
-        [Display(Name = "Device Name")]
+        [Display(Name = "Nazwa urządzenia")]
         public string DeviceName { get; set; }
         public List<Drive> Drives { get; set; }
 
@@ -44,7 +44,7 @@ namespace Remotely.Shared.Models
         public bool IsOnline { get; set; }
 
         [Sortable]
-        [Display(Name = "Last Online")]
+        [Display(Name = "Ostatnio Online")]
         public DateTimeOffset LastOnline { get; set; }
 
         [StringLength(5000)]
@@ -57,15 +57,15 @@ namespace Remotely.Shared.Models
         public Architecture OSArchitecture { get; set; }
 
         [Sortable]
-        [Display(Name = "OS Description")]
+        [Display(Name = "Opis Systemu")]
         public string OSDescription { get; set; }
 
         [Sortable]
-        [Display(Name = "Platform")]
+        [Display(Name = "Platforma")]
         public string Platform { get; set; }
 
         [Sortable]
-        [Display(Name = "Processor Count")]
+        [Display(Name = "Liczba CPU")]
         public int ProcessorCount { get; set; }
 
         public string PublicIP { get; set; }
@@ -84,31 +84,31 @@ namespace Remotely.Shared.Models
 
         [StringLength(200)]
         [Sortable]
-        [Display(Name = "Tags")]
+        [Display(Name = "Tagi")]
         public string Tags { get; set; } = "";
 
         [Sortable]
-        [Display(Name = "Memory Total")]
+        [Display(Name = "RAM Total")]
         public double TotalMemory { get; set; }
 
         [Sortable]
-        [Display(Name = "Storage Total")]
+        [Display(Name = "Całkowita Przestrzeń")]
         public double TotalStorage { get; set; }
 
         [Sortable]
-        [Display(Name = "Memory Used")]
+        [Display(Name = "RAM w użyciu")]
         public double UsedMemory { get; set; }
 
         [Sortable]
-        [Display(Name = "Memory Used %")]
+        [Display(Name = "RAM w użyciu %")]
         public double UsedMemoryPercent => UsedMemory / TotalMemory;
 
         [Sortable]
-        [Display(Name = "Storage Used")]
+        [Display(Name = "Przestrzeń w użyciu")]
         public double UsedStorage { get; set; }
 
         [Sortable]
-        [Display(Name = "Storage Used %")]
+        [Display(Name = "Przestrzeń w użyciu %")]
         public double UsedStoragePercent => UsedStorage / TotalStorage;
 
         public WebRtcSetting WebRtcSetting { get; set; }
