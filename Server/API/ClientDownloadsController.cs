@@ -37,12 +37,12 @@ namespace Remotely.Server.API
             {
                 case "WindowsDesktop-x64":
                     {
-                        var filePath = Path.Combine(_hostEnv.WebRootPath, "Content", "Win-x64", "Remotely_Desktop.exe");
+                        var filePath = Path.Combine(_hostEnv.WebRootPath, "Content", "Win-x64", "nex-Remote.exe");
                         return await GetDesktopFile(filePath);
                     }
                 case "WindowsDesktop-x86":
                     {
-                        var filePath = Path.Combine(_hostEnv.WebRootPath, "Content", "Win-x86", "Remotely_Desktop.exe");
+                        var filePath = Path.Combine(_hostEnv.WebRootPath, "Content", "Win-x86", "nex-Remote.exe");
                         return await GetDesktopFile(filePath);
                     }
                 case "UbuntuDesktop":
