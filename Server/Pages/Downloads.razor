@@ -10,9 +10,9 @@
 @inject ILogger<Downloads> Logger 
 
 <div class="row mb-3">
-    <h4>Przenośny klient pomocy zdalnej</h4>
+    <h4>nex-Remote - Portable</h4>
     <div class="text-info col-sm-12 pl-0 mb-2">
-        Natychmiastowa pomoc zdalna.  Rejestracja nie wymagana.
+        Przenośna wersja programu nex-Remote.
     </div>
     <div class="col-sm-6 mb-3">
         <strong>Windows (64-Bit)</strong>
@@ -46,33 +46,33 @@
 
 
 <div class="row mb-3">
-    <h4>Installable Instant Support Clients</h4>
+    <h4>nex-Remote - Instalacja</h4>
     <div class="text-info col-sm-12 pl-0 mb-2">
-        Light-weight, self-updating quick support clients.
+        Instalator programu nex-Remote.
     </div>
 
     @if (!_isServerUrlEmbedded)
     {
-        <div class="col-sm-12">
+        @*<div class="col-sm-12">
             <AlertBanner Message="Must be built from source to target specific server URL." StatusClass="warning" />
-        </div>
+        </div>*@
     }
 
 
     <div class="col-sm-6 mb-3">
         <strong>Windows (64-Bit)</strong>
-        <p>
+        @*<p>
             <small>Note: Only the default organization's branding will apply to these.</small>
-        </p>
+        </p>*@
         <p>
             <a target="_blank" href="/Content/Win-x64/ClickOnce/setup.exe">Windows Installer</a>
         </p>
     </div>
     <div class="col-sm-6">
         <strong>Windows (32-Bit)</strong>
-        <p>
+        @*<p>
             <small>Note: Only the default organization's branding will apply to these.</small>
-        </p>
+        </p>*@
         <p>
             <a target="_blank" href="/Content/Win-x86/ClickOnce/setup.exe">Windows Installer</a>
         </p>
@@ -81,15 +81,15 @@
 </div>
 
 <div class="row">
-    <h4>Resident Agents</h4>
+    <h4>nex-Remote - Host</h4>
     <div class="text-info col-sm-12 pl-0 mb-2">
-        Installable background agents that provide unattended access and remote scripting.
+        Instalacja wykonywana przez administratora systemu.
     </div>
 
     @if (!_isAuthenticated)
     {
         <div class="col-sm-6 mb-3">
-            <h6>Must be logged in to download.</h6>
+            <h6>Usługi Informatyczne"nex-IT" Jakub Potoczny.</h6>
         </div>
 
     }
@@ -98,53 +98,53 @@
         <div class="col-sm-6 mb-3">
             <strong>Windows 10 / 8.1 / 7 (64-Bit and 32-Bit)</strong>
             <p>
-                <small>Note: GPU-accelerated screen capture and PowerShell Core is unavailable on Windows 7.</small>
+                <small>Note: Akceleracja GPU i Powershell Core jest niedostępny w Windows 7.</small>
             </p>
             <p>
-                <a target="_blank" href="/API/ClientDownloads/WindowsInstaller">Windows Installer (x64/x86)</a>
+                <a target="_blank" href="/API/ClientDownloads/WindowsInstaller">Windows Instalator (x64/x86)</a>
                 <br />
-                <a target="_blank" href="/Content/Remotely-Win10-x64.zip">Windows x64 Files Only</a>
+                <a target="_blank" href="/Content/Remotely-Win10-x64.zip">Windows x64 Pliki</a>
                 <br />
-                <a target="_blank" href="/Content/Remotely-Win10-x86.zip">Windows x86 Files Only</a>
+                <a target="_blank" href="/Content/Remotely-Win10-x86.zip">Windows x86 Pliki</a>
             </p>
 
             <p>
-                <div class="small">Example Quiet Install:</div>
+                <div class="small">Przykład instalacji - Silent:</div>
                 
                 <code class="label label-default small">
-                    Remotely_Installer.exe
+                    nex-Remote.exe
                     -install
                     -quiet
-                    -organizationid "0b3d706b-9c5d-41e6-8ae9-5720d16324e6"
-                    -serverurl "https://remotely.mytechshop.com"
+                    -organizationid "e979e953-375f-4373-802f-655fb63aeb0c"
+                    -serverurl "https://remote.nex-it.pl"
                 </code>
             </p>
             <p>
-                <div class="small">Example Quiet Uninstall:</div>
+                <div class="small">Przykład deinstalacji - Silent:</div>
 
-                <code class="label label-default small">Remotely_Installer.exe -uninstall -quiet</code>
+                <code class="label label-default small">nex-Remote.exe -uninstall -quiet</code>
             </p>
             <p>
-                <div class="small">Example Local Install:</div>
+                <div class="small">Przykład instalacji - Lokalnie:</div>
                
                 <code class="label label-default small">
-                    Remotely_Installer.exe
+                    nex-Remote.exe
                     -install
                     -quiet
-                    -organizationid "0b3d706b-9c5d-41e6-8ae9-5720d16324e6"
-                    -serverurl "https://remotely.mytechshop.com"
-                    -path "[path]\Remotely-Win10-x64.zip"
+                    -organizationid "e979e953-375f-4373-802f-655fb63aeb0c"
+                    -serverurl "https://remote.nex-it.pl"
+                    -path "[path]\nex-Remote-Win10-x64.zip"
                 </code>
             </p>
             <p>
-                <div class="small">All Override Options:</div>
+                <div class="small">Wszystkie Opcje:</div>
                 
                 <code class="label label-default small">
                     Remotely_Installer.exe -install -quiet -supportshortcut
-                    -organizationid "0b3d706b-9c5d-41e6-8ae9-5720d16324e6"
-                    -serverurl "https://remotely.mytechshop.com"
-                    -devicegroup "Customer Group 1"
-                    -devicealias "Front Desk"
+                    -organizationid "e979e953-375f-4373-802f-655fb63aeb0c"
+                    -serverurl "https://remote.nex-it.pl"
+                    -devicegroup "Grupa"
+                    -devicealias "Klient - ?"
                     -deviceuuid "eebb4d87-5459-4976-989e-a7876dffc69c"
                 </code>
             </p>
@@ -160,17 +160,17 @@
                 <a target="_blank" href="/Content/Remotely-Linux.zip">Linux x64 Files Only</a>
             </p>
             <p>
-                <div class="small">Example Install:</div>
+                <div class="small">Przykład Instalacji:</div>
                 
                 <code class="label label-default small">sudo [path]/Install-Ubuntu-x64.sh</code>
             </p>
             <p>
-                <div class="small">Example Local Install:</div>
+                <div class="small">Przykład Instalacji - Lokalnie:</div>
               
                 <code class="label label-default small">sudo [path]/Install-Ubuntu-x64.sh --path [path]/Remotely-Linux.zip</code>
             </p>
             <p>
-                <div class="small">Uninstall:</div>
+                <div class="small">Deinstalacja:</div>
 
                 <code class="label label-default small">sudo [path]/Install-Ubuntu-x64.sh --uninstall</code>
             </p>
@@ -181,7 +181,7 @@
             <p>
                 <a target="_blank" href="/API/ClientDownloads/MacOSInstaller-x64">macOS x64 Bash Installer</a>
                 <br />
-                <a target="_blank" href="/Content/Remotely-MacOS-x64.zip">macOS x64 Files Only</a>
+                <a target="_blank" href="/Content/nex-Remote-MacOS-x64.zip">macOS x64 Files Only</a>
             </p>
 
             @*<strong>macOS arm64 (11.01)</strong>
@@ -192,17 +192,17 @@
             </p>*@
 
             <p>
-                <div class="small">Example Install:</div>
+                <div class="small">Przykład Instalacji:</div>
                 
                 <code class="label label-default small">sudo [path]/Install-MacOS-x64.sh</code>
             </p>
             <p>
-                <div class="small">Example Local Install:</div>
+                <div class="small">Przykład Instalacji - Lokalnie:</div>
                
                 <code class="label label-default small">sudo [path]/Install-MacOS-x64.sh --path [path]/Remotely-MacOS-x64.zip</code>
             </p>
             <p>
-                <div class="small">Example Uninstall:</div>
+                <div class="small">Przykład deinstalacji:</div>
                 
                 <code class="label label-default small">sudo [path]/Install-MacOS-x64.sh --uninstall</code>
             </p>
