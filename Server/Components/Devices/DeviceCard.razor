@@ -16,7 +16,7 @@
             {
                 if (IsOutdated)
                 {
-                    <i class="oi oi-power-standby text-warning" title="Agent Outdated"></i>
+                    <i class="oi oi-power-standby text-warning" title="Agent Nieaktualny"></i>
                 }
                 else
                 {
@@ -39,7 +39,7 @@
         <div class="text-right">
             @if (IsExpanded)
             {
-                <button class="btn btn-sm mr-2" title="Open in New Tab"
+                <button class="btn btn-sm mr-2" title="Otwórz w Nowym Oknie"
                         @onclick:stopPropagation
                         @onclick="OpenDeviceDetails">
                     <i class="oi oi-external-link" style="font-size: 1.3em"></i>
@@ -64,7 +64,7 @@
         } 
         <div>
             <div class="font-weight-bold text-info">
-                <label>User</label>
+                <label>Użytkownik</label>
             </div>
             <div>
                 @Device.CurrentUser
@@ -80,35 +80,35 @@
                     <ChildListItems>
                         <li>
                             <button class="dropdown-item" @onclick="StartChat">
-                                <i class="oi oi-chat" title="Chat"></i>
-                                <span class="ml-2">Chat</span>
+                                <i class="oi oi-chat" title="Czat"></i>
+                                <span class="ml-2">Czat</span>
                             </button>
                         </li>
                         <li>
                             <button class="dropdown-item" @onclick="() => StartRemoteControl(false)">
-                                <i class="oi oi-laptop" title="Remote Control"></i>
-                                <span class="ml-2">Remote Control</span>
+                                <i class="oi oi-laptop" title="Kontrola Zdalna"></i>
+                                <span class="ml-2">Kontrola Zdalna</span>
                             </button>
                         </li>
                         <li>
                             <button class="dropdown-item" @onclick="() => StartRemoteControl(true)">
-                                <i class="oi oi-eye" title="View Only"></i>
-                                <span class="ml-2">View Only</span>
+                                <i class="oi oi-eye" title="Tylko Podgląd"></i>
+                                <span class="ml-2">Tylko Podgląd</span>
                             </button>
                         </li>
                         <li>
                             <FileInputButton ClassNames="dropdown-item btn btn-primary"
                                              OnChanged="OnFileInputChanged">
                                 <ButtonContent>
-                                    <i class="oi oi-data-transfer-upload" title="Upload File"></i>
-                                    <span class="ml-2">Upload File</span>
+                                    <i class="oi oi-data-transfer-upload" title="Transfer Pliku"></i>
+                                    <span class="ml-2">Transfer Pliku</span>
                                 </ButtonContent>
                             </FileInputButton>
                         </li>
                         <li>
                             <button class="dropdown-item bg-danger" @onclick="UninstallAgent">
-                                <i class="oi oi-delete" title="Uninstall"></i>
-                                <span class="ml-2">Uninstall</span>
+                                <i class="oi oi-delete" title="Deinstalacja"></i>
+                                <span class="ml-2">Deinstalacja</span>
                             </button>
                         </li>
                     </ChildListItems>
@@ -116,7 +116,7 @@
             </div>
 
             <div class="font-weight-bold text-info">
-                <label>Platform</label>
+                <label>Platforma</label>
             </div>
             <div>
                 @Device.Platform
@@ -136,7 +136,7 @@
             </div>
 
             <div class="font-weight-bold text-info expanded-visible">
-                Total Storage
+                Przestrzeń Całkowita
             </div>
             <div class="expanded-visible">
                 @(Device.TotalStorage) GB
@@ -144,14 +144,14 @@
 
 
             <div class="font-weight-bold text-info">
-                <label>Memory</label>
+                <label>RAM</label>
             </div>
             <div>
                 @(MathHelper.GetFormattedPercent(Device.UsedMemoryPercent))
             </div>
 
             <div class="font-weight-bold text-info expanded-visible">
-                Total Memory
+                RAM Total
             </div>
             <div class="expanded-visible">
                 @(Device.TotalMemory) GB
@@ -180,21 +180,21 @@
                     </div>
 
                     <div class="font-weight-bold text-info mt-2">
-                        Agent Version
+                        Wersja Agenta
                     </div>
                     <div>
                         <input class="form-control" readonly value="@Device.AgentVersion" />
                     </div>
 
                     <div class="font-weight-bold text-info mt-2">
-                        Last Online
+                        Ostatnio Online
                     </div>
                     <div>
                         <input class="form-control" readonly value="@Device.LastOnline" />
                     </div>
 
                     <div class="font-weight-bold text-info mt-2">
-                        Public IP
+                        Publiczny IP
                     </div>
                     <div>
                         <input class="form-control" readonly value="@Device.PublicIP" />
@@ -204,7 +204,7 @@
                         <DataAnnotationsValidator />
 
                         <div class="font-weight-bold text-info mt-2">
-                            Device Alias
+                            Alias Urządzenia
                         </div>
                         <div>
                             <InputText class="form-control" @bind-Value="@Device.Alias" />
@@ -212,7 +212,7 @@
                         </div>
 
                         <div class="font-weight-bold text-info mt-2">
-                            WebRTC Setting
+                            WebRTC Ustawienia
                         </div>
                         <div>
                             <InputSelect @bind-Value="Device.WebRtcSetting" class="form-control">
@@ -225,7 +225,7 @@
                         </div>
 
                         <div class="font-weight-bold text-info mt-2">
-                            Device Group
+                            Grupa Urządzenia
                         </div>
                         <div>
                             <InputSelect @bind-Value="Device.DeviceGroupID" class="form-control">
@@ -240,7 +240,7 @@
                         </div>
 
                         <div class="font-weight-bold text-info mt-2">
-                            Tags
+                            Tagi
                         </div>
                         <div>
                             <InputText @bind-Value="Device.Tags" class="form-control" />
@@ -248,7 +248,7 @@
                         </div>
 
                         <div class="font-weight-bold text-info mt-2">
-                            Notes
+                            Notatki
                         </div>
                         <div>
                             <InputTextArea @bind-Value="Device.Notes" style="width:100%; height: 10em;"></InputTextArea>
@@ -260,7 +260,7 @@
                         </div>
 
                         <div class="text-right mt-2">
-                            <button type="submit" class="btn btn-primary">Save</button>
+                            <button type="submit" class="btn btn-primary">Zapisz</button>
                         </div>
                     </EditForm>
 
