@@ -95,7 +95,7 @@ namespace Remotely.Server.Pages
 
             var isDefault = (bool)args.Value;
             DataService.SetIsDefaultOrganization(_organization.ID, isDefault);
-            ToastService.ShowToast("Default organization set.");
+            ToastService.ShowToast("Domyślna organizacja ustawiona.");
         }
 
         private async Task DeleteInvite(InviteLink invite)
@@ -105,7 +105,7 @@ namespace Remotely.Server.Pages
                 return;
             }
 
-            var result = await JsInterop.Confirm("Are you sure you want to delete this invitation?");
+            var result = await JsInterop.Confirm("Chcesz usunąć to zaproszenie?");
             if (!result)
             {
                 return;
@@ -113,7 +113,7 @@ namespace Remotely.Server.Pages
 
             DataService.DeleteInvite(User.OrganizationID, invite.ID);
             _invites.RemoveAll(x => x.ID == invite.ID);
-            ToastService.ShowToast("Invitation deleted.");
+            ToastService.ShowToast("Zaproszenie usunięte.");
         }
 
         private async Task DeleteSelectedDeviceGroup()
@@ -128,7 +128,7 @@ namespace Remotely.Server.Pages
                 return;
             }
 
-            var result = await JsInterop.Confirm("Are you sure you want to delete this device group?");
+            var result = await JsInterop.Confirm("Chcesz usunąć grupę urządzeń?");
             if (!result)
             {
                 return;
@@ -148,11 +148,11 @@ namespace Remotely.Server.Pages
 
             if (User.Id == user.Id)
             {
-                ToastService.ShowToast("You can't delete yourself.", classString: "bg-warning");
+                ToastService.ShowToast("Nie można usunąć siebie samego.", classString: "bg-warning");
                 return;
             }
 
-            var result = await JsInterop.Confirm("Are you sure you want to delete this user?");
+            var result = await JsInterop.Confirm("Chcesz usunąć tego użytkownika?");
             if (!result)
             {
                 return;
@@ -160,7 +160,7 @@ namespace Remotely.Server.Pages
 
             await DataService.DeleteUser(User.OrganizationID, user.Id);
             _orgUsers.RemoveAll(x => x.Id == user.Id);
-            ToastService.ShowToast("User deleted.");
+            ToastService.ShowToast("Użytkownik usunięty.");
         }
 
         private async Task EditDeviceGroups(RemotelyUser user)
@@ -207,14 +207,14 @@ namespace Remotely.Server.Pages
 
             if (newName.Length > 25)
             {
-                ToastService.ShowToast("Must be 25 characters or less.",
+                ToastService.ShowToast("Max 25 znaków.",
                     classString: "bg-warning");
                 return;
             }
 
             DataService.UpdateOrganizationName(_organization.ID, newName);
             _organization.OrganizationName = newName;
-            ToastService.ShowToast("Organization name changed.");
+            ToastService.ShowToast("Nazwa organizacji zmieniona.");
         }
 
         private async Task RefreshData()
@@ -363,9 +363,8 @@ namespace Remotely.Server.Pages
         {
             ModalService.ShowModal("Relay Code", new[]
             {
-                @"This relay code will be appended to EXE filenames.  If the clients were built
-                from source and have the server URL embedded, they will use this code to look
-                up your organization's branding to use."
+                @"Ten kod zostanie dołączony do nazw plików EXE. Gdyby nex-Remote został skompilowany
+                ze źródła i miał osadzony adres URL serwera, użyj tego kodu do zidentyfikowania organizacji."
             });
         }
         private void ShowUsersHelp()

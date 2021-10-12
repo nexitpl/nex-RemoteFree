@@ -2,7 +2,7 @@
 @attribute [Authorize]
 @inherits AuthComponentBase
 
-<h3 class="mb-3">Manage Organization</h3>
+<h3 class="mb-3">Zarządzanie Organizacją</h3>
 
 
 @if (User?.IsAdministrator == true)
@@ -11,11 +11,11 @@
         <div class="col-sm-8">
             @* Organization ID *@
             <div class="form-group mw">
-                <label class="mb-1">Organization ID</label>
+                <label class="mb-1">ID Organizacji</label>
                 <input readonly class="form-control" value="@_organization?.ID" />
             </div>
             <div class="form-group mw">
-                <label class="mb-1">Relay Code</label>
+                <label class="mb-1">Kod</label>
                 <button class="btn btn-sm btn-secondary ml-2" @onclick="ShowRelayCodeHelp">
                     <span id="relayCodeHelp" class="oi oi-question-mark"></span>
                 </button>
@@ -30,7 +30,7 @@
         <div class="col-sm-8">
             @* Organization Name *@
             <div class="form-group mw">
-                <label class="mb-1">Organization Name</label>
+                <label class="mb-1">Nazwa Organizacji</label>
 
                 <div class="input-group">
                     <input @onchange="OrganizationNameChanged"
