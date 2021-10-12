@@ -29,13 +29,13 @@
 
                     <div class="mt-2 col-md-6 col-lg-4">
                         <label>Nazwa Skryptu</label>
-                        <InputText class="form-control" DisplayName="Script Name" @bind-Value="_selectedScript.Name" placeholder="Script name" />
+                        <InputText class="form-control" DisplayName="Nazwa Skryptu" @bind-Value="_selectedScript.Name" placeholder="Script name" />
                         <ValidationMessage For="() => _selectedScript.Name" />
                     </div>
 
                     <div class="mt-2 col-md-6 col-lg-4">
-                        <label>Folder Path</label>
-                        <InputText class="form-control" DisplayName="Folder Path" @bind-Value="_selectedScript.FolderPath" placeholder="Example: or/portland/quick burger #5" />
+                        <label>Ścieżka Folderu</label>
+                        <InputText class="form-control" DisplayName="Ścieżka Folderu" @bind-Value="_selectedScript.FolderPath" placeholder="Przykład: or/portland/quick burger #5" />
                         <ValidationMessage For="() => _selectedScript.FolderPath" />
                     </div>
 

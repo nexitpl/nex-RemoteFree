@@ -75,16 +75,16 @@ namespace Remotely.Server.Components.Scripts
         {
             if (User.Id != _selectedSchedule.CreatorId)
             {
-                ToastService.ShowToast("You can't delete other people's script schedules.", classString: "bg-warning");
+                ToastService.ShowToast("Nie możesz usunąć harmonogramów skryptów innych osób.", classString: "bg-warning");
                 return;
             }
 
-            var result = await JsInterop.Confirm($"Are you sure you want to delete the schedule {_selectedSchedule.Name}?");
+            var result = await JsInterop.Confirm($"Czy na pewno chcesz usunąć harmonogram {_selectedSchedule.Name}?");
             if (result)
             {
                 await DataService.DeleteScriptSchedule(_selectedSchedule.Id);
-                ToastService.ShowToast("Schedule deleted.");
-                _alertMessage = "Schedule deleted.";
+                ToastService.ShowToast("Harmonogram usunięty.");
+                _alertMessage = "Harmonogram usunięty.";
                 CreateNew();
                 await ParentPage.RefreshScripts();
                 await RefreshSchedules();
@@ -126,19 +126,19 @@ namespace Remotely.Server.Components.Scripts
 
             if (_selectedScript is null)
             {
-                ToastService.ShowToast("You must select a script to run.", classString: "bg-warning");
+                ToastService.ShowToast("Musisz wybrać skrypt do uruchomienia.", classString: "bg-warning");
                 return;
             }
 
             if (!CanModifyScript)
             {
-                ToastService.ShowToast("You can't modify other people's schedules.", classString: "bg-warning");
+                ToastService.ShowToast("Nie możesz modyfikować harmonogramów innych osób.", classString: "bg-warning");
                 return;
             }
 
             if (!_selectedDevices.Any() && !_selectedDeviceGroups.Any())
             {
-                ToastService.ShowToast("You must select at least one device or device group.", classString: "bg-warning");
+                ToastService.ShowToast("Musisz wybrać co najmniej jedno urządzenie lub grupę urządzeń.", classString: "bg-warning");
                 return;
             }
 
@@ -159,8 +159,8 @@ namespace Remotely.Server.Components.Scripts
             await DataService.AddOrUpdateScriptSchedule(_selectedSchedule);
             CreateNew();
             await RefreshSchedules();
-            ToastService.ShowToast("Schedule saved.");
-            _alertMessage = "Schedule saved.";
+            ToastService.ShowToast("Harmonogram zapisany.");
+            _alertMessage = "Harmonogram zapisany.";
         }
 
         private async Task RefreshSchedules()

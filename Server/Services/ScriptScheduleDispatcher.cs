@@ -34,13 +34,13 @@ namespace Remotely.Server.Services
         {
             try
             {
-                _logger.LogInformation("Script Schedule Dispatcher started.");
+                _logger.LogInformation("Dyspozytor harmonogramu skryptów uruchomiony.");
 
                 var schedules = await _dataService.GetScriptSchedulesDue();
 
                 if (schedules?.Any() != true)
                 {
-                    _logger.LogInformation("No schedules are due.");
+                    _logger.LogInformation("Brak terminów.");
                     return;
                 }
 
@@ -48,18 +48,18 @@ namespace Remotely.Server.Services
                 {
                     try
                     {
-                        _logger.LogInformation("Considering {scheduleName}.  Interval: {interval}. Next Run: {nextRun}.",
+                        _logger.LogInformation("Ustawienie {scheduleName}.  Interwał: {interval}. Następne Uruchomienie: {nextRun}.",
                             schedule.Name,
                             schedule.Interval,
                             schedule.NextRun);
 
                         if (!AdvanceSchedule(schedule))
                         {
-                            _logger.LogInformation("Schedule is not due.");
+                            _logger.LogInformation("Harmonogram nie jest terminowy.");
                             continue;
                         }
 
-                        _logger.LogInformation($"Creating script run for schedule {schedule.Name}.");
+                        _logger.LogInformation($"Tworzenie skryptu uruchamianego dla harmonogramu {schedule.Name}.");
 
                         var scriptRun = new ScriptRun()
                         {
@@ -98,7 +98,7 @@ namespace Remotely.Server.Services
 
                         await _circuitConnection.RunScript(onlineDevices, schedule.SavedScriptId, scriptRun.Id, ScriptInputType.ScheduledScript, true);
 
-                        _logger.LogInformation($"Created script run for schedule {schedule.Name}.");
+                        _logger.LogInformation($"Utworzony skrypt uruchamiany zgodnie z harmonogramem {schedule.Name}.");
 
                         schedule.LastRun = Time.Now;
                         await _dataService.AddOrUpdateScriptSchedule(schedule);
@@ -106,13 +106,13 @@ namespace Remotely.Server.Services
                     }
                     catch (Exception ex)
                     {
-                        _logger.LogError(ex, "Error while generating script run.");
+                        _logger.LogError(ex, "Błąd podczas generowania uruchomienia skryptu.");
                     }
                 }
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "Error while dispatching script runs.");
+                _logger.LogError(ex, "Błąd podczas wysyłania uruchomień skryptu.");
             }
         }
 

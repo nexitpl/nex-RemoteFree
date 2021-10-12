@@ -3,7 +3,7 @@
 @{
     ViewData["Title"] = "Invite";
 }
-<h3>Organization Invite</h3>
+<h3>Zaproszenie do Organizacji</h3>
 <hr />
 <div class="row">
     <div class="col-sm-12">
@@ -11,7 +11,7 @@
         {
             <h5>Congratulations!</h5>
             <p class="text-info">
-                You've successfully joined the organization!
+                Udało Ci się dołączyć do organizacji!
             </p>
         }
 
@@ -19,15 +19,15 @@
         {
             <form method="post">
                 <div>
-                    <strong class="text-danger">WARNING: </strong>
-                    <p class="text-danger">You will leave your current organization and lose access to its agents unless someone is able to invite you back in.</p>
-                    <p>Are you sure you want to leave your current organization and join this one?</p>
+                    <strong class="text-danger">UWAGA: </strong>
+                    <p class="text-danger">Opuścisz obecną organizację i stracisz dostęp do jej agentów, chyba że ktoś będzie mógł Cię ponownie zaprosić.</p>
+                    <p>Czy na pewno chcesz opuścić obecną organizację i dołączyć do tej?</p>
                 </div>
                 <div asp-validation-summary="All" class="text-danger"></div>
                 <input asp-for="Input.InviteID" hidden />
                 <div class="form-group">
-                    <button type="button" class="btn btn-secondary mr-3" onclick="location.assign(location.origin)">Cancel</button>
-                    <button type="submit" class="btn btn-danger">Confirm</button>
+                    <button type="button" class="btn btn-secondary mr-3" onclick="location.assign(location.origin)">Anuluj</button>
+                    <button type="submit" class="btn btn-danger">Potwierdź</button>
                 </div>
             </form>
         }

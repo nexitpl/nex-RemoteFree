@@ -69,7 +69,7 @@ namespace Remotely.Server.Services
             {
                 if (!await _dispatchLock.WaitAsync(0))
                 {
-                    logger.LogWarning("Script schedule dispatcher is already running.  Returning.");
+                    logger.LogWarning("Dyspozytor harmonogramu skryptów jest już uruchomiony. Powracający.");
                     return;
                 }
 
@@ -77,7 +77,7 @@ namespace Remotely.Server.Services
             }
             catch (Exception ex)
             {
-                logger.LogError(ex, "Error while dispatching script runs.");
+                logger.LogError(ex, "Błąd podczas wysyłania uruchomień skryptu.");
             }
             finally
             {
