@@ -42,7 +42,7 @@
             }
             else
             {
-                ToastService.ShowToast("User added to group.");
+                ToastService.ShowToast("Użytkownik dodany do grupy.");
             }
 
         }
@@ -51,11 +51,11 @@
             var result = await DataService.RemoveUserFromDeviceGroup(EditUser.OrganizationID, group.ID, EditUser.Id);
             if (!result)
             {
-                ToastService.ShowToast("Failed to remove from group.", classString: "bg-warning");
+                ToastService.ShowToast("Błąd przy usuwaniu z grupy.", classString: "bg-warning");
             }
             else
             {
-                ToastService.ShowToast("Removed user from group.");
+                ToastService.ShowToast("Pomyślnie usunięto użytkownika z grupy.");
             }
         }
     }
