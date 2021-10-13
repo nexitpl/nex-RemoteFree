@@ -27,7 +27,7 @@ namespace Remotely.Server.Pages
         {
             if (string.IsNullOrWhiteSpace(id))
             {
-                ModelState.AddModelError("MissingID", "No invititation ID is specified.");
+                ModelState.AddModelError("Brak ID", "Nie określono identyfikatora zaproszenia.");
             }
 
             Input.InviteID = id;
@@ -38,7 +38,7 @@ namespace Remotely.Server.Pages
             if (string.IsNullOrWhiteSpace(Input?.InviteID))
             {
                 Success = false;
-                ModelState.AddModelError("MissingID", "No invititation ID is specified.");
+                ModelState.AddModelError("Brak ID", "Nie określono identyfikatora zaproszenia.");
                 return Page();
             }
 
@@ -46,7 +46,7 @@ namespace Remotely.Server.Pages
             if (result == false)
             {
                 Success = false;
-                ModelState.AddModelError("InviteIDNotFound", "The invitation ID wasn't found or is for another account.");
+                ModelState.AddModelError("Nie znaleziono ID zaproszenia", "Nie znaleziono ID zaproszenia lub dotyczy innego konta.");
             }
 
             Success = true;
