@@ -81,7 +81,7 @@ namespace Remotely.Server.Pages
                 return;
             }
 
-            ToastService.ShowToast("Device group created.");
+            ToastService.ShowToast("Utworzono grupę urządzeń.");
             _deviceGroups.Add(deviceGroup);
             _newDeviceGroupName = string.Empty;
         }
@@ -174,7 +174,7 @@ namespace Remotely.Server.Pages
                 builder.AddAttribute(2, EditDeviceGroup.DeviceGroupsPropName, deviceGroups);
                 builder.CloseComponent();
             }
-            await ModalService.ShowModal("Device Groups", editDeviceGroupsModal);
+            await ModalService.ShowModal("Grupy urządzeń", editDeviceGroupsModal);
         }
 
         private async Task EvaluateInviteInputKeypress(KeyboardEventArgs args)
@@ -241,11 +241,11 @@ namespace Remotely.Server.Pages
             code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
             var resetUrl = $"{NavManager.BaseUri}Identity/Account/ResetPassword?code={code}";
 
-            await ModalService.ShowModal("Password Reset", builder =>
+            await ModalService.ShowModal("Reset Hasła", builder =>
             {
-                builder.AddMarkupContent(0, $@"<div class=""mb-3"">Password Reset URL:</div>
+                builder.AddMarkupContent(0, $@"<div class=""mb-3"">Reset Hasła URL:</div>
                     <input readonly value=""{resetUrl}"" class=""form-control"" /> 
-                    <div class=""mt-3"">NOTE: Give this URL to the user.  They must be logged out completely for it to work.</div>");
+                    <div class=""mt-3"">UWAGA: Podaj ten adres URL użytkownikowi. Muszą być całkowicie wylogowani, aby to zadziałało.</div>");
             });
         }
 
@@ -269,12 +269,12 @@ namespace Remotely.Server.Pages
 
                     _inviteAsAdmin = false;
                     _inviteEmail = string.Empty;
-                    ToastService.ShowToast("User account created.");
+                    ToastService.ShowToast("Utworzono konto użytkownika.");
                     return;
                 }
                 else
                 {
-                    ToastService.ShowToast("Create user failed.", classString: "bg-danger");
+                    ToastService.ShowToast("Nie udało się utworzyć użytkownika.", classString: "bg-danger");
                     return;
                 }
             }
@@ -289,18 +289,18 @@ namespace Remotely.Server.Pages
                 var newInvite = DataService.AddInvite(User.OrganizationID, invite);
 
                 var inviteURL = $"{NavManager.BaseUri}Invite?id={newInvite.ID}";
-                var emailResult = await EmailSender.SendEmailAsync(invite.InvitedUser, "Invitation to Organization in Remotely",
+                var emailResult = await EmailSender.SendEmailAsync(invite.InvitedUser, "Zaproszenie do organizacji w nex-Remote",
                         $@"<img src='{NavManager.BaseUri}images/Remotely_Logo.png'/>
                             <br><br>
-                            Hello!
+                            Witaj!
                             <br><br>
-                            You've been invited to join an organization in Remotely.
+                            Zaproszono Cię do dołączenia do organizacji w nex-Remote.
                             <br><br>
-                            You can join the organization by <a href='{HtmlEncoder.Default.Encode(inviteURL)}'>clicking here</a>.",
+                            Możesz dołączyć do organizacji przez <a href='{HtmlEncoder.Default.Encode(inviteURL)}'>clicking here</a>.",
                         User.OrganizationID);
                 if (emailResult)
                 {
-                    ToastService.ShowToast("Invitation sent.");
+                    ToastService.ShowToast("Zaproszenie wysłane.");
                     
                     _inviteAsAdmin = false;
                     _inviteEmail = string.Empty;
@@ -308,7 +308,7 @@ namespace Remotely.Server.Pages
                 }
                 else
                 {
-                    ToastService.ShowToast("Error sending invititation email.", classString: "bg-danger");
+                    ToastService.ShowToast("Błąd podczas wysyłania e-maila z zaproszeniem.", classString: "bg-danger");
                 }
             }
         }
@@ -322,46 +322,46 @@ namespace Remotely.Server.Pages
 
             var isAdmin = (bool)args.Value;
             DataService.ChangeUserIsAdmin(User.OrganizationID, orgUser.Id, isAdmin);
-            ToastService.ShowToast("Administrator value set.");
+            ToastService.ShowToast("Ustawiona wartość administratora.");
         }
 
         private void ShowDefaultOrgHelp()
         {
-            ModalService.ShowModal("Default Organization", new[]
+            ModalService.ShowModal("Domyślna organizacja", new[]
             {
-                @"This option is only available for server administrators.  When selected,
-                it sets this organization as the default for the server.  If the organization can't
-                be determined in the quick support apps, they will use the default organization's branding."
+                @"Ta opcja jest dostępna tylko dla administratorów serwera. Po wybraniu
+                ustawia tę organizację jako domyślną dla serwera. Jeśli organizacja nie może
+                zostaną określone w aplikacjach szybkiej pomocy, będą używać domyślnego brandingu organizacji."
             });
         }
 
         private void ShowDeviceGroupHelp()
         {
-            ModalService.ShowModal("Device Groups", new[]
+            ModalService.ShowModal("Grupy urządzeń", new[]
            {
-                "Device groups can be used to restrict user permissions and to filter computers on " +
-                "the main page.",
-                "Everyone will have access to devices that are not in a group.  Only " +
-                "administrators and users in a device group will have access to devices in that group."
+                "Grupy urządzeń mogą być używane do ograniczania uprawnień użytkowników i filtrowania komputerów na " +
+                "stronie głównej.",
+                "Każdy będzie miał dostęp do urządzeń spoza grupy. Tylko " +
+                "administratorzy i użytkownicy w grupie urządzeń będą mieli dostęp do urządzeń w tej grupie."
             });
         }
 
         private void ShowInvitesHelp()
         {
-            ModalService.ShowModal("Invitations", new[]
+            ModalService.ShowModal("Zaproszenia", new[]
            {
-                "All pending invitations will be shown here and can be revoked by deleting them.",
+                "Wszystkie oczekujące zaproszenia będą wyświetlane tutaj i można je odwołać, usuwając je.",
 
-                "If a user does not exist, sending an invite will create their account and add them to the current organization. " +
-                "A password reset URL can be generated from the user table.",
+                "Jeśli użytkownik nie istnieje, wysłanie zaproszenia spowoduje utworzenie jego konta i dodanie go do obecnej organizacji. " +
+                "Adres URL resetowania hasła można wygenerować z tabeli użytkowników.",
 
-                "The Admin checkbox determines if the new user will have administrator privileges in this organization."
+                "Pole wyboru Administrator określa, czy nowy użytkownik będzie miał uprawnienia administratora w tej organizacji."
             });
         }
 
         private void ShowRelayCodeHelp()
         {
-            ModalService.ShowModal("Relay Code", new[]
+            ModalService.ShowModal("Kod", new[]
             {
                 @"Ten kod zostanie dołączony do nazw plików EXE. Gdyby nex-Remote został skompilowany
                 ze źródła i miał osadzony adres URL serwera, użyj tego kodu do zidentyfikowania organizacji."
@@ -369,10 +369,10 @@ namespace Remotely.Server.Pages
         }
         private void ShowUsersHelp()
         {
-            ModalService.ShowModal("Users", new[]
+            ModalService.ShowModal("Użytkownicy", new[]
             {
-                "All users for the organization are managed here",
-                "Administrators will have access to this management screen as well as all computers."
+                "Tutaj zarządza się wszystkimi użytkownikami organizacji",
+                "Administratorzy będą mieli dostęp do tego ekranu zarządzania, a także do wszystkich komputerów."
             });
         }
     }

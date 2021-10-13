@@ -79,7 +79,7 @@
                 </div>
 
                 <div class="input-group">
-                    <input placeholder="Add new device group" class="form-control" maxlength="200"
+                    <input placeholder="Dodaj nową grupę urządzeń" class="form-control" maxlength="200"
                            @bind="_newDeviceGroupName"
                            @bind:event="oninput"
                            @onkeypress="EvaluateNewDeviceGroupKeyPress" />
@@ -101,11 +101,11 @@
                 <table class="table table-striped table-hover" style="max-height: 400px">
                     <thead>
                         <tr>
-                            <th>User Name</th>
+                            <th>Nazwa użytkownika</th>
                             <th>Administrator</th>
-                            <th>Device Groups</th>
-                            <th>Reset Password</th>
-                            <th>Delete Group</th>
+                            <th>Grupy urządzeń</th>
+                            <th>Reset Hasła</th>
+                            <th>Usuń Grupe</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -147,10 +147,10 @@
                 <table id="invitesTable" class="table table-striped table-hover" style="max-height: 400px">
                     <thead>
                         <tr>
-                            <th>Invited User</th>
+                            <th>Zaproszony użytkownik</th>
                             <th>Administrator</th>
-                            <th>Link(s)</th>
-                            <th>Delete</th>
+                            <th>Linki</th>
+                            <th>Usuń</th>
                         </tr>
                     </thead>
                     <tbody>
