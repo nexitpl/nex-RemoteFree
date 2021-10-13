@@ -8,20 +8,19 @@ namespace Remotely.Shared.Utilities
 {
     public class AppConstants
     {
-        public const string DefaultProductName = "nex-IT Remote";
+        public const string DefaultProductName = "nex-Remote";
         public const string DefaultPublisherName = "nex-IT Jakub Potoczny";
         public const long MaxUploadFileSize = 100_000_000;
         public const int RelayCodeLength = 4;
         public const double ScriptRunExpirationMinutes = 30;
 
         public const string RemotelyAscii = @"
-  _____                      _       _       
- |  __ \                    | |     | |      
- | |__) |___ _ __ ___   ___ | |_ ___| |_   _ 
- |  _  // _ \ '_ ` _ \ / _ \| __/ _ \ | | | |
- | | \ \  __/ | | | | | (_) | ||  __/ | |_| |
- |_|  \_\___|_| |_| |_|\___/ \__\___|_|\__, |
-                                        __/ |
-                                       |___/ ";
+                         _______  
+                      |     |
+  ____   ___  \  /    |     |
+ / __ \// _ \  \/ ___ |     |
+ | || |\  __/  /\     |     |
+ |_||_| \___  /  \    |     |
+                                            ";
     }
 }

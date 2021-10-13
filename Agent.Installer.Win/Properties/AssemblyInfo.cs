@@ -9,7 +9,7 @@ using System.Windows;
 [assembly: AssemblyDescription("Instalator nex-Remote, system zdalnej pomocy nex-IT Jakub Potoczny.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("nex-IT Jakub Potoczny")]
-[assembly: AssemblyProduct("nex-IT Remote Instalator")]
+[assembly: AssemblyProduct("nex-Remote Instalator")]
 [assembly: AssemblyCopyright("nex-IT Jakub Potoczny")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
