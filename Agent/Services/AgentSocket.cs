@@ -90,7 +90,7 @@ namespace Remotely.Agent.Services
                     // Orgnanization ID wasn't found, or this device is already connected.
                     // The above can be caused by temporary issues on the server.  So we'll do
                     // nothing here and wait for it to get resolved.
-                    Logger.Write("There was an issue registering with the server.  The server might be undergoing maintenance, or the supplied organization ID might be incorrect.");
+                    Logger.Write("Wystąpił problem z rejestracją na serwerze. Serwer może być w trakcie konserwacji lub podany identyfikator organizacji może być nieprawidłowy.");
                     await Task.Delay(TimeSpan.FromMinutes(1));
                     await _hubConnection.StopAsync();
                     return;
@@ -112,7 +112,7 @@ namespace Remotely.Agent.Services
             }
             catch (Exception ex)
             {
-                Logger.Write(ex, "Error starting websocket connection.", EventType.Error);
+                Logger.Write(ex, "Błąd podczas uruchamiania połączenia websocket.", EventType.Error);
             }
         }
 
@@ -125,7 +125,7 @@ namespace Remotely.Agent.Services
                     if (!IsConnected)
                     {
                         var waitTime = new Random().Next(1000, 30000);
-                        Logger.Write($"Websocket closed.  Reconnecting in {waitTime / 1000} seconds...");
+                        Logger.Write($"Websocket zamknięte.  Ponowne łączenie za {waitTime / 1000} sekund...");
                         await Task.Delay(waitTime);
                         await Program.Services.GetRequiredService<AgentSocket>().Connect();
                         await Program.Services.GetRequiredService<IUpdater>().CheckForUpdates();
@@ -180,7 +180,7 @@ namespace Remotely.Agent.Services
                 {
                     if (!IsServerVerified)
                     {
-                        Logger.Write("Session change attempted before server was verified.", EventType.Warning);
+                        Logger.Write("Podjęto próbę zmiany sesji przed zweryfikowaniem serwera.", EventType.Warning);
                         return;
                     }
 
@@ -198,7 +198,7 @@ namespace Remotely.Agent.Services
                 {
                     if (!IsServerVerified)
                     {
-                        Logger.Write("Chat attempted before server was verified.", EventType.Warning);
+                        Logger.Write("Próba czatu przed zweryfikowaniem serwera.", EventType.Warning);
                         return;
                     }
 
@@ -214,7 +214,7 @@ namespace Remotely.Agent.Services
             {
                 if (!IsServerVerified)
                 {
-                    Logger.Write("CtrlAltDel attempted before server was verified.", EventType.Warning);
+                    Logger.Write("Próba CtrlAltDel przed zweryfikowaniem serwera.", EventType.Warning);
                     return;
                 }
                 User32.SendSAS(false);
@@ -231,7 +231,7 @@ namespace Remotely.Agent.Services
                 {
                     if (!IsServerVerified)
                     {
-                        Logger.Write("File download attempted before server was verified.", EventType.Warning);
+                        Logger.Write("Próba pobrania pliku przed zweryfikowaniem serwera.", EventType.Warning);
                         return;
                     }
 

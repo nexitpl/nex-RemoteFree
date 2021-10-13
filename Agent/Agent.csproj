@@ -5,7 +5,7 @@
     <TargetFramework>net5.0</TargetFramework>
     <TargetLatestRuntimePatch>true</TargetLatestRuntimePatch>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-    <Copyright>2021 nex-IT Jakub Potoczny</Copyright>
+    <Copyright>nex-IT Jakub Potoczny</Copyright>
     <Description>nex-Remote - System Pomocy Zdalnej</Description>
     <Authors>Jakub Potoczny</Authors>
     <Product>nex-Remote Agent</Product>
