@@ -41,7 +41,7 @@ export const ViewerApp = {
         if (ViewerApp.CasterID) {
             ViewerApp.Mode = RemoteControlMode.Unattended;
             ViewerApp.ViewerHubConnection.Connect();
-            UI.StatusMessage.innerHTML = "Connecting to remote device...";
+            UI.StatusMessage.innerHTML = "Łączenie ze zdalnym urządzeniem...";
         }
         else {
             UI.ConnectBox.style.removeProperty("display");
@@ -60,7 +60,7 @@ export const ViewerApp = {
         ViewerApp.RequesterName = UI.RequesterNameInput.value;
         ViewerApp.Mode = RemoteControlMode.Normal;
         ViewerApp.ViewerHubConnection.Connect();
-        UI.StatusMessage.innerHTML = "Request access on remote device...";
+        UI.StatusMessage.innerHTML = "Poproś o dostęp na urządzeniu zdalnym...";
         ViewerApp.Settings.displayName = ViewerApp.RequesterName;
         SetSettings(ViewerApp.Settings);
     }
