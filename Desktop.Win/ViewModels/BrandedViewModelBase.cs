@@ -36,9 +36,9 @@ namespace Remotely.Desktop.Win.ViewModels
                 }
 
                 TitleBackgroundColor = new SolidColorBrush(Color.FromRgb(
-                    brandingInfo?.TitleBackgroundRed ?? 70,
-                    brandingInfo?.TitleBackgroundGreen ?? 70,
-                    brandingInfo?.TitleBackgroundBlue ?? 70));
+                    brandingInfo?.TitleBackgroundRed ?? 0,
+                    brandingInfo?.TitleBackgroundGreen ?? 0,
+                    brandingInfo?.TitleBackgroundBlue ?? 0));
 
                 TitleForegroundColor = new SolidColorBrush(Color.FromRgb(
                    brandingInfo?.TitleForegroundRed ?? 29,
