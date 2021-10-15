@@ -28,7 +28,7 @@
     </Window.Resources>
     
     <Window.DataContext>
-        <ViewModels:MainWindowViewModel />
+        <ViewModels:MainWindowViewModel TitleBackgroundColor="Black" TitleForegroundColor="#FF009FE3" />
     </Window.DataContext>
 
     <Grid>
@@ -100,10 +100,10 @@
                 Click="OptionsButton_Click">
             <Button.ContextMenu>
                 <ContextMenu>
-                    <MenuItem Header="Change Server" Command="{Binding Path=ChangeServerCommand, Source={x:Static ViewModels:MainWindowViewModel.Current}}"></MenuItem>
+                    <MenuItem Header="Zmień Serwer" Command="{Binding Path=ChangeServerCommand, Source={x:Static ViewModels:MainWindowViewModel.Current}}"></MenuItem>
 
-                    <MenuItem Header="Elevate to Admin" Command="{Binding Path=ElevateToAdminCommand, Source={x:Static ViewModels:MainWindowViewModel.Current}}"></MenuItem>
-                    <MenuItem Header="Elevate to Service" Command="{Binding Path=ElevateToServiceCommand, Source={x:Static ViewModels:MainWindowViewModel.Current}}"></MenuItem>
+                    <MenuItem Header="Uruchom jako administrator" Command="{Binding Path=ElevateToAdminCommand, Source={x:Static ViewModels:MainWindowViewModel.Current}}"></MenuItem>
+                    <MenuItem Header="Uruchom jako usługa" Command="{Binding Path=ElevateToServiceCommand, Source={x:Static ViewModels:MainWindowViewModel.Current}}"></MenuItem>
                 </ContextMenu>
             </Button.ContextMenu>
             <Rectangle Fill="{StaticResource GearBrush}"></Rectangle>
