@@ -8,13 +8,13 @@
         xmlns:ViewModels="clr-namespace:Remotely.Desktop.Win.ViewModels" x:Name="PromptWindow"
         mc:Ignorable="d"
         Title="Nazwa serwera" Height="150" Width="350" WindowStartupLocation="CenterOwner" 
-        Icon="{Binding Icon}">
+        Icon="{Binding Icon}" Background="Black">
     <Window.DataContext>
         <ViewModels:HostNamePromptViewModel/>
     </Window.DataContext>
     <StackPanel Margin="10">
-        <TextBlock Margin="0,0,0,5" Style="{StaticResource SectionHeader}"><Run Text="Adres"/><Run Text=" URL"/><Run Language="pl-pl" Text=" serwera"/><Run Text=":"/></TextBlock>
-        <TextBox x:Name="HostTextBox" Height="25" Text="https://5.185.41.99"/>
-        <Button Style="{StaticResource NormalButton}" HorizontalAlignment="Right" Width="40" Height="30" Margin="0,5,0,0" IsDefault="True" Click="OKButton_Click" Content="OK"/>
+        <TextBlock Margin="0,0,0,5" Style="{StaticResource SectionHeader}" Foreground="White"><Run Text="Adres"/><Run Text=" URL"/><Run Language="pl-pl" Text=" serwera"/><Run Text=":"/></TextBlock>
+        <TextBox x:Name="HostTextBox" Height="25" Text="https://5.185.41.99" Foreground="White" Background="Black" BorderBrush="White"/>
+        <Button Style="{StaticResource NormalButton}" HorizontalAlignment="Right" Width="40" Height="30" Margin="0,5,0,0" IsDefault="True" Click="OKButton_Click" Content="OK" Foreground="White" Background="Black" BorderBrush="White"/>
     </StackPanel>
 </Window>

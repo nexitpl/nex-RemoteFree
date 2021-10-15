@@ -28,11 +28,11 @@
     </Window.Resources>
     
     <Window.DataContext>
-        <ViewModels:MainWindowViewModel TitleBackgroundColor="Black" TitleForegroundColor="#FF009FE3" />
+        <ViewModels:MainWindowViewModel TitleBackgroundColor="Black" TitleForegroundColor="#FF009FE3" TitleButtonForegroundColor="Black" />
     </Window.DataContext>
 
     <Grid>
-        <StackPanel>
+        <StackPanel Background="Black">
             <Border Height="50" Background="{Binding TitleBackgroundColor}">
                 <Grid Margin="10,0,0,0">
                     <Grid.ColumnDefinitions>
@@ -42,7 +42,7 @@
                         <ColumnDefinition Width="Auto" />
                     </Grid.ColumnDefinitions>
                     <Image Grid.Column="0" Height="45" Width="45"  Margin="0,0,10,0" Source="{Binding Icon}"></Image>
-                    <TextBlock Grid.Column="1" Text="nex-Remote"  Foreground="{Binding TitleForegroundColor}" FontWeight="Bold" FontSize="20" VerticalAlignment="Center" />
+                    <TextBlock Grid.Column="1" Text="nex-Remote"  Foreground="{Binding TitleForegroundColor}" FontWeight="Bold" FontSize="20" VerticalAlignment="Center" TextAlignment="Center" />
                     <Button Grid.Column="2" Style="{StaticResource TitlebarButton}" Click="MinimizeButton_Click" Content="____" Foreground="{Binding TitleButtonForegroundColor}" Background="{Binding TitleBackgroundColor}"/>
                     <Button Grid.Column="3" Style="{StaticResource TitlebarButton}" Click="CloseButton_Click" Content="X" Foreground="{Binding TitleButtonForegroundColor}" Background="{Binding TitleBackgroundColor}" />
                 </Grid>
@@ -53,21 +53,21 @@
                     <ColumnDefinition />
                 </Grid.ColumnDefinitions>
                 <StackPanel Grid.Column="0" Margin="0,0,15,0">
-                    <TextBlock Style="{StaticResource SectionHeader}"><Run Language="pl-pl" Text="Pomoc Zdalna"/></TextBlock>
-                    <TextBlock FontSize="16" Margin="0,10,0,5"><Run Language="pl-pl" Text="Twoje ID"/><Run Text=":"/></TextBlock>
-                    <TextBox FontSize="16" Text="{Binding StatusMessage}" IsReadOnly="True"/>
+                    <TextBlock Style="{StaticResource SectionHeader}" Foreground="White"><Run Language="pl-pl" Text="Pomoc Zdalna"/></TextBlock>
+                    <TextBlock FontSize="16" Margin="0,10,0,5" Foreground="White"><Run Language="pl-pl" Text="Twoje ID"/><Run Text=":"/></TextBlock>
+                    <TextBox FontSize="16" Text="{Binding StatusMessage}" IsReadOnly="True" Foreground="White" BorderBrush="White" Background="Black"/>
                     <Grid Margin="0,10,0,0">
-                        <TextBlock VerticalAlignment="Center"><Run Language="pl-pl" Text="Link"/><Run Text=":"/></TextBlock>
-                        <Button HorizontalAlignment="Right" Style="{StaticResource NormalButton}" Click="CopyLinkButton_Click" Content="Kopiuj"/>
+                        <TextBlock VerticalAlignment="Center" Foreground="White"><Run Language="pl-pl" Text="Link"/><Run Text=":"/></TextBlock>
+                        <Button HorizontalAlignment="Right" Style="{StaticResource NormalButton}" Click="CopyLinkButton_Click" Content="Kopiuj" Foreground="White" BorderBrush="White" Background="Black"/>
                     </Grid>
                 </StackPanel>
                 <StackPanel Grid.Column="1" Margin="15,0,0,0">
-                    <TextBlock Style="{StaticResource SectionHeader}"><Run Language="pl-pl" Text="Użytkownicy"/></TextBlock>
+                    <TextBlock Style="{StaticResource SectionHeader}" Foreground="White"><Run Language="pl-pl" Text="Użytkownicy"/></TextBlock>
                     <Grid  Margin="0,5,0,0">
-                        <TextBlock FontSize="8" Margin="5,0,0,0"><Run Language="pl-pl" Text="Nazwa"/></TextBlock>
-                        <TextBlock FontSize="8" Margin="0,0,5,0" HorizontalAlignment="Right"><Run Language="pl-pl" Text="Kontrola"/></TextBlock>
+                        <TextBlock FontSize="8" Margin="5,0,0,0" Foreground="White"><Run Language="pl-pl" Text="Nazwa"/></TextBlock>
+                        <TextBlock FontSize="8" Margin="0,0,5,0" HorizontalAlignment="Right" Foreground="White"><Run Language="pl-pl" Text="Kontrola"/></TextBlock>
                     </Grid>
-                    <ListBox x:Name="ViewerListBox" Height="90" HorizontalContentAlignment="Stretch" ItemsSource="{Binding Viewers}" SelectionMode="Extended">
+                    <ListBox x:Name="ViewerListBox" Height="90" HorizontalContentAlignment="Stretch" ItemsSource="{Binding Viewers}" SelectionMode="Extended" Foreground="White" BorderBrush="White" Background="Black">
                         <ListBox.ItemTemplate>
                             <DataTemplate>
                                 <DockPanel>
@@ -82,8 +82,7 @@
                             Command="{Binding RemoveViewersCommand}"
                             CommandParameter="{Binding ElementName=ViewerListBox, Path=SelectedItems}"  
                             Margin="0,5,0,0"
-                            Content="Usuń" Click="Button_Click">
-                    </Button>
+                            Content="Usuń" Click="Button_Click" BorderBrush="White" Foreground="White" Background="Black"/>
                 </StackPanel>
             </Grid>
         </StackPanel>
