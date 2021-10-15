@@ -32,9 +32,9 @@
     </Window.DataContext>
 
     <Grid>
-        <StackPanel Background="Black">
+        <StackPanel Background="Black" OpacityMask="Black">
             <Border Height="50" Background="{Binding TitleBackgroundColor}">
-                <Grid Margin="10,0,0,0">
+                <Grid Margin="10,0,0,0" Background="Black" OpacityMask="Black">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto" />
                         <ColumnDefinition />
@@ -43,8 +43,8 @@
                     </Grid.ColumnDefinitions>
                     <Image Grid.Column="0" Height="45" Width="45"  Margin="0,0,10,0" Source="{Binding Icon}"></Image>
                     <TextBlock Grid.Column="1" Text="nex-Remote"  Foreground="{Binding TitleForegroundColor}" FontWeight="Bold" FontSize="20" VerticalAlignment="Center" TextAlignment="Center" />
-                    <Button Grid.Column="2" Style="{StaticResource TitlebarButton}" Click="MinimizeButton_Click" Content="____" Foreground="{Binding TitleButtonForegroundColor}" Background="{Binding TitleBackgroundColor}"/>
-                    <Button Grid.Column="3" Style="{StaticResource TitlebarButton}" Click="CloseButton_Click" Content="X" Foreground="{Binding TitleButtonForegroundColor}" Background="{Binding TitleBackgroundColor}" />
+                    <Button Grid.Column="2" Style="{StaticResource TitlebarButton}" Click="MinimizeButton_Click" Content="____" Foreground="White" Background="{Binding TitleBackgroundColor}"/>
+                    <Button Grid.Column="3" Style="{StaticResource TitlebarButton}" Click="CloseButton_Click" Content="X" Foreground="White" Background="{Binding TitleBackgroundColor}" />
                 </Grid>
             </Border>
             <Grid Margin="10,15,10,0">
@@ -82,12 +82,12 @@
                             Command="{Binding RemoveViewersCommand}"
                             CommandParameter="{Binding ElementName=ViewerListBox, Path=SelectedItems}"  
                             Margin="0,5,0,0"
-                            Content="Usuń" Click="Button_Click" BorderBrush="White" Foreground="White" Background="Black"/>
+                            Content="Usuń" Click="Button_Click" BorderBrush="White" Foreground="White" Background="Black" OpacityMask="Black" ClickMode="Release" Visibility="Visible"/>
                 </StackPanel>
             </Grid>
         </StackPanel>
         <Button BorderThickness="0"
-                Background="Transparent"
+                Background="Black"
                 VerticalAlignment="Bottom" 
                 HorizontalAlignment="Left"
                 Cursor="Hand"
