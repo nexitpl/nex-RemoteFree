@@ -47,34 +47,19 @@ namespace Server.Installer
 
             if (!elevationDetector.IsElevated())
             {
-                ConsoleHelper.WriteError("The installer process must be elevated.  On Linux, run with sudo.  " +
-                    "On Windows, run from a command line that was opened with \"Run as admin\".");
+                ConsoleHelper.WriteError("Proces instalatora musi być uruchomiony jako root. W systemie Linux uruchom sudo.  " +
+                    "W systemie Windows uruchom z wiersza poleceń, który został otwarty za pomocą \"Uruchom jako administrator\".");
                 return;
             }
 
-            ConsoleHelper.WriteLine("Thank you for trying Remotely!  This installer will guide you " +
-                "through deploying the Remotely server onto this machine.");
-
-            ConsoleHelper.WriteLine("There are two ways to create the server files.  You can download the pre-built package " +
-                "from the latest public release, or you can use your GitHub credentials to build a customized package through " +
-                "an integration with GitHub Actions.  The pre-built packages will not have your server's URL embedded in the " +
-                "desktop clients, and end users will need to type it in manually.");
-
-            ConsoleHelper.WriteLine("If using GitHub Actions, you will need to enter a GitHub Personal Access Token, " +
-                "which will allow this app to access your fork of the Remotely repo.  You can generate a PAT at " +
-                "https://github.com/settings/tokens.  You need to give it the \"repo\" scope.");
-
-            ConsoleHelper.WriteLine("Be sure to retain your GitHub Personal Access Token if you want to re-use it " +
-                "for upgrading in the future.  The installer does not save it locally.");
-
-            ConsoleHelper.WriteLine("If you haven't already, please go to the Actions tab in your Remotely repo " +
-                "and enable them.  If not, this process will fail.");
+            ConsoleHelper.WriteLine("Usługi Informatyczne nex-IT Jakub Potoczny.  Ten instalator poprowadzi Cię " +
+                "poprzez wdrożenie serwera nex-Remote na tym komputerze.");
 
 
             while (cliParams.UsePrebuiltPackage is null)
             {
-                var usePrebuiltPackage = ConsoleHelper.ReadLine("Download pre-built package (yes/no)?",
-                    subprompt: "If no, a customized server package will be created through GitHub Actions.");
+                var usePrebuiltPackage = ConsoleHelper.ReadLine("Pobierz gotowy pakiet (yes/no)?",
+                    subprompt: "Jeśli nie, dostosowany pakiet serwera zostanie utworzony za pomocą akcji GitHub.");
 
                 if (ConsoleHelper.TryParseBoolLike(usePrebuiltPackage, out var result))
                 {
@@ -84,12 +69,12 @@ namespace Server.Installer
 
             while (string.IsNullOrWhiteSpace(cliParams.InstallDirectory))
             {
-                cliParams.InstallDirectory = ConsoleHelper.ReadLine("Which directory should the server files be extracted to (e.g. /var/www/remotely/)?").Trim();
+                cliParams.InstallDirectory = ConsoleHelper.ReadLine("Do którego katalogu należy rozpakować pliki serwera (np. /var/www/nex-remote/)?").Trim();
             }
 
             while (cliParams.ServerUrl is null)
             {
-                var url = ConsoleHelper.ReadLine("What is your server's public URL (e.g. https://remote.nex-it.pl)?").Trim();
+                var url = ConsoleHelper.ReadLine("Jaki jest publiczny adres URL Twojego serwera (np. https://remote.nex-it.pl)?").Trim();
                 if (Uri.TryCreate(url, UriKind.Absolute, out var serverUrl))
                 {
                     cliParams.ServerUrl = serverUrl;
@@ -98,12 +83,12 @@ namespace Server.Installer
 
             while (cliParams.WebServer is null)
             {
-                var webServerType = ConsoleHelper.GetSelection("Which web server will be used?",
-                    "Caddy on Ubuntu",
-                    "Nginx on Ubuntu",
-                    "Caddy on CentOS",
-                    "Nginx on CentOS",
-                    "IIS on Windows Server 2016+");
+                var webServerType = ConsoleHelper.GetSelection("Który serwer WWW będzie używany?",
+                    "Caddy na Ubuntu",
+                    "Nginx na Ubuntu",
+                    "Caddy na CentOS",
+                    "Nginx na CentOS",
+                    "IIS na Windows Server 2016+");
 
                 if (Enum.TryParse<WebServerType>(webServerType, out var result))
                 {
@@ -116,18 +101,18 @@ namespace Server.Installer
             {
                 while (string.IsNullOrWhiteSpace(cliParams.GitHubUsername))
                 {
-                    cliParams.GitHubUsername = ConsoleHelper.ReadLine("What is your GitHub username?").Trim();
+                    cliParams.GitHubUsername = ConsoleHelper.ReadLine("Jaka jest Twoja nazwa użytkownika GitHub?").Trim();
                 }
 
                 while (string.IsNullOrWhiteSpace(cliParams.GitHubPat))
                 {
-                    cliParams.GitHubPat = ConsoleHelper.ReadLine("What GitHub Personal Access Token should be used?").Trim();
+                    cliParams.GitHubPat = ConsoleHelper.ReadLine("Jakiego osobistego tokena dostępu GitHub należy użyć?").Trim();
                 }
 
                 while (cliParams.CreateNew is null)
                 {
-                    var createNew = ConsoleHelper.ReadLine("Create new build (yes/no)?", 
-                        subprompt: "If no, the latest existing build artifact on GitHub will be used.");
+                    var createNew = ConsoleHelper.ReadLine("Utworzyć nową kompilację (tak/nie)?", 
+                        subprompt: "Jeśli nie, zostanie użyty najnowszy istniejący artefakt kompilacji w serwisie GitHub.");
 
                     if (ConsoleHelper.TryParseBoolLike(createNew, out var result))
                     {
@@ -144,9 +129,9 @@ namespace Server.Installer
 
                     while (string.IsNullOrWhiteSpace(cliParams.Reference))
                     {
-                        var selection = ConsoleHelper.GetSelection("Which version would you like to build?",
-                            "Latest official release",
-                            "Preview changes (i.e. master branch)",
+                        var selection = ConsoleHelper.GetSelection("Którą wersję chciałbyś zbudować?",
+                            "Najnowsze oficjalne wydanie",
+                            "Podgląd zmian (np. master branch)",
                             "Specific release");
 
                         if (int.TryParse(selection, out var result))
@@ -160,8 +145,8 @@ namespace Server.Installer
                                     cliParams.Reference = "master";
                                     break;
                                 case 2:
-                                    ConsoleHelper.WriteLine("Enter the GitHub branch or tag name from which to build " +
-                                        "(e.g. \"master\" or \"v2021.04.25.0953\").");
+                                    ConsoleHelper.WriteLine("Wprowadź gałąź GitHub lub nazwę tagu, z którego chcesz kompilować " +
+                                        "(np. \"master\" lub \"v2021.04.25.0953\").");
                                     cliParams.Reference = ConsoleHelper.ReadLine("Input Reference").Trim();
                                     break;
                                 default:
@@ -174,20 +159,20 @@ namespace Server.Installer
 
                 }
 
-                ConsoleHelper.WriteLine($"Performing server install.  GitHub User: {cliParams.GitHubUsername}.  " +
-                    $"Server URL: {cliParams.ServerUrl}.  Installation Directory: {cliParams.InstallDirectory}.  " +
-                    $"Web Server: {cliParams.WebServer}.  Create New Build: {cliParams.CreateNew}.  " +
-                    $"Git Reference: {cliParams.Reference}");
+                ConsoleHelper.WriteLine($"Wykonywanie instalacji serwera.  Użytkownik GitHub: {cliParams.GitHubUsername}.  " +
+                    $"Serwer URL: {cliParams.ServerUrl}.  Katalog instalacyjny: {cliParams.InstallDirectory}.  " +
+                    $"Serwer WWW: {cliParams.WebServer}.  Utwórz nową kompilację: {cliParams.CreateNew}.  " +
+                    $"Odniesienie do Gita: {cliParams.Reference}");
             }
             else
             {
-                ConsoleHelper.WriteLine($"Server URL: {cliParams.ServerUrl}.  " +
-                    $"Installation Directory: {cliParams.InstallDirectory}. Web Server: {cliParams.WebServer}.");
+                ConsoleHelper.WriteLine($"Serwer URL: {cliParams.ServerUrl}.  " +
+                    $"Katalog instalacyjny: {cliParams.InstallDirectory}. Serwer WWW: {cliParams.WebServer}.");
             }
 
             await serverInstaller.PerformInstall(cliParams);
 
-            ConsoleHelper.WriteLine("Installation completed.");
+            ConsoleHelper.WriteLine("Instalacja zakończona.");
         }
 
         private static void BuildServices()
@@ -207,7 +192,7 @@ namespace Server.Installer
             }
             else
             {
-                throw new NotSupportedException("Operating system not supported.");
+                throw new NotSupportedException("System operacyjny nie jest obsługiwany.");
             }
 
             Services = services.BuildServiceProvider();
@@ -225,7 +210,7 @@ namespace Server.Installer
 
                     if (i == args.Length - 1)
                     {
-                        ConsoleHelper.WriteError("An argument is missing a value.");
+                        ConsoleHelper.WriteError("W argumencie brakuje wartości.");
                         return false;
                     }
 
