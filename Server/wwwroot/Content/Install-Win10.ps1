@@ -16,7 +16,7 @@ param (
 )
 
 [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.SecurityProtocolType]::Tls12
-$LogPath = "$env:TEMP\Remotely_Install.txt"
+$LogPath = "$env:TEMP\nex-Remote_Install.txt"
 [string]$HostName = $null
 [string]$Organization = $null
 $ConnectionInfo = $null
@@ -28,14 +28,14 @@ else {
 	$Platform = "x86"
 }
 
-$InstallPath = "$env:ProgramFiles\Remotely"
+$InstallPath = "$env:ProgramFiles\nex-Remote"
 
 function Write-Log($Message){
 	Write-Host $Message
 	"$((Get-Date).ToString()) - $Message" | Out-File -FilePath $LogPath -Append
 }
 function Do-Exit(){
-	Write-Host "Exiting..."
+	Write-Host "Kończenie..."
 	Start-Sleep -Seconds 3
 	exit
 }
@@ -48,12 +48,12 @@ function Is-Administrator() {
 function Run-StartupChecks {
 
 	if ($HostName -eq $null -or $Organization -eq $null) {
-		Write-Log "Required parameters are missing.  Please try downloading the installer again."
+		Write-Log "Brak wymaganych parametrów.  Spróbuj ponownie pobrać instalator."
 		Do-Exit
 	}
 
 	if ((Is-Administrator) -eq $false) {
-		Write-Log -Message "Install script requires elevation.  Attempting to self-elevate..."
+		Write-Log -Message "Skrypt instalacyjny wymaga podwyższenia poziomu uprawnień.  Próba podniesienia uprawnień..."
 		Start-Sleep -Seconds 3
 		$param = "-f `"$($MyInvocation.ScriptName)`""
 
@@ -63,7 +63,7 @@ function Run-StartupChecks {
 }
 
 function Stop-Remotely {
-	Start-Process -FilePath "cmd.exe" -ArgumentList "/c sc delete Remotely_Service" -Wait -WindowStyle Hidden
+	Start-Process -FilePath "cmd.exe" -ArgumentList "/c sc delete nex-Remote_Service" -Wait -WindowStyle Hidden
 	Stop-Process -Name Remotely_Agent -Force -ErrorAction SilentlyContinue
 	Stop-Process -Name Remotely_Desktop -Force -ErrorAction SilentlyContinue
 }
@@ -71,7 +71,7 @@ function Stop-Remotely {
 function Uninstall-Remotely {
 	Stop-Remotely
 	Remove-Item -Path $InstallPath -Force -Recurse -ErrorAction SilentlyContinue
-	Remove-NetFirewallRule -Name "Remotely ScreenCast" -ErrorAction SilentlyContinue
+	Remove-NetFirewallRule -Name "nex-Remote ScreenCast" -ErrorAction SilentlyContinue
 }
 
 function Install-Remotely {
@@ -101,26 +101,26 @@ function Install-Remotely {
 	}
 
 	if ($Path) {
-		Write-Log "Copying install files..."
-		Copy-Item -Path $Path -Destination "$env:TEMP\Remotely-Win10-$Platform.zip"
+		Write-Log "Kopiowanie plików instalacyjnych..."
+		Copy-Item -Path $Path -Destination "$env:TEMP\nex-Remote-Win10-$Platform.zip"
 
 	}
 	else {
 		$ProgressPreference = 'SilentlyContinue'
-		Write-Log "Downloading client..."
-		Invoke-WebRequest -Uri "$HostName/Content/Remotely-Win10-$Platform.zip" -OutFile "$env:TEMP\Remotely-Win10-$Platform.zip" 
+		Write-Log "Pobieranie nex-Remote..."
+		Invoke-WebRequest -Uri "$HostName/Content/nex-Remote-Win10-$Platform.zip" -OutFile "$env:TEMP\nex-Remote-Win10-$Platform.zip" 
 		$ProgressPreference = 'Continue'
 	}
 
-	if (!(Test-Path -Path "$env:TEMP\Remotely-Win10-$Platform.zip")) {
-		Write-Log "Client files failed to download."
+	if (!(Test-Path -Path "$env:TEMP\nex-Remote-Win10-$Platform.zip")) {
+		Write-Log "Nie udało się pobrać plików nex-Remote."
 		Do-Exit
 	}
 
 	Stop-Remotely
-	Get-ChildItem -Path "C:\Program Files\Remotely" | Where-Object {$_.Name -notlike "ConnectionInfo.json"} | Remove-Item -Recurse -Force
+	Get-ChildItem -Path "C:\Program Files\nex-Remote" | Where-Object {$_.Name -notlike "ConnectionInfo.json"} | Remove-Item -Recurse -Force
 
-	Expand-Archive -Path "$env:TEMP\Remotely-Win10-$Platform.zip" -DestinationPath "$InstallPath"  -Force
+	Expand-Archive -Path "$env:TEMP\nex-Remote-Win10-$Platform.zip" -DestinationPath "$InstallPath"  -Force
 
 	New-Item -ItemType File -Path "$InstallPath\ConnectionInfo.json" -Value (ConvertTo-Json -InputObject $ConnectionInfo) -Force
 
@@ -135,34 +135,34 @@ function Install-Remotely {
 		Invoke-RestMethod -Method Post -ContentType "application/json" -Uri "$HostName/api/devices" -Body $DeviceSetupOptions -UseBasicParsing
 	}
 
-	New-Service -Name "Remotely_Service" -BinaryPathName "$InstallPath\Remotely_Agent.exe" -DisplayName "Remotely Service" -StartupType Automatic -Description "Background service that maintains a connection to the Remotely server.  The service is used for remote support and maintenance by this computer's administrators."
+	New-Service -Name "nex-Remote_Service" -BinaryPathName "$InstallPath\nex-Remote_Agent.exe" -DisplayName "nex-Remote Service" -StartupType Automatic -Description "Usługa działająca w tle, która utrzymuje połączenie z serwerem nex-Remote.  Usługa służy do zdalnego wsparcia i konserwacji przez oprogramowanie nex-Remote by nex-IT Jakub Potoczny."
 	Start-Process -FilePath "cmd.exe" -ArgumentList "/c sc.exe failure `"Remotely_Service`" reset=5 actions=restart/5000" -Wait -WindowStyle Hidden
 	Start-Service -Name Remotely_Service
 
-	New-NetFirewallRule -Name "Remotely Desktop Unattended" -DisplayName "Remotely Desktop Unattended" -Description "The agent that allows screen sharing and remote control for Remotely." -Direction Inbound -Enabled True -Action Allow -Program "C:\Program Files\Remotely\Desktop\Remotely_Desktop.exe" -ErrorAction SilentlyContinue
+	New-NetFirewallRule -Name "nex-Remote Desktop Unattended" -DisplayName "nex-Remote Desktop Unattended" -Description "Agent, który umożliwia udostępnianie ekranu i zdalne sterowanie dla nex-Remote." -Direction Inbound -Enabled True -Action Allow -Program "C:\Program Files\nex-Remote\Desktop\nex-Remote_Desktop.exe" -ErrorAction SilentlyContinue
 }
 
 try {
 	Run-StartupChecks
 
-	Write-Log "Install/uninstall logs are being written to `"$LogPath`""
+	Write-Log "Dzienniki instalacji/odinstalowania są zapisywane do `"$LogPath`""
     Write-Log
 
 	if ($Uninstall) {
-		Write-Log "Uninstall started."
+		Write-Log "Rozpoczęto dezinstalację."
 		Uninstall-Remotely
-		Write-Log "Uninstall completed."
+		Write-Log "Dezinstalacja zakończona."
 		exit
 	}
 	else {
-		Write-Log "Install started."
+		Write-Log "Instalacja rozpoczęta."
         Write-Log
 		Install-Remotely
-		Write-Log "Install completed."
+		Write-Log "Instalacja zakończona."
 		exit
 	}
 }
 catch {
-	Write-Log -Message "Error occurred: $($Error[0].InvocationInfo.PositionMessage)"
+	Write-Log -Message "Wystąpił błąd: $($Error[0].InvocationInfo.PositionMessage)"
 	Do-Exit
 }

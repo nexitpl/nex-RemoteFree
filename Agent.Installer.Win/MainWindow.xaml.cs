@@ -46,8 +46,8 @@ namespace Remotely.Agent.Installer.Win
         private void ShowServerUrlHelp(object sender, RoutedEventArgs e)
         {
             MessageBox.Show(
-                "This is the URL of the Remotely server that you're hosting.  The device will connect to this URL.", 
-                "Server URL", 
+                "To jest adres URL hostowanego serwera nex-Remote.  Urządzenie połączy się z tym adresem URL.", 
+                "Serwer URL", 
                 MessageBoxButton.OK, 
                 MessageBoxImage.Information);
         }
@@ -55,20 +55,30 @@ namespace Remotely.Agent.Installer.Win
         private void ShowOrganizationIdHelp(object sender, RoutedEventArgs e)
         {
             MessageBox.Show(
-                "This is your organization ID on the Remotely server.  Since Remotely supports multi-tenancy, " +
-                "this ID needs to be provided to determine who should have access." 
+                "To jest identyfikator Twojej organizacji na serwerze nex-Remote.  Ponieważ jeden serwer nex-Remote może obsłużyć wiele organizacji , " +
+                "ten identyfikator należy podać, aby określić, kto powinien mieć dostęp."
                 + Environment.NewLine + Environment.NewLine +
-                "You can find this ID on the Organization tab on the web app.", 
-                "Organization ID", 
+                "Możesz znaleźć ten identyfikator na karcie Organizacja w aplikacji internetowej.", 
+                "ID Organizacji", 
                 MessageBoxButton.OK, 
                 MessageBoxImage.Information);
         }
         private void ShowSupportShortcutHelp(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("If selected, the installer will create a desktop shortcut to the Get Support page for this device.", 
-                "Support Shortcut",
+            MessageBox.Show("Jeśli ta opcja zostanie wybrana, instalator utworzy na pulpicie skrót do wsparcia nex-Remote dla tego urządzenia.", 
+                "Skrót nex-Remote",
                 MessageBoxButton.OK,
                 MessageBoxImage.Information);
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

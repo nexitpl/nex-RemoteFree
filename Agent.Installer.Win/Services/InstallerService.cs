@@ -91,7 +91,7 @@ namespace Remotely.Agent.Installer.Win.Services
 
                 StopService();
 
-                ProcessEx.StartHidden("cmd.exe", "/c sc delete nex-Remote").WaitForExit();
+                ProcessEx.StartHidden("cmd.exe", "/c sc delete nex-Remote_Service").WaitForExit();
 
                 await StopProcesses();
 
@@ -101,7 +101,7 @@ namespace Remotely.Agent.Installer.Win.Services
 
                 ProcessEx.StartHidden("netsh", "advfirewall firewall delete rule name=\"nex-Remote Unattended\"").WaitForExit();
 
-                GetRegistryBaseKey().DeleteSubKeyTree(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Remotely", false);
+                GetRegistryBaseKey().DeleteSubKeyTree(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\nex-Remote", false);
 
                 return true;
             }
@@ -200,7 +200,7 @@ namespace Remotely.Agent.Installer.Win.Services
                     }
                     using (var response = await wr.GetResponseAsync() as HttpWebResponse)
                     { 
-                        Logger.Write($"Create device response: {response.StatusCode}");
+                        Logger.Write($"Utwórz odpowiedź urządzenia: {response.StatusCode}");
                     }
                 }
             }
@@ -220,7 +220,7 @@ namespace Remotely.Agent.Installer.Win.Services
             var shell = new WshShell();
             var shortcutLocation = Path.Combine(InstallPath, "nex-Remote.lnk");
             var shortcut = (IWshShortcut)shell.CreateShortcut(shortcutLocation);
-            shortcut.Description = "nex-Remote Support";
+            shortcut.Description = "nex-Remote Wsparcie";
             shortcut.IconLocation = Path.Combine(InstallPath, "nex-Remote.exe");
             shortcut.TargetPath = serverUrl.TrimEnd('/') + $"/GetSupport?deviceID={deviceUuid}";
             shortcut.Save();

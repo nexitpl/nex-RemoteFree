@@ -17,32 +17,29 @@
         <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
     </Window.Resources>
     <Window.DataContext>
-        <ViewModels:MainWindowViewModel/>
+        <ViewModels:MainWindowViewModel TitleBackgroundColor="Black" TitleButtonForegroundColor="Black"/>
     </Window.DataContext>
-    <Grid>
+    <Grid Background="Black">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
-        <Border Height="50" Background="{Binding TitleBackgroundColor}">
+        <Border Height="50">
             <DockPanel Margin="10,0,0,0">
                 <DockPanel>
                     <Image Height="50" Width="50"  Margin="0,0,10,0" Source="{Binding Icon}"></Image>
-                    <TextBlock Foreground="{Binding TitleForegroundColor}" FontWeight="Bold" FontSize="20" VerticalAlignment="Center">
-                        <Run Text="{Binding ProductName}"></Run>
-                        <Run Text="Installer"></Run>
-                    </TextBlock>
+                    <TextBlock Foreground="{Binding TitleForegroundColor}" FontWeight="Bold" FontSize="20" VerticalAlignment="Center" Text="nex-IT Remote Instalator"/>
                 </DockPanel>
-                <Button Style="{StaticResource TitlebarButton}" Click="CloseButton_Click" Content="X" Foreground="{Binding TitleButtonForegroundColor}" Background="{Binding TitleBackgroundColor}" />
-                <Button Style="{StaticResource TitlebarButton}" Click="MinimizeButton_Click" Content="____" Foreground="{Binding TitleButtonForegroundColor}" Background="{Binding TitleBackgroundColor}"/>
+                <Button Style="{StaticResource TitlebarButton}" Click="CloseButton_Click" Content="X" Foreground="{Binding TitleButtonForegroundColor}" Background="Black" />
+                <Button Style="{StaticResource TitlebarButton}" Click="MinimizeButton_Click" Content="____" Foreground="{Binding TitleButtonForegroundColor}" Background="Black"/>
             </DockPanel>
         </Border>
         <Grid Grid.Row="1" Margin="10,15,10,0">
 
             <StackPanel>
-                <TextBlock Style="{StaticResource SectionHeader}" Text="{Binding HeaderMessage}" Margin="0,0,0,10"></TextBlock>
+                <TextBlock Style="{StaticResource SectionHeader}" Text="Zainstaluj nex-Remote" Margin="0,0,0,10" Foreground="White"></TextBlock>
                 <Grid Margin="25,5,0,0">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto" />
@@ -57,8 +54,8 @@
                     </Grid.RowDefinitions>
 
                     <StackPanel Orientation="Horizontal" Grid.Column="0" Grid.Row="0">
-                        <TextBlock FontSize="14">Server URL:</TextBlock>
-                        
+                        <TextBlock FontSize="14" Foreground="White"><Run Text="Ser"/><Run Text="w"/><Run Text="er URL:"/></TextBlock>
+
                         <Button Grid.Column="1" Grid.Row="0" 
                                 Background="White"
                                 FontSize="14" 
@@ -66,19 +63,19 @@
                                 BorderThickness="0" 
                                 Padding="3"
                                 Cursor="Hand"
-                                Click="ShowServerUrlHelp">
+                                Click="ShowServerUrlHelp" BorderBrush="White">
                             <TextBlock Text="&#xE897;" 
                              FontWeight="Bold"
                              FontFamily="Segoe MDL2 Assets" 
-                             PreviewMouseUp="ShowServerUrlHelp"></TextBlock>
+                             PreviewMouseUp="ShowServerUrlHelp" Foreground="White" Background="Black"></TextBlock>
                         </Button>
                     </StackPanel>
-                    
-                    
-                    <TextBox Grid.Column="1" Grid.Row="0" TextWrapping="Wrap" Text="{Binding ServerUrl}" FontSize="14" />
+
+
+                    <TextBox Grid.Column="1" Grid.Row="0" TextWrapping="Wrap" Text="{Binding ServerUrl}" FontSize="14" Foreground="White" BorderBrush="White" Background="Black" />
 
                     <StackPanel Orientation="Horizontal" Grid.Column="0" Grid.Row="2">
-                        <TextBlock FontSize="14">Organization ID</TextBlock>
+                        <TextBlock FontSize="14" Foreground="White" Text="ID Organizacji"/>
 
                         <Button Grid.Column="1" Grid.Row="0" 
                                 Background="White"
@@ -90,14 +87,14 @@
                                 Click="ShowOrganizationIdHelp">
                             <TextBlock Text="&#xE897;" 
                              FontWeight="Bold"
-                             FontFamily="Segoe MDL2 Assets"></TextBlock>
+                             FontFamily="Segoe MDL2 Assets" Foreground="White" Background="Black"></TextBlock>
                         </Button>
                     </StackPanel>
-                    
-                    <TextBox  Grid.Column="1" Grid.Row="2" TextWrapping="Wrap" Text="{Binding OrganizationID}" FontSize="14" />
+
+                    <TextBox  Grid.Column="1" Grid.Row="2" TextWrapping="Wrap" Text="{Binding OrganizationID}" FontSize="14" Foreground="White" BorderBrush="White" Background="Black" />
 
                     <StackPanel Orientation="Horizontal" Grid.Column="0" Grid.Row="4">
-                        <TextBlock FontSize="14">Support Shortcut</TextBlock>
+                        <TextBlock FontSize="14" Foreground="White" Text="Skrót na pulpicie"/>
 
                         <Button Grid.Column="1" Grid.Row="0" 
                                 Background="White"
@@ -109,10 +106,10 @@
                                 Click="ShowSupportShortcutHelp">
                             <TextBlock Text="&#xE897;" 
                              FontWeight="Bold"
-                             FontFamily="Segoe MDL2 Assets"></TextBlock>
+                             FontFamily="Segoe MDL2 Assets" Foreground="White" Background="Black"></TextBlock>
                         </Button>
                     </StackPanel>
-                    <CheckBox  Grid.Column="1" Grid.Row="4" VerticalAlignment="Center" IsChecked="{Binding CreateSupportShortcut}" />
+                    <CheckBox  Grid.Column="1" Grid.Row="4" VerticalAlignment="Center" IsChecked="{Binding CreateSupportShortcut}" Foreground="White" BorderBrush="White" Background="Black" HorizontalAlignment="Right" Margin="0,2" Width="319" />
 
                 </Grid>
 
@@ -127,17 +124,13 @@
                     HorizontalAlignment="Left" 
                     Style="{StaticResource NormalButton}" 
                     Margin="5,0,0,0"
-                    Command="{Binding OpenLogsCommand}">
-                Logs
-            </Button>
+                    Command="{Binding OpenLogsCommand}" Foreground="White" BorderBrush="White" Background="Black" Click="Button_Click_1" Content="Log"/>
 
             <Button DockPanel.Dock="Right" 
                     HorizontalAlignment="Right" 
                     Style="{StaticResource NormalButton}" 
                     Margin="5,0,0,0"
-                    Click="CloseButton_Click">
-                Close
-            </Button>
+                    Click="CloseButton_Click" BorderBrush="White" Foreground="White" Background="Black" Content="Zamknij"/>
             <Button DockPanel.Dock="Right" 
                     HorizontalAlignment="Right"
                     Style="{StaticResource NormalButton}" 
@@ -150,11 +143,10 @@
             <Button DockPanel.Dock="Right" 
                     HorizontalAlignment="Right" 
                     Style="{StaticResource NormalButton}" 
-                    Content="{Binding InstallButtonText}"
+                    Content="Instaluj"
                     Margin="5,0,0,0"
                     IsEnabled="{Binding IsReadyState}"
-                    Command="{Binding InstallCommand}">
-            </Button>
+                    Command="{Binding InstallCommand}" BorderBrush="White" Foreground="White" Background="Black"/>
         </DockPanel>
     </Grid>
 </Window>
