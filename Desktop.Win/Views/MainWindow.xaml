@@ -26,7 +26,7 @@
             </DrawingBrush.Drawing>
         </DrawingBrush>
     </Window.Resources>
-    
+
     <Window.DataContext>
         <ViewModels:MainWindowViewModel TitleBackgroundColor="Black" TitleForegroundColor="#FF009FE3" TitleButtonForegroundColor="Black" />
     </Window.DataContext>
@@ -34,17 +34,22 @@
     <Grid>
         <StackPanel Background="Black" OpacityMask="Black">
             <Border Height="50" Background="{Binding TitleBackgroundColor}">
-                <Grid Margin="10,0,0,0" Background="Black" OpacityMask="Black">
+                <Grid Background="Black" OpacityMask="Black" Width="350">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="5*"/>
+                        <RowDefinition Height="8*"/>
+                        <RowDefinition Height="12*"/>
+                    </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto" />
                         <ColumnDefinition />
                         <ColumnDefinition Width="Auto" />
                         <ColumnDefinition Width="Auto" />
                     </Grid.ColumnDefinitions>
-                    <Image Grid.Column="0" Height="45" Width="45"  Margin="0,0,10,0" Source="{Binding Icon}"></Image>
-                    <TextBlock Grid.Column="1" Text="nex-Remote"  Foreground="{Binding TitleForegroundColor}" FontWeight="Bold" FontSize="20" VerticalAlignment="Center" TextAlignment="Center" />
-                    <Button Grid.Column="2" Style="{StaticResource TitlebarButton}" Click="MinimizeButton_Click" Content="____" Foreground="White" Background="{Binding TitleBackgroundColor}"/>
-                    <Button Grid.Column="3" Style="{StaticResource TitlebarButton}" Click="CloseButton_Click" Content="X" Foreground="White" Background="{Binding TitleBackgroundColor}" />
+                    <Image Grid.Column="0" Height="45" Width="45"  Margin="0,2,10,2" Source="{Binding Icon}" Grid.RowSpan="3"></Image>
+                    <TextBlock Grid.Column="1" Text="nex-Remote"  Foreground="{Binding TitleForegroundColor}" FontWeight="Bold" FontSize="20" VerticalAlignment="Top" TextAlignment="Center" Margin="0,2,0,0" Grid.RowSpan="2" Grid.Row="1" />
+                    <Button Grid.Column="2" Style="{StaticResource TitlebarButton}" Click="MinimizeButton_Click" Content="____" Foreground="White" Background="{Binding TitleBackgroundColor}" HorizontalAlignment="Center" Margin="0,0,0,10" Grid.RowSpan="2" Grid.Row="1" OpacityMask="Black"/>
+                    <Button Grid.Column="3" Style="{StaticResource TitlebarButton}" Click="CloseButton_Click" Content="X" Foreground="White" Background="{Binding TitleBackgroundColor}" HorizontalAlignment="Center" Margin="0,0,0,10" Grid.RowSpan="2" Grid.Row="1" OpacityMask="Black" />
                 </Grid>
             </Border>
             <Grid Margin="10,15,10,0">

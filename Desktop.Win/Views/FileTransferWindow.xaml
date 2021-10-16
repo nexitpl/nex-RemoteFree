@@ -10,7 +10,7 @@
         Height="300" Width="400" 
         Topmost="True"
         ContentRendered="Window_ContentRendered"
-        Icon="{Binding Icon}" Background="Black">
+        Icon="{Binding Icon}" Background="Black" Foreground="White" OpacityMask="Black">
 
     <Window.DataContext>
         <vm:FileTransferWindowViewModel />

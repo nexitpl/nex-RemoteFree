@@ -206,7 +206,7 @@ namespace Remotely.Agent.Installer.Win.Services
             }
             catch (WebException ex) when ((ex.Response is HttpWebResponse response) && response.StatusCode == HttpStatusCode.BadRequest)
             {
-                Logger.Write("Złe żądanie podczas tworzenia urządzenia. ID urządzenia może już zostać utworzony.");
+                Logger.Write("Nieprawidłowe żądanie podczas tworzenia urządzenia. ID urządzenia może już zostać utworzony.");
             }
             catch (Exception ex)
             {

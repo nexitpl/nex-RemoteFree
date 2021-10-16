@@ -30,7 +30,7 @@
             <DockPanel Margin="10,0,0,0">
                 <DockPanel>
                     <Image Height="50" Width="50"  Margin="0,0,10,0" Source="{Binding Icon}"></Image>
-                    <TextBlock Foreground="{Binding TitleForegroundColor}" FontWeight="Bold" FontSize="20" VerticalAlignment="Center" Text="nex-IT Remote Instalator"/>
+                    <TextBlock Foreground="{Binding TitleForegroundColor}" FontWeight="Bold" FontSize="20" VerticalAlignment="Center" Text="nex-Remote Instalator"/>
                 </DockPanel>
                 <Button Style="{StaticResource TitlebarButton}" Click="CloseButton_Click" Content="X" Foreground="{Binding TitleButtonForegroundColor}" Background="Black" />
                 <Button Style="{StaticResource TitlebarButton}" Click="MinimizeButton_Click" Content="____" Foreground="{Binding TitleButtonForegroundColor}" Background="Black"/>
@@ -113,7 +113,7 @@
 
                 </Grid>
 
-                <TextBlock TextWrapping="Wrap" Margin="40,25,40,0" Text="{Binding StatusMessage}" FontSize="14"></TextBlock>
+                <TextBlock TextWrapping="Wrap" Margin="40,25,40,0" Text="{Binding StatusMessage}" FontSize="14" Foreground="White" Background="Black"></TextBlock>
                 <ProgressBar Height="25" Margin="40,10,40,0" Value="{Binding Progress}" Visibility="{Binding IsProgressVisible, Converter={StaticResource BooleanToVisibilityConverter}}"></ProgressBar>
             </StackPanel>
 
