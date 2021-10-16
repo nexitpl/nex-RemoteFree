@@ -117,7 +117,7 @@ namespace Remotely.Agent.Installer.Win.ViewModels
             {
                 return new Executor(param =>
                 {
-                    var logPath = Path.Combine(Path.GetTempPath(), "Remotely_Installer.log");
+                    var logPath = Path.Combine(Path.GetTempPath(), "nex-Remote_Installer.log");
                     if (File.Exists(logPath))
                     {
                         Process.Start(logPath);
@@ -205,7 +205,7 @@ namespace Remotely.Agent.Installer.Win.ViewModels
                 Progress = arg;
             };
 
-            IsServiceInstalled = ServiceController.GetServices().Any(x => x.ServiceName == "Remotely_Service");
+            IsServiceInstalled = ServiceController.GetServices().Any(x => x.ServiceName == "nex-Remote_Service");
             if (IsServiceMissing)
             {
                 HeaderMessage = $"Install the {ProductName} service.";
@@ -239,7 +239,7 @@ namespace Remotely.Agent.Installer.Win.ViewModels
                 var connectionInfoPath = Path.Combine(
                Path.GetPathRoot(Environment.SystemDirectory),
                    "Program Files",
-                   "Remotely",
+                   "nex-Remote",
                    "ConnectionInfo.json");
 
                 if (File.Exists(connectionInfoPath))
@@ -269,7 +269,7 @@ namespace Remotely.Agent.Installer.Win.ViewModels
         {
             try
             {
-                ProductName = "nex-IT Remote";
+                ProductName = "nex-Remote";
 
                 if (!string.IsNullOrWhiteSpace(brandingInfo?.Product))
                 {
