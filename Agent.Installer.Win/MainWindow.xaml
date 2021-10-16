@@ -32,8 +32,8 @@
                     <Image Height="50" Width="50"  Margin="0,0,10,0" Source="{Binding Icon}"></Image>
                     <TextBlock Foreground="{Binding TitleForegroundColor}" FontWeight="Bold" FontSize="20" VerticalAlignment="Center" Text="nex-Remote Instalator"/>
                 </DockPanel>
-                <Button Style="{StaticResource TitlebarButton}" Click="CloseButton_Click" Content="X" Foreground="{Binding TitleButtonForegroundColor}" Background="Black" />
-                <Button Style="{StaticResource TitlebarButton}" Click="MinimizeButton_Click" Content="____" Foreground="{Binding TitleButtonForegroundColor}" Background="Black"/>
+                <Button Style="{StaticResource TitlebarButton}" Click="CloseButton_Click" Content="X" Background="Black" />
+                <Button Style="{StaticResource TitlebarButton}" Click="MinimizeButton_Click" Content="____" Background="Black" Foreground="White"/>
             </DockPanel>
         </Border>
         <Grid Grid.Row="1" Margin="10,15,10,0">
@@ -57,13 +57,13 @@
                         <TextBlock FontSize="14" Foreground="White"><Run Text="Ser"/><Run Text="w"/><Run Text="er URL:"/></TextBlock>
 
                         <Button Grid.Column="1" Grid.Row="0" 
-                                Background="White"
+                                Background="Black"
                                 FontSize="14" 
                                 Margin="5,0"
                                 BorderThickness="0" 
                                 Padding="3"
                                 Cursor="Hand"
-                                Click="ShowServerUrlHelp" BorderBrush="White">
+                                Click="ShowServerUrlHelp" BorderBrush="White" Foreground="White">
                             <TextBlock Text="&#xE897;" 
                              FontWeight="Bold"
                              FontFamily="Segoe MDL2 Assets" 
@@ -78,13 +78,13 @@
                         <TextBlock FontSize="14" Foreground="White" Text="ID Organizacji"/>
 
                         <Button Grid.Column="1" Grid.Row="0" 
-                                Background="White"
+                                Background="Black"
                                 FontSize="14"
                                 Margin="5,0"
                                 BorderThickness="0"
                                 Padding="3"
                                 Cursor="Hand"
-                                Click="ShowOrganizationIdHelp">
+                                Click="ShowOrganizationIdHelp" BorderBrush="White" Foreground="White">
                             <TextBlock Text="&#xE897;" 
                              FontWeight="Bold"
                              FontFamily="Segoe MDL2 Assets" Foreground="White" Background="Black"></TextBlock>
@@ -97,19 +97,19 @@
                         <TextBlock FontSize="14" Foreground="White" Text="Skrót na pulpicie"/>
 
                         <Button Grid.Column="1" Grid.Row="0" 
-                                Background="White"
+                                Background="Black"
                                 FontSize="14"
                                 Margin="5,0" 
                                 BorderThickness="0" 
                                 Padding="3"
                                 Cursor="Hand"
-                                Click="ShowSupportShortcutHelp">
+                                Click="ShowSupportShortcutHelp" BorderBrush="White" Foreground="White">
                             <TextBlock Text="&#xE897;" 
                              FontWeight="Bold"
                              FontFamily="Segoe MDL2 Assets" Foreground="White" Background="Black"></TextBlock>
                         </Button>
                     </StackPanel>
-                    <CheckBox  Grid.Column="1" Grid.Row="4" VerticalAlignment="Center" IsChecked="{Binding CreateSupportShortcut}" Foreground="White" BorderBrush="White" Background="Black" HorizontalAlignment="Right" Margin="0,2" Width="319" />
+                    <CheckBox  Grid.Column="1" Grid.Row="4" VerticalAlignment="Center" IsChecked="{Binding CreateSupportShortcut}" Foreground="White" BorderBrush="White" Background="Black" HorizontalAlignment="Right" Margin="0,2" Width="322" />
 
                 </Grid>
 

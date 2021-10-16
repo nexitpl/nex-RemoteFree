@@ -1,5 +1,5 @@
 #!/bin/bash
-echo "Thanks for trying Remotely!"
+echo "nex-Remote Serwer by nex-IT Jakub Potoczny"
 echo
 
 Args=( "$@" )
@@ -15,19 +15,19 @@ do
 done
 
 if [ -z "$AppRoot" ]; then
-    read -p "Enter path where the Remotely server files should be installed (typically /var/www/remotely): " AppRoot
+    read -p "Podaj œcie¿kê, w której powinny zostaæ zainstalowane pliki serwera nex-Remote (zazwyczaj /var/www/nex-remote): " AppRoot
     if [ -z "$AppRoot" ]; then
-        AppRoot="/var/www/remotely"
+        AppRoot="/var/www/nex-remote"
     fi
 fi
 
 if [ -z "$HostName" ]; then
-    read -p "Enter server host (e.g. remotely.yourdomainname.com): " HostName
+    read -p "Wpisz nazwê hosta serwera (np. remote.nex-it.pl): " HostName
 fi
 
-chmod +x "$AppRoot/Remotely_Server"
+chmod +x "$AppRoot/nex-Remote_Server"
 
-echo "Using $AppRoot as the Remotely website's content directory."
+echo "Using $AppRoot jako katalog zawartoœci witryny nex-Remote."
 
 UbuntuVersion=$(lsb_release -r -s)
 
@@ -73,28 +73,28 @@ echo "$caddyConfig" > /etc/caddy/Caddyfile
 # Create Remotely service.
 
 serviceConfig="[Unit]
-Description=Remotely Server
+Description=nex-Remote
 
 [Service]
 WorkingDirectory=$AppRoot
-ExecStart=/usr/bin/dotnet $AppRoot/Remotely_Server.dll
+ExecStart=/usr/bin/dotnet $AppRoot/nex-Remote_Server.dll
 Restart=always
 # Restart service after 10 seconds if the dotnet service crashes:
 RestartSec=10
-SyslogIdentifier=remotely
+SyslogIdentifier=nex-Remote
 Environment=ASPNETCORE_ENVIRONMENT=Production
 Environment=DOTNET_PRINT_TELEMETRY_MESSAGE=false
 
 [Install]
 WantedBy=multi-user.target"
 
-echo "$serviceConfig" > /etc/systemd/system/remotely.service
+echo "$serviceConfig" > /etc/systemd/system/nex-Remote.service
 
 
 # Enable service.
-systemctl enable remotely.service
+systemctl enable nex-Remote.service
 # Start service.
-systemctl restart remotely.service
+systemctl restart nex-Remote.service
 
 
 # Restart caddy

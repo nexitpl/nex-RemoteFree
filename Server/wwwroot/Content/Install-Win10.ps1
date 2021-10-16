@@ -1,6 +1,6 @@
 ﻿<#
 .SYNOPSIS
-   Installs the Remotely Client.
+   Installs the nex-Remote Client.
 .DESCRIPTION
    Do not modify this script.  It was generated specifically for your account.
 .EXAMPLE

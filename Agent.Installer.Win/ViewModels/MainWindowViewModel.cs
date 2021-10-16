@@ -25,7 +25,7 @@ namespace Remotely.Agent.Installer.Win.ViewModels
     {
         private BrandingInfo _brandingInfo;
         private bool _createSupportShortcut;
-        private string _headerMessage = "Install the service.";
+        private string _headerMessage = "Instalacja us³ugi.";
 
         private bool _isReadyState = true;
         private bool _isServiceInstalled;
