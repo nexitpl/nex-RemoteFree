@@ -6,7 +6,7 @@
              Startup="Application_Startup">
     <Application.Resources>
         <Style x:Key="TitlebarButton" TargetType="Button">
-            <Setter Property="Background" Value="#FF464646"></Setter>
+            <Setter Property="Background" Value="Black"></Setter>
             <Setter Property="DockPanel.Dock" Value="Right"></Setter>
             <Setter Property="HorizontalAlignment" Value="Right"></Setter>
             <Setter Property="BorderBrush" Value="{x:Null}"></Setter>

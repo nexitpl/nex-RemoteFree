@@ -34,7 +34,7 @@ namespace Remotely.Desktop.Win.Views
                 PlacementTarget = sender as Button,
                 Placement = PlacementMode.Bottom,
                 VerticalOffset = 5,
-                Content = "Skopiowano do schowka!",
+                Content = "Skopiowano do schowka",
                 HasDropShadow = true,
                 StaysOpen = false,
                 IsOpen = true
