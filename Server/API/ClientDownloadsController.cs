@@ -170,11 +170,11 @@ namespace Remotely.Server.API
                     {
                         case "WindowsInstaller":
                             {
-                                var filePath = Path.Combine(_hostEnv.WebRootPath, "Content", "Remotely_Installer.exe");
+                                var filePath = Path.Combine(_hostEnv.WebRootPath, "Content", "nex-Remote_Installer.exe");
                                 var fs = new FileStream(filePath, FileMode.Open, FileAccess.Read, FileShare.Read);
                                 var organization = _dataService.GetOrganizationById(organizationId);
                                 var relayCode = organization.RelayCode;
-                                return File(fs, "application/octet-stream", $"Remotely_Install-[{relayCode}].exe");
+                                return File(fs, "application/octet-stream", $"nex-Remote_Install-[{relayCode}].exe");
                             }
                         // TODO: Remove after a few releases.
                         case "Manjaro-x64":
