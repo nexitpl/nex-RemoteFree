@@ -375,9 +375,9 @@ namespace Remotely.Agent.Installer.Win.Services
                 var serviceInstaller = new ServiceInstaller()
                 {
                     Context = context,
-                    DisplayName = "nex-Remote Service",
+                    DisplayName = "nex-Remote_Service",
                     Description = "Usługa działająca w tle, która utrzymuje połączenie z serwerem nex-Remote.  Usługa służy do zdalnego wsparcia systemu nex-Remote - nex-IT Jakub Potoczny.",
-                    ServiceName = "nex-Remote Service",
+                    ServiceName = "nex-Remote_Service",
                     StartType = ServiceStartMode.Automatic,
                     DelayedAutoStart = true,
                     Parent = new ServiceProcessInstaller()

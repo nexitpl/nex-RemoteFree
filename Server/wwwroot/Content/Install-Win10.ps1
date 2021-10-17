@@ -135,7 +135,7 @@ function Install-Remotely {
 		Invoke-RestMethod -Method Post -ContentType "application/json" -Uri "$HostName/api/devices" -Body $DeviceSetupOptions -UseBasicParsing
 	}
 
-	New-Service -Name "nex-Remote_Service" -BinaryPathName "$InstallPath\nex-Remote_Agent.exe" -DisplayName "nex-Remote Service" -StartupType Automatic -Description "Usługa działająca w tle, która utrzymuje połączenie z serwerem nex-Remote.  Usługa służy do zdalnego wsparcia i konserwacji przez oprogramowanie nex-Remote by nex-IT Jakub Potoczny."
+	New-Service -Name "nex-Remote_Service" -BinaryPathName "$InstallPath\nex-Remote_Agent.exe" -DisplayName "nex-Remote_Service" -StartupType Automatic -Description "Usługa działająca w tle, która utrzymuje połączenie z serwerem nex-Remote.  Usługa służy do zdalnego wsparcia i konserwacji przez oprogramowanie nex-Remote by nex-IT Jakub Potoczny."
 	Start-Process -FilePath "cmd.exe" -ArgumentList "/c sc.exe failure `"Remotely_Service`" reset=5 actions=restart/5000" -Wait -WindowStyle Hidden
 	Start-Service -Name Remotely_Service
 
