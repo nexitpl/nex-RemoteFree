@@ -221,7 +221,7 @@ namespace Remotely.Agent.Installer.Win.Services
             var shortcutLocation = Path.Combine(InstallPath, "nex-Remote.lnk");
             var shortcut = (IWshShortcut)shell.CreateShortcut(shortcutLocation);
             shortcut.Description = "nex-Remote Wsparcie";
-            shortcut.IconLocation = Path.Combine(InstallPath, "nex-Remote.exe");
+            shortcut.IconLocation = Path.Combine(InstallPath, "nex-Remote_Agent.exe");
             shortcut.TargetPath = serverUrl.TrimEnd('/') + $"/GetSupport?deviceID={deviceUuid}";
             shortcut.Save();
 
@@ -234,24 +234,24 @@ namespace Remotely.Agent.Installer.Win.Services
         }
         private void CreateUninstallKey()
         {
-            var version = FileVersionInfo.GetVersionInfo(Path.Combine(InstallPath, "nex-Remote.exe"));
+            var version = FileVersionInfo.GetVersionInfo(Path.Combine(InstallPath, "nex-Remote_Agent.exe"));
             var baseKey = GetRegistryBaseKey();
 
             var remotelyKey = baseKey.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\nex-Remote", true);
-            remotelyKey.SetValue("DisplayIcon", Path.Combine(InstallPath, "nex-Remote.exe"));
+            remotelyKey.SetValue("DisplayIcon", Path.Combine(InstallPath, "nex-Remote_Agent.exe"));
             remotelyKey.SetValue("DisplayName", "nex-Remote");
             remotelyKey.SetValue("DisplayVersion", version.FileVersion);
             remotelyKey.SetValue("InstallDate", DateTime.Now.ToShortDateString());
             remotelyKey.SetValue("Publisher", "nex-IT Jakub Potoczny");
             remotelyKey.SetValue("VersionMajor", version.FileMajorPart.ToString(), RegistryValueKind.DWord);
             remotelyKey.SetValue("VersionMinor", version.FileMinorPart.ToString(), RegistryValueKind.DWord);
-            remotelyKey.SetValue("UninstallString", Path.Combine(InstallPath, "nex-Remote.exe -uninstall -quiet"));
-            remotelyKey.SetValue("QuietUninstallString", Path.Combine(InstallPath, "nex-Remote.exe -uninstall -quiet"));
+            remotelyKey.SetValue("UninstallString", Path.Combine(InstallPath, "nex-Remote_Installer.exe -uninstall -quiet"));
+            remotelyKey.SetValue("QuietUninstallString", Path.Combine(InstallPath, "nex-Remote_Installer.exe -uninstall -quiet"));
         }
 
         private async Task DownloadRemotelyAgent(string serverUrl)
         {
-            var targetFile = Path.Combine(Path.GetTempPath(), $"nex-Remote.zip");
+            var targetFile = Path.Combine(Path.GetTempPath(), $"nex-Remote-Agent.zip");
 
             if (CommandLineParser.CommandLineArgs.TryGetValue("path", out var result) &&
                 FileIO.Exists(result))
@@ -272,7 +272,7 @@ namespace Remotely.Agent.Installer.Win.Services
                 }
             }
 
-            ProgressMessageChanged.Invoke(this, "Rozpakowywanie nex-Remote.");
+            ProgressMessageChanged.Invoke(this, "Rozpakowywanie nex-Remote agent.");
             ProgressValueChanged?.Invoke(this, 0);
 
             var tempDir = Path.Combine(Path.GetTempPath(), "nex-Remote_Update");
@@ -367,10 +367,10 @@ namespace Remotely.Agent.Installer.Win.Services
         {
             Logger.Write("Instalacja usług.");
             ProgressMessageChanged?.Invoke(this, "Instalacja usług nex-Remote.");
-            var serv = ServiceController.GetServices().FirstOrDefault(ser => ser.ServiceName == "nex-Remote");
+            var serv = ServiceController.GetServices().FirstOrDefault(ser => ser.ServiceName == "nex-Remote_Service");
             if (serv == null)
             {
-                var command = new string[] { "/assemblypath=" + Path.Combine(InstallPath, "nex-Remote.exe") };
+                var command = new string[] { "/assemblypath=" + Path.Combine(InstallPath, "nex-Remote_Agent.exe") };
                 var context = new InstallContext("", command);
                 var serviceInstaller = new ServiceInstaller()
                 {
@@ -423,7 +423,7 @@ namespace Remotely.Agent.Installer.Win.Services
         private async Task StopProcesses()
         {
             ProgressMessageChanged?.Invoke(this, "Zatrzymywanie procesów nex-Remote.");
-            var procs = Process.GetProcessesByName("nex-Remote").Concat(Process.GetProcessesByName("nex-Remote"));
+            var procs = Process.GetProcessesByName("nex-Remote_Agent").Concat(Process.GetProcessesByName("nex-Remote_Desktop"));
 
             foreach (var proc in procs)
             {
@@ -436,7 +436,7 @@ namespace Remotely.Agent.Installer.Win.Services
         {
             try
             {
-                var remotelyService = ServiceController.GetServices().FirstOrDefault(x => x.ServiceName == "nex-Remote");
+                var remotelyService = ServiceController.GetServices().FirstOrDefault(x => x.ServiceName == "nex-Remote_Service");
                 if (remotelyService != null)
                 {
                     Logger.Write("Zatrzymywanie istniejących usług nex-Remote.");

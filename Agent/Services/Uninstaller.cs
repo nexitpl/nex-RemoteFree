@@ -12,7 +12,7 @@ namespace Remotely.Agent.Services
         {
             if (EnvironmentHelper.IsWindows)
             {
-                Process.Start("cmd.exe", "/c sc delete Remotely_Service");
+                Process.Start("cmd.exe", "/c sc delete nex-Remote_Service");
 
                 var view = Environment.Is64BitOperatingSystem ?
                     "/reg:64" :

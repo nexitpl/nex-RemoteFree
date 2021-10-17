@@ -60,7 +60,7 @@ namespace Remotely.Agent.Services
                 var serverUrl = _configService.GetConnectionInfo().Host;
 
                 var platform = Environment.Is64BitOperatingSystem ? "x64" : "x86";
-                var fileUrl = serverUrl + $"/Content/Remotely-Win10-{platform}.zip";
+                var fileUrl = serverUrl + $"/Content/nex-Remote-Win10-{platform}.zip";
 
                 var lastEtag = string.Empty;
 
@@ -119,13 +119,13 @@ namespace Remotely.Agent.Services
                 Logger.Write("Service Updater: Downloading install package.");
 
                 var downloadId = Guid.NewGuid().ToString();
-                var zipPath = Path.Combine(Path.GetTempPath(), "RemotelyUpdate.zip");
+                var zipPath = Path.Combine(Path.GetTempPath(), "nex-RemoteUpdate.zip");
 
-                var installerPath = Path.Combine(Path.GetTempPath(), "Remotely_Installer.exe");
+                var installerPath = Path.Combine(Path.GetTempPath(), "nex-Remote_Installer.exe");
                 var platform = Environment.Is64BitOperatingSystem ? "x64" : "x86";
 
                 await _webClientEx.DownloadFileTaskAsync(
-                     serverUrl + $"/Content/Remotely_Installer.exe",
+                     serverUrl + $"/Content/nex-Remote_Installer.exe",
                      installerPath);
 
                 await _webClientEx.DownloadFileTaskAsync(
@@ -135,7 +135,7 @@ namespace Remotely.Agent.Services
                 (await WebRequest.CreateHttp(serverUrl + $"/api/AgentUpdate/ClearDownload/{downloadId}").GetResponseAsync()).Dispose();
 
 
-                foreach (var proc in Process.GetProcessesByName("Remotely_Installer"))
+                foreach (var proc in Process.GetProcessesByName("nex-Remote_Installer"))
                 {
                     proc.Kill();
                 }
