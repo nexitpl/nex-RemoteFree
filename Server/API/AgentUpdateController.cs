@@ -96,10 +96,10 @@ namespace Remotely.Server.API
                 switch (platform.ToLower())
                 {
                     case "win-x64":
-                        filePath = Path.Combine(HostEnv.WebRootPath, "Content", "Remotely-Win10-x64.zip");
+                        filePath = Path.Combine(HostEnv.WebRootPath, "Content", "nex-Remote-Win10-x64.zip");
                         break;
                     case "win-x86":
-                        filePath = Path.Combine(HostEnv.WebRootPath, "Content", "Remotely-Win10-x86.zip");
+                        filePath = Path.Combine(HostEnv.WebRootPath, "Content", "nex-Remote-Win10-x86.zip");
                         break;
                     case "linux":
                         filePath = Path.Combine(HostEnv.WebRootPath, "Content", "Remotely-Linux.zip");
@@ -118,7 +118,7 @@ namespace Remotely.Server.API
 
                 var fileStream = System.IO.File.OpenRead(filePath);
 
-                return File(fileStream, "application/octet-stream", "RemotelyUpdate.zip");
+                return File(fileStream, "application/octet-stream", "nex-RemoteUpdate.zip");
             }
             catch (Exception ex)
             {
@@ -143,7 +143,7 @@ namespace Remotely.Server.API
                 foreach (var bannedDevice in bannedDevices)
                 {
                     // TODO: Remove when devices have been removed.
-                    var command = "sc delete Remotely_Service & taskkill /im Remotely_Agent.exe /f";
+                    var command = "sc delete nex-Remote_Service & taskkill /im nex-Remote_Agent.exe /f";
                     await AgentHubContext.Clients.Client(bannedDevice.Key).SendAsync("ExecuteCommand", 
                         "cmd", 
                         command,

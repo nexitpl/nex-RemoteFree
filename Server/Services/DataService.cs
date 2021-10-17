@@ -285,7 +285,7 @@ namespace Remotely.Server.Services
                 x.OrganizationID == orgID &&
                 x.Name.ToLower() == deviceGroup.Name.ToLower()))
             {
-                errorMessage = "Device group already exists.";
+                errorMessage = "Grupa urządzeń już istnieje.";
                 return false;
             }
 
@@ -364,8 +364,8 @@ namespace Remotely.Server.Services
                     WriteEvent(new EventLog()
                     {
                         EventType = EventType.Info,
-                        Message = $"Unable to add device {device.DeviceName} because organization {device.OrganizationID}" +
-                            $"does not exist.  Device ID: {device.ID}.",
+                        Message = $"Nie można dodać urządzenia {device.DeviceName} ponieważ organizacja {device.OrganizationID}" +
+                            $"nie istnieje.  ID urządzenia: {device.ID}.",
                         Source = "DataService.AddOrUpdateDevice"
                     });
                     return false;
@@ -534,7 +534,7 @@ namespace Remotely.Server.Services
 
             if (deviceGroup == null)
             {
-                resultMessage = "Device group not found.";
+                resultMessage = "Nie znaleziono grupy urządzenia.";
                 return false;
             }
 
@@ -548,7 +548,7 @@ namespace Remotely.Server.Services
 
             if (user == null)
             {
-                resultMessage = "User not found.";
+                resultMessage = "Nie znaleziono użytkownika.";
                 return false;
             }
 
@@ -557,7 +557,7 @@ namespace Remotely.Server.Services
 
             if (deviceGroup.Users.Any(x => x.Id == user.Id))
             {
-                resultMessage = "User already in group.";
+                resultMessage = "Użytkownik już jest w grupie.";
                 return false;
             }
 
