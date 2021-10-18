@@ -5,24 +5,24 @@ namespace nexRemote.Shared.Models
 {
     public class RemotelyUserOptions
     {
-        [Display(Name = "Display Name")]
+        [Display(Name = "Nazwa wyświetlana")]
         [StringLength(100)]
         public string DisplayName { get; set; }
 
-        [Display(Name = "PS Core Shortcut")]
+        [Display(Name = "PS Core skrót")]
         [StringLength(10)]
         public string CommandModeShortcutPSCore { get; set; } = "/pscore";
-        [Display(Name = "Windows PS Shortcut")]
+        [Display(Name = "Powershell skrót")]
         [StringLength(10)]
         public string CommandModeShortcutWinPS { get; set; } = "/winps";
-        [Display(Name = "CMD Shortcut")]
+        [Display(Name = "CMD skrót")]
         [StringLength(10)]
         public string CommandModeShortcutCMD { get; set; } = "/cmd";
-        [Display(Name = "Bash Shortcut")]
+        [Display(Name = "Bash skrót")]
         [StringLength(10)]
         public string CommandModeShortcutBash { get; set; } = "/bash";
 
-        [Display(Name = "Theme")]
+        [Display(Name = "Motyw")]
         public Theme Theme { get; set; }
     }
 }

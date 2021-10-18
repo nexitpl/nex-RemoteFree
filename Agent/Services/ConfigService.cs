@@ -62,7 +62,7 @@ namespace nexRemote.Agent.Services
                 return new ConnectionInfo()
                 {
                     DeviceID = _debugGuid,
-                    Host = "https://remote.nex-it.pl",
+                    Host = "https://192.168.2.42:5002",
                     OrganizationID = "e979e953-375f-4373-802f-655fb63aeb0c"
                 };
             }

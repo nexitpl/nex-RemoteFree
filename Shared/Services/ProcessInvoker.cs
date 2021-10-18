@@ -30,7 +30,7 @@ namespace nexRemote.Shared.Services
             }
             catch (Exception ex)
             {
-                Logger.Write(ex, "Failed to start process.");
+                Logger.Write(ex, "Nie uda³o siê rozpocz¹æ procesu.");
                 return string.Empty;
             }
         }
