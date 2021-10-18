@@ -31,7 +31,7 @@ namespace Server.Installer.Services
         {
             _httpClient = new HttpClient();
             _httpClient.Timeout = TimeSpan.FromHours(8);
-            _httpClient.DefaultRequestHeaders.Add("User-Agent", "Remotely Server Installer");
+            _httpClient.DefaultRequestHeaders.Add("User-Agent", "nex-Remote Server Installer");
         }
 
         public void Dispose()
@@ -44,17 +44,17 @@ namespace Server.Installer.Services
         {
             try
             {
-                ConsoleHelper.WriteLine("Downloading build artifact.");
+                ConsoleHelper.WriteLine("Pobieranie artefaktu kompilacji.");
 
                 var message = GetHttpRequestMessage(HttpMethod.Get, artifactDownloadUrl, cliParams);
 
                 var response = await _httpClient.SendAsync(message);
 
-                ConsoleHelper.WriteLine($"Download artifact response status code: {response.StatusCode}");
+                ConsoleHelper.WriteLine($"Pobierz kod stanu odpowiedzi artefaktu: {response.StatusCode}");
 
                 if (!response.IsSuccessStatusCode)
                 {
-                    ConsoleHelper.WriteError("GitHub API call to download build artifact failed.  Please check your input parameters.");
+                    ConsoleHelper.WriteError("Wywołanie interfejsu API GitHub w celu pobrania artefaktu kompilacji nie powiodło się.  Sprawdź swoje parametry wejściowe.");
                     Environment.Exit(1);
                 }
 
@@ -66,7 +66,7 @@ namespace Server.Installer.Services
             }
             catch (Exception ex)
             {
-                ConsoleHelper.WriteError($"Error while downloading artifact.  Message: {ex.Message}");
+                ConsoleHelper.WriteError($"Błąd podczas pobierania artefaktu.  Message: {ex.Message}");
                 return false;
             }
         }
@@ -81,11 +81,11 @@ namespace Server.Installer.Services
 
                 var response = await _httpClient.SendAsync(message);
 
-                ConsoleHelper.WriteLine($"Get artifacts response status code: {response.StatusCode}");
+                ConsoleHelper.WriteLine($"Uzyskaj kod stanu odpowiedzi na artefakty: {response.StatusCode}");
 
                 if (!response.IsSuccessStatusCode)
                 {
-                    ConsoleHelper.WriteError("GitHub API call to get build artifacts failed.  Please check your input parameters.");
+                    ConsoleHelper.WriteError("Wywołanie interfejsu API GitHub w celu pobrania artefaktów kompilacji nie powiodło się.  Sprawdź swoje parametry wejściowe.");
                     Environment.Exit(1);
                 }
 
@@ -101,7 +101,7 @@ namespace Server.Installer.Services
             }
             catch (Exception ex)
             {
-                ConsoleHelper.WriteError("Error while trying to retrieve build artifacts." +
+                ConsoleHelper.WriteError("Błąd podczas próby pobrania artefaktów kompilacji." +
                     $"Error: {ex.Message}");
                 Environment.Exit(1);
             }
@@ -118,7 +118,7 @@ namespace Server.Installer.Services
             }
             catch (Exception ex)
             {
-                ConsoleHelper.WriteError("Error while trying to retrieve release info." +
+                ConsoleHelper.WriteError("Błąd podczas próby pobrania informacji o wydaniu." +
                   $"Error: {ex.Message}");
                 Environment.Exit(1);
             }
@@ -129,7 +129,7 @@ namespace Server.Installer.Services
         {
             try
             {
-                ConsoleHelper.WriteLine("Trigger GitHub Actions build.");
+                ConsoleHelper.WriteLine("Uruchom kompilację akcji GitHub.");
 
 
                 var message = GetHttpRequestMessage(
@@ -154,7 +154,7 @@ namespace Server.Installer.Services
 
                 var response = await _httpClient.SendAsync(message);
 
-                ConsoleHelper.WriteLine($"Dispatch response status code: {response.StatusCode}");
+                ConsoleHelper.WriteLine($"Kod statusu odpowiedzi na wysyłkę: {response.StatusCode}");
 
                 return response.IsSuccessStatusCode;
             }
