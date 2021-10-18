@@ -3,9 +3,9 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using Remotely.Server.Data;
+using nexRemote.Server.Data;
 
-namespace Remotely.Server.Migrations.Sqlite
+namespace nexRemote.Server.Migrations.Sqlite
 {
     [DbContext(typeof(SqliteDbContext))]
     partial class SqliteDbContextModelSnapshot : ModelSnapshot

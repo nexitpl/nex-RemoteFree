@@ -3,8 +3,8 @@
     <OutputType>Exe</OutputType>
     <TargetFramework>net5.0</TargetFramework>
     <ApplicationIcon>Assets\favicon.ico</ApplicationIcon>
-    <AssemblyName>Remotely_Desktop</AssemblyName>
-    <RootNamespace>Remotely.Desktop.XPlat</RootNamespace>
+    <AssemblyName>nex-Remote_Desktop</AssemblyName>
+    <RootNamespace>nexRemote.Desktop.XPlat</RootNamespace>
     <Platforms>AnyCPU;x64;x86</Platforms>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -21,12 +21,12 @@
   </PropertyGroup>
   <PropertyGroup>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    <PackageId>Remotely Desktop</PackageId>
+    <PackageId>nex-Remote Desktop</PackageId>
     <Authors>Jakub Potoczny</Authors>
     <Company>nex-IT Jakub Potoczny</Company>
     <Product>nex-IT Pomoc Zdalna</Product>
     <Description>System zdalnej pomocy nex-IT Jakub Potoczny.</Description>
-    <Copyright>Copyright ©  2021 nex-IT Jakub Potoczny</Copyright>
+    <Copyright>nex-IT Jakub Potoczny</Copyright>
     <PackageProjectUrl>https://nex-it.pl</PackageProjectUrl>
   </PropertyGroup>
   <ItemGroup>

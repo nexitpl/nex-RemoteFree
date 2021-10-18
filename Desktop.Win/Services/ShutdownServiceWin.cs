@@ -1,14 +1,14 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using Remotely.Desktop.Core;
-using Remotely.Desktop.Core.Interfaces;
-using Remotely.Desktop.Core.Services;
-using Remotely.Shared.Utilities;
+using nexRemote.Desktop.Core;
+using nexRemote.Desktop.Core.Interfaces;
+using nexRemote.Desktop.Core.Services;
+using nexRemote.Shared.Utilities;
 using System;
 using System.Diagnostics;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace Remotely.Desktop.Win.Services
+namespace nexRemote.Desktop.Win.Services
 {
     public class ShutdownServiceWin : IShutdownService
     {
@@ -16,7 +16,7 @@ namespace Remotely.Desktop.Win.Services
         {
             try
             {
-                Logger.Write($"Exiting process ID {Environment.ProcessId}.");
+                Logger.Write($"Kończę ID procesu {Environment.ProcessId}.");
                 var casterSocket = ServiceContainer.Instance.GetRequiredService<ICasterSocket>();
                 await casterSocket.DisconnectAllViewers();
                 await casterSocket.Disconnect();

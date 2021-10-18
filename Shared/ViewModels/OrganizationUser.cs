@@ -1,4 +1,4 @@
-﻿namespace Remotely.Shared.ViewModels
+﻿namespace nexRemote.Shared.ViewModels
 {
     public class OrganizationUser
     {

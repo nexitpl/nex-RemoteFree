@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Remotely.Shared.Models
+namespace nexRemote.Shared.Models
 {
     public class SponsorInfo
     {

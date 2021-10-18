@@ -6,7 +6,7 @@ using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
-namespace Remotely.Shared.Utilities
+namespace nexRemote.Shared.Utilities
 {
     public class TimeSpanJsonConverter : JsonConverter<TimeSpan>
     {

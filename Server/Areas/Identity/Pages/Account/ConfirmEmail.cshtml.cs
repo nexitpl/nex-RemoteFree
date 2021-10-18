@@ -8,9 +8,9 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
-using Remotely.Shared.Models;
+using nexRemote.Shared.Models;
 
-namespace Remotely.Server.Areas.Identity.Pages.Account
+namespace nexRemote.Server.Areas.Identity.Pages.Account
 {
     [AllowAnonymous]
     public class ConfirmEmailModel : PageModel

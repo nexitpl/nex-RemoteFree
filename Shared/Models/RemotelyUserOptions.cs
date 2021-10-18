@@ -1,7 +1,7 @@
-﻿using Remotely.Shared.Enums;
+﻿using nexRemote.Shared.Enums;
 using System.ComponentModel.DataAnnotations;
 
-namespace Remotely.Shared.Models
+namespace nexRemote.Shared.Models
 {
     public class RemotelyUserOptions
     {

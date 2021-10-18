@@ -8,7 +8,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Remotely.Desktop.Core.Utilities
+namespace nexRemote.Desktop.Core.Utilities
 {
     public class ImageUtils
     {
@@ -60,11 +60,11 @@ namespace Remotely.Desktop.Core.Utilities
             }
             if (currentFrame.Height != previousFrame.Height || currentFrame.Width != previousFrame.Width)
             {
-                throw new Exception("Bitmaps are not of equal dimensions.");
+                throw new Exception("Mapy bitowe nie mają równych wymiarów.");
             }
             if (currentFrame.PixelFormat != previousFrame.PixelFormat)
             {
-                throw new Exception("Bitmaps are not the same format.");
+                throw new Exception("Mapy bitowe nie mają tego samego formatu.");
             }
             var width = currentFrame.Width;
             var height = currentFrame.Height;
@@ -168,7 +168,7 @@ namespace Remotely.Desktop.Core.Utilities
 
             if (currentFrame.Height != previousFrame.Height || currentFrame.Width != previousFrame.Width)
             {
-                throw new Exception("Bitmaps are not of equal dimensions.");
+                throw new Exception("Mapy bitowe nie mają równych wymiarów.");
             }
 
             var width = currentFrame.Width;

@@ -1,6 +1,6 @@
 ﻿using System.Runtime.InteropServices;
 
-namespace Remotely.Shared.Win32
+namespace nexRemote.Shared.Win32
 {
     // https://docs.microsoft.com/en-us/windows/win32/api/shlwapi/nf-shlwapi-isos
     public class Shlwapi

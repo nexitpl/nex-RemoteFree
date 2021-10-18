@@ -1,6 +1,6 @@
-﻿using Remotely.Desktop.Core.Interfaces;
-using Remotely.Desktop.XPlat.Native.Linux;
-using Remotely.Shared.Utilities;
+﻿using nexRemote.Desktop.Core.Interfaces;
+using nexRemote.Desktop.XPlat.Native.Linux;
+using nexRemote.Shared.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 using System.Text.Json;
 using System.Threading;
 
-namespace Remotely.Desktop.XPlat.Services
+namespace nexRemote.Desktop.XPlat.Services
 {
     public class ScreenCapturerLinux : IScreenCapturer
     {
@@ -87,7 +87,7 @@ namespace Remotely.Desktop.XPlat.Services
                     var monitorPtr = new IntPtr(monitorsPtr.ToInt64() + i * monitorInfoSize);
                     var monitorInfo = Marshal.PtrToStructure<LibXrandr.XRRMonitorInfo>(monitorPtr);
 
-                    Logger.Write($"Found monitor: " +
+                    Logger.Write($"Znaleziono Monitor: " +
                         $"{monitorInfo.width}," +
                         $"{monitorInfo.height}," +
                         $"{monitorInfo.x}, " +
@@ -116,7 +116,7 @@ namespace Remotely.Desktop.XPlat.Services
             {
                 try
                 {
-                    Logger.Write($"Setting display to {displayName}.");
+                    Logger.Write($"Ustawienie wyświetlacza na {displayName}.");
                     if (displayName == SelectedScreen)
                     {
                         return;
@@ -181,7 +181,7 @@ namespace Remotely.Desktop.XPlat.Services
         {
             var screen = _x11Screens[SelectedScreen];
 
-            Logger.Write($"Setting new screen bounds: " +
+            Logger.Write($"Ustawianie nowych granic ekranu: " +
                  $"{screen.width}," +
                  $"{screen.height}," +
                  $"{screen.x}, " +

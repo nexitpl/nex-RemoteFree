@@ -10,7 +10,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace Remotely.Desktop.Win.Views
+namespace nexRemote.Desktop.Win.Views
 {
     /// <summary>
     /// Interaction logic for PromptForAccessWindow.xaml

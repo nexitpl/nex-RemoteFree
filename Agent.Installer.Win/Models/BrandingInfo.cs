@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Remotely.Agent.Installer.Win.Models
+namespace nexRemote.Agent.Installer.Win.Models
 {
     public class BrandingInfo
     {

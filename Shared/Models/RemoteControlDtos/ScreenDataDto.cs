@@ -1,8 +1,8 @@
-﻿using Remotely.Shared.Enums;
+﻿using nexRemote.Shared.Enums;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
-namespace Remotely.Shared.Models.RemoteControlDtos
+namespace nexRemote.Shared.Models.RemoteControlDtos
 {
     [DataContract]
     public class ScreenDataDto : BaseDto

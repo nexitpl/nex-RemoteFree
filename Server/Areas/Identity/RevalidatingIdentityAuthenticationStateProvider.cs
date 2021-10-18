@@ -10,7 +10,7 @@ using System.Security.Claims;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Remotely.Server.Areas.Identity
+namespace nexRemote.Server.Areas.Identity
 {
     public class RevalidatingIdentityAuthenticationStateProvider<TUser>
         : RevalidatingServerAuthenticationStateProvider where TUser : class

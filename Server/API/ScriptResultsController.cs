@@ -1,13 +1,13 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Remotely.Server.Auth;
-using Remotely.Server.Services;
-using Remotely.Shared.Models;
+using nexRemote.Server.Auth;
+using nexRemote.Server.Services;
+using nexRemote.Shared.Models;
 using System.Text;
 using System.Threading.Tasks;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
-namespace Remotely.Server.API
+namespace nexRemote.Server.API
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -60,7 +60,7 @@ namespace Remotely.Server.API
                 {
                     await _dataService.AddAlert(result.DeviceID,
                         result.OrganizationID,
-                        $"Alert triggered while running script {savedScript.Name}.",
+                        $"Alert wyzwolony podczas uruchamiania skryptu {savedScript.Name}.",
                         string.Join("\n", result.ErrorOutput));
                 }
 
@@ -74,8 +74,8 @@ namespace Remotely.Server.API
                     }
 
                     await _emailSender.SendEmailAsync(savedScript.SendErrorEmailTo,
-                        "Script Run Alert",
-                        $"An alert was triggered while running script {savedScript.Name} on device {device.DeviceName}. <br /><br />" +
+                        "Alert uruchomienia skryptu",
+                        $"Alarm został wyzwolony podczas uruchamiania skryptu {savedScript.Name} na urządzeniu {device.DeviceName}. <br /><br />" +
                             $"Device ID: {device.ID} <br /> " +
                             $"Device Name: {device.DeviceName} <br /> " +
                             $"Device Alias: {device.Alias} <br /> " +

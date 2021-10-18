@@ -1,7 +1,7 @@
 ﻿@using Microsoft.AspNetCore.Hosting
 @using Microsoft.AspNetCore.Mvc.ViewEngines
-@using Remotely.Server.Services
-@using Remotely.Shared.Models
+@using nexRemote.Server.Services
+@using nexRemote.Shared.Models
 @inject IApplicationConfig AppConfig
 @inject IWebHostEnvironment Environment
 @inject ICompositeViewEngine Engine
@@ -45,11 +45,11 @@
 
         switch (user.UserOptions.Theme)
         {
-            case Remotely.Shared.Enums.Theme.Light:
+            case nexRemote.Shared.Enums.Theme.Light:
                 <link rel="stylesheet" href="~/css/Themes/yeti.min.css" />
                 <link rel="stylesheet" href="~/css/Themes/yeti.custom.css" asp-append-version="true" />
                 break;
-            case Remotely.Shared.Enums.Theme.Dark:
+            case nexRemote.Shared.Enums.Theme.Dark:
                 <link rel="stylesheet" href="~/css/Themes/darkly.min.css" />
                 <link rel="stylesheet" href="~/css/Themes/darkly.custom.css" asp-append-version="true" />
                 break;
@@ -59,7 +59,7 @@
     }
     else
     {
-        if (AppConfig.Theme == Remotely.Shared.Enums.Theme.Light)
+        if (AppConfig.Theme == nexRemote.Shared.Enums.Theme.Light)
         {
             <link rel="stylesheet" href="~/css/Themes/yeti.min.css" />
             <link rel="stylesheet" href="~/css/Themes/yeti.custom.css" asp-append-version="true" />

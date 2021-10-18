@@ -1,11 +1,11 @@
-﻿using Remotely.Desktop.Core.Enums;
-using Remotely.Shared.Models;
-using Remotely.Shared.Utilities;
+﻿using nexRemote.Desktop.Core.Enums;
+using nexRemote.Shared.Models;
+using nexRemote.Shared.Utilities;
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 
-namespace Remotely.Desktop.Core
+namespace nexRemote.Desktop.Core
 {
     public class Conductor
     {
@@ -52,7 +52,7 @@ namespace Remotely.Desktop.Core
                     {
                         if (!key.Contains("-"))
                         {
-                            Logger.Write($"Command line arguments are invalid.  Key: {key}");
+                            Logger.Write($"Argumenty wiersza poleceń są nieprawidłowe. Klucz: {key}");
                             i -= 1;
                             continue;
                         }

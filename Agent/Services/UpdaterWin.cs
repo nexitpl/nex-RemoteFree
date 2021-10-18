@@ -1,5 +1,5 @@
-﻿using Remotely.Agent.Interfaces;
-using Remotely.Shared.Utilities;
+﻿using nexRemote.Agent.Interfaces;
+using nexRemote.Shared.Utilities;
 using System;
 using System.Diagnostics;
 using System.IO;
@@ -7,7 +7,7 @@ using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Remotely.Agent.Services
+namespace nexRemote.Agent.Services
 {
     public class UpdaterWin : IUpdater
     {
@@ -51,7 +51,7 @@ namespace Remotely.Agent.Services
 
                 if (_lastUpdateFailure.AddDays(1) > DateTimeOffset.Now)
                 {
-                    Logger.Write("Skipping update check due to previous failure.  Updating will be tried again after 24 hours have passed.");
+                    Logger.Write("Pomijanie sprawdzania aktualizacji z powodu poprzedniej awarii.  Aktualizacja zostanie podjęta ponownie po upływie 24 godzin.");
                     return;
                 }
 
@@ -77,17 +77,17 @@ namespace Remotely.Agent.Services
                     using var response = (HttpWebResponse)await wr.GetResponseAsync();
                     if (response.StatusCode == HttpStatusCode.NotModified)
                     {
-                        Logger.Write("Service Updater: Version is current.");
+                        Logger.Write("Service Updater: wersja jest aktualna.");
                         return;
                     }
                 }
                 catch (WebException ex) when ((ex.Response as HttpWebResponse).StatusCode == HttpStatusCode.NotModified)
                 {
-                    Logger.Write("Service Updater: Version is current.");
+                    Logger.Write("Service Updater: wersja jest aktualna.");
                     return;
                 }
 
-                Logger.Write("Service Updater: Update found.");
+                Logger.Write("Aktualizator usług: znaleziono aktualizację.");
 
                 await InstallLatestVersion();
 
@@ -116,7 +116,7 @@ namespace Remotely.Agent.Services
                 var connectionInfo = _configService.GetConnectionInfo();
                 var serverUrl = connectionInfo.Host;
 
-                Logger.Write("Service Updater: Downloading install package.");
+                Logger.Write("Service Updater: Pobieranie pakietu instalacyjnego.");
 
                 var downloadId = Guid.NewGuid().ToString();
                 var zipPath = Path.Combine(Path.GetTempPath(), "nex-RemoteUpdate.zip");
@@ -140,13 +140,13 @@ namespace Remotely.Agent.Services
                     proc.Kill();
                 }
 
-                Logger.Write("Launching installer to perform update.");
+                Logger.Write("Uruchamianie instalatora w celu przeprowadzenia aktualizacji.");
 
                 Process.Start(installerPath, $"-install -quiet -path {zipPath} -serverurl {serverUrl} -organizationid {connectionInfo.OrganizationID}");
             }
             catch (WebException ex) when (ex.Status == WebExceptionStatus.Timeout)
             {
-                Logger.Write("Timed out while waiting to download update.", Shared.Enums.EventType.Warning);
+                Logger.Write("Przekroczono limit czasu oczekiwania na pobranie aktualizacji.", Shared.Enums.EventType.Warning);
                 _lastUpdateFailure = DateTimeOffset.Now;
             }
             catch (Exception ex)

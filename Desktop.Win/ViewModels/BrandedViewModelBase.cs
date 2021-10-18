@@ -1,9 +1,9 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using Remotely.Desktop.Core;
-using Remotely.Desktop.Core.Services;
-using Remotely.Desktop.Core.ViewModels;
-using Remotely.Shared.Models;
-using Remotely.Shared.Utilities;
+using nexRemote.Desktop.Core;
+using nexRemote.Desktop.Core.Services;
+using nexRemote.Desktop.Core.ViewModels;
+using nexRemote.Shared.Models;
+using nexRemote.Shared.Utilities;
 using System;
 using System.IO;
 using System.Linq;
@@ -11,7 +11,7 @@ using System.Reflection;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 
-namespace Remotely.Desktop.Win.ViewModels
+namespace nexRemote.Desktop.Win.ViewModels
 {
     public class BrandedViewModelBase : ViewModelBase
     {
@@ -60,7 +60,7 @@ namespace Remotely.Desktop.Win.ViewModels
             }
             catch (Exception ex)
             {
-                Logger.Write(ex, "Error applying branding.");
+                Logger.Write(ex, "Błąd stosowania brandingu.");
             }
         }
 
@@ -79,7 +79,7 @@ namespace Remotely.Desktop.Win.ViewModels
             }
             else
             {
-                imageStream = Assembly.GetExecutingAssembly().GetManifestResourceStream("Remotely.Desktop.Win.Assets.Remotely_Icon.png");
+                imageStream = Assembly.GetExecutingAssembly().GetManifestResourceStream("nexRemote.Desktop.Win.Assets.Remotely_Icon.png");
             }
 
             var bitmap = new BitmapImage();

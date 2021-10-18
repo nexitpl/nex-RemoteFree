@@ -4,7 +4,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Remotely.Server.Models
+namespace nexRemote.Server.Models
 {
     public class ColorPickerModel
     {

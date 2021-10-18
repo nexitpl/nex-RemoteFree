@@ -4,9 +4,9 @@ using Microsoft.AspNetCore.SignalR;
 using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Primitives;
-using Remotely.Server.Hubs;
-using Remotely.Server.Services;
-using Remotely.Shared.Enums;
+using nexRemote.Server.Hubs;
+using nexRemote.Server.Services;
+using nexRemote.Shared.Enums;
 using System;
 using System.IO;
 using System.Linq;
@@ -15,7 +15,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Remotely.Server.API
+namespace nexRemote.Server.API
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -45,7 +45,7 @@ namespace Remotely.Server.API
         [HttpGet("[action]/{downloadId}")]
         public ActionResult ClearDownload(string downloadId)
         {
-            DataService.WriteEvent($"Clearing download ID {downloadId}.", EventType.Debug, null);
+            DataService.WriteEvent($"Usuwanie ID pobierania {downloadId}.", EventType.Debug, null);
             _downloadingAgents.Remove(downloadId);
             return Ok();
         }
@@ -85,10 +85,10 @@ namespace Remotely.Server.API
                 _downloadingAgents.Set(downloadId, string.Empty, cacheOptions);
 
                 var waitTime = DateTimeOffset.Now - startWait;
-                DataService.WriteEvent($"Download started after wait time of {waitTime}.  " + 
+                DataService.WriteEvent($"Pobieranie rozpoczęło się po czasie oczekiwania {waitTime}.  " + 
                     $"ID: {downloadId}. " +
                     $"IP: {remoteIp}. " +
-                    $"Current Downloads: {_downloadingAgents.Count}.  Max Allowed: {AppConfig.MaxConcurrentUpdates}", EventType.Debug, null);
+                    $"Aktualny Download: {_downloadingAgents.Count}.  Max Dozwolone: {AppConfig.MaxConcurrentUpdates}", EventType.Debug, null);
 
 
                 string filePath;
@@ -102,13 +102,13 @@ namespace Remotely.Server.API
                         filePath = Path.Combine(HostEnv.WebRootPath, "Content", "nex-Remote-Win10-x86.zip");
                         break;
                     case "linux":
-                        filePath = Path.Combine(HostEnv.WebRootPath, "Content", "Remotely-Linux.zip");
+                        filePath = Path.Combine(HostEnv.WebRootPath, "Content", "nex-Remote-Linux.zip");
                         break;
                     case "macos-x64":
-                        filePath = Path.Combine(HostEnv.WebRootPath, "Content", "Remotely-MacOS-x64.zip");
+                        filePath = Path.Combine(HostEnv.WebRootPath, "Content", "nex-Remote-MacOS-x64.zip");
                         break;
                     default:
-                        DataService.WriteEvent($"Unknown platform requested in {nameof(AgentUpdateController)}. " +
+                        DataService.WriteEvent($"Zażądano nieznanej platformy w {nameof(AgentUpdateController)}. " +
                             $"Platform: {platform}. " +
                             $"IP: {remoteIp}.",
                             EventType.Warning,
@@ -137,7 +137,7 @@ namespace Remotely.Server.API
 
             if (AppConfig.BannedDevices.Contains(deviceIp))
             {
-                DataService.WriteEvent($"Device IP ({deviceIp}) is banned.  Sending uninstall command.", null);
+                DataService.WriteEvent($"IP urządzenia ({deviceIp}) jest zablokowane.  Wysyłam komendę deinstalacji.", null);
 
                 var bannedDevices = AgentHub.ServiceConnections.Where(x => x.Value.PublicIP == deviceIp);
                 foreach (var bannedDevice in bannedDevices)

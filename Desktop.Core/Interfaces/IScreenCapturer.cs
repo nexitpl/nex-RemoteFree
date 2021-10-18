@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 
-namespace Remotely.Desktop.Core.Interfaces
+namespace nexRemote.Desktop.Core.Interfaces
 {
     public interface IScreenCapturer : IDisposable
     {

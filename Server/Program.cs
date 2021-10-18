@@ -2,13 +2,13 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
-using Remotely.Shared.Utilities;
+using nexRemote.Shared.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Remotely.Server
+namespace nexRemote.Server
 {
     public class Program
     {

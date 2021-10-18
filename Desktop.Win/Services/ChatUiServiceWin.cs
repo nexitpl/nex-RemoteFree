@@ -1,7 +1,7 @@
-﻿using Remotely.Desktop.Core.Interfaces;
-using Remotely.Desktop.Win.ViewModels;
-using Remotely.Desktop.Win.Views;
-using Remotely.Shared.Models;
+﻿using nexRemote.Desktop.Core.Interfaces;
+using nexRemote.Desktop.Win.ViewModels;
+using nexRemote.Desktop.Win.Views;
+using nexRemote.Shared.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,7 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace Remotely.Desktop.Win.Services
+namespace nexRemote.Desktop.Win.Services
 {
     public class ChatUiServiceWin : IChatUiService
     {
@@ -25,7 +25,7 @@ namespace Remotely.Desktop.Win.Services
             {
                 if (chatMessage.Disconnected)
                 {
-                    MessageBox.Show("Your partner has disconnected.", "Partner Disconnected", MessageBoxButton.OK, MessageBoxImage.Information);
+                    MessageBox.Show("Twój partner się rozłączył.", "Partner rozłączony", MessageBoxButton.OK, MessageBoxImage.Information);
                     App.Current.Shutdown();
                     return;
                 }

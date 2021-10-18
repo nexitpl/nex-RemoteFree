@@ -2,7 +2,7 @@
 using Microsoft.JSInterop;
 using System.Threading.Tasks;
 
-namespace Remotely.Server.Services
+namespace nexRemote.Server.Services
 {
     public interface IJsInterop
     {

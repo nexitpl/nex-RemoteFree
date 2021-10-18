@@ -1,10 +1,10 @@
-﻿using Remotely.Shared.Models;
+﻿using nexRemote.Shared.Models;
 using System.Collections.ObjectModel;
 using System.IO;
 using System.Text.Json;
 using System.Threading.Tasks;
 
-namespace Remotely.Desktop.Win.ViewModels
+namespace nexRemote.Desktop.Win.ViewModels
 {
     public class ChatWindowViewModel : BrandedViewModelBase
     {
@@ -77,7 +77,7 @@ namespace Remotely.Desktop.Win.ViewModels
             InputText = string.Empty;
             await PipeStreamWriter.WriteLineAsync(JsonSerializer.Serialize(chatMessage));
             await PipeStreamWriter.FlushAsync();
-            chatMessage.SenderName = "You";
+            chatMessage.SenderName = "Ty";
             ChatMessages.Add(chatMessage);
         }
     }

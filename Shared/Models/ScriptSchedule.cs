@@ -1,5 +1,5 @@
-﻿using Remotely.Shared.Enums;
-using Remotely.Shared.Utilities;
+﻿using nexRemote.Shared.Enums;
+using nexRemote.Shared.Utilities;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -9,7 +9,7 @@ using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
-namespace Remotely.Shared.Models
+namespace nexRemote.Shared.Models
 {
     public class ScriptSchedule
     {

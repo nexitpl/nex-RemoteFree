@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Remotely.Shared.Utilities
+namespace nexRemote.Shared.Utilities
 {
     public class AppendableStream : Stream
     {

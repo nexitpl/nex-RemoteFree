@@ -1,7 +1,7 @@
 ﻿@page
-@using Remotely.Shared.Models
-@inject Remotely.Server.Services.IApplicationConfig AppConfig
-@model Remotely.Server.Pages.RemoteControlModel
+@using nexRemote.Shared.Models
+@inject nexRemote.Server.Services.IApplicationConfig AppConfig
+@model nexRemote.Server.Pages.RemoteControlModel
 @{
     Layout = null;
 }
@@ -20,7 +20,7 @@
     <meta name="description" content="Remote support tools designed to get things done quickly." />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link href="~/css/remote-control.css" rel="stylesheet" asp-append-version="true" />
-    @if (AppConfig.Theme == Remotely.Shared.Enums.Theme.Light)
+    @if (AppConfig.Theme == nexRemote.Shared.Enums.Theme.Light)
     {
         <link href="~/css/remote-control-light.css" rel="stylesheet" asp-append-version="true" />
     }
@@ -33,10 +33,10 @@
     {
         switch (Model.RemotelyUser.UserOptions.Theme)
         {
-            case Remotely.Shared.Enums.Theme.Light:
+            case nexRemote.Shared.Enums.Theme.Light:
                 <link href="~/css/remote-control-light.css" rel="stylesheet" asp-append-version="true" />
                 break;
-            case Remotely.Shared.Enums.Theme.Dark:
+            case nexRemote.Shared.Enums.Theme.Dark:
                 <link href="~/css/remote-control-dark.css" rel="stylesheet" asp-append-version="true" />
                 break;
             default:
@@ -45,7 +45,7 @@
     }
     else
     {
-        if (AppConfig.Theme == Remotely.Shared.Enums.Theme.Light)
+        if (AppConfig.Theme == nexRemote.Shared.Enums.Theme.Light)
         {
             <link href="~/css/remote-control-light.css" rel="stylesheet" asp-append-version="true" />
         }

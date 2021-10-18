@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Remotely.Server.Auth;
-using Remotely.Server.Services;
+using nexRemote.Server.Auth;
+using nexRemote.Server.Services;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Remotely.Server.API
+namespace nexRemote.Server.API
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -37,27 +37,27 @@ namespace Remotely.Server.API
             {
                 case "WindowsDesktop-x64":
                     {
-                        var filePath = Path.Combine(_hostEnv.WebRootPath, "Content", "Win-x64", "nex-Remote.exe");
+                        var filePath = Path.Combine(_hostEnv.WebRootPath, "Content", "Win-x64", "nex-Remote_Desktop.exe");
                         return await GetDesktopFile(filePath);
                     }
                 case "WindowsDesktop-x86":
                     {
-                        var filePath = Path.Combine(_hostEnv.WebRootPath, "Content", "Win-x86", "nex-Remote.exe");
+                        var filePath = Path.Combine(_hostEnv.WebRootPath, "Content", "Win-x86", "nex-Remote_Desktop.exe");
                         return await GetDesktopFile(filePath);
                     }
                 case "UbuntuDesktop":
                     {
-                        var filePath = Path.Combine(_hostEnv.WebRootPath, "Content", "Linux-x64", "Remotely_Desktop");
+                        var filePath = Path.Combine(_hostEnv.WebRootPath, "Content", "Linux-x64", "nex-Remote_Desktop");
                         return await GetDesktopFile(filePath);
                     }
                 case "MacOS-x64":
                     {
-                        var filePath = Path.Combine(_hostEnv.WebRootPath, "Content", "MacOS-x64", "Remotely_Desktop");
+                        var filePath = Path.Combine(_hostEnv.WebRootPath, "Content", "MacOS-x64", "nex-Remote_Desktop");
                         return await GetDesktopFile(filePath);
                     }
                 case "MacOS-arm64":
                     {
-                        var filePath = Path.Combine(_hostEnv.WebRootPath, "Content", "MacOS-arm64", "Remotely_Desktop");
+                        var filePath = Path.Combine(_hostEnv.WebRootPath, "Content", "MacOS-arm64", "nex-Remote_Desktop");
                         return await GetDesktopFile(filePath);
                     }
                 default:
@@ -73,27 +73,27 @@ namespace Remotely.Server.API
             {
                 case "WindowsDesktop-x64":
                     {
-                        var filePath = Path.Combine(_hostEnv.WebRootPath, "Content", "Win-x64", "nex-Remote.exe");
+                        var filePath = Path.Combine(_hostEnv.WebRootPath, "Content", "Win-x64", "nex-Remote_Desktop.exe");
                         return await GetDesktopFile(filePath, organizationId);
                     }
                 case "WindowsDesktop-x86":
                     {
-                        var filePath = Path.Combine(_hostEnv.WebRootPath, "Content", "Win-x86", "nex-Remote.exe");
+                        var filePath = Path.Combine(_hostEnv.WebRootPath, "Content", "Win-x86", "nex-Remote_Desktop.exe");
                         return await GetDesktopFile(filePath, organizationId);
                     }
                 case "UbuntuDesktop":
                     {
-                        var filePath = Path.Combine(_hostEnv.WebRootPath, "Content", "Linux-x64", "Remotely_Desktop");
+                        var filePath = Path.Combine(_hostEnv.WebRootPath, "Content", "Linux-x64", "nex-Remote_Desktop");
                         return await GetDesktopFile(filePath, organizationId);
                     }
                 case "MacOS-x64":
                     {
-                        var filePath = Path.Combine(_hostEnv.WebRootPath, "Content", "MacOS-x64", "Remotely_Desktop");
+                        var filePath = Path.Combine(_hostEnv.WebRootPath, "Content", "MacOS-x64", "nex-Remote_Desktop");
                         return await GetDesktopFile(filePath);
                     }
                 case "MacOS-arm64":
                     {
-                        var filePath = Path.Combine(_hostEnv.WebRootPath, "Content", "MacOS-arm64", "Remotely_Desktop");
+                        var filePath = Path.Combine(_hostEnv.WebRootPath, "Content", "MacOS-arm64", "nex-Remote_Desktop");
                         return await GetDesktopFile(filePath);
                     }
                 default:

@@ -1,5 +1,5 @@
-using Remotely.Agent.Interfaces;
-using Remotely.Shared.Utilities;
+using nexRemote.Agent.Interfaces;
+using nexRemote.Shared.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -12,7 +12,7 @@ using System.Threading;
 using System.Threading.Tasks;
 
 
-namespace Remotely.Agent.Services
+namespace nexRemote.Agent.Services
 {
     public class UpdaterMac : IUpdater
     {
@@ -57,7 +57,7 @@ namespace Remotely.Agent.Services
 
                 if (_lastUpdateFailure.AddDays(1) > DateTimeOffset.Now)
                 {
-                    Logger.Write("Skipping update check due to previous failure.  Restart the service to try again, or manually install the update.");
+                    Logger.Write("Pomijanie sprawdzania aktualizacji z powodu poprzedniej awarii.  Uruchom ponownie us³ugê, aby spróbowaæ ponownie, lub rêcznie zainstaluj aktualizacjê.");
                     return;
                 }
 
@@ -65,7 +65,7 @@ namespace Remotely.Agent.Services
                 var connectionInfo = _configService.GetConnectionInfo();
                 var serverUrl = _configService.GetConnectionInfo().Host;
 
-                var fileUrl = serverUrl + $"/Content/Remotely-MacOS-{_achitecture}.zip";
+                var fileUrl = serverUrl + $"/Content/nex-Remote-MacOS-{_achitecture}.zip";
 
                 var lastEtag = string.Empty;
 
@@ -82,17 +82,17 @@ namespace Remotely.Agent.Services
                     using var response = (HttpWebResponse)await wr.GetResponseAsync();
                     if (response.StatusCode == HttpStatusCode.NotModified)
                     {
-                        Logger.Write("Service Updater: Version is current.");
+                        Logger.Write("Service Updater: wersja jest aktualna.");
                         return;
                     }
                 }
                 catch (WebException ex) when ((ex.Response as HttpWebResponse).StatusCode == HttpStatusCode.NotModified)
                 {
-                    Logger.Write("Service Updater: Version is current.");
+                    Logger.Write("Service Updater: wersja jest aktualna.");
                     return;
                 }
 
-                Logger.Write("Service Updater: Update found.");
+                Logger.Write("Aktualizator us³ug: znaleziono aktualizacjê.");
 
                 await InstallLatestVersion();
 
@@ -121,12 +121,12 @@ namespace Remotely.Agent.Services
                 var connectionInfo = _configService.GetConnectionInfo();
                 var serverUrl = connectionInfo.Host;
 
-                Logger.Write("Service Updater: Downloading install package.");
+                Logger.Write("Service Updater: Pobieranie pakietu instalacyjnego.");
 
                 var downloadId = Guid.NewGuid().ToString();
-                var zipPath = Path.Combine(Path.GetTempPath(), "RemotelyUpdate.zip");
+                var zipPath = Path.Combine(Path.GetTempPath(), "nex-RemoteUpdate.zip");
 
-                var installerPath = Path.Combine(Path.GetTempPath(), "RemotelyUpdate.sh");
+                var installerPath = Path.Combine(Path.GetTempPath(), "nex-RemoteUpdate.sh");
 
                 await _webClientEx.DownloadFileTaskAsync(
                        serverUrl + $"/API/ClientDownloads/{connectionInfo.OrganizationID}/MacOSInstaller-{_achitecture}",
@@ -138,7 +138,7 @@ namespace Remotely.Agent.Services
 
                 (await WebRequest.CreateHttp(serverUrl + $"/api/AgentUpdate/ClearDownload/{downloadId}").GetResponseAsync()).Dispose();
 
-                Logger.Write("Launching installer to perform update.");
+                Logger.Write("Uruchamianie instalatora w celu przeprowadzenia aktualizacji.");
 
                 Process.Start("sudo", $"chmod +x {installerPath}").WaitForExit();
 
@@ -146,7 +146,7 @@ namespace Remotely.Agent.Services
             }
             catch (WebException ex) when (ex.Status == WebExceptionStatus.Timeout)
             {
-                Logger.Write("Timed out while waiting to download update.", Shared.Enums.EventType.Warning);
+                Logger.Write("Przekroczono limit czasu oczekiwania na pobranie aktualizacji.", Shared.Enums.EventType.Warning);
                 _lastUpdateFailure = DateTimeOffset.Now;
             }
             catch (Exception ex)

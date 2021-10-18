@@ -1,12 +1,12 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using Remotely.Desktop.Core;
-using Remotely.Desktop.Core.Interfaces;
-using Remotely.Desktop.Core.Services;
-using Remotely.Desktop.Win.Services;
-using Remotely.Desktop.Win.Views;
-using Remotely.Shared.Models;
-using Remotely.Shared.Utilities;
-using Remotely.Shared.Win32;
+using nexRemote.Desktop.Core;
+using nexRemote.Desktop.Core.Interfaces;
+using nexRemote.Desktop.Core.Services;
+using nexRemote.Desktop.Win.Services;
+using nexRemote.Desktop.Win.Views;
+using nexRemote.Shared.Models;
+using nexRemote.Shared.Utilities;
+using nexRemote.Shared.Win32;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -17,7 +17,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 
-namespace Remotely.Desktop.Win.ViewModels
+namespace nexRemote.Desktop.Win.ViewModels
 {
     public class MainWindowViewModel : BrandedViewModelBase
     {
@@ -118,12 +118,12 @@ namespace Remotely.Desktop.Win.ViewModels
                         var sections = commandLine.Split('"', StringSplitOptions.RemoveEmptyEntries);
                         var filePath = sections.First();
                         var arguments = string.Join('"', sections.Skip(1));
-                        Logger.Write($"Creating temporary service with file path {filePath} and arguments {arguments}.");
-                        psi.Arguments = $"/c sc create Remotely_Temp binPath=\"{filePath} {arguments} -elevate\"";
+                        Logger.Write($"Tworzenie tymczasowej usługi ze ścieżką do pliku {filePath} i argumenty {arguments}.");
+                        psi.Arguments = $"/c sc create nex-Remote binPath=\"{filePath} {arguments} -elevate\"";
                         Process.Start(psi).WaitForExit();
-                        psi.Arguments = "/c sc start Remotely_Temp";
+                        psi.Arguments = "/c sc start nex-Remote_Temp";
                         Process.Start(psi).WaitForExit();
-                        psi.Arguments = "/c sc delete Remotely_Temp";
+                        psi.Arguments = "/c sc delete nex-Remote_Temp";
                         Process.Start(psi).WaitForExit();
                         App.Current.Shutdown();
                     }

@@ -183,11 +183,11 @@ while ((Test-Path -Path "$PublishDir\nex-Remote-Win10-x86.zip") -eq $false){
 Move-Item -Path "$PublishDir\nex-Remote-Win10-x86.zip" -Destination "$Root\Server\wwwroot\Content\nex-Remote-Win10-x86.zip" -Force
 
 $PublishDir =  "$Root\Agent\bin\Release\net5.0\linux-x64\publish"
-Compress-Archive -Path "$PublishDir\*" -DestinationPath "$PublishDir\Remotely-Linux.zip" -Force
-while ((Test-Path -Path "$PublishDir\Remotely-Linux.zip") -eq $false){
+Compress-Archive -Path "$PublishDir\*" -DestinationPath "$PublishDir\nex-Remote-Linux.zip" -Force
+while ((Test-Path -Path "$PublishDir\nex-Remote-Linux.zip") -eq $false){
     Start-Sleep -Seconds 1
 }
-Move-Item -Path "$PublishDir\Remotely-Linux.zip" -Destination "$Root\Server\wwwroot\Content\Remotely-Linux.zip" -Force
+Move-Item -Path "$PublishDir\nex-Remote-Linux.zip" -Destination "$Root\Server\wwwroot\Content\nex-Remote-Linux.zip" -Force
 
 
 

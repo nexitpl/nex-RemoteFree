@@ -1,8 +1,8 @@
-﻿using Remotely.Desktop.Core.Interfaces;
-using Remotely.Desktop.Core.Services;
-using Remotely.Desktop.Core.ViewModels;
-using Remotely.Desktop.Win.Services;
-using Remotely.Shared.Win32;
+﻿using nexRemote.Desktop.Core.Interfaces;
+using nexRemote.Desktop.Core.Services;
+using nexRemote.Desktop.Core.ViewModels;
+using nexRemote.Desktop.Win.Services;
+using nexRemote.Shared.Win32;
 using System;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Input;
 
-namespace Remotely.Desktop.Win.ViewModels
+namespace nexRemote.Desktop.Win.ViewModels
 {
     public class FileTransferWindowViewModel : BrandedViewModelBase
     {
@@ -45,7 +45,7 @@ namespace Remotely.Desktop.Win.ViewModels
 
             var ofd = new OpenFileDialog()
             {
-                Title = "Upload File via Remotely",
+                Title = "Transfer Plików via nex-Remote",
                 Multiselect = true,
                 CheckFileExists = true,
                 InitialDirectory = Directory.Exists(userDir) ? userDir : rootDir

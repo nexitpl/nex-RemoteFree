@@ -1,9 +1,9 @@
-﻿using Remotely.Desktop.Core.Interfaces;
-using Remotely.Desktop.Core.Services;
-using Remotely.Desktop.Core.ViewModels;
-using Remotely.Desktop.Win.ViewModels;
-using Remotely.Desktop.Win.Views;
-using Remotely.Shared.Utilities;
+﻿using nexRemote.Desktop.Core.Interfaces;
+using nexRemote.Desktop.Core.Services;
+using nexRemote.Desktop.Core.ViewModels;
+using nexRemote.Desktop.Win.ViewModels;
+using nexRemote.Desktop.Win.Views;
+using nexRemote.Shared.Utilities;
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
@@ -15,7 +15,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace Remotely.Desktop.Win.Services
+namespace nexRemote.Desktop.Win.Services
 {
     public class FileTransferServiceWin : IFileTransferService
     {
@@ -31,7 +31,7 @@ namespace Remotely.Desktop.Win.Services
         public string GetBaseDirectory()
         {
             var programDataPath = Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData);
-            return Directory.CreateDirectory(Path.Combine(programDataPath, "Remotely", "Shared")).FullName;
+            return Directory.CreateDirectory(Path.Combine(programDataPath, "nex-Remote", "Shared")).FullName;
         }
 
         public void OpenFileTransferWindow(Viewer viewer)
@@ -183,8 +183,8 @@ namespace Remotely.Desktop.Win.Services
             // Prevent multiple dialogs from popping up.
             if (_result is null)
             {
-                _result = MessageBox.Show("File transfer complete.  Show folder?",
-                    "Transfer Complete",
+                _result = MessageBox.Show("Przesyłanie plików zakończone.  Pokazać folder?",
+                    "Transfer zakończony",
                     MessageBoxButton.YesNo,
                     MessageBoxImage.Question,
                     MessageBoxResult.Yes,

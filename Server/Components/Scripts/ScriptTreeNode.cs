@@ -1,11 +1,11 @@
-﻿using Remotely.Server.Components.TreeView;
-using Remotely.Shared.Models;
+﻿using nexRemote.Server.Components.TreeView;
+using nexRemote.Shared.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Remotely.Server.Components.Scripts
+namespace nexRemote.Server.Components.Scripts
 {
     public class ScriptTreeNode
     {

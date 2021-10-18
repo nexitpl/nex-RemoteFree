@@ -1,23 +1,23 @@
 ﻿using Avalonia.Controls;
 using ReactiveUI;
-using Remotely.Desktop.XPlat.Services;
-using Remotely.Shared.Models;
+using nexRemote.Desktop.XPlat.Services;
+using nexRemote.Shared.Models;
 using System.Collections.ObjectModel;
 using System.IO;
 using System.Text.Json;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace Remotely.Desktop.XPlat.ViewModels
+namespace nexRemote.Desktop.XPlat.ViewModels
 {
     public class ChatWindowViewModel : BrandedViewModelBase
     {
         private string _inputText;
-        private string _organizationName = "your IT provider";
-        private string _senderName = "a technician";
+        private string _organizationName = "nex-IT";
+        private string _senderName = "Jakub Potoczny";
         public ObservableCollection<ChatMessage> ChatMessages { get; } = new ObservableCollection<ChatMessage>();
 
-        public string ChatSessionHeader => $"Chat session with {OrganizationName}";
+        public string ChatSessionHeader => $"Sesja czatu z {OrganizationName}";
 
         public ICommand CloseCommand => new Executor((param) =>
         {
@@ -63,7 +63,7 @@ namespace Remotely.Desktop.XPlat.ViewModels
             InputText = string.Empty;
             await PipeStreamWriter.WriteLineAsync(JsonSerializer.Serialize(chatMessage));
             await PipeStreamWriter.FlushAsync();
-            chatMessage.SenderName = "You";
+            chatMessage.SenderName = "Ty";
             ChatMessages.Add(chatMessage);
         }
     }

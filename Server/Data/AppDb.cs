@@ -5,14 +5,14 @@ using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Microsoft.EntityFrameworkCore.Diagnostics;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Microsoft.Extensions.Logging;
-using Remotely.Shared.Models;
-using Remotely.Shared.Utilities;
+using nexRemote.Shared.Models;
+using nexRemote.Shared.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.Json;
 
-namespace Remotely.Server.Data
+namespace nexRemote.Server.Data
 {
     public class AppDb : IdentityDbContext
     {

@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Remotely.Shared.Models;
+using nexRemote.Shared.Models;
 
-namespace Remotely.Server.Areas.Identity.Pages.Account.Manage
+namespace nexRemote.Server.Areas.Identity.Pages.Account.Manage
 {
     public partial class IndexModel : PageModel
     {

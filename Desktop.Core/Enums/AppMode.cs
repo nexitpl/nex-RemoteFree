@@ -1,4 +1,4 @@
-﻿namespace Remotely.Desktop.Core.Enums
+﻿namespace nexRemote.Desktop.Core.Enums
 {
     public enum AppMode
     {

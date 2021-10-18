@@ -1,9 +1,9 @@
-﻿using Remotely.Shared.Utilities;
+﻿using nexRemote.Shared.Utilities;
 using System;
 using System.Diagnostics;
 using System.ServiceProcess;
 
-namespace Remotely.Agent.Services
+namespace nexRemote.Agent.Services
 {
     partial class WindowsService : ServiceBase
     {
@@ -17,16 +17,16 @@ namespace Remotely.Agent.Services
         {
             try
             {
-                Logger.Write($"Session changed.  Reason: {changeDescription.Reason}.  Session: {changeDescription.SessionId}");
+                Logger.Write($"Zmieniono sesję.  Powód: {changeDescription.Reason}.  Sesja: {changeDescription.SessionId}");
                 if (changeDescription.Reason == SessionChangeReason.ConsoleDisconnect ||
                    changeDescription.Reason == SessionChangeReason.RemoteDisconnect)
                 {
 
-                    foreach (var screenCaster in Process.GetProcessesByName("Remotely_Desktop"))
+                    foreach (var screenCaster in Process.GetProcessesByName("nex-Remote_Desktop"))
                     {
                         if (screenCaster.SessionId == changeDescription.SessionId)
                         {
-                            Logger.Write($"Session changed.  Kill process ID {screenCaster.Id}.");
+                            Logger.Write($"Zmieniono sesję.  Zakończ proces o ID {screenCaster.Id}.");
                             screenCaster.Kill();
                         }
                     }

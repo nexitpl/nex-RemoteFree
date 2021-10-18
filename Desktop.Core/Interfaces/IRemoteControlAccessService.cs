@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Remotely.Desktop.Core.Interfaces
+namespace nexRemote.Desktop.Core.Interfaces
 {
     public interface IRemoteControlAccessService
     {

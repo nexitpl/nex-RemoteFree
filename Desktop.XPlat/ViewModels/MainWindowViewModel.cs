@@ -3,15 +3,15 @@ using Avalonia.Controls;
 using Avalonia.Threading;
 using Microsoft.Extensions.DependencyInjection;
 using ReactiveUI;
-using Remotely.Desktop.Core;
-using Remotely.Desktop.Core.Interfaces;
-using Remotely.Desktop.Core.Services;
-using Remotely.Desktop.XPlat.Controls;
-using Remotely.Desktop.XPlat.Native.Linux;
-using Remotely.Desktop.XPlat.Services;
-using Remotely.Desktop.XPlat.Views;
-using Remotely.Shared.Models;
-using Remotely.Shared.Utilities;
+using nexRemote.Desktop.Core;
+using nexRemote.Desktop.Core.Interfaces;
+using nexRemote.Desktop.Core.Services;
+using nexRemote.Desktop.XPlat.Controls;
+using nexRemote.Desktop.XPlat.Native.Linux;
+using nexRemote.Desktop.XPlat.Services;
+using nexRemote.Desktop.XPlat.Views;
+using nexRemote.Shared.Models;
+using nexRemote.Shared.Utilities;
 using System;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
@@ -19,7 +19,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace Remotely.Desktop.XPlat.ViewModels
+namespace nexRemote.Desktop.XPlat.ViewModels
 {
     public class MainWindowViewModel : BrandedViewModelBase
     {
@@ -155,15 +155,15 @@ namespace Remotely.Desktop.XPlat.ViewModels
             {
                 if (!EnvironmentHelper.IsDebug && Libc.geteuid() != 0)
                 {
-                    await MessageBox.Show("Please run with sudo.", "Sudo Required", MessageBoxType.OK);
+                    await MessageBox.Show("Proszę uruchomić z sudo.", "Sudo Wymagane", MessageBoxType.OK);
                     Environment.Exit(0);
                 }
 
-                StatusMessage = "Initializing...";
+                StatusMessage = "Inicjalizacja...";
 
                 await InstallDependencies();
 
-                StatusMessage = "Retrieving...";
+                StatusMessage = "Odbieranie...";
 
                 Host = _configService.GetConfig().Host;
 
@@ -188,7 +188,7 @@ namespace Remotely.Desktop.XPlat.ViewModels
                     {
                         await Dispatcher.UIThread.InvokeAsync(() =>
                         {
-                            StatusMessage = "Disconnected";
+                            StatusMessage = "Rozłączono";
                         });
                     };
 
@@ -196,7 +196,7 @@ namespace Remotely.Desktop.XPlat.ViewModels
                     {
                         await Dispatcher.UIThread.InvokeAsync(() =>
                         {
-                            StatusMessage = "Reconnecting";
+                            StatusMessage = "Łączenie ponowne";
                         });
                     };
 
@@ -222,7 +222,7 @@ namespace Remotely.Desktop.XPlat.ViewModels
 
             // If we got here, something went wrong.
             _statusMessage = "Failed";
-            await MessageBox.Show("Failed to connect to server.", "Connection Failed", MessageBoxType.OK);
+            await MessageBox.Show("Błąd połaczenia z serwerem.", "Błąd Połączenia", MessageBoxType.OK);
         }
 
         public async Task PromptForHostName()
@@ -240,8 +240,8 @@ namespace Remotely.Desktop.XPlat.ViewModels
             if (!Uri.TryCreate(result, UriKind.Absolute, out var serverUri) ||
                 (serverUri.Scheme != Uri.UriSchemeHttp && serverUri.Scheme != Uri.UriSchemeHttps))
             {
-                Logger.Write("Server URL is not valid.");
-                await MessageBox.Show("Server URL must be a valid Uri (e.g. https://app.remotely.one).", "Invalid Server URL", MessageBoxType.OK);
+                Logger.Write("URL Serwer jest nieprawidłowe.");
+                await MessageBox.Show("URL Serwera musi mieć prawidłowy adres URI (e.g. https://remote.nex-it.pl).", "Nieprawidłowy URL Serwera", MessageBoxType.OK);
                 return;
             }
 
@@ -273,7 +273,7 @@ namespace Remotely.Desktop.XPlat.ViewModels
             }
             catch
             {
-                Logger.Write("Failed to install dependencies.", Shared.Enums.EventType.Error);
+                Logger.Write("Błąd instalacji zależności.", Shared.Enums.EventType.Error);
             }
           
         }
@@ -281,7 +281,7 @@ namespace Remotely.Desktop.XPlat.ViewModels
         {
             Dispatcher.UIThread.InvokeAsync(async () =>
             {
-                var result = await MessageBox.Show($"You've received a connection request from {screenCastRequest.RequesterName}.  Accept?", "Connection Request", MessageBoxType.YesNo);
+                var result = await MessageBox.Show($"Otrzymałeś prośbę o połączenie od {screenCastRequest.RequesterName}.  Akceptujesz?", "Prośba o Połączenie", MessageBoxType.YesNo);
                 if (result == MessageBoxResult.Yes)
                 {
                     Services.GetRequiredService<IScreenCaster>().BeginScreenCasting(screenCastRequest);

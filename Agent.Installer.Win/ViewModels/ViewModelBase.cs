@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
-namespace Remotely.Agent.Installer.Win.ViewModels
+namespace nexRemote.Agent.Installer.Win.ViewModels
 {
     public class ViewModelBase : INotifyPropertyChanged
     {

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Remotely.Shared.Models
+namespace nexRemote.Shared.Models
 {
     public class ConnectionInfo
     {

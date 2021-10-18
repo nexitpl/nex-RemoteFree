@@ -1,12 +1,12 @@
-﻿using Remotely.Desktop.Core.Interfaces;
-using Remotely.Shared.Utilities;
-using Remotely.Shared.Win32;
+﻿using nexRemote.Desktop.Core.Interfaces;
+using nexRemote.Shared.Utilities;
+using nexRemote.Shared.Win32;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Remotely.Desktop.Win.Services
+namespace nexRemote.Desktop.Win.Services
 {
     public class ClipboardServiceWin : IClipboardService
     {

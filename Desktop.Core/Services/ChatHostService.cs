@@ -1,6 +1,6 @@
-﻿using Remotely.Desktop.Core.Interfaces;
-using Remotely.Shared.Models;
-using Remotely.Shared.Utilities;
+﻿using nexRemote.Desktop.Core.Interfaces;
+using nexRemote.Shared.Models;
+using nexRemote.Shared.Utilities;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -11,7 +11,7 @@ using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Remotely.Desktop.Core.Services
+namespace nexRemote.Desktop.Core.Services
 {
     public class ChatHostService : IChatClientService
     {
@@ -28,7 +28,7 @@ namespace Remotely.Desktop.Core.Services
 
         public async Task StartChat(string requesterID, string organizationName)
         {
-            NamedPipeStream = new NamedPipeServerStream("Remotely_Chat" + requesterID, PipeDirection.InOut, 10, PipeTransmissionMode.Byte, PipeOptions.Asynchronous);
+            NamedPipeStream = new NamedPipeServerStream("nex-Remote_Chat" + requesterID, PipeDirection.InOut, 10, PipeTransmissionMode.Byte, PipeOptions.Asynchronous);
             Writer = new StreamWriter(NamedPipeStream);
             Reader = new StreamReader(NamedPipeStream);
 
@@ -39,7 +39,7 @@ namespace Remotely.Desktop.Core.Services
             }
             catch (TaskCanceledException)
             {
-                Logger.Write("A chat session was attempted, but the client failed to connect in time.", Shared.Enums.EventType.Warning);
+                Logger.Write("Próbowano nawiązać sesję czatu, ale klientowi nie udało się połączyć na czas.", Shared.Enums.EventType.Warning);
                 Environment.Exit(0);
             }
 

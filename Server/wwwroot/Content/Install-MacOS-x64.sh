@@ -11,9 +11,9 @@ ArgLength=${#Args[@]}
 for (( i=0; i<${ArgLength}; i+=2 ));
 do
     if [ "${Args[$i]}" = "--uninstall" ]; then
-        launchctl unload -w /Library/LaunchDaemons/remotely-agent.plist
-        rm -r -f /usr/local/bin/Remotely/
-        rm -f /Library/LaunchDaemons/remotely-agent.plist
+        launchctl unload -w /Library/LaunchDaemons/nex-Remote-agent.plist
+        rm -r -f /usr/local/bin/nex-Remote/
+        rm -f /Library/LaunchDaemons/nex-Remote-agent.plist
         exit
     elif [ "${Args[$i]}" = "--path" ]; then
         UpdatePackagePath="${Args[$i+1]}"
@@ -42,31 +42,31 @@ su - $Owner -c "brew install curl"
 su - $Owner -c "brew install jq"
 
 
-if [ -f "/usr/local/bin/Remotely/ConnectionInfo.json" ]; then
-    SavedGUID=`su - $Owner -c "cat '/usr/local/bin/Remotely/ConnectionInfo.json' | jq -r '.DeviceID'"`
+if [ -f "/usr/local/bin/nex-Remote/ConnectionInfo.json" ]; then
+    SavedGUID=`su - $Owner -c "cat '/usr/local/bin/nex-Remote/ConnectionInfo.json' | jq -r '.DeviceID'"`
     if [[ "$SavedGUID" != "null" && -n "$SavedGUID" ]]; then
         GUID="$SavedGUID"
     fi
 fi
 
-rm -r -f /Applications/Remotely
-rm -f /Library/LaunchDaemons/remotely-agent.plist
+rm -r -f /Applications/nex-Remote
+rm -f /Library/LaunchDaemons/nex-Remote-agent.plist
 
-mkdir -p /usr/local/bin/Remotely/
-chmod -R 755 /usr/local/bin/Remotely/
-cd /usr/local/bin/Remotely/
+mkdir -p /usr/local/bin/nex-Remote/
+chmod -R 755 /usr/local/bin/nex-Remote/
+cd /usr/local/bin/nex-Remote/
 
 if [ -z "$UpdatePackagePath" ]; then
-    echo  "Downloading client..." >> /tmp/Remotely_Install.log
-    curl $HostName/Content/Remotely-MacOS-x64.zip --output /usr/local/bin/Remotely/Remotely-MacOS-x64.zip
+    echo  "Downloading client..." >> /tmp/nex-Remote_Install.log
+    curl $HostName/Content/nex-Remote-MacOS-x64.zip --output /usr/local/bin/nex-Remote/nex-Remote-MacOS-x64.zip
 else
-    echo  "Copying install files..." >> /tmp/Remotely_Install.log
-    cp "$UpdatePackagePath" /usr/local/bin/Remotely/Remotely-MacOS-x64.zip
+    echo  "Copying install files..." >> /tmp/nex-Remote_Install.log
+    cp "$UpdatePackagePath" /usr/local/bin/nex-Remote/nex-Remote-MacOS-x64.zip
     rm -f "$UpdatePackagePath"
 fi
 
-unzip -o ./Remotely-MacOS-x64.zip
-rm -f ./Remotely-MacOS-x64.zip
+unzip -o ./nex-Remote-MacOS-x64.zip
+rm -f ./nex-Remote-MacOS-x64.zip
 
 
 connectionInfo="{
@@ -78,7 +78,7 @@ connectionInfo="{
 
 echo "$connectionInfo" > ./ConnectionInfo.json
 
-curl --head $HostName/Content/Remotely-MacOS-x64.zip | grep -i "etag" | cut -d' ' -f 2 > ./etag.txt
+curl --head $HostName/Content/nex-Remote-MacOS-x64.zip | grep -i "etag" | cut -d' ' -f 2 > ./etag.txt
 
 
 plistFile="<?xml version=\"1.0\" encoding=\"UTF-8\"?>
@@ -86,17 +86,17 @@ plistFile="<?xml version=\"1.0\" encoding=\"UTF-8\"?>
 <plist version=\"1.0\">
 <dict>
     <key>Label</key>
-    <string>com.translucency.remotely-agent</string>
+    <string>com.nexit.nex-Remote-agent</string>
     <key>ProgramArguments</key>
     <array>
         <string>/usr/local/bin/dotnet</string>
-        <string>/usr/local/bin/Remotely/Remotely_Agent.dll</string>
+        <string>/usr/local/bin/nex-Remote/nex-Remote_Agent.dll</string>
     </array>
     <key>KeepAlive</key>
     <true/>
 </dict>
 </plist>"
-echo "$plistFile" > "/Library/LaunchDaemons/remotely-agent.plist"
+echo "$plistFile" > "/Library/LaunchDaemons/nex-Remote-agent.plist"
 
-launchctl load -w /Library/LaunchDaemons/remotely-agent.plist
-launchctl kickstart -k system/com.translucency.remotely-agent
+launchctl load -w /Library/LaunchDaemons/nex-Remote-agent.plist
+launchctl kickstart -k system/com.translucency.nex-Remote-agent

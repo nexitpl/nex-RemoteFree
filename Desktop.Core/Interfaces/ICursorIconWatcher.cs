@@ -1,7 +1,7 @@
-﻿using Remotely.Shared.Models;
+﻿using nexRemote.Shared.Models;
 using System;
 
-namespace Remotely.Desktop.Core.Interfaces
+namespace nexRemote.Desktop.Core.Interfaces
 {
     public interface ICursorIconWatcher
     {

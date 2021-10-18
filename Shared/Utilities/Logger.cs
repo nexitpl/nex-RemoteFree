@@ -1,5 +1,5 @@
-﻿using Remotely.Shared.Enums;
-using Remotely.Shared.Utilities;
+﻿using nexRemote.Shared.Enums;
+using nexRemote.Shared.Utilities;
 using System;
 using System.Diagnostics;
 using System.IO;
@@ -9,7 +9,7 @@ using System.Runtime.InteropServices;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Remotely.Shared.Utilities
+namespace nexRemote.Shared.Utilities
 {
     public static class Logger
     {

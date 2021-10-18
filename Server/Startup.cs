@@ -14,21 +14,21 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using Npgsql;
-using Remotely.Server.Data;
-using Remotely.Server.Hubs;
-using Remotely.Server.Services;
-using Remotely.Shared.Models;
-using Remotely.Server.Areas.Identity;
+using nexRemote.Server.Data;
+using nexRemote.Server.Hubs;
+using nexRemote.Server.Services;
+using nexRemote.Shared.Models;
+using nexRemote.Server.Areas.Identity;
 using System;
 using System.IO;
 using System.Linq;
 using System.Net;
 using Microsoft.AspNetCore.Components.Server.Circuits;
 using Microsoft.AspNetCore.Authorization;
-using Remotely.Server.Auth;
+using nexRemote.Server.Auth;
 using Microsoft.AspNetCore.Http.Extensions;
 
-namespace Remotely.Server
+namespace nexRemote.Server
 {
     public class Startup
     {

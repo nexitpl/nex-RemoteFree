@@ -1,7 +1,7 @@
-﻿<Application x:Class="Remotely.Desktop.Win.App"
+﻿<Application x:Class="nexRemote.Desktop.Win.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:Remotely.Desktop.Win"
+             xmlns:local="clr-namespace:nexRemote.Desktop.Win"
              DispatcherUnhandledException="Application_DispatcherUnhandledException"
              Startup="Application_Startup">
     <Application.Resources>

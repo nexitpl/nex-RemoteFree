@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Remotely.Server.Models
+namespace nexRemote.Server.Models
 {
     public class ModalButton
     {

@@ -11,12 +11,12 @@ using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
-using Remotely.Shared.Models;
-using Remotely.Server.Services;
+using nexRemote.Shared.Models;
+using nexRemote.Server.Services;
 using Microsoft.AspNetCore.WebUtilities;
 using System.Text;
 
-namespace Remotely.Server.Areas.Identity.Pages.Account
+namespace nexRemote.Server.Areas.Identity.Pages.Account
 {
     [AllowAnonymous]
     public class LoginModel : PageModel

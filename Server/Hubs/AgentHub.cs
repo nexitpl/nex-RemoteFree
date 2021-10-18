@@ -1,11 +1,11 @@
 ﻿using Microsoft.AspNetCore.SignalR;
 using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.Logging;
-using Remotely.Server.Models;
-using Remotely.Server.Services;
-using Remotely.Shared.Enums;
-using Remotely.Shared.Models;
-using Remotely.Shared.Utilities;
+using nexRemote.Server.Models;
+using nexRemote.Server.Services;
+using nexRemote.Shared.Enums;
+using nexRemote.Shared.Models;
+using nexRemote.Shared.Utilities;
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
@@ -13,7 +13,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Remotely.Server.Hubs
+namespace nexRemote.Server.Hubs
 {
     public class AgentHub : Hub
     {

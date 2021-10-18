@@ -1,12 +1,12 @@
-﻿using Remotely.Shared.Models;
-using Remotely.Shared.Utilities;
+﻿using nexRemote.Shared.Models;
+using nexRemote.Shared.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Text.Json;
 
-namespace Remotely.Agent.Services
+namespace nexRemote.Agent.Services
 {
     public class ConfigService
     {
@@ -74,7 +74,7 @@ namespace Remotely.Agent.Services
                 {
                     if (!File.Exists("ConnectionInfo.json"))
                     {
-                        Logger.Write(new Exception("No connection info available.  Please create ConnectionInfo.json file with appropriate values."));
+                        Logger.Write(new Exception("Brak dostępnych informacji o połączeniu.  Proszę utworzyć plik ConnectionInfo.json z odpowiednimi wartościami."));
                         return null;
                     }
                     _connectionInfo = JsonSerializer.Deserialize<ConnectionInfo>(File.ReadAllText("ConnectionInfo.json"));

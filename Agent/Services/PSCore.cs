@@ -1,5 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using Remotely.Shared.Models;
+using nexRemote.Shared.Models;
 using System;
 using System.Collections.Concurrent;
 using System.Diagnostics;
@@ -8,7 +8,7 @@ using System.Management.Automation;
 using System.Management.Automation.Runspaces;
 using System.Timers;
 
-namespace Remotely.Agent.Services
+namespace nexRemote.Agent.Services
 {
     public class PSCore
     {

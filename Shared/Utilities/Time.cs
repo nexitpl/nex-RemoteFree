@@ -1,12 +1,12 @@
-﻿using Remotely.Shared.Enums;
-using Remotely.Shared.Models;
+﻿using nexRemote.Shared.Enums;
+using nexRemote.Shared.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Remotely.Shared.Utilities
+namespace nexRemote.Shared.Utilities
 {
     public static class Time
     {

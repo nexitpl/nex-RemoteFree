@@ -1,9 +1,9 @@
-﻿using Remotely.Desktop.Core.Interfaces;
-using Remotely.Shared.Models;
+﻿using nexRemote.Desktop.Core.Interfaces;
+using nexRemote.Shared.Models;
 using System;
 using System.Drawing;
 
-namespace Remotely.Desktop.XPlat.Services
+namespace nexRemote.Desktop.XPlat.Services
 {
     public class CursorIconWatcherLinux : ICursorIconWatcher
     {

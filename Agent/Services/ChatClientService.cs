@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.SignalR.Client;
-using Remotely.Agent.Interfaces;
-using Remotely.Agent.Models;
-using Remotely.Shared.Models;
-using Remotely.Shared.Utilities;
+using nexRemote.Agent.Interfaces;
+using nexRemote.Agent.Models;
+using nexRemote.Shared.Models;
+using nexRemote.Shared.Utilities;
 using System;
 using System.Diagnostics;
 using System.IO;
@@ -12,7 +12,7 @@ using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Remotely.Agent.Services
+namespace nexRemote.Agent.Services
 {
     public class ChatClientService
     {
@@ -45,7 +45,7 @@ namespace Remotely.Agent.Services
         {
             if (!await MessageLock.WaitAsync(30000))
             {
-                Logger.Write("Timed out waiting for chat message lock.", Shared.Enums.EventType.Warning);
+                Logger.Write("Przekroczono limit czasu oczekiwania na blokadę wiadomości czatu.", Shared.Enums.EventType.Warning);
                 return;
             }
 
@@ -64,19 +64,19 @@ namespace Remotely.Agent.Services
 
                     if (procID > 0)
                     {
-                        Logger.Write($"Chat app started.  Process ID: {procID}");
+                        Logger.Write($"Aplikacja czatu została uruchomiona.  ID Procesu: {procID}");
                     }
                     else
                     {
-                        Logger.Write($"Chat app did not start successfully.");
+                        Logger.Write($"Aplikacja czatu nie uruchomiła się pomyślnie.");
                         return;
                     }
 
-                    var clientPipe = new NamedPipeClientStream(".", "Remotely_Chat" + senderConnectionID, PipeDirection.InOut, PipeOptions.Asynchronous);
+                    var clientPipe = new NamedPipeClientStream(".", "nex-Remote_Chat" + senderConnectionID, PipeDirection.InOut, PipeOptions.Asynchronous);
                     clientPipe.Connect(15000);
                     if (!clientPipe.IsConnected)
                     {
-                        Logger.Write("Failed to connect to chat host.");
+                        Logger.Write("Nie udało się połączyć z hostem czatu.");
                         return;
                     }
                     chatSession = new ChatSession() { PipeStream = clientPipe, ProcessID = procID };
@@ -89,7 +89,7 @@ namespace Remotely.Agent.Services
                 if (!chatSession.PipeStream.IsConnected)
                 {
                     ChatClients.Remove(senderConnectionID);
-                    await hubConnection.SendAsync("DisplayMessage", "Chat disconnected.  Please try again.", "Chat disconnected.", "bg-warning", senderConnectionID);
+                    await hubConnection.SendAsync("DisplayMessage", "Rozłączono czat.  Please try again.", "Rozłączono czat.", "bg-warning", senderConnectionID);
                     return;
                 }
 

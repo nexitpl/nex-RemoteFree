@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 
-namespace Remotely.Shared.Models
+namespace nexRemote.Shared.Models
 {
     public class RemotelyUser : IdentityUser
     {

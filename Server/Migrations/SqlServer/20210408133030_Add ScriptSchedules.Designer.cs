@@ -5,9 +5,9 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using Remotely.Server.Data;
+using nexRemote.Server.Data;
 
-namespace Remotely.Server.Migrations.SqlServer
+namespace nexRemote.Server.Migrations.SqlServer
 {
     [DbContext(typeof(SqlServerDbContext))]
     [Migration("20210408133030_Add ScriptSchedules")]

@@ -1,11 +1,11 @@
-﻿using Remotely.Desktop.Core.Interfaces;
-using Remotely.Shared.Models;
-using Remotely.Shared.Utilities;
+﻿using nexRemote.Desktop.Core.Interfaces;
+using nexRemote.Shared.Models;
+using nexRemote.Shared.Utilities;
 using System;
 using System.IO;
 using System.Text.Json;
 
-namespace Remotely.Desktop.Win.Services
+namespace nexRemote.Desktop.Win.Services
 {
 
     public class ConfigServiceWin : IConfigService

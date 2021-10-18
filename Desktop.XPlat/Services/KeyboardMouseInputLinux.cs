@@ -1,11 +1,11 @@
-﻿using Remotely.Desktop.Core.Enums;
-using Remotely.Desktop.Core.Interfaces;
-using Remotely.Desktop.Core.Services;
-using Remotely.Desktop.XPlat.Native.Linux;
-using Remotely.Shared.Utilities;
+﻿using nexRemote.Desktop.Core.Enums;
+using nexRemote.Desktop.Core.Interfaces;
+using nexRemote.Desktop.Core.Services;
+using nexRemote.Desktop.XPlat.Native.Linux;
+using nexRemote.Shared.Utilities;
 using System;
 
-namespace Remotely.Desktop.XPlat.Services
+namespace nexRemote.Desktop.XPlat.Services
 {
     public class KeyboardMouseInputLinux : IKeyboardMouseInput
     {
@@ -27,7 +27,7 @@ namespace Remotely.Desktop.XPlat.Services
                 var keySim = LibX11.XStringToKeysym(key);
                 if (keySim == IntPtr.Zero)
                 {
-                    Logger.Write($"Key not mapped: {key}");
+                    Logger.Write($"Klawisz niezmapowany: {key}");
                     return;
                 }
 
@@ -50,7 +50,7 @@ namespace Remotely.Desktop.XPlat.Services
                 var keySim = LibX11.XStringToKeysym(key);
                 if (keySim == IntPtr.Zero)
                 {
-                    Logger.Write($"Key not mapped: {key}");
+                    Logger.Write($"Klawisz niezmapowany: {key}");
                     return;
                 }
 

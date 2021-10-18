@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.SignalR.Client;
-using Remotely.Agent.Interfaces;
-using Remotely.Shared.Models;
-using Remotely.Shared.Utilities;
-using Remotely.Shared.Win32;
+using nexRemote.Agent.Interfaces;
+using nexRemote.Shared.Models;
+using nexRemote.Shared.Utilities;
+using nexRemote.Shared.Win32;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -10,7 +10,7 @@ using System.IO;
 using System.Security.Principal;
 using System.Threading.Tasks;
 
-namespace Remotely.Agent.Services
+namespace nexRemote.Agent.Services
 {
 
     public class AppLauncherWin : IAppLauncher
@@ -30,12 +30,12 @@ namespace Remotely.Agent.Services
             {
                 if (!File.Exists(_rcBinaryPath))
                 {
-                    await hubConnection.SendAsync("DisplayMessage", "Chat executable not found on target device.", "Executable not found on device.", "bg-danger", requesterID);
+                    await hubConnection.SendAsync("DisplayMessage", "Nie znaleziono pliku wykonywalnego czatu na urządzeniu docelowym.", "Nie znaleziono pliku wykonywalnego na urządzeniu.", "bg-danger", requesterID);
                 }
 
 
                 // Start Desktop app.
-                await hubConnection.SendAsync("DisplayMessage", $"Starting chat service.", "Starting chat service.", "bg-success", requesterID);
+                await hubConnection.SendAsync("DisplayMessage", $"Uruchamiam usługę czatu.", "Uruchamiam usługę czatu.", "bg-success", requesterID);
                 if (WindowsIdentity.GetCurrent().IsSystem)
                 {
                     var result = Win32Interop.OpenInteractiveProcess($"{_rcBinaryPath} " +
@@ -51,9 +51,9 @@ namespace Remotely.Agent.Services
                         out var procInfo);
                     if (!result)
                     {
-                        await hubConnection.SendAsync("DisplayMessage", 
-                            "Chat service failed to start on target device.", 
-                            "Failed to start chat service.", 
+                        await hubConnection.SendAsync("DisplayMessage",
+                            "Nie udało się uruchomić usługi czatu na urządzeniu docelowym.",
+                            "Nie udało się uruchomić usługi czatu.", 
                             "bg-danger",
                             requesterID);
                     }
@@ -75,9 +75,9 @@ namespace Remotely.Agent.Services
             catch (Exception ex)
             {
                 Logger.Write(ex);
-                await hubConnection.SendAsync("DisplayMessage", 
-                    "Chat service failed to start on target device.",
-                    "Failed to start chat service.",
+                await hubConnection.SendAsync("DisplayMessage",
+                    "Nie udało się uruchomić usługi czatu na urządzeniu docelowym.",
+                    "Nie udało się uruchomić usługi czatu.",
                     "bg-danger",
                     requesterID);
             }
@@ -90,9 +90,9 @@ namespace Remotely.Agent.Services
             {
                 if (!File.Exists(_rcBinaryPath))
                 {
-                    await hubConnection.SendAsync("DisplayMessage", 
-                        "Remote control executable not found on target device.", 
-                        "Executable not found on device.", 
+                    await hubConnection.SendAsync("DisplayMessage",
+                        "Nie znaleziono pliku wykonywalnego zdalnego sterowania na urządzeniu docelowym.",
+                        "Nie znaleziono pliku wykonywalnego na urządzeniu.", 
                         "bg-danger",
                         requesterID);
                     return;
@@ -101,8 +101,8 @@ namespace Remotely.Agent.Services
 
                 // Start Desktop app.
                 await hubConnection.SendAsync("DisplayMessage", 
-                    "Starting remote control.",
-                    "Starting remote control.",
+                    "Uruchamianie kontroli zdalnej.",
+                    "Uruchamianie kontroli zdalnej.",
                     "bg-success",
                     requesterID);
                 if (WindowsIdentity.GetCurrent().IsSystem)
@@ -121,9 +121,9 @@ namespace Remotely.Agent.Services
                         out _);
                     if (!result)
                     {
-                        await hubConnection.SendAsync("DisplayMessage", 
-                            "Remote control failed to start on target device.",
-                            "Failed to start remote control.",
+                        await hubConnection.SendAsync("DisplayMessage",
+                            "Nie udało się uruchomić kontroli zdalnej na urządzeniu docelowym.",
+                            "Nie udało się uruchomić kontroli zdalnej.",
                             "bg-danger",
                             requesterID);
                     }
@@ -143,9 +143,9 @@ namespace Remotely.Agent.Services
             catch (Exception ex)
             {
                 Logger.Write(ex);
-                await hubConnection.SendAsync("DisplayMessage", 
-                    "Remote control failed to start on target device.", 
-                    "Failed to start remote control.",
+                await hubConnection.SendAsync("DisplayMessage",
+                    "Nie udało się uruchomić kontroli zdalnej na urządzeniu docelowym.",
+                    "Nie udało się uruchomić pilota.",
                     "bg-danger",
                     requesterID);
             }
@@ -155,7 +155,7 @@ namespace Remotely.Agent.Services
             try
             {
                 // Start Desktop app.                 
-                Logger.Write("Restarting screen caster.");
+                Logger.Write("Ponowne uruchamianie rzutnika ekranu.");
                 if (WindowsIdentity.GetCurrent().IsSystem)
                 {
                     // Give a little time for session changing, etc.
@@ -179,11 +179,11 @@ namespace Remotely.Agent.Services
 
                     if (!result)
                     {
-                        Logger.Write("Failed to relaunch screen caster.");
+                        Logger.Write("Nie udało się ponownie uruchomić narzędzia do rzucania ekranu.");
                         await hubConnection.SendAsync("SendConnectionFailedToViewers", viewerIDs);
-                        await hubConnection.SendAsync("DisplayMessage", 
-                            "Remote control failed to start on target device.",
-                            "Failed to start remote control.",
+                        await hubConnection.SendAsync("DisplayMessage",
+                            "Nie udało się uruchomić kontroli zdalnej na urządzeniu docelowym.",
+                            "Nie udało się uruchomić pilota.",
                             "bg-danger",
                             requesterID);
                     }

@@ -10,11 +10,11 @@
     <Authors>Jakub Potoczny</Authors>
     <Product>nex-Remote Agent</Product>
     <Company>Usługi Informatyczne "nex-IT" Jakub Potoczny</Company>
-    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <AssemblyVersion>2.0.0.0</AssemblyVersion>
     <PackageProjectUrl>https://nex-it.pl</PackageProjectUrl>
     <Platforms>AnyCPU;x86;x64</Platforms>
     <AssemblyName>nex-Remote_Agent</AssemblyName>
-    <RootNamespace>Remotely.Agent</RootNamespace>
+    <RootNamespace>nex-Remote.Agent</RootNamespace>
     <ApplicationIcon>Assets\favicon.ico</ApplicationIcon>
   </PropertyGroup>
 

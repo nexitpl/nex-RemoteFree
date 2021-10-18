@@ -1,8 +1,8 @@
 ﻿using IWshRuntimeLibrary;
 using Microsoft.VisualBasic.FileIO;
 using Microsoft.Win32;
-using Remotely.Agent.Installer.Win.Utilities;
-using Remotely.Shared.Models;
+using nexRemote.Agent.Installer.Win.Utilities;
+using nexRemote.Shared.Models;
 using System;
 using System.Configuration.Install;
 using System.Diagnostics;
@@ -18,7 +18,7 @@ using System.Web.Script.Serialization;
 using System.Windows;
 using FileIO = System.IO.File;
 
-namespace Remotely.Agent.Installer.Win.Services
+namespace nexRemote.Agent.Installer.Win.Services
 {
     public class InstallerService
     {
@@ -57,7 +57,7 @@ namespace Remotely.Agent.Installer.Win.Services
 
                 FileIO.WriteAllText(Path.Combine(InstallPath, "ConnectionInfo.json"), Serializer.Serialize(connectionInfo));
 
-                FileIO.Copy(Assembly.GetExecutingAssembly().Location, Path.Combine(InstallPath, "nex-Remote.exe"));
+                FileIO.Copy(Assembly.GetExecutingAssembly().Location, Path.Combine(InstallPath, "nex-Remote_Installer.exe"));
 
                 await CreateDeviceOnServer(connectionInfo.DeviceID, serverUrl, deviceGroup, deviceAlias, organizationId);
 
@@ -99,7 +99,7 @@ namespace Remotely.Agent.Installer.Win.Services
                 ClearInstallDirectory();
                 ProcessEx.StartHidden("cmd.exe", $"/c timeout 5 & rd /s /q \"{InstallPath}\"");
 
-                ProcessEx.StartHidden("netsh", "advfirewall firewall delete rule name=\"nex-Remote Unattended\"").WaitForExit();
+                ProcessEx.StartHidden("netsh", "advfirewall firewall delete rule name=\"nex-Remote Desktop Unattended\"").WaitForExit();
 
                 GetRegistryBaseKey().DeleteSubKeyTree(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\nex-Remote", false);
 
@@ -114,9 +114,9 @@ namespace Remotely.Agent.Installer.Win.Services
 
         private void AddFirewallRule()
         {
-            var desktopExePath = Path.Combine(InstallPath, "Desktop", "nex-Remote.exe");
-            ProcessEx.StartHidden("netsh", "advfirewall firewall delete rule name=\"nex-Remote Unattended\"").WaitForExit();
-            ProcessEx.StartHidden("netsh", $"advfirewall firewall add rule name=\"nex-Remote Unattended\" program=\"{desktopExePath}\" protocol=any dir=in enable=yes action=allow description=\"Agent, który umożliwia udostępnianie ekranu i zdalne sterowanie dla nex-Remote.\"").WaitForExit();
+            var desktopExePath = Path.Combine(InstallPath, "Desktop", "nex-Remote_Desktop.exe");
+            ProcessEx.StartHidden("netsh", "advfirewall firewall delete rule name=\"nex-Remote Desktop Unattended\"").WaitForExit();
+            ProcessEx.StartHidden("netsh", $"advfirewall firewall add rule name=\"nex-Remote Desktop Unattended\" program=\"{desktopExePath}\" protocol=any dir=in enable=yes action=allow description=\"Agent, który umożliwia udostępnianie ekranu i zdalne sterowanie dla nex-Remote.\"").WaitForExit();
         }
 
         private void BackupDirectory()
@@ -218,7 +218,7 @@ namespace Remotely.Agent.Installer.Win.Services
         private void CreateSupportShortcut(string serverUrl, string deviceUuid, bool createSupportShortcut)
         {
             var shell = new WshShell();
-            var shortcutLocation = Path.Combine(InstallPath, "nex-Remote.lnk");
+            var shortcutLocation = Path.Combine(InstallPath, "nex-Remote Uzyskaj Wsparcie.lnk");
             var shortcut = (IWshShortcut)shell.CreateShortcut(shortcutLocation);
             shortcut.Description = "nex-Remote Wsparcie";
             shortcut.IconLocation = Path.Combine(InstallPath, "nex-Remote_Agent.exe");
@@ -228,7 +228,7 @@ namespace Remotely.Agent.Installer.Win.Services
             if (createSupportShortcut)
             {
                 var systemRoot = Path.GetPathRoot(Environment.SystemDirectory);
-                var publicDesktop = Path.Combine(systemRoot, "Users", "Public", "Desktop", "nex-Remote.lnk");
+                var publicDesktop = Path.Combine(systemRoot, "Users", "Public", "Desktop", "nex-Remote Uzyskaj Wsparcie.lnk");
                 FileIO.Copy(shortcutLocation, publicDesktop, true);
             }
         }

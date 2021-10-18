@@ -1,7 +1,7 @@
-﻿using Remotely.Desktop.Core.Interfaces;
+﻿using nexRemote.Desktop.Core.Interfaces;
 using System;
 
-namespace Remotely.Desktop.XPlat.Services
+namespace nexRemote.Desktop.XPlat.Services
 {
     public class AudioCapturerLinux : IAudioCapturer
     {

@@ -1,16 +1,16 @@
-﻿using Remotely.Desktop.Core.Enums;
-using Remotely.Desktop.Core.Interfaces;
-using Remotely.Desktop.Core.Services;
-using Remotely.Shared.Utilities;
-using Remotely.Shared.Win32;
+﻿using nexRemote.Desktop.Core.Enums;
+using nexRemote.Desktop.Core.Interfaces;
+using nexRemote.Desktop.Core.Services;
+using nexRemote.Shared.Utilities;
+using nexRemote.Shared.Win32;
 using System;
 using System.Collections.Concurrent;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static Remotely.Shared.Win32.User32;
+using static nexRemote.Shared.Win32.User32;
 
-namespace Remotely.Desktop.Win.Services
+namespace nexRemote.Desktop.Win.Services
 {
     public class KeyboardMouseInputWin : IKeyboardMouseInput
     {
@@ -278,7 +278,7 @@ namespace Remotely.Desktop.Win.Services
             {
                 _inputBlocked = toggleOn;
                 var result = BlockInput(toggleOn);
-                Logger.Write($"Result of ToggleBlockInput set to {toggleOn}: {result}");
+                Logger.Write($"Blokowanie interakcji użytkownika ustawione na {toggleOn}: {result}");
             });
         }
 
@@ -303,7 +303,7 @@ namespace Remotely.Desktop.Win.Services
                 }
             }
 
-            Logger.Write($"Stopping input processing on thread {Thread.CurrentThread.ManagedThreadId}.");
+            Logger.Write($"Zatrzymywanie przetwarzania danych wejściowych w wątku {Thread.CurrentThread.ManagedThreadId}.");
         }
 
         private bool ConvertJavaScriptKeyToVirtualKey(string key, out VirtualKey? result)
@@ -353,7 +353,7 @@ namespace Remotely.Desktop.Win.Services
 
             if (result is null)
             {
-                Logger.Write($"Unable to parse key input: {key}.");
+                Logger.Write($"Nie można przeanalizować danych wejściowych klawisza: {key}.");
                 return false;
             }
             return true;
@@ -369,7 +369,7 @@ namespace Remotely.Desktop.Win.Services
             // processes a queue of input events.
             _inputProcessingThread = new Thread(() =>
             {
-                Logger.Write($"New input processing thread started on thread {Thread.CurrentThread.ManagedThreadId}.");
+                Logger.Write($"Uruchomiono nowy wątek przetwarzania danych wejściowych w wątku {Thread.CurrentThread.ManagedThreadId}.");
                 _cancelTokenSource = new CancellationTokenSource();
 
                 if (_inputBlocked)
@@ -391,7 +391,7 @@ namespace Remotely.Desktop.Win.Services
                 {
                     if (!Win32Interop.SwitchToInputDesktop())
                     {
-                        Logger.Write("Desktop switch failed during input processing.");
+                        Logger.Write("Przełącznik pulpitu nie powiódł się podczas przetwarzania danych wejściowych.");
 
                         // Thread likely has hooks in current desktop.  SendKeys will create one with no way to unhook it.
                         // Start a new thread for processing input.

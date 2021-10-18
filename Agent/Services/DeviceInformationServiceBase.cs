@@ -1,6 +1,6 @@
-﻿using Remotely.Shared.Models;
-using Remotely.Shared.Services;
-using Remotely.Shared.Utilities;
+﻿using nexRemote.Shared.Models;
+using nexRemote.Shared.Services;
+using nexRemote.Shared.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Remotely.Agent.Services
+namespace nexRemote.Agent.Services
 {
     public class DeviceInformationServiceBase
     {
@@ -63,7 +63,7 @@ namespace Remotely.Agent.Services
             }
             catch (Exception ex)
             {
-                Logger.Write(ex, "Error getting system drive info.");
+                Logger.Write(ex, "Błąd podczas pobierania informacji o dysku systemowym.");
             }
 
             return (0, 0);
@@ -73,14 +73,14 @@ namespace Remotely.Agent.Services
         {
             try
             {
-                if (File.Exists("Remotely_Agent.dll"))
+                if (File.Exists("nex-Remote_Agent.dll"))
                 {
-                    return FileVersionInfo.GetVersionInfo("Remotely_Agent.dll").FileVersion.ToString().Trim();
+                    return FileVersionInfo.GetVersionInfo("nex-Remote_Agent.dll").FileVersion.ToString().Trim();
                 }
             }
             catch (Exception ex)
             {
-                Logger.Write(ex, "Error getting agent version.");
+                Logger.Write(ex, "Błąd podczas pobierania wersji agenta.");
             }
 
             return "0.0.0.0";
@@ -103,7 +103,7 @@ namespace Remotely.Agent.Services
             }
             catch (Exception ex)
             {
-                Logger.Write(ex, "Error getting drive info.");
+                Logger.Write(ex, "Błąd podczas pobierania informacji o dysku.");
                 return null;
             }
         }

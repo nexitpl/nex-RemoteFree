@@ -10,9 +10,9 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
-using Remotely.Shared.Models;
+using nexRemote.Shared.Models;
 
-namespace Remotely.Server.Areas.Identity.Pages.Account.Manage
+namespace nexRemote.Server.Areas.Identity.Pages.Account.Manage
 {
     public class EnableAuthenticatorModel : PageModel
     {
@@ -149,7 +149,7 @@ namespace Remotely.Server.Areas.Identity.Pages.Account.Manage
         {
             return string.Format(
                 AuthenticatorUriFormat,
-                _urlEncoder.Encode("Remotely.Server"),
+                _urlEncoder.Encode("nex-Remote.Server"),
                 _urlEncoder.Encode(email),
                 unformattedKey);
         }

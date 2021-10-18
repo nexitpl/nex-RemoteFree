@@ -1,6 +1,6 @@
-﻿using Remotely.Desktop.Core.Interfaces;
-using Remotely.Shared.Models;
-using Remotely.Shared.Win32;
+﻿using nexRemote.Desktop.Core.Interfaces;
+using nexRemote.Shared.Models;
+using nexRemote.Shared.Win32;
 using System;
 using System.Drawing;
 using System.Drawing.Imaging;
@@ -9,7 +9,7 @@ using System.Runtime.InteropServices;
 using System.Timers;
 using System.Windows.Forms;
 
-namespace Remotely.Desktop.Win.Services
+namespace nexRemote.Desktop.Win.Services
 {
     /// <summary>
     /// A class that can be used to watch for cursor icon changes.

@@ -27,7 +27,7 @@ in this Software without prior written authorization from The Open Group.
 using System;
 using System.Runtime.InteropServices;
 
-namespace Remotely.Desktop.XPlat.Native.Linux
+namespace nexRemote.Desktop.XPlat.Native.Linux
 {
     public static unsafe class LibX11
     {

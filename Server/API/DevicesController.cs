@@ -1,14 +1,14 @@
 ﻿using Microsoft.AspNetCore.Http.Extensions;
 using Microsoft.AspNetCore.Mvc;
-using Remotely.Server.Auth;
-using Remotely.Server.Services;
-using Remotely.Shared.Models;
+using nexRemote.Server.Auth;
+using nexRemote.Server.Services;
+using nexRemote.Shared.Models;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
-namespace Remotely.Server.API
+namespace nexRemote.Server.API
 {
     [ApiController]
     [Route("api/[controller]")]
@@ -61,7 +61,7 @@ namespace Remotely.Server.API
             if (deviceOptions == null ||
                 string.IsNullOrWhiteSpace(organizationId))
             {
-                return BadRequest("DeviceOptions and OrganizationId are required.");
+                return BadRequest("DeviceOptions i OrganizationId są wymagane.");
             }
 
             if (User.Identity.IsAuthenticated &&
@@ -84,7 +84,7 @@ namespace Remotely.Server.API
             var device = await DataService.CreateDevice(deviceOptions);
             if (device is null)
             {
-                return BadRequest("Device already exists.  Use Put with authorization to update the device.");
+                return BadRequest("Urządzenie już istnieje.  Użyj Put z autoryzacją, aby zaktualizować urządzenie.");
             }
             return Created(Request.GetDisplayUrl(), device);
         }

@@ -6,7 +6,7 @@ using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Remotely.Shared.Services
+namespace nexRemote.Shared.Services
 {
     public class ElevationDetectorWin : IElevationDetector
     {

@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Remotely.Agent.Installer.Win.Properties {
+namespace nexRemote.Agent.Installer.Win.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]

@@ -1,7 +1,7 @@
-﻿using Remotely.Desktop.Core.Enums;
-using Remotely.Desktop.Core.Services;
+﻿using nexRemote.Desktop.Core.Enums;
+using nexRemote.Desktop.Core.Services;
 
-namespace Remotely.Desktop.Core.Interfaces
+namespace nexRemote.Desktop.Core.Interfaces
 {
     public interface IKeyboardMouseInput
     {

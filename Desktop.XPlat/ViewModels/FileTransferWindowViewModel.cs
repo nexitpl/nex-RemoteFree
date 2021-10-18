@@ -1,11 +1,11 @@
 ﻿using Avalonia.Controls;
 using Avalonia.Threading;
 using ReactiveUI;
-using Remotely.Desktop.Core.Interfaces;
-using Remotely.Desktop.Core.Services;
-using Remotely.Desktop.Core.ViewModels;
-using Remotely.Desktop.XPlat.Services;
-using Remotely.Desktop.XPlat.Views;
+using nexRemote.Desktop.Core.Interfaces;
+using nexRemote.Desktop.Core.Services;
+using nexRemote.Desktop.Core.ViewModels;
+using nexRemote.Desktop.XPlat.Services;
+using nexRemote.Desktop.XPlat.Views;
 using System;
 using System.Collections.ObjectModel;
 using System.IO;
@@ -13,7 +13,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace Remotely.Desktop.XPlat.ViewModels
+namespace nexRemote.Desktop.XPlat.ViewModels
 {
     public class FileTransferWindowViewModel : BrandedViewModelBase
     {
@@ -41,12 +41,12 @@ namespace Remotely.Desktop.XPlat.ViewModels
             var initialDir = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory);
             if (!Directory.Exists(initialDir))
             {
-                initialDir = Directory.CreateDirectory(Path.Combine(Path.GetTempPath(), "Remotely_Shared")).FullName;
+                initialDir = Directory.CreateDirectory(Path.Combine(Path.GetTempPath(), "nex-Remote_Shared")).FullName;
             }
 
             var ofd = new OpenFileDialog
             {
-                Title = "Upload File via Remotely",
+                Title = "Transfer Plików via nex-Remote",
                 AllowMultiple = true,
                 Directory = initialDir
             };

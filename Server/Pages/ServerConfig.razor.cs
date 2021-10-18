@@ -5,11 +5,11 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.SignalR;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
-using Remotely.Server.Components;
-using Remotely.Server.Hubs;
-using Remotely.Server.Services;
-using Remotely.Shared.Enums;
-using Remotely.Shared.Models;
+using nexRemote.Server.Components;
+using nexRemote.Server.Hubs;
+using nexRemote.Server.Services;
+using nexRemote.Shared.Enums;
+using nexRemote.Shared.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -19,7 +19,7 @@ using System.Text.Json.Serialization;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Remotely.Server.Pages
+namespace nexRemote.Server.Pages
 {
     public class AppSettingsModel
     {

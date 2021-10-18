@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.SignalR.Client;
-using Remotely.Agent.Interfaces;
-using Remotely.Shared.Models;
-using Remotely.Shared.Services;
-using Remotely.Shared.Utilities;
+using nexRemote.Agent.Interfaces;
+using nexRemote.Shared.Models;
+using nexRemote.Shared.Services;
+using nexRemote.Shared.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -10,7 +10,7 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Remotely.Agent.Services
+namespace nexRemote.Agent.Services
 {
 
     public class AppLauncherLinux : IAppLauncher
@@ -32,8 +32,8 @@ namespace Remotely.Agent.Services
             {
                 if (!File.Exists(_rcBinaryPath))
                 {
-                    await hubConnection.SendAsync("DisplayMessage", 
-                        "Chat executable not found on target device.", 
+                    await hubConnection.SendAsync("DisplayMessage",
+                        "Nie znaleziono pliku wykonywalnego czatu na urządzeniu docelowym.", 
                         "Executable not found on device.", 
                         "bg-danger",
                         requesterID);
@@ -41,7 +41,7 @@ namespace Remotely.Agent.Services
 
 
                 // Start Desktop app.
-                await hubConnection.SendAsync("DisplayMessage", $"Starting chat service.", "Starting chat service.", "bg-success", requesterID);
+                await hubConnection.SendAsync("DisplayMessage", $"Uruchamiam usługę czatu.", "Uruchamiam usługę czatu.", "bg-success", requesterID);
                 var args = $"{_rcBinaryPath} " +
                     $"-mode Chat " +
                     $"-requester \"{requesterID}\" " +
@@ -53,7 +53,7 @@ namespace Remotely.Agent.Services
             catch (Exception ex)
             {
                 Logger.Write(ex);
-                await hubConnection.SendAsync("DisplayMessage", "Chat service failed to start on target device.", "Failed to start chat service.", "bg-danger", requesterID);
+                await hubConnection.SendAsync("DisplayMessage", "Nie udało się uruchomić usługi czatu na urządzeniu docelowym.", "Nie udało się uruchomić usługi czatu.", "bg-danger", requesterID);
             }
             return -1;
         }
@@ -65,8 +65,8 @@ namespace Remotely.Agent.Services
                 if (!File.Exists(_rcBinaryPath))
                 {
                     await hubConnection.SendAsync("DisplayMessage",
-                        "Remote control executable not found on target device.", 
-                        "Executable not found on device.", 
+                        "Nie znaleziono pliku wykonywalnego kontroli zdalnej na urządzeniu docelowym.",
+                        "Nie znaleziono pliku wykonywalnego na urządzeniu.", 
                         "bg-danger", 
                         requesterID);
                     return;
@@ -74,7 +74,7 @@ namespace Remotely.Agent.Services
 
 
                 // Start Desktop app.
-                await hubConnection.SendAsync("DisplayMessage", "Starting remote control.", "Starting remote control.",  "bg-success", requesterID);
+                await hubConnection.SendAsync("DisplayMessage", "Uruchamianie kontroli zdalnej.", "Uruchamianie kontroli zdalnej.",  "bg-success", requesterID);
                 var args = $"{_rcBinaryPath} " +
                     $"-mode Unattended " +
                     $"-requester \"{requesterID}\" " +
@@ -87,7 +87,7 @@ namespace Remotely.Agent.Services
             catch (Exception ex)
             {
                 Logger.Write(ex);
-                await hubConnection.SendAsync("DisplayMessage", "Remote control failed to start on target device.", "Failed to start remote control.", "bg-danger", requesterID);
+                await hubConnection.SendAsync("DisplayMessage", "Nie udało się uruchomić kontroli zdalnej na urządzeniu docelowym.", "Nie udało się uruchomić pilota.", "bg-danger", requesterID);
             }
         }
         public async Task RestartScreenCaster(List<string> viewerIDs, string serviceID, string requesterID, HubConnection hubConnection, int targetSessionID = -1)
@@ -150,7 +150,7 @@ namespace Remotely.Agent.Services
 
             psi.Environment.Add("DISPLAY", display);
             psi.Environment.Add("XAUTHORITY", xauthority);
-            Logger.Write($"Attempting to launch screen caster with username {username}, xauthority {xauthority}, display {display}, and args {args}.");
+            Logger.Write($"Próba uruchomienia programu screen cast z nazwą użytkownika {username}, xauthority {xauthority}, display {display}, and args {args}.");
             return Process.Start(psi).Id;
         }
 

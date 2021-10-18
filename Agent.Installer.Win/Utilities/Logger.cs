@@ -2,7 +2,7 @@
 using System.IO;
 using System.Linq;
 
-namespace Remotely.Agent.Installer.Win.Utilities
+namespace nexRemote.Agent.Installer.Win.Utilities
 {
     public class Logger
     {

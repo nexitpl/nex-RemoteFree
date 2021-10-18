@@ -1,6 +1,6 @@
 ﻿using System.Runtime.Serialization;
 
-namespace Remotely.Shared.Enums
+namespace nexRemote.Shared.Enums
 {
     [DataContract]
     public enum BaseDtoType

@@ -1,10 +1,10 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Remotely.Server.Auth;
-using Remotely.Server.Services;
-using Remotely.Shared.Models;
+using nexRemote.Server.Auth;
+using nexRemote.Server.Services;
+using nexRemote.Shared.Models;
 
-namespace Remotely.Server.Pages
+namespace nexRemote.Server.Pages
 {
     [ServiceFilter(typeof(RemoteControlFilterAttribute))]
     public class RemoteControlModel : PageModel

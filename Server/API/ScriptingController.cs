@@ -1,19 +1,19 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SignalR;
-using Remotely.Server.Hubs;
-using Remotely.Server.Services;
-using Remotely.Shared.Utilities;
-using Remotely.Shared.Models;
+using nexRemote.Server.Hubs;
+using nexRemote.Server.Services;
+using nexRemote.Shared.Utilities;
+using nexRemote.Shared.Models;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-using Remotely.Shared.Enums;
-using Remotely.Server.Auth;
+using nexRemote.Shared.Enums;
+using nexRemote.Server.Auth;
 
-namespace Remotely.Server.API
+namespace nexRemote.Server.API
 {
     [ApiController]
     [Route("api/[controller]")]
@@ -44,7 +44,7 @@ namespace Remotely.Server.API
         {
             if (!Enum.TryParse<ScriptingShell>(mode, true, out var shell))
             {
-                return BadRequest("Unable to parse shell type.  Use either PSCore, WinPS, Bash, or CMD.");
+                return BadRequest("Nie można przeanalizować typu powłoki. Użyj PSCore, WinPS, Bash lub CMD.");
             }
 
             var command = string.Empty;

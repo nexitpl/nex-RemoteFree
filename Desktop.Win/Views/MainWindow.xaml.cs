@@ -1,4 +1,4 @@
-﻿using Remotely.Desktop.Win.ViewModels;
+﻿using nexRemote.Desktop.Win.ViewModels;
 using System;
 using System.ComponentModel;
 using System.Threading.Tasks;
@@ -8,7 +8,7 @@ using System.Windows.Controls.Primitives;
 using System.Windows.Input;
 using System.Windows.Media.Animation;
 
-namespace Remotely.Desktop.Win.Views
+namespace nexRemote.Desktop.Win.Views
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml

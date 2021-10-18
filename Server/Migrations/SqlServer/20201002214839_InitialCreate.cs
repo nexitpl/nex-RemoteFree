@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace Remotely.Server.Migrations.SqlServer
+namespace nexRemote.Server.Migrations.SqlServer
 {
     public partial class InitialCreate : Migration
     {

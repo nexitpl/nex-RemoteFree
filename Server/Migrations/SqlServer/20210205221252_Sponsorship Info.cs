@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace Remotely.Server.Migrations.SqlServer
+namespace nexRemote.Server.Migrations.SqlServer
 {
     public partial class SponsorshipInfo : Migration
     {

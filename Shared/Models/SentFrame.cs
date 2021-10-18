@@ -1,11 +1,11 @@
-﻿using Remotely.Shared.Utilities;
+﻿using nexRemote.Shared.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Remotely.Shared.Models
+namespace nexRemote.Shared.Models
 {
     public struct SentFrame
     {

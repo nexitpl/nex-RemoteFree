@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Remotely.Server.Data
+namespace nexRemote.Server.Data
 {
     public class SqlServerDbContext : AppDb
     {

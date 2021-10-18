@@ -22,10 +22,10 @@
 // THE SOFTWARE.
 
 using Microsoft.Win32;
-using Remotely.Desktop.Core.Interfaces;
-using Remotely.Desktop.Win.Models;
-using Remotely.Shared.Utilities;
-using Remotely.Shared.Win32;
+using nexRemote.Desktop.Core.Interfaces;
+using nexRemote.Desktop.Win.Models;
+using nexRemote.Shared.Utilities;
+using nexRemote.Shared.Win32;
 using SharpDX;
 using SharpDX.Direct3D11;
 using SharpDX.DXGI;
@@ -38,7 +38,7 @@ using System.Runtime.InteropServices;
 using System.Threading;
 using System.Windows.Forms;
 
-namespace Remotely.Desktop.Win.Services
+namespace nexRemote.Desktop.Win.Services
 {
     public class ScreenCapturerWin : IScreenCapturer
     {
@@ -95,7 +95,7 @@ namespace Remotely.Desktop.Win.Services
 
                         if (NeedsInit)
                         {
-                            Logger.Write("Init needed in GetNextFrame.");
+                            Logger.Write("Init potrzebne w GetNextFrame.");
                             Init();
                             NeedsInit = false;
                         }
@@ -218,7 +218,7 @@ namespace Remotely.Desktop.Win.Services
             catch (Exception ex)
             {
                 Logger.Write(ex);
-                Logger.Write("Capturer error in BitBltCapture.");
+                Logger.Write("Błąd przechwytywania w BitBltCapture.");
                 NeedsInit = true;
             }
 
@@ -245,7 +245,7 @@ namespace Remotely.Desktop.Win.Services
                     }
                     else
                     {
-                        Logger.Write($"TryAcquireFrame error.  Code: {result.Code}");
+                        Logger.Write($"Błąd TryAcquireFrame. Kod: {result.Code}");
                         NeedsInit = true;
                         return (GetDirectXFrameResult.Failure, null);
                     }
@@ -303,7 +303,7 @@ namespace Remotely.Desktop.Win.Services
                 {
                     return (GetDirectXFrameResult.Timeout, null);
                 }
-                Logger.Write(e, "SharpDXException error.");
+                Logger.Write(e, "Błąd SharpDXException.");
             }
             catch (Exception ex)
             {

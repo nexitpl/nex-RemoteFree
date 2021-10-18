@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.SignalR.Client;
-using Remotely.Shared.Enums;
-using Remotely.Shared.Models;
-using Remotely.Shared.Utilities;
+using nexRemote.Shared.Enums;
+using nexRemote.Shared.Models;
+using nexRemote.Shared.Utilities;
 using System;
 using System.IO;
 using System.Linq;
@@ -11,7 +11,7 @@ using System.Net.Http.Json;
 using System.Text.Json;
 using System.Threading.Tasks;
 
-namespace Remotely.Agent.Services
+namespace nexRemote.Agent.Services
 {
     public class ScriptExecutor
     {
@@ -73,8 +73,8 @@ namespace Remotely.Agent.Services
             {
                 Logger.Write(ex);
                 await hubConnection.SendAsync("DisplayMessage",
-                    "There was an error executing the command. It has been logged on the client device.",
-                    "Error executing command.",
+                    "Wystąpił błąd podczas wykonywania polecenia. Zostało zalogowane na urządzeniu klienta.",
+                    "Błąd podczas wykonywania polecenia.",
                     "bg-danger",
                     senderConnectionID);
             }
@@ -88,7 +88,7 @@ namespace Remotely.Agent.Services
         {
             try
             {
-                Logger.Write($"Script run started.  Script ID: {savedScriptId}. Script Run: {scriptRunId}. Initiator: {initiator}.");
+                Logger.Write($"Uruchomiono skrypt.  ID Skryptu: {savedScriptId}. Uruchomienie skryptu: {scriptRunId}. Inicjator: {initiator}.");
 
                 var connectionInfo = ConfigService.GetConnectionInfo();
                 var url = $"{connectionInfo.Host}/API/SavedScripts/{savedScriptId}";
@@ -164,7 +164,7 @@ namespace Remotely.Agent.Services
 
             if (!response.IsSuccessStatusCode)
             {
-                Logger.Write($"Failed to send script results.  Status Code: {response.StatusCode}");
+                Logger.Write($"Nie udało się wysłać wyników skryptu.  Kod Statusu: {response.StatusCode}");
                 return default;
             }
 

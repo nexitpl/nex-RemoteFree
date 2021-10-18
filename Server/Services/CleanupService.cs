@@ -4,7 +4,7 @@ using System;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Remotely.Server.Services
+namespace nexRemote.Server.Services
 {
     public class CleanupService : IHostedService, IDisposable
     {

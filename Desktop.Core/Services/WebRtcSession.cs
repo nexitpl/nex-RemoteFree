@@ -1,15 +1,15 @@
 ﻿using MessagePack;
 using Microsoft.MixedReality.WebRTC;
-using Remotely.Shared.Utilities;
-using Remotely.Shared.Models;
-using Remotely.Shared.Models.RemoteControlDtos;
+using nexRemote.Shared.Utilities;
+using nexRemote.Shared.Models;
+using nexRemote.Shared.Models.RemoteControlDtos;
 using System;
 using System.Drawing;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Threading;
 
-namespace Remotely.Desktop.Core.Services
+namespace nexRemote.Desktop.Core.Services
 {
     public class WebRtcSession : IDisposable
     {
@@ -67,7 +67,7 @@ namespace Remotely.Desktop.Core.Services
 
         public async Task Init(IceServerModel[] iceServers)
         {
-            Logger.Write("Starting WebRTC connection.");
+            Logger.Write("Uruchamianie połączenia WebRTC.");
 
             IceServers = iceServers;
 
@@ -114,7 +114,7 @@ namespace Remotely.Desktop.Core.Services
         {
             if (!Enum.TryParse<SdpMessageType>(type, true, out var sdpMessageType))
             {
-                Logger.Write("Unable to parse remote WebRTC description type.");
+                Logger.Write("Nie można przeanalizować zdalnego typu opisu WebRTC.");
                 return;
             }
 
@@ -155,7 +155,7 @@ namespace Remotely.Desktop.Core.Services
         {
             // Clear the queue when WebRTC state changes.
             Viewer.PendingSentFrames.Clear();
-            Logger.Write($"DataChannel state changed.  New State: {CaptureChannel.State}");
+            Logger.Write($"Zmieniono stan kanału danych. Nowy stan: {CaptureChannel.State}");
             if (CaptureChannel.State == DataChannel.ChannelState.Closed)
             {
                 await Init(IceServers);
@@ -212,24 +212,24 @@ namespace Remotely.Desktop.Core.Services
 
         private void PeerConnection_Connected()
         {
-            Logger.Write("PeerConnection connected.");
+            Logger.Write("Połączenie równorzędne podłączone.");
         }
 
         private void PeerConnection_IceStateChanged(IceConnectionState newState)
         {
             // Clear the queue when WebRTC state changes.
             Viewer.PendingSentFrames.Clear();
-            Logger.Write($"Ice state changed to {newState}.");
+            Logger.Write($"stan ICE zmieniono na {newState}.");
         }
 
         private void PeerSession_IceCandidateReadytoSend(IceCandidate candidate)
         {
-            Logger.Write("Ice candidate ready to send.");
+            Logger.Write("Kandydat ICE gotowy do wysłania.");
             IceCandidateReady?.Invoke(this, candidate);
         }
         private void PeerSession_LocalSdpReadytoSend(SdpMessage message)
         {
-            Logger.Write($"Local SDP ready.");
+            Logger.Write($"Lokalne SDP gotowe .");
             LocalSdpReady?.Invoke(this, message);
         }
     }

@@ -1,8 +1,8 @@
 using System;
 using System.Diagnostics;
-using Remotely.Shared.Utilities;
+using nexRemote.Shared.Utilities;
 
-namespace Remotely.Shared.Services
+namespace nexRemote.Shared.Services
 {
     public interface IProcessInvoker
     {

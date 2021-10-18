@@ -1,6 +1,6 @@
 ﻿using System.Diagnostics;
 
-namespace Remotely.Agent.Installer.Win.Utilities
+namespace nexRemote.Agent.Installer.Win.Utilities
 {
     public static class ProcessEx
     {

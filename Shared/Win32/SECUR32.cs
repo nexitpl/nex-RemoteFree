@@ -1,5 +1,5 @@
 ﻿using Microsoft.Win32.SafeHandles;
-using Remotely.Shared.Win32;
+using nexRemote.Shared.Win32;
 using System;
 using System.Runtime.ConstrainedExecution;
 using System.Runtime.InteropServices;

@@ -1,10 +1,10 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using Remotely.Desktop.Core.Enums;
-using Remotely.Desktop.Core.Interfaces;
-using Remotely.Desktop.Core.Models;
-using Remotely.Desktop.Core.Utilities;
-using Remotely.Shared.Utilities;
-using Remotely.Shared.Models;
+using nexRemote.Desktop.Core.Enums;
+using nexRemote.Desktop.Core.Interfaces;
+using nexRemote.Desktop.Core.Models;
+using nexRemote.Desktop.Core.Utilities;
+using nexRemote.Shared.Utilities;
+using nexRemote.Shared.Models;
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
@@ -16,7 +16,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 
-namespace Remotely.Desktop.Core.Services
+namespace nexRemote.Desktop.Core.Services
 {
     public interface IScreenCaster
     {
@@ -61,8 +61,8 @@ namespace Remotely.Desktop.Core.Services
 
                 var screenBounds = viewer.Capturer.CurrentScreenBounds;
 
-                Logger.Write($"Starting screen cast.  Requester: {viewer.Name}. " +
-                    $"Viewer ID: {viewer.ViewerConnectionID}.  App Mode: {_conductor.Mode}");
+                Logger.Write($"Rozpoczęcie przesyłania ekranu.  Zgłaszający: {viewer.Name}. " +
+                    $"ID Zgłaszającego: {viewer.ViewerConnectionID}.  Tryb Aplikacji: {_conductor.Mode}");
 
                 _conductor.Viewers.AddOrUpdate(viewer.ViewerConnectionID, viewer, (id, v) => viewer);
 
@@ -133,7 +133,7 @@ namespace Remotely.Desktop.Core.Services
                         if (viewer.IsStalled)
                         {
                             // Viewer isn't responding.  Abort sending.
-                            Logger.Write("Viewer stalled.  Ending send loop.");
+                            Logger.Write("Obserwator zawieszony.  Kończę pętlę wysyłania.");
                             break;
                         }
 
@@ -186,7 +186,7 @@ namespace Remotely.Desktop.Core.Services
                     }
                 }
 
-                Logger.Write($"Ended screen cast.  " +
+                Logger.Write($"Zakończono przesyłanie ekranu.  " +
                     $"Requester: {viewer.Name}. " +
                     $"Viewer ID: {viewer.ViewerConnectionID}. " +
                     $"Viewer WS Connected: {viewer.IsConnected}.  " +
@@ -205,7 +205,7 @@ namespace Remotely.Desktop.Core.Services
                 // Close if no one is viewing.
                 if (_conductor.Viewers.IsEmpty && _conductor.Mode == AppMode.Unattended)
                 {
-                    Logger.Write("No more viewers.  Calling shutdown service.");
+                    Logger.Write("Koniec z widzami.  Wywoływanie usługi zamykania.");
                     await _shutdownService.Shutdown();
                 }
             }

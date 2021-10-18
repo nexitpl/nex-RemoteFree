@@ -1,9 +1,9 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using Remotely.Desktop.Core;
-using Remotely.Desktop.Core.Interfaces;
-using Remotely.Desktop.Core.Services;
-using Remotely.Desktop.Core.Utilities;
-using Remotely.Shared.Utilities;
+using nexRemote.Desktop.Core;
+using nexRemote.Desktop.Core.Interfaces;
+using nexRemote.Desktop.Core.Services;
+using nexRemote.Desktop.Core.Utilities;
+using nexRemote.Shared.Utilities;
 using System;
 using System.ComponentModel;
 using System.Drawing;
@@ -12,7 +12,7 @@ using System.Linq;
 using System.Windows.Forms;
 using System.Windows.Media.Imaging;
 
-namespace Remotely.Desktop.Win.Services
+namespace nexRemote.Desktop.Win.Services
 {
     public class SessionIndicatorWin : ISessionIndicator
     {
@@ -45,7 +45,7 @@ namespace Remotely.Desktop.Win.Services
                 {
                     _container = new Container();
                     _contextMenuStrip = new ContextMenuStrip(_container);
-                    _contextMenuStrip.Items.Add("Exit", null, ExitMenuItem_Click);
+                    _contextMenuStrip.Items.Add("Wyjdź", null, ExitMenuItem_Click);
 
                     Icon icon;
 
@@ -63,10 +63,10 @@ namespace Remotely.Desktop.Win.Services
                     _notifyIcon = new NotifyIcon(_container)
                     {
                         Icon = icon,
-                        Text = "Remote Control Session",
+                        Text = "Sesja zdalnego sterowania",
                         BalloonTipIcon = ToolTipIcon.Info,
-                        BalloonTipText = "A remote control session has started.",
-                        BalloonTipTitle = "Remote Control Started",
+                        BalloonTipText = "Rozpoczęła się sesja zdalnego sterowania.",
+                        BalloonTipTitle = "Uruchomiono zdalne sterowanie",
                         ContextMenuStrip = _contextMenuStrip
                     };
 

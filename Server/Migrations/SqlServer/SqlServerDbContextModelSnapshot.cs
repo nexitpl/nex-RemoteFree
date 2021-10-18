@@ -4,9 +4,9 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using Remotely.Server.Data;
+using nexRemote.Server.Data;
 
-namespace Remotely.Server.Migrations.SqlServer
+namespace nexRemote.Server.Migrations.SqlServer
 {
     [DbContext(typeof(SqlServerDbContext))]
     partial class SqlServerDbContextModelSnapshot : ModelSnapshot

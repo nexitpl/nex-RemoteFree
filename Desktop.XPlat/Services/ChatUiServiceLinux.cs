@@ -1,10 +1,10 @@
 ﻿using Avalonia.Controls;
 using Avalonia.Threading;
-using Remotely.Desktop.Core.Interfaces;
-using Remotely.Desktop.XPlat.Controls;
-using Remotely.Desktop.XPlat.ViewModels;
-using Remotely.Desktop.XPlat.Views;
-using Remotely.Shared.Models;
+using nexRemote.Desktop.Core.Interfaces;
+using nexRemote.Desktop.XPlat.Controls;
+using nexRemote.Desktop.XPlat.ViewModels;
+using nexRemote.Desktop.XPlat.Views;
+using nexRemote.Shared.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,7 +14,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Remotely.Desktop.XPlat.Services
+namespace nexRemote.Desktop.XPlat.Services
 {
     public class ChatUiServiceLinux : IChatUiService
     {
@@ -28,7 +28,7 @@ namespace Remotely.Desktop.XPlat.Services
             {
                 if (chatMessage.Disconnected)
                 {
-                    await MessageBox.Show("The partner has disconnected.", "Partner Disconnected", MessageBoxType.OK);
+                    await MessageBox.Show("Partner się rozłączył.", "Partner rozłączony", MessageBoxType.OK);
                     Environment.Exit(0);
                     return;
                 }

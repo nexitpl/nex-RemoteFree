@@ -1,11 +1,11 @@
-﻿using Remotely.Agent.Installer.Win.Utilities;
-using Remotely.Agent.Installer.Win.ViewModels;
+﻿using nexRemote.Agent.Installer.Win.Utilities;
+using nexRemote.Agent.Installer.Win.ViewModels;
 using System;
 using System.Windows;
 using System.Windows.Documents;
 using System.Windows.Input;
 
-namespace Remotely.Agent.Installer.Win
+namespace nexRemote.Agent.Installer.Win
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml

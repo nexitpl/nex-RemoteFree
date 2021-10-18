@@ -1,11 +1,11 @@
-﻿using Remotely.Shared.Enums;
+﻿using nexRemote.Shared.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Remotely.Shared.ViewModels
+namespace nexRemote.Shared.ViewModels
 {
     public class ChatHistoryItem
     {

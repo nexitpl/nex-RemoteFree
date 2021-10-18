@@ -1,4 +1,4 @@
-﻿namespace Remotely.Server.Models
+﻿namespace nexRemote.Server.Models
 {
     public class ApiLogin
     {

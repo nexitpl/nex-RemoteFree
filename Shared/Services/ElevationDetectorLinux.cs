@@ -5,7 +5,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Remotely.Shared.Services
+namespace nexRemote.Shared.Services
 {
     public class ElevationDetectorLinux : IElevationDetector
     {

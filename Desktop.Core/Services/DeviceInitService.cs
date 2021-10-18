@@ -1,6 +1,6 @@
-﻿using Remotely.Desktop.Core.Interfaces;
-using Remotely.Shared.Utilities;
-using Remotely.Shared.Models;
+﻿using nexRemote.Desktop.Core.Interfaces;
+using nexRemote.Shared.Utilities;
+using nexRemote.Shared.Models;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -14,7 +14,7 @@ using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
 
-namespace Remotely.Desktop.Core.Services
+namespace nexRemote.Desktop.Core.Services
 {
     public interface IDeviceInitService
     {
@@ -98,7 +98,7 @@ namespace Remotely.Desktop.Core.Services
             }
             catch (Exception ex)
             {
-                Logger.Write(ex, "Failed to resolve init params.", Shared.Enums.EventType.Warning);
+                Logger.Write(ex, "Nie udało się rozwiązać parametrów init.", Shared.Enums.EventType.Warning);
             }
         }
 

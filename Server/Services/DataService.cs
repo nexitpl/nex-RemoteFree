@@ -5,19 +5,19 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Primitives;
-using Remotely.Server.Data;
-using Remotely.Server.Models;
-using Remotely.Shared.Enums;
-using Remotely.Shared.Models;
-using Remotely.Shared.Utilities;
-using Remotely.Shared.ViewModels;
+using nexRemote.Server.Data;
+using nexRemote.Server.Models;
+using nexRemote.Shared.Enums;
+using nexRemote.Shared.Models;
+using nexRemote.Shared.Utilities;
+using nexRemote.Shared.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Remotely.Server.Services
+namespace nexRemote.Server.Services
 {
     // TODO: Separate this into domain-specific services.
     public interface IDataService

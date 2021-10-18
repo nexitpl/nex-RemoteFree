@@ -1,14 +1,14 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Remotely.Server.Auth;
-using Remotely.Server.Services;
-using Remotely.Shared.Models;
+using nexRemote.Server.Auth;
+using nexRemote.Server.Services;
+using nexRemote.Shared.Models;
 using System;
 using System.IO;
 using System.Net;
 using System.Text.Json;
 using System.Threading.Tasks;
 
-namespace Remotely.Server.API
+namespace nexRemote.Server.API
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -29,7 +29,7 @@ namespace Remotely.Server.API
         {
             Request.Headers.TryGetValue("OrganizationID", out var orgID);
 
-            DataService.WriteEvent("Alert created.  Alert Options: " + JsonSerializer.Serialize(alertOptions), orgID);
+            DataService.WriteEvent("Alert utworzono.  Opcje alertu: " + JsonSerializer.Serialize(alertOptions), orgID);
 
             if (alertOptions.ShouldAlert)
             {

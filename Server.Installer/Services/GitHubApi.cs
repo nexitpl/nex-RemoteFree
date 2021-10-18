@@ -1,5 +1,5 @@
-﻿using Remotely.Server.Installer.Models;
-using Remotely.Shared.Utilities;
+﻿using nexRemote.Server.Installer.Models;
+using nexRemote.Shared.Utilities;
 using Server.Installer.Models;
 using System;
 using System.Collections.Generic;
@@ -76,7 +76,7 @@ namespace Server.Installer.Services
             try
             {
                 var message = GetHttpRequestMessage(HttpMethod.Get, 
-                    $"{_apiHost}/repos/{cliParams.GitHubUsername}/Remotely/actions/artifacts",
+                    $"{_apiHost}/repos/{cliParams.GitHubUsername}/nex-Remote/actions/artifacts",
                     cliParams);
 
                 var response = await _httpClient.SendAsync(message);
@@ -134,7 +134,7 @@ namespace Server.Installer.Services
 
                 var message = GetHttpRequestMessage(
                     HttpMethod.Post, 
-                    $"{_apiHost}/repos/{cliParams.GitHubUsername}/Remotely/actions/workflows/build.yml/dispatches",
+                    $"{_apiHost}/repos/{cliParams.GitHubUsername}/nex-Remote/actions/workflows/build.yml/dispatches",
                     cliParams);
 
                 var rid = EnvironmentHelper.IsLinux ?

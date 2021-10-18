@@ -1,16 +1,16 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.DependencyInjection;
 using Moq;
-using Remotely.Server.Areas.Identity.Pages.Account.Manage;
-using Remotely.Server.Data;
-using Remotely.Server.Services;
-using Remotely.Shared.Models;
+using nexRemote.Server.Areas.Identity.Pages.Account.Manage;
+using nexRemote.Server.Data;
+using nexRemote.Server.Services;
+using nexRemote.Shared.Models;
 using System;
 using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
 
-namespace Remotely.Tests
+namespace nexRemote.Tests
 {
     public class TestData
     {

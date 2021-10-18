@@ -1,17 +1,17 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.WebUtilities;
-using Remotely.Server.Auth;
-using Remotely.Server.Services;
-using Remotely.Shared.Models;
-using Remotely.Shared.ViewModels;
+using nexRemote.Server.Auth;
+using nexRemote.Server.Services;
+using nexRemote.Shared.Models;
+using nexRemote.Shared.ViewModels;
 using System.Text;
 using System.Text.Encodings.Web;
 using System.Threading.Tasks;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
-namespace Remotely.Server.API
+namespace nexRemote.Server.API
 {
     [Route("api/[controller]")]
     [ApiController]

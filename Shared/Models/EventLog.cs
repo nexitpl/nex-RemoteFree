@@ -1,10 +1,10 @@
-﻿using Remotely.Shared.Enums;
+﻿using nexRemote.Shared.Enums;
 using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text.Json.Serialization;
 
-namespace Remotely.Shared.Models
+namespace nexRemote.Shared.Models
 {
     public class EventLog
     {

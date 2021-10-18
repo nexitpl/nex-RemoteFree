@@ -1,8 +1,8 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using Remotely.Shared.Enums;
-using Remotely.Shared.Services;
-using Remotely.Shared.Utilities;
+using nexRemote.Shared.Enums;
+using nexRemote.Shared.Services;
+using nexRemote.Shared.Utilities;
 using Server.Installer.Models;
 using Server.Installer.Services;
 using System;
@@ -111,7 +111,7 @@ namespace Server.Installer
 
                 while (cliParams.CreateNew is null)
                 {
-                    var createNew = ConsoleHelper.ReadLine("Utworzyć nową kompilację (tak/nie)?", 
+                    var createNew = ConsoleHelper.ReadLine("Utworzyć nową kompilację (yes/no)?", 
                         subprompt: "Jeśli nie, zostanie użyty najnowszy istniejący artefakt kompilacji w serwisie GitHub.");
 
                     if (ConsoleHelper.TryParseBoolLike(createNew, out var result))

@@ -1,11 +1,11 @@
 ﻿using Microsoft.AspNetCore.SignalR.Client;
 using Microsoft.Extensions.DependencyInjection;
-using Remotely.Agent.Extensions;
-using Remotely.Agent.Interfaces;
-using Remotely.Shared.Enums;
-using Remotely.Shared.Models;
-using Remotely.Shared.Utilities;
-using Remotely.Shared.Win32;
+using nexRemote.Agent.Extensions;
+using nexRemote.Agent.Interfaces;
+using nexRemote.Shared.Enums;
+using nexRemote.Shared.Models;
+using nexRemote.Shared.Utilities;
+using nexRemote.Shared.Win32;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -17,7 +17,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Timers;
 
-namespace Remotely.Agent.Services
+namespace nexRemote.Agent.Services
 {
     public class AgentSocket
     {
@@ -239,8 +239,8 @@ namespace Remotely.Agent.Services
                     if (!File.Exists(filePath))
                     {
                         await _hubConnection.SendAsync("DisplayMessage",
-                            "File not found on remote device.",
-                            "File not found.",
+                            "Nie znaleziono pliku na zdalnym urządzeniu.",
+                            "Nie znaleziono pliku.",
                             "bg-danger",
                             senderConnectionID);
                         return;
@@ -267,8 +267,8 @@ namespace Remotely.Agent.Services
                     {
                         Logger.Write(ex);
                         await _hubConnection.SendAsync("DisplayMessage",
-                            "Error occurred while uploading file from remote computer.",
-                            "Upload error.",
+                            "Wystąpił błąd podczas przesyłania pliku ze zdalnego komputera.",
+                            "Błąd przesyłania.",
                             "bg-danger",
                             senderConnectionID);
                     }
@@ -285,7 +285,7 @@ namespace Remotely.Agent.Services
                 {
                     if (!IsServerVerified)
                     {
-                        Logger.Write($"Command attempted before server was verified.  Shell: {shell}.  Command: {command}.  Sender: {senderConnectionID}", EventType.Warning);
+                        Logger.Write($"Komenda została podjęta przed zweryfikowaniem serwera.  Powłoka: {shell}.  Komenda: {command}.  Nadawca: {senderConnectionID}", EventType.Warning);
                         return;
                     }
 
@@ -315,7 +315,7 @@ namespace Remotely.Agent.Services
                 {
                     if (!IsServerVerified)
                     {
-                        Logger.Write($"Command attempted before server was verified.  Shell: {shell}.  Command: {command}.  Sender: {senderUsername}", EventType.Warning);
+                        Logger.Write($"Komenda została podjęta przed zweryfikowaniem serwera.  Powłoka: {shell}.  Komenda: {command}.  Nadawca: {senderUsername}", EventType.Warning);
                         return;
                     }
 
@@ -334,7 +334,7 @@ namespace Remotely.Agent.Services
 
                 if (!logBytes.Any())
                 {
-                    var message = "There are no log entries written.";
+                    var message = "Nie ma wpisów w dzienniku.";
 
                     await _hubConnection.InvokeAsync("SendLogs", message, senderConnectionId);
                     return;
@@ -394,7 +394,7 @@ namespace Remotely.Agent.Services
                 {
                     if (!IsServerVerified)
                     {
-                        Logger.Write("Remote control attempted before server was verified.", EventType.Warning);
+                        Logger.Write("Próba zdalnego sterowania przed zweryfikowaniem serwera.", EventType.Warning);
                         return;
                     }
                     await _appLauncher.LaunchRemoteControl(-1, requesterID, serviceID, _hubConnection);
@@ -411,7 +411,7 @@ namespace Remotely.Agent.Services
                 {
                     if (!IsServerVerified)
                     {
-                        Logger.Write("Remote control attempted before server was verified.", EventType.Warning);
+                        Logger.Write("Próba zdalnego sterowania przed zweryfikowaniem serwera.", EventType.Warning);
                         return;
                     }
                     await _appLauncher.RestartScreenCaster(viewerIDs, serviceID, requesterID, _hubConnection);
@@ -429,7 +429,7 @@ namespace Remotely.Agent.Services
                 {
                     if (!IsServerVerified)
                     {
-                        Logger.Write($"Script run attempted before server was verified.  Script ID: {savedScriptId}.  Initiator: {initiator}", EventType.Warning);
+                        Logger.Write($"Próbowano uruchomić skrypt przed zweryfikowaniem serwera.  Script ID: {savedScriptId}.  Inicjator: {initiator}", EventType.Warning);
                         return;
                     }
 
@@ -448,12 +448,12 @@ namespace Remotely.Agent.Services
                 {
                     if (!IsServerVerified)
                     {
-                        Logger.Write("File upload attempted before server was verified.", EventType.Warning);
+                        Logger.Write("Próbowano przesłać plik przed zweryfikowaniem serwera.", EventType.Warning);
                         return;
                     }
 
-                    Logger.Write($"File upload started by {requesterID}.");
-                    var sharedFilePath = Directory.CreateDirectory(Path.Combine(Path.GetTempPath(), "RemotelySharedFiles")).FullName;
+                    Logger.Write($"Przesyłanie pliku rozpoczęte przez {requesterID}.");
+                    var sharedFilePath = Directory.CreateDirectory(Path.Combine(Path.GetTempPath(), "nex-RemoteSharedFiles")).FullName;
 
                     foreach (var fileID in fileIDs)
                     {
@@ -509,7 +509,7 @@ namespace Remotely.Agent.Services
                 }
                 else
                 {
-                    Logger.Write($"Server sent an incorrect verification token.  Token Sent: {verificationToken}.", EventType.Warning);
+                    Logger.Write($"Serwer wysłał nieprawidłowy token weryfikacyjny.  Wysłany Token: {verificationToken}.", EventType.Warning);
                     return false;
                 }
             }

@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
-using Remotely.Shared.Utilities;
+using nexRemote.Shared.Utilities;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -11,7 +11,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Xml;
 
-namespace Remotely.Server.Services
+namespace nexRemote.Server.Services
 {
     public class ClickOnceMiddleware
     {

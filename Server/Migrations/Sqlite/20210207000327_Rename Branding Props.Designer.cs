@@ -4,9 +4,9 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using Remotely.Server.Data;
+using nexRemote.Server.Data;
 
-namespace Remotely.Server.Migrations.Sqlite
+namespace nexRemote.Server.Migrations.Sqlite
 {
     [DbContext(typeof(SqliteDbContext))]
     [Migration("20210207000327_Rename Branding Props")]

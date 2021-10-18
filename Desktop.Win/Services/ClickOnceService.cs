@@ -1,8 +1,8 @@
-﻿using Remotely.Desktop.Core;
-using Remotely.Desktop.Core.Services;
-using Remotely.Shared.Enums;
-using Remotely.Shared.Models;
-using Remotely.Shared.Utilities;
+﻿using nexRemote.Desktop.Core;
+using nexRemote.Desktop.Core.Services;
+using nexRemote.Shared.Enums;
+using nexRemote.Shared.Models;
+using nexRemote.Shared.Utilities;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -14,7 +14,7 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Xml;
 
-namespace Remotely.Desktop.Win.Services
+namespace nexRemote.Desktop.Win.Services
 {
     public interface IClickOnceService
     {
@@ -44,7 +44,7 @@ namespace Remotely.Desktop.Win.Services
                 var appRoot = new DirectoryInfo(AppDomain.CurrentDomain.BaseDirectory).Parent;
                 if (!Directory.Exists(Path.Combine(appRoot.FullName, "manifests")))
                 {
-                    Logger.Write($"Manifests folder not found in root folder: {appRoot}", EventType.Debug);
+                    Logger.Write($"Nie znaleziono folderu manifestów w folderze głównym: {appRoot}", EventType.Debug);
                     return _activationUri;
                 }
 
@@ -52,7 +52,7 @@ namespace Remotely.Desktop.Win.Services
                 var manifestFile = manifestFiles.FirstOrDefault();
                 if (manifestFile is null)
                 {
-                    Logger.Write($"Manifest file not found.", EventType.Warning);
+                    Logger.Write($"Nie znaleziono pliku manifestu.", EventType.Warning);
                     return _activationUri;
                 }
 
@@ -61,7 +61,7 @@ namespace Remotely.Desktop.Win.Services
                 var node = manifest.GetElementsByTagName("deploymentProvider")[0];
                 _activationUri = node.Attributes["codebase"].Value;
 
-                Logger.Write($"Found ActivationUri: {_activationUri}");
+                Logger.Write($"Znaleziono URI aktywacji: {_activationUri}");
             }
             catch (Exception ex)
             {

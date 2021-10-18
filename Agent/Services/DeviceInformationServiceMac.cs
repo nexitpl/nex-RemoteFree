@@ -1,15 +1,15 @@
-using Remotely.Agent.Interfaces;
-using Remotely.Shared.Models;
-using Remotely.Shared.Services;
-using Remotely.Shared.Utilities;
-using Remotely.Shared.Win32;
+using nexRemote.Agent.Interfaces;
+using nexRemote.Shared.Models;
+using nexRemote.Shared.Services;
+using nexRemote.Shared.Utilities;
+using nexRemote.Shared.Win32;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Remotely.Agent.Services
+namespace nexRemote.Agent.Services
 {
     public class DeviceInformationServiceMac : DeviceInformationServiceBase, IDeviceInformationService
     {
@@ -40,7 +40,7 @@ namespace Remotely.Agent.Services
             }
             catch (Exception ex)
             {
-                Logger.Write(ex, "Error getting device info.");
+                Logger.Write(ex, "B³¹d podczas pobierania informacji o urz¹dzeniu.");
             }
 
             return device;
@@ -68,7 +68,7 @@ namespace Remotely.Agent.Services
             }
             catch (Exception ex)
             {
-                Logger.Write(ex, "Error while getting CPU utilization.");
+                Logger.Write(ex, "B³¹d podczas pobierania wykorzystania procesora.");
             }
 
             return Task.FromResult((double)0);

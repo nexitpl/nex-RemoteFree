@@ -1,14 +1,14 @@
 ﻿using Microsoft.AspNetCore.SignalR;
-using Remotely.Server.Models;
-using Remotely.Server.Services;
-using Remotely.Shared.Enums;
-using Remotely.Shared.Models;
+using nexRemote.Server.Models;
+using nexRemote.Server.Services;
+using nexRemote.Shared.Enums;
+using nexRemote.Shared.Models;
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace Remotely.Server.Hubs
+namespace nexRemote.Server.Hubs
 {
     public class CasterHub : Hub
     {

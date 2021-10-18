@@ -1,14 +1,14 @@
 ﻿using MessagePack;
-using Remotely.Desktop.Core.Enums;
-using Remotely.Desktop.Core.Interfaces;
-using Remotely.Shared.Enums;
-using Remotely.Shared.Models.RemoteControlDtos;
-using Remotely.Shared.Utilities;
+using nexRemote.Desktop.Core.Enums;
+using nexRemote.Desktop.Core.Interfaces;
+using nexRemote.Shared.Enums;
+using nexRemote.Shared.Models.RemoteControlDtos;
+using nexRemote.Shared.Utilities;
 using System;
 using System.Diagnostics;
 using System.Threading.Tasks;
 
-namespace Remotely.Desktop.Core.Services
+namespace nexRemote.Desktop.Core.Services
 {
     public interface IDtoMessageHandler
     {
@@ -169,7 +169,7 @@ namespace Remotely.Desktop.Core.Services
             var dto = MessagePackSerializer.Deserialize<KeyDownDto>(message);
             if (dto?.Key is null)
             {
-                Logger.Write("Key input is empty.", EventType.Warning);
+                Logger.Write("Wejście klucza jest puste.", EventType.Warning);
                 return;
             }
             KeyboardMouseInput.SendKeyDown(dto.Key);
@@ -181,7 +181,7 @@ namespace Remotely.Desktop.Core.Services
 
             if (dto?.Key is null)
             {
-                Logger.Write("Key input is empty.", EventType.Warning);
+                Logger.Write("Wejście klucza jest puste.", EventType.Warning);
                 return;
             }
 
@@ -195,7 +195,7 @@ namespace Remotely.Desktop.Core.Services
             var dto = MessagePackSerializer.Deserialize<KeyUpDto>(message);
             if (dto?.Key is null)
             {
-                Logger.Write("Key input is empty.", EventType.Warning);
+                Logger.Write("Wejście klucza jest puste.", EventType.Warning);
                 return;
             }
             KeyboardMouseInput.SendKeyUp(dto.Key);

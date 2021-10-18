@@ -1,12 +1,12 @@
-﻿using Remotely.Shared.Attributes;
-using Remotely.Shared.Enums;
+﻿using nexRemote.Shared.Attributes;
+using nexRemote.Shared.Enums;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Runtime.InteropServices;
 using System.Text.Json.Serialization;
 
-namespace Remotely.Shared.Models
+namespace nexRemote.Shared.Models
 {
     public class Device
     {

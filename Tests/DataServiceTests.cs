@@ -1,15 +1,15 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Remotely.Agent.Interfaces;
-using Remotely.Server.Services;
-using Remotely.Shared.Models;
-using Remotely.Shared.Utilities;
+using nexRemote.Agent.Interfaces;
+using nexRemote.Server.Services;
+using nexRemote.Shared.Models;
+using nexRemote.Shared.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Remotely.Tests
+namespace nexRemote.Tests
 {
     [TestClass]
     public class DataServiceTests

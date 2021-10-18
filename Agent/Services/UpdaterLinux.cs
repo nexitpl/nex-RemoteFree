@@ -1,5 +1,5 @@
-﻿using Remotely.Agent.Interfaces;
-using Remotely.Shared.Utilities;
+﻿using nexRemote.Agent.Interfaces;
+using nexRemote.Shared.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -11,7 +11,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Remotely.Agent.Services
+namespace nexRemote.Agent.Services
 {
     
     public class UpdaterLinux : IUpdater
@@ -56,7 +56,7 @@ namespace Remotely.Agent.Services
 
                 if (_lastUpdateFailure.AddDays(1) > DateTimeOffset.Now)
                 {
-                    Logger.Write("Skipping update check due to previous failure.  Restart the service to try again, or manually install the update.");
+                    Logger.Write("Pomijanie sprawdzania aktualizacji z powodu poprzedniej awarii.  Uruchom ponownie usługę, aby spróbować ponownie, lub ręcznie zainstaluj aktualizację.");
                     return;
                 }
 
@@ -64,7 +64,7 @@ namespace Remotely.Agent.Services
                 var connectionInfo = _configService.GetConnectionInfo();
                 var serverUrl = _configService.GetConnectionInfo().Host;
 
-                var fileUrl = serverUrl + $"/Content/Remotely-Linux.zip";
+                var fileUrl = serverUrl + $"/Content/nex-Remote-Linux.zip";
 
                 var lastEtag = string.Empty;
 
@@ -81,17 +81,17 @@ namespace Remotely.Agent.Services
                     using var response = (HttpWebResponse)await wr.GetResponseAsync();
                     if (response.StatusCode == HttpStatusCode.NotModified)
                     {
-                        Logger.Write("Service Updater: Version is current.");
+                        Logger.Write("Service Updater: wersja jest aktualna.");
                         return;
                     }
                 }
                 catch (WebException ex) when ((ex.Response as HttpWebResponse).StatusCode == HttpStatusCode.NotModified)
                 {
-                    Logger.Write("Service Updater: Version is current.");
+                    Logger.Write("Service Updater: wersja jest aktualna.");
                     return;
                 }
 
-                Logger.Write("Service Updater: Update found.");
+                Logger.Write("Aktualizator usług: znaleziono aktualizację.");
 
                 await InstallLatestVersion();
 
@@ -120,12 +120,12 @@ namespace Remotely.Agent.Services
                 var connectionInfo = _configService.GetConnectionInfo();
                 var serverUrl = connectionInfo.Host;
 
-                Logger.Write("Service Updater: Downloading install package.");
+                Logger.Write("Service Updater: Pobieranie pakietu instalacyjnego.");
 
                 var downloadId = Guid.NewGuid().ToString();
-                var zipPath = Path.Combine(Path.GetTempPath(), "RemotelyUpdate.zip");
+                var zipPath = Path.Combine(Path.GetTempPath(), "nex-RemoteUpdate.zip");
 
-                var installerPath = Path.Combine(Path.GetTempPath(), "RemotelyUpdate.sh");
+                var installerPath = Path.Combine(Path.GetTempPath(), "nex-RemoteUpdate.sh");
 
                 string platform;
 

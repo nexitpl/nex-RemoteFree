@@ -2,13 +2,13 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:vm="clr-namespace:Remotely.Desktop.XPlat.ViewModels;assembly=Remotely_Desktop"
+        xmlns:vm="clr-namespace:nexRemote.Desktop.XPlat.ViewModels;assembly=nex-Remote_Desktop"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-        x:Class="Remotely.Desktop.XPlat.Views.PromptForAccessWindow"
+        x:Class="nexRemote.Desktop.XPlat.Views.PromptForAccessWindow"
         HasSystemDecorations="False"
         BorderBrush="DimGray"
         BorderThickness="1"
-        Title="Remote Control Request" 
+        Title="Prośba o zdalną kontrolę" 
         MinHeight="200"
         MinWidth="250"
         Height="275" 
@@ -45,8 +45,8 @@
 
     <StackPanel Grid.Row="1">
       <TextBlock Classes="SectionHeader"  FontWeight="Bold" FontSize="18" Foreground="DimGray" Margin="10" TextWrapping="Wrap">
-        A remote control session has been requested.
-      </TextBlock>
+		  Poproszono o sesję zdalnego sterowania.
+	  </TextBlock>
 
       <TextBlock Classes="SectionHeader"
                  FontWeight="Bold"
@@ -59,11 +59,11 @@
     </StackPanel>
 
     <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top">
-      <Button Width="60" Height="40" Content="Yes" Margin="10"
+      <Button Width="60" Height="40" Content="Tak" Margin="10"
               Classes="NormalButton"
               Command="{Binding SetResultYes}"
               CommandParameter="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}}}"></Button>
-      <Button Width="60" Height="40" Content="No" Margin="10"
+      <Button Width="60" Height="40" Content="Nie" Margin="10"
               Classes="NormalButton"
               Command="{Binding SetResultNo}"
               CommandParameter="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}}}"></Button>

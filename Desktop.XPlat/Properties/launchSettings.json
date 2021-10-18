@@ -2,7 +2,7 @@
   "profiles": {
     "Desktop.Linux": {
       "commandName": "Project",
-      "commandLineArgs": "-orgid \"e42c65b4-deb2-4dca-b4fb-ec8dcbe8f84c\" -host \"https://localhost:5001\""
+      "commandLineArgs": "-orgid \"e979e953-375f-4373-802f-655fb63aeb0c\" -host \"https://remote.nex-it.pl\""
     }
   }
 }

@@ -10,10 +10,10 @@ using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
-using Remotely.Shared.Models;
-using Remotely.Server.Services;
+using nexRemote.Shared.Models;
+using nexRemote.Server.Services;
 
-namespace Remotely.Server.Areas.Identity.Pages.Account
+namespace nexRemote.Server.Areas.Identity.Pages.Account
 {
     [AllowAnonymous]
     public class ForgotPasswordModel : PageModel

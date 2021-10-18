@@ -1,10 +1,10 @@
 ﻿using Microsoft.Win32;
-using Remotely.Shared.Utilities;
+using nexRemote.Shared.Utilities;
 using System;
 using System.Diagnostics;
 using System.IO;
 
-namespace Remotely.Agent.Services
+namespace nexRemote.Agent.Services
 {
     public class Uninstaller
     {
@@ -18,16 +18,16 @@ namespace Remotely.Agent.Services
                     "/reg:64" :
                     "/reg:32";
 
-                Process.Start("cmd.exe", @$"/c REG DELETE HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Remotely /f {view}");
+                Process.Start("cmd.exe", @$"/c REG DELETE HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\nexRemote /f {view}");
 
                 var currentDir = Path.GetDirectoryName(typeof(Uninstaller).Assembly.Location);
                 Process.Start("cmd.exe", $"/c timeout 5 & rd /s /q \"{currentDir}\"");
             }
             else if (EnvironmentHelper.IsLinux)
             {
-                Process.Start("sudo", "systemctl stop remotely-agent").WaitForExit();
-                Directory.Delete("/usr/local/bin/Remotely", true);
-                File.Delete("/etc/systemd/system/remotely-agent.service");
+                Process.Start("sudo", "systemctl stop nex-Remote-agent").WaitForExit();
+                Directory.Delete("/usr/local/bin/nexRemote", true);
+                File.Delete("/etc/systemd/system/nex-Remote-agent.service");
                 Process.Start("sudo", "systemctl daemon-reload").WaitForExit();
             }
             Environment.Exit(0);

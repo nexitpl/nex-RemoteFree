@@ -1,20 +1,20 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SignalR;
-using Remotely.Server.Attributes;
-using Remotely.Server.Hubs;
-using Remotely.Server.Models;
-using Remotely.Server.Services;
-using Remotely.Shared.Utilities;
-using Remotely.Shared.Models;
+using nexRemote.Server.Attributes;
+using nexRemote.Server.Hubs;
+using nexRemote.Server.Models;
+using nexRemote.Server.Services;
+using nexRemote.Shared.Utilities;
+using nexRemote.Shared.Models;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
-using Remotely.Server.Auth;
+using nexRemote.Server.Auth;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
-namespace Remotely.Server.API
+namespace nexRemote.Server.API
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -58,20 +58,20 @@ namespace Remotely.Server.API
             if (result.Succeeded &&
                 DataService.DoesUserHaveAccessToDevice(rcRequest.DeviceID, DataService.GetUserByNameWithOrg(rcRequest.Email)))
             {
-                DataService.WriteEvent($"API login successful for {rcRequest.Email}.", orgId);
+                DataService.WriteEvent($"Logowanie API powiodło się dla {rcRequest.Email}.", orgId);
                 return await InitiateRemoteControl(rcRequest.DeviceID, orgId);
             }
             else if (result.IsLockedOut)
             {
-                DataService.WriteEvent($"API login unsuccessful due to lockout for {rcRequest.Email}.", orgId);
-                return Unauthorized("Account is locked.");
+                DataService.WriteEvent($"Logowanie do API nie powiodło się z powodu blokady dla {rcRequest.Email}.", orgId);
+                return Unauthorized("Konto jest zablokowane.");
             }
             else if (result.RequiresTwoFactor)
             {
-                DataService.WriteEvent($"API login unsuccessful due to 2FA for {rcRequest.Email}.", orgId);
-                return Unauthorized("Account requires two-factor authentication.");
+                DataService.WriteEvent($"Logowanie do API nie powiodło się z powodu 2FA dla {rcRequest.Email}.", orgId);
+                return Unauthorized("Konto wymaga uwierzytelnienia dwuskładnikowego.");
             }
-            DataService.WriteEvent($"API login unsuccessful due to bad attempt for {rcRequest.Email}.", orgId);
+            DataService.WriteEvent($"Logowanie API nie powiodło się z powodu nieudanej próby dla {rcRequest.Email}.", orgId);
             return BadRequest();
         }
 
@@ -93,7 +93,7 @@ namespace Remotely.Server.API
                 var currentUsers = CasterHub.SessionInfoList.Count(x => x.Value.OrganizationID == orgID);
                 if (currentUsers >= AppConfig.RemoteControlSessionLimit)
                 {
-                    return BadRequest("There are already the maximum amount of active remote control sessions for your organization.");
+                    return BadRequest("Istnieje już maksymalna liczba aktywnych sesji zdalnego sterowania dla Twojej organizacji.");
                 }
 
                 var existingSessions = CasterHub.SessionInfoList
@@ -112,7 +112,7 @@ namespace Remotely.Server.API
 
                 if (!await TaskHelper.DelayUntilAsync(remoteControlStarted, TimeSpan.FromSeconds(30)))
                 {
-                    return StatusCode(408, "The remote control process failed to start in time on the remote device.");
+                    return StatusCode(408, "Proces zdalnego sterowania nie rozpoczął się na czas na zdalnym urządzeniu.");
                 }
                 else
                 {
@@ -123,7 +123,7 @@ namespace Remotely.Server.API
             }
             else
             {
-                return BadRequest("The target device couldn't be found.");
+                return BadRequest("Nie można znaleźć urządzenia docelowego.");
             }
         }
     }

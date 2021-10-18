@@ -1,8 +1,8 @@
-using Remotely.Agent.Installer.Win.Models;
-using Remotely.Agent.Installer.Win.Services;
-using Remotely.Agent.Installer.Win.Utilities;
-using Remotely.Shared.Utilities;
-using Remotely.Shared.Models;
+using nexRemote.Agent.Installer.Win.Models;
+using nexRemote.Agent.Installer.Win.Services;
+using nexRemote.Agent.Installer.Win.Utilities;
+using nexRemote.Shared.Utilities;
+using nexRemote.Shared.Models;
 using System;
 using System.Diagnostics;
 using System.IO;
@@ -19,7 +19,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Net;
 
-namespace Remotely.Agent.Installer.Win.ViewModels
+namespace nexRemote.Agent.Installer.Win.ViewModels
 {
     public class MainWindowViewModel : ViewModelBase
     {
@@ -208,11 +208,11 @@ namespace Remotely.Agent.Installer.Win.ViewModels
             IsServiceInstalled = ServiceController.GetServices().Any(x => x.ServiceName == "nex-Remote_Service");
             if (IsServiceMissing)
             {
-                HeaderMessage = $"Install the {ProductName} service.";
+                HeaderMessage = $"Instalacja us³ugi {ProductName} .";
             }
             else
             {
-                HeaderMessage = $"Modify the {ProductName} installation.";
+                HeaderMessage = $"Modyfikacja instalacji {ProductName}.";
             }
 
             CommandLineParser.VerifyArguments();
@@ -310,7 +310,7 @@ namespace Remotely.Agent.Installer.Win.ViewModels
             var result = principal.IsInRole(WindowsBuiltInRole.Administrator);
             if (!result)
             {
-                MessageBoxEx.Show("Elevated privileges are required.  Please restart the installer using 'Run as administrator'.", "Elevation Required", MessageBoxButton.OK, MessageBoxImage.Warning);
+                MessageBoxEx.Show("Wymagane s¹ podwy¿szone uprawnienia.  Uruchom ponownie instalatora, u¿ywaj¹c opcji 'Uruchom jako administrator'.", "Wymagane uprawnienia", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
             return result;
         }
@@ -319,23 +319,23 @@ namespace Remotely.Agent.Installer.Win.ViewModels
         {
             if (string.IsNullOrWhiteSpace(OrganizationID) || string.IsNullOrWhiteSpace(ServerUrl))
             {
-                Logger.Write("ServerUrl or OrganizationID param is missing.  Unable to install.");
-                MessageBoxEx.Show("Required settings are missing.  Please enter a server URL and organization ID.", "Invalid Input", MessageBoxButton.OK, MessageBoxImage.Error);
+                Logger.Write("Brak parametru ServerURL lub OrganizationID.  Nie mo¿na zainstalowaæ.");
+                MessageBoxEx.Show("Brak wymaganych ustawieñ.  WprowadŸ adres URL serwera i ID organizacji.", "Nieprawid³owe dane wejœciowe", MessageBoxButton.OK, MessageBoxImage.Error);
                 return false;
             }
 
             if (!Guid.TryParse(OrganizationID, out _))
             {
-                Logger.Write("OrganizationID is not a valid GUID.");
-                MessageBoxEx.Show("Organization ID must be a valid GUID.", "Invalid Organization ID", MessageBoxButton.OK, MessageBoxImage.Error);
+                Logger.Write("OrganizationID nie jest prawid³owym identyfikatorem GUID.");
+                MessageBoxEx.Show("ID organizacji musi byæ prawid³owym identyfikatorem GUID.", "Nieprawid³owe ID organizacji", MessageBoxButton.OK, MessageBoxImage.Error);
                 return false;
             }
 
             if (!Uri.TryCreate(ServerUrl, UriKind.Absolute, out var serverUri) ||
                 (serverUri.Scheme != Uri.UriSchemeHttp && serverUri.Scheme != Uri.UriSchemeHttps))
             {
-                Logger.Write("ServerUrl is not valid.");
-                MessageBoxEx.Show("Server URL must be a valid Uri (e.g. https://remote.nex-it.pl).", "Invalid Server URL", MessageBoxButton.OK, MessageBoxImage.Error);
+                Logger.Write("ServerUrl jest nieprawid³owy.");
+                MessageBoxEx.Show("Adres URL serwera musi byæ prawid³owym identyfikatorem URI (e.g. https://remote.nex-it.pl).", "Nieprawid³owy adres URL serwera", MessageBoxButton.OK, MessageBoxImage.Error);
                 return false;
             }
 
@@ -447,7 +447,7 @@ namespace Remotely.Agent.Installer.Win.ViewModels
             }
             else
             {
-                imageStream = Assembly.GetExecutingAssembly().GetManifestResourceStream("Remotely.Agent.Installer.Win.Assets.Remotely_Icon.png");
+                imageStream = Assembly.GetExecutingAssembly().GetManifestResourceStream("nexRemote.Agent.Installer.Win.Assets.Remotely_Icon.png");
             }
 
             var bitmap = new BitmapImage();
@@ -470,20 +470,20 @@ namespace Remotely.Agent.Installer.Win.ViewModels
                     return;
                 }
 
-                HeaderMessage = "Installing Remotely...";
+                HeaderMessage = "Installing nex-Remote...";
 
                 if (await Installer.Install(ServerUrl, OrganizationID, DeviceGroup, DeviceAlias, DeviceUuid, CreateSupportShortcut))
                 {
                     IsServiceInstalled = true;
                     Progress = 0;
-                    HeaderMessage = "Installation completed.";
-                    StatusMessage = "Remotely has been installed.  You can now close this window.";
+                    HeaderMessage = "Instalacja zakoñczona.";
+                    StatusMessage = "nex-Remote zosta³ zainstalowany.  Mo¿esz teraz zamkn¹æ to okno.";
                 }
                 else
                 {
                     Progress = 0;
-                    HeaderMessage = "An error occurred during installation.";
-                    StatusMessage = "There was an error during installation.  Check the logs for details.";
+                    HeaderMessage = "Wyst¹pi³ b³¹d podczas instalacji.";
+                    StatusMessage = "Podczas instalacji wyst¹pi³ b³¹d.  SprawdŸ dzienniki, aby poznaæ szczegó³y.";
                 }
                 if (!CheckIsAdministrator())
                 {
@@ -506,20 +506,20 @@ namespace Remotely.Agent.Installer.Win.ViewModels
             {
                 IsReadyState = false;
 
-                HeaderMessage = "Uninstalling Remotely...";
+                HeaderMessage = "Odinstalowywanie nex-Remote...";
 
                 if (await Installer.Uninstall())
                 {
                     IsServiceInstalled = false;
                     Progress = 0;
-                    HeaderMessage = "Uninstall completed.";
-                    StatusMessage = "Remotely has been uninstalled.  You can now close this window.";
+                    HeaderMessage = "Dezinstalacja zakoñczona.";
+                    StatusMessage = "nex-Remote zosta³ odinstalowany.  Mo¿esz teraz zamkn¹æ to okno.";
                 }
                 else
                 {
                     Progress = 0;
-                    HeaderMessage = "An error occurred during uninstall.";
-                    StatusMessage = "There was an error during uninstall.  Check the logs for details.";
+                    HeaderMessage = "Wyst¹pi³ b³¹d podczas odinstalowywania.";
+                    StatusMessage = "Podczas odinstalowywania wyst¹pi³ b³¹d.  SprawdŸ dzienniki, aby poznaæ szczegó³y.";
                 }
 
             }

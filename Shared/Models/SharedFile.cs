@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Remotely.Shared.Models
+namespace nexRemote.Shared.Models
 {
     public class SharedFile
     {

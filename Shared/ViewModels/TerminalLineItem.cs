@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Remotely.Shared.ViewModels
+namespace nexRemote.Shared.ViewModels
 {
     public class TerminalLineItem
     {

@@ -1,9 +1,9 @@
-﻿using Remotely.Desktop.Win.ViewModels;
+﻿using nexRemote.Desktop.Win.ViewModels;
 using System;
 using System.Windows;
 using System.Windows.Input;
 
-namespace Remotely.Desktop.Win.Views
+namespace nexRemote.Desktop.Win.Views
 {
     /// <summary>
     /// Interaction logic for ChatWindow.xaml

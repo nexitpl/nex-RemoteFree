@@ -1,14 +1,14 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Win32;
-using Remotely.Desktop.Core;
-using Remotely.Desktop.Core.Interfaces;
-using Remotely.Desktop.Core.Services;
-using Remotely.Desktop.Win.Services;
-using Remotely.Desktop.Win.Views;
-using Remotely.Shared.Models;
-using Remotely.Shared.Utilities;
-using Remotely.Shared.Win32;
+using nexRemote.Desktop.Core;
+using nexRemote.Desktop.Core.Interfaces;
+using nexRemote.Desktop.Core.Services;
+using nexRemote.Desktop.Win.Services;
+using nexRemote.Desktop.Win.Views;
+using nexRemote.Shared.Models;
+using nexRemote.Shared.Utilities;
+using nexRemote.Shared.Win32;
 using System;
 using System.Linq;
 using System.Net.Http;
@@ -19,7 +19,7 @@ using System.Web;
 using System.Windows;
 using Form = System.Windows.Forms.Form;
 
-namespace Remotely.Desktop.Win
+namespace nexRemote.Desktop.Win
 {
     /// <summary>
     /// Interaction logic for App.xaml

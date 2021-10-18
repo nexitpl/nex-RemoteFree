@@ -1,7 +1,7 @@
-﻿<Application x:Class="Remotely.Agent.Installer.Win.App"
+﻿<Application x:Class="nexRemote.Agent.Installer.Win.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:Remotely.Agent.Installer.Win"
+             xmlns:local="clr-namespace:nexRemote.Agent.Installer.Win"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
         <Style x:Key="TitlebarButton" TargetType="Button">

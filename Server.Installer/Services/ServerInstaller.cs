@@ -1,4 +1,4 @@
-﻿using Remotely.Shared.Utilities;
+﻿using nexRemote.Shared.Utilities;
 using Server.Installer.Models;
 using System;
 using System.Collections.Generic;
@@ -30,7 +30,7 @@ namespace Server.Installer.Services
 
         public async Task PerformInstall(CliParams cliParams)
         {
-            var zipPath = Path.Combine(Path.GetTempPath(), "Remotely_Server.zip");
+            var zipPath = Path.Combine(Path.GetTempPath(), "nex-Remote_Server.zip");
 
             if (cliParams.UsePrebuiltPackage == true)
             {
@@ -127,7 +127,7 @@ namespace Server.Installer.Services
         private async Task LaunchExternalInstaller(CliParams cliParams)
         {
             ConsoleHelper.WriteLine("Launching install script for selected reverse proxy type.");
-            var resourcesPath = "Remotely.Server.Installer.Resources.";
+            var resourcesPath = "nexRemote.Server.Installer.Resources.";
 
             var fileName = cliParams.WebServer.Value switch
             {
@@ -155,7 +155,7 @@ namespace Server.Installer.Services
             {
                 psi = new ProcessStartInfo("powershell.exe")
                 {
-                    Arguments = $"-f \"{filePath}\" -AppPoolName Remotely -SiteName Remotely " +
+                    Arguments = $"-f \"{filePath}\" -AppPoolName nex-Remote -SiteName nex-Remote " +
                         $"-SitePath \"{cliParams.InstallDirectory}\" -HostName {cliParams.ServerUrl.Authority} -Quiet",
                     WorkingDirectory = cliParams.InstallDirectory
                 };

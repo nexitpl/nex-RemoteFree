@@ -3,15 +3,15 @@ using Avalonia.Media;
 using Avalonia.Media.Imaging;
 using Microsoft.Extensions.DependencyInjection;
 using ReactiveUI;
-using Remotely.Desktop.Core;
-using Remotely.Desktop.Core.Services;
-using Remotely.Shared.Utilities;
+using nexRemote.Desktop.Core;
+using nexRemote.Desktop.Core.Services;
+using nexRemote.Shared.Utilities;
 using System;
 using System.IO;
 using System.Linq;
 using System.Reflection;
 
-namespace Remotely.Desktop.XPlat.ViewModels
+namespace nexRemote.Desktop.XPlat.ViewModels
 {
     public class BrandedViewModelBase : ReactiveViewModel
     {
@@ -37,7 +37,7 @@ namespace Remotely.Desktop.XPlat.ViewModels
             {
                 var brandingInfo = DeviceInitService?.BrandingInfo ?? new Shared.Models.BrandingInfo();
 
-                ProductName = "Remotely";
+                ProductName = "nex-Remote";
 
                 if (!string.IsNullOrWhiteSpace(brandingInfo?.Product))
                 {
@@ -66,7 +66,7 @@ namespace Remotely.Desktop.XPlat.ViewModels
                 }
                 else
                 {
-                    using var imageStream = Assembly.GetExecutingAssembly().GetManifestResourceStream("Remotely.Desktop.XPlat.Assets.Remotely_Icon.png");
+                    using var imageStream = Assembly.GetExecutingAssembly().GetManifestResourceStream("nexRemote.Desktop.XPlat.Assets.Remotely_Icon.png");
                     Icon = new Bitmap(imageStream);
                 }
 
@@ -80,7 +80,7 @@ namespace Remotely.Desktop.XPlat.ViewModels
             }
             catch (Exception ex)
             {
-                Logger.Write(ex, "Error applying branding.");
+                Logger.Write(ex, "Bład przy stosowaniu brandingu.");
             }
         }
     }

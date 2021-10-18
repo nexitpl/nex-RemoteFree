@@ -1,11 +1,11 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Identity;
-using Remotely.Server.Services;
-using Remotely.Shared.Models;
+using nexRemote.Server.Services;
+using nexRemote.Shared.Models;
 using System.Threading.Tasks;
 
-namespace Remotely.Server.Components
+namespace nexRemote.Server.Components
 {
     public class AuthComponentBase : ComponentBase
     {

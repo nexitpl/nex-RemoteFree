@@ -34,7 +34,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Remotely.Desktop.XPlat.Native.Linux
+namespace nexRemote.Desktop.XPlat.Native.Linux
 {
     public static class LibXrandr
     {

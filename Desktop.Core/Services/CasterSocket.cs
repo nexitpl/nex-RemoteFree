@@ -1,14 +1,14 @@
 ﻿using Microsoft.AspNetCore.SignalR.Client;
 using Microsoft.Extensions.DependencyInjection;
-using Remotely.Desktop.Core.Interfaces;
-using Remotely.Shared.Models;
-using Remotely.Shared.Utilities;
+using nexRemote.Desktop.Core.Interfaces;
+using nexRemote.Shared.Models;
+using nexRemote.Shared.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Remotely.Desktop.Core.Services
+namespace nexRemote.Desktop.Core.Services
 {
     public interface ICasterSocket
     {
@@ -95,7 +95,7 @@ namespace Remotely.Desktop.Core.Services
             }
             catch (Exception ex)
             {
-                Logger.Write(ex, "Error disconnecting websocket.");
+                Logger.Write(ex, "Błąd podczas odłączania websocket.");
             }
         }
 
@@ -185,13 +185,13 @@ namespace Remotely.Desktop.Core.Services
             var conductor = ServiceContainer.Instance.GetRequiredService<Conductor>();
             Connection.Closed += (ex) =>
             {
-                Logger.Write($"Connection closed.  Error: {ex?.Message}");
+                Logger.Write($"Połączenie zamknięte.  Błąd: {ex?.Message}");
                 return Task.CompletedTask;
             };
 
             Connection.On("Disconnect", async (string reason) =>
             {
-                Logger.Write($"Disconnecting caster socket.  Reason: {reason}");
+                Logger.Write($"Odłączanie gniazda kółka.  Powód: {reason}");
                 await DisconnectAllViewers();
             });
 
@@ -207,7 +207,7 @@ namespace Remotely.Desktop.Core.Services
                 {
                     if (enforceAttendedAccess)
                     {
-                        await SendMessageToViewer(viewerID, "Asking user for permission...");
+                        await SendMessageToViewer(viewerID, "Pytanie użytkownika o pozwolenie...");
 
                         IdleTimer.Stop();
                         var result = await RemoteControlAccessService.PromptForAccess(requesterName, organizationName);

@@ -1,9 +1,9 @@
-﻿using Remotely.Shared.Utilities;
+﻿using nexRemote.Shared.Utilities;
 using System;
 using System.Collections.Concurrent;
 using System.Timers;
 
-namespace Remotely.Desktop.Core.Services
+namespace nexRemote.Desktop.Core.Services
 {
     public class IdleTimer
     {
@@ -40,7 +40,7 @@ namespace Remotely.Desktop.Core.Services
             }
             else if (DateTimeOffset.Now - ViewersLastSeen > TimeSpan.FromSeconds(30))
             {
-                Logger.Write("No viewers connected after 30 seconds.  Shutting down.");
+                Logger.Write("Brak widzów połączonych po 30 sekundach.  Wyłączanie.");
                 Environment.Exit(0);
             }
         }

@@ -3,9 +3,9 @@
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
     <TargetLatestRuntimePatch>true</TargetLatestRuntimePatch>
-    <AssemblyName>Remotely_Shared</AssemblyName>
+    <AssemblyName>nex-Remote_Shared</AssemblyName>
     <Platforms>AnyCPU;x64;x86</Platforms>
-    <RootNamespace>Remotely.Shared</RootNamespace>
+    <RootNamespace>nexRemote.Shared</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>

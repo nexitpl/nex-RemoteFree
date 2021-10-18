@@ -4,11 +4,11 @@ using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.WebUtilities;
-using Remotely.Server.Components;
-using Remotely.Server.Components.ModalContents;
-using Remotely.Server.Services;
-using Remotely.Shared.Models;
-using Remotely.Shared.ViewModels;
+using nexRemote.Server.Components;
+using nexRemote.Server.Components.ModalContents;
+using nexRemote.Server.Services;
+using nexRemote.Shared.Models;
+using nexRemote.Shared.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,7 +16,7 @@ using System.Text;
 using System.Text.Encodings.Web;
 using System.Threading.Tasks;
 
-namespace Remotely.Server.Pages
+namespace nexRemote.Server.Pages
 {
     public partial class ManageOrganization : AuthComponentBase
     {

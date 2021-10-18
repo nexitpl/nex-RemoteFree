@@ -5,16 +5,16 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Remotely.Agent.Interfaces;
-using Remotely.Agent.Services;
-using Remotely.Server.API;
-using Remotely.Server.Data;
-using Remotely.Server.Services;
-using Remotely.Shared.Models;
-using Remotely.Shared.Utilities;
+using nexRemote.Agent.Interfaces;
+using nexRemote.Agent.Services;
+using nexRemote.Server.API;
+using nexRemote.Server.Data;
+using nexRemote.Server.Services;
+using nexRemote.Shared.Models;
+using nexRemote.Shared.Utilities;
 using System;
 
-namespace Remotely.Tests
+namespace nexRemote.Tests
 {
     [TestClass]
     public class IoCActivator
@@ -48,7 +48,7 @@ namespace Remotely.Tests
         {
             services.AddDbContextFactory<AppDb>(options =>
             {
-                options.UseInMemoryDatabase("Remotely");
+                options.UseInMemoryDatabase("nexRemote");
             });
 
             services.AddScoped(p =>

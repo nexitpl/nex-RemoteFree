@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace Remotely.Server.Migrations.PostgreSql
+namespace nexRemote.Server.Migrations.PostgreSql
 {
     public partial class SponsorshipInfo : Migration
     {

@@ -4,12 +4,12 @@ using Microsoft.AspNetCore.Components.Server.Circuits;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.SignalR;
 using Microsoft.Extensions.Logging;
-using Remotely.Server.Auth;
-using Remotely.Server.Models;
-using Remotely.Server.Services;
-using Remotely.Shared.Enums;
-using Remotely.Shared.Models;
-using Remotely.Shared.Utilities;
+using nexRemote.Server.Auth;
+using nexRemote.Server.Models;
+using nexRemote.Server.Services;
+using nexRemote.Shared.Enums;
+using nexRemote.Shared.Models;
+using nexRemote.Shared.Utilities;
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
@@ -18,7 +18,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Remotely.Server.Hubs
+namespace nexRemote.Server.Hubs
 {
     public interface ICircuitConnection
     {

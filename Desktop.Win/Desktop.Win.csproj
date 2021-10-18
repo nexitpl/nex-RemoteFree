@@ -6,18 +6,18 @@
     <UseWPF>true</UseWPF>
     <UseWindowsForms>true</UseWindowsForms>
     <AssemblyName>nex-Remote</AssemblyName>
-    <RootNamespace>Remotely.Desktop.Win</RootNamespace>
+    <RootNamespace>nexRemote.Desktop.Win</RootNamespace>
     <ApplicationIcon>Assets\favicon.ico</ApplicationIcon>
     <ApplicationManifest>app.manifest</ApplicationManifest>
     <Description>nex-Remote System Zdalnej Pomocy.</Description>
     <Copyright>nex-IT Jakub Potoczny</Copyright>
-    <PackageId>Remotely Desktop</PackageId>
+    <PackageId>nex-Remote Desktop</PackageId>
     <Authors>Jakub Potoczny</Authors>
     <Company>nex-IT Jakub Potoczny</Company>
     <Product>nex-Remote</Product>
     <PackageProjectUrl>https://nex-it.pl</PackageProjectUrl>
     <Platforms>AnyCPU;x86;x64</Platforms>
-    <StartupObject>Remotely.Desktop.Win.App</StartupObject>
+    <StartupObject>nexRemote.Desktop.Win.App</StartupObject>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">

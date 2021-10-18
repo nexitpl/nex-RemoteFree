@@ -1,17 +1,17 @@
 ﻿using Avalonia.Controls;
 using ReactiveUI;
-using Remotely.Desktop.XPlat.Services;
+using nexRemote.Desktop.XPlat.Services;
 using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows.Input;
 
-namespace Remotely.Desktop.XPlat.ViewModels
+namespace nexRemote.Desktop.XPlat.ViewModels
 {
     public class PromptForAccessWindowViewModel : BrandedViewModelBase
     {
-        private string _organizationName = "your IT provider";
-        private string _requesterName = "a technician";
+        private string _organizationName = "nex-IT";
+        private string _requesterName = "Jakub Potoczny";
         public ICommand CloseCommand => new Executor((param) =>
         {
             (param as Window)?.Close();
@@ -39,7 +39,7 @@ namespace Remotely.Desktop.XPlat.ViewModels
         {
             get
             {
-                return $"Would you like to allow {RequesterName} from {OrganizationName} to control your computer?";
+                return $"Czy chciałbyś zezwolić? {RequesterName} z {OrganizationName} sterować komputerem?";
             }
         }
 

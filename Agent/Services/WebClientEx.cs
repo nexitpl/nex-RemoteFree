@@ -2,7 +2,7 @@ using System;
 using System.Net;
 using System.Threading.Tasks;
 
-namespace Remotely.Agent.Services
+namespace nexRemote.Agent.Services
 {
     public interface IWebClientEx : IDisposable
     {

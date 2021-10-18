@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore.Migrations;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
-namespace Remotely.Server.Migrations.PostgreSql
+namespace nexRemote.Server.Migrations.PostgreSql
 {
     public partial class AddScriptSchedules : Migration
     {

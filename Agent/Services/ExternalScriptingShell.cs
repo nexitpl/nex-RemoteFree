@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using Remotely.Shared.Enums;
-using Remotely.Shared.Models;
-using Remotely.Shared.Utilities;
+using nexRemote.Shared.Enums;
+using nexRemote.Shared.Models;
+using nexRemote.Shared.Utilities;
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
@@ -11,7 +11,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Remotely.Agent.Services
+namespace nexRemote.Agent.Services
 {
     public interface IExternalScriptingShell
     {
@@ -71,7 +71,7 @@ namespace Remotely.Agent.Services
                         session.Init(shell, "cmd.exe", "\r\n", senderConnectionId);
                         break;
                     default:
-                        throw new ArgumentException($"Unknown external scripting shell type: {shell}");
+                        throw new ArgumentException($"Nieznany typ zewnętrznej powłoki skryptowej: {shell}");
                 }
                 _sessions.AddOrUpdate($"{shell}-{senderConnectionId}", session, (id, b) => session);
                 return session;
@@ -148,9 +148,9 @@ namespace Remotely.Agent.Services
                 SenderConnectionID = SenderConnectionId,
                 DeviceID = _configService.GetConnectionInfo().DeviceID,
                 StandardOutput = StandardOut.Split(Environment.NewLine),
-                ErrorOutput = (new[] { "WARNING: The command execution timed out and was forced to return before finishing.  " +
-                    "The results may be partial, and the terminal process has been reset.  " +
-                    "Please note that interactive commands aren't supported."})
+                ErrorOutput = (new[] { "OSTRZEŻENIE: Upłynął limit czasu wykonania polecenia i został zmuszony do powrotu przed zakończeniem.  " +
+                    "Wyniki mogą być częściowe, a proces terminala został zresetowany.  " +
+                    "Pamiętaj, że polecenia interaktywne nie są obsługiwane."})
                     .Concat(ErrorOut.Split(Environment.NewLine))
                     .ToArray(),
                 HadErrors = !string.IsNullOrWhiteSpace(ErrorOut) ||

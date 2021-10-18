@@ -1,19 +1,19 @@
 ﻿using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Rendering;
 using Microsoft.AspNetCore.Components.Web;
-using Remotely.Server.Components;
-using Remotely.Server.Hubs;
-using Remotely.Server.Services;
-using Remotely.Shared.Enums;
-using Remotely.Shared.Models;
-using Remotely.Shared.Utilities;
+using nexRemote.Server.Components;
+using nexRemote.Server.Hubs;
+using nexRemote.Server.Services;
+using nexRemote.Shared.Enums;
+using nexRemote.Shared.Models;
+using nexRemote.Shared.Utilities;
 using System;
 using System.Collections.Concurrent;
 using System.Linq;
 using System.Text.Json;
 using System.Threading.Tasks;
 
-namespace Remotely.Server.Pages
+namespace nexRemote.Server.Pages
 {
     public partial class DeviceDetails : AuthComponentBase
     {

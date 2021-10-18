@@ -5,7 +5,7 @@
     <TargetFramework>net5.0</TargetFramework>
     <AssemblyName>nex-Remote_Installer</AssemblyName>
     <ApplicationIcon>Remotely_Icon.ico</ApplicationIcon>
-    <RootNamespace>Remotely.Server.Installer</RootNamespace>
+    <RootNamespace>nexRemote.Server.Installer</RootNamespace>
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
 

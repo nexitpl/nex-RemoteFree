@@ -1,4 +1,4 @@
-﻿namespace Remotely.Shared.Enums
+﻿namespace nexRemote.Shared.Enums
 {
     public enum Theme
     {

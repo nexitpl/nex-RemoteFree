@@ -62,19 +62,19 @@ function Run-StartupChecks {
 	}
 }
 
-function Stop-Remotely {
+function Stop-nex-Remote {
 	Start-Process -FilePath "cmd.exe" -ArgumentList "/c sc delete nex-Remote_Service" -Wait -WindowStyle Hidden
-	Stop-Process -Name Remotely_Agent -Force -ErrorAction SilentlyContinue
-	Stop-Process -Name Remotely_Desktop -Force -ErrorAction SilentlyContinue
+	Stop-Process -Name nex-Remote_Agent -Force -ErrorAction SilentlyContinue
+	Stop-Process -Name nex-Remote_Desktop -Force -ErrorAction SilentlyContinue
 }
 
-function Uninstall-Remotely {
-	Stop-Remotely
+function Uninstall-nex-Remote {
+	Stop-nex-Remote
 	Remove-Item -Path $InstallPath -Force -Recurse -ErrorAction SilentlyContinue
 	Remove-NetFirewallRule -Name "nex-Remote ScreenCast" -ErrorAction SilentlyContinue
 }
 
-function Install-Remotely {
+function Install-nex-Remote {
 	if ((Test-Path -Path "$InstallPath") -and (Test-Path -Path "$InstallPath\ConnectionInfo.json")) {
 		$ConnectionInfo = Get-Content -Path "$InstallPath\ConnectionInfo.json" | ConvertFrom-Json
 		if ($ConnectionInfo -ne $null) {
@@ -136,8 +136,8 @@ function Install-Remotely {
 	}
 
 	New-Service -Name "nex-Remote_Service" -BinaryPathName "$InstallPath\nex-Remote_Agent.exe" -DisplayName "nex-Remote_Service" -StartupType Automatic -Description "Usługa działająca w tle, która utrzymuje połączenie z serwerem nex-Remote.  Usługa służy do zdalnego wsparcia i konserwacji przez oprogramowanie nex-Remote by nex-IT Jakub Potoczny."
-	Start-Process -FilePath "cmd.exe" -ArgumentList "/c sc.exe failure `"Remotely_Service`" reset=5 actions=restart/5000" -Wait -WindowStyle Hidden
-	Start-Service -Name Remotely_Service
+	Start-Process -FilePath "cmd.exe" -ArgumentList "/c sc.exe failure `"nex-Remote_Service`" reset=5 actions=restart/5000" -Wait -WindowStyle Hidden
+	Start-Service -Name nex-Remote_Service
 
 	New-NetFirewallRule -Name "nex-Remote Desktop Unattended" -DisplayName "nex-Remote Desktop Unattended" -Description "Agent, który umożliwia udostępnianie ekranu i zdalne sterowanie dla nex-Remote." -Direction Inbound -Enabled True -Action Allow -Program "C:\Program Files\nex-Remote\Desktop\nex-Remote_Desktop.exe" -ErrorAction SilentlyContinue
 }

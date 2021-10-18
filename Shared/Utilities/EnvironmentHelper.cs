@@ -1,8 +1,8 @@
-﻿using Remotely.Shared.Enums;
+﻿using nexRemote.Shared.Enums;
 using System;
 using System.Diagnostics;
 
-namespace Remotely.Shared.Utilities
+namespace nexRemote.Shared.Utilities
 {
     public static class EnvironmentHelper
     {
@@ -13,10 +13,10 @@ namespace Remotely.Shared.Utilities
                 switch (Platform)
                 {
                     case Platform.Windows:
-                        return "Remotely_Agent.exe";
+                        return "nex-Remote_Agent.exe";
                     case Platform.Linux:
                     case Platform.MacOS:
-                        return "Remotely_Agent";
+                        return "nex-Remote_Agent";
                     default:
                         throw new PlatformNotSupportedException();
                 }
@@ -30,10 +30,10 @@ namespace Remotely.Shared.Utilities
                 switch (Platform)
                 {
                     case Platform.Windows:
-                        return "Remotely_Desktop.exe";
+                        return "nex-Remote_Desktop.exe";
                     case Platform.Linux:
                     case Platform.MacOS:
-                        return "Remotely_Desktop";
+                        return "nex-Remote_Desktop";
                     default:
                         throw new PlatformNotSupportedException();
                 }

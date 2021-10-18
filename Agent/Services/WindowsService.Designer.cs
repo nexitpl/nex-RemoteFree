@@ -1,4 +1,4 @@
-﻿namespace Remotely.Agent.Services
+﻿namespace nexRemote.Agent.Services
 {
     partial class WindowsService
     {

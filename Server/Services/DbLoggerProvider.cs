@@ -2,7 +2,7 @@
 using Microsoft.Extensions.Logging;
 using System;
 
-namespace Remotely.Server.Services
+namespace nexRemote.Server.Services
 {
     public class DbLoggerProvider : ILoggerProvider
     {
