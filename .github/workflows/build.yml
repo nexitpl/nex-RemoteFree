@@ -94,7 +94,7 @@ jobs:
     needs: build-mac
 
     env:
-      Solution_Name: Remotely.sln      
+      Solution_Name: nex-Remote.sln      
       Configuration: Release
       PfxBase64: ${{ secrets.BASE64_ENCODED_PFX }}
       PfxKey: ${{ secrets.PFX_KEY }}
