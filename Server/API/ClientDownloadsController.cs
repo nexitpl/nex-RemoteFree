@@ -37,12 +37,12 @@ namespace nexRemote.Server.API
             {
                 case "WindowsDesktop-x64":
                     {
-                        var filePath = Path.Combine(_hostEnv.WebRootPath, "Content", "Win-x64", "nex-Remote.exe");
+                        var filePath = Path.Combine(_hostEnv.WebRootPath, "Content", "Win-x64", "nex-Remote_Desktop.exe");
                         return await GetDesktopFile(filePath);
                     }
                 case "WindowsDesktop-x86":
                     {
-                        var filePath = Path.Combine(_hostEnv.WebRootPath, "Content", "Win-x86", "nex-Remote.exe");
+                        var filePath = Path.Combine(_hostEnv.WebRootPath, "Content", "Win-x86", "nex-Remote_Desktop.exe");
                         return await GetDesktopFile(filePath);
                     }
                 case "UbuntuDesktop":
@@ -73,12 +73,12 @@ namespace nexRemote.Server.API
             {
                 case "WindowsDesktop-x64":
                     {
-                        var filePath = Path.Combine(_hostEnv.WebRootPath, "Content", "Win-x64", "nex-Remote.exe");
+                        var filePath = Path.Combine(_hostEnv.WebRootPath, "Content", "Win-x64", "nex-Remote_Desktop.exe");
                         return await GetDesktopFile(filePath, organizationId);
                     }
                 case "WindowsDesktop-x86":
                     {
-                        var filePath = Path.Combine(_hostEnv.WebRootPath, "Content", "Win-x86", "nex-Remote.exe");
+                        var filePath = Path.Combine(_hostEnv.WebRootPath, "Content", "Win-x86", "nex-Remote_Desktop.exe");
                         return await GetDesktopFile(filePath, organizationId);
                     }
                 case "UbuntuDesktop":

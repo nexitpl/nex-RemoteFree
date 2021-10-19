@@ -15,7 +15,7 @@ namespace nexRemote.Agent.Services
 
     public class AppLauncherWin : IAppLauncher
     {
-        private readonly string _rcBinaryPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "nex-Remote", EnvironmentHelper.DesktopExecutableFileName);
+        private readonly string _rcBinaryPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Desktop", EnvironmentHelper.DesktopExecutableFileName);
 
         public AppLauncherWin(ConfigService configService)
         {

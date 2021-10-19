@@ -15,7 +15,7 @@ namespace nexRemote.Agent.Services
 
     public class AppLauncherLinux : IAppLauncher
     {
-        private readonly string _rcBinaryPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "nex-Remote", EnvironmentHelper.DesktopExecutableFileName);
+        private readonly string _rcBinaryPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Desktop", EnvironmentHelper.DesktopExecutableFileName);
         private readonly IProcessInvoker _processInvoker;
         private readonly ConnectionInfo _connectionInfo;
 
