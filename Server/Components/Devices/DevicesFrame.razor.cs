@@ -187,7 +187,7 @@ namespace nexRemote.Server.Components.Devices
                         }
                         else
                         {
-                            Logger.LogWarning("Device not found for unattended session: {deviceId}", deviceId);
+                            Logger.LogWarning("Nie znaleziono urządzenia dla sesji nienadzorowanej: {deviceId}", deviceId);
                         }
                     }
                     break;
@@ -290,7 +290,7 @@ namespace nexRemote.Server.Components.Devices
         private void HandleRefreshClicked()
         {
             Refresh();
-            ToastService.ShowToast("Devices refreshed.");
+            ToastService.ShowToast("Urządzenia odświeżone.");
         }
 
         private void LoadDevices()
