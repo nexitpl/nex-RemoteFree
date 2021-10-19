@@ -168,7 +168,7 @@ namespace nexRemote.Server
 
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Remotely API", Version = "v1" });
+                c.SwaggerDoc("v2", new OpenApiInfo { Title = "nex-Remote API", Version = "v2" });
             });
 
 
@@ -231,7 +231,7 @@ namespace nexRemote.Server
 
             app.UseSwaggerUI(c =>
             {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Remotely API V1");
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "nex-Remote API V2");
             });
 
             app.UseRouting();

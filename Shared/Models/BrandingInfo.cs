@@ -25,11 +25,11 @@ namespace nexRemote.Shared.Models
 
         public byte TitleForegroundBlue { get; set; } = 241;
 
-        public byte TitleBackgroundRed { get; set; } = 70;
+        public byte TitleBackgroundRed { get; set; } = 0;
 
-        public byte TitleBackgroundGreen { get; set; } = 70;
+        public byte TitleBackgroundGreen { get; set; } = 0;
 
-        public byte TitleBackgroundBlue { get; set; } = 70;
+        public byte TitleBackgroundBlue { get; set; } = 0;
 
         public byte ButtonForegroundRed { get; set; } = 255;
 
