@@ -10,7 +10,7 @@ button {
 
 
 button:hover {
-    background-color: rgb(100,100,100);
+    background-color: white;
 }
 
 button:active {
@@ -18,7 +18,7 @@ button:active {
 }
 
 button.toggled {
-    background-color: rgb(220, 220, 220);
+    background-color: green;
     color: black;
 }
 
