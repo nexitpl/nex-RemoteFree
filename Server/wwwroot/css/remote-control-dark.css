@@ -29,11 +29,11 @@ button[disabled] {
 
 
 .menu-options-header {
-    color: lightgray;
+    color: white;
 }
 
 #menuButton {
-    color: gray;
+    color: white;
     background-color: black;
 }
 #menuButton:hover {
@@ -69,7 +69,7 @@ button[disabled] {
 
 
 .logo-subtitle {
-    color: deepskyblue;
+    color: rgb(0,159,227);
 }
 
 .logo-title {
@@ -78,13 +78,13 @@ button[disabled] {
 
 
 footer a {
-    color: deepskyblue;
+    color: rgb(0,159,227);
 }
 
 
 
 .status-message {
-    color: deepskyblue;
+    color: rgb(0,159,227);
 }
 
 .toast-message {

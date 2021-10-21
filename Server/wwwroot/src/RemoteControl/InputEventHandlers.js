@@ -42,19 +42,19 @@ export function ApplyInputHandlers() {
     });
     TypeClipboardButton.addEventListener("click", (ev) => {
         if (!navigator.clipboard.readText) {
-            alert("Clipboard access isn't supported on this browser.");
+            alert("Dostêp do schowka nie jest obs³ugiwany w tej przegl¹darce.");
             return;
         }
         if (ViewerApp.ViewOnlyMode) {
-            alert("View-only mode is enabled.");
+            alert("Tryb tylko do podgl¹du jest w³¹czony.");
             return;
         }
         navigator.clipboard.readText().then(text => {
             ViewerApp.MessageSender.SendClipboardTransfer(text, true);
-            ShowMessage("Clipboard sent!");
+            ShowMessage("Schowek wys³any!");
         }, reason => {
-            alert("Unable to read clipboard.  Please check your permissions.");
-            console.log("Unable to read clipboard.  Reason: " + reason);
+            alert("Nie mo¿na odczytaæ schowka. SprawdŸ swoje uprawnienia.");
+            console.log("Nie mo¿na odczytaæ schowka. Powód: " + reason);
         });
     });
     ConnectButton.addEventListener("click", (ev) => {
@@ -62,11 +62,11 @@ export function ApplyInputHandlers() {
     });
     CtrlAltDelButton.addEventListener("click", (ev) => {
         if (!ViewerApp.ServiceID) {
-            ShowMessage("Not available for this session.");
+            ShowMessage("Niedostêpne dla tej sesji.");
             return;
         }
         if (ViewerApp.ViewOnlyMode) {
-            alert("View-only mode is enabled.");
+            alert("Tryb tylko do podgl¹du jest w³¹czony.");
             return;
         }
         closeAllHorizontalBars(null);
@@ -95,7 +95,7 @@ export function ApplyInputHandlers() {
     });
     FileDownloadButton.addEventListener("click", (ev) => {
         if (ViewerApp.ViewOnlyMode) {
-            alert("View-only mode is enabled.");
+            alert("Tryb tylko do podgl¹du jest w³¹czony.");
             return;
         }
         ViewerApp.MessageSender.SendOpenFileTransferWindow();
@@ -123,7 +123,7 @@ export function ApplyInputHandlers() {
     });
     BlockInputButton.addEventListener("click", (ev) => {
         if (ViewerApp.ViewOnlyMode) {
-            alert("View-only mode is enabled.");
+            alert("Tryb tylko do podgl¹du jest w³¹czony.");
             return;
         }
         BlockInputButton.classList.toggle("toggled");
@@ -408,7 +408,7 @@ export function ApplyInputHandlers() {
         ViewerApp.MessageSender.GetWindowsSessions();
     });
     WindowsSessionSelect.addEventListener("change", () => {
-        ShowMessage("Switching sessions...");
+        ShowMessage("Prze³¹czanie sesji...");
         ViewerApp.MessageSender.ChangeWindowsSession(Number(WindowsSessionSelect.selectedOptions[0].value));
     });
     RecordSessionButton.addEventListener("click", () => {
