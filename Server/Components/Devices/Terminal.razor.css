@@ -50,6 +50,7 @@
     overflow-wrap: break-word;
     overflow-y: auto;
     white-space: pre;
+    background-color:black;
 }
 
 .terminal-line {
