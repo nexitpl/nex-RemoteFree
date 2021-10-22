@@ -51,7 +51,7 @@ export function ApplyInputHandlers() {
         }
         navigator.clipboard.readText().then(text => {
             ViewerApp.MessageSender.SendClipboardTransfer(text, true);
-            ShowMessage("Schowek wys³any!");
+            ShowMessage("Schowek wys³any");
         }, reason => {
             alert("Nie mo¿na odczytaæ schowka. SprawdŸ swoje uprawnienia.");
             console.log("Nie mo¿na odczytaæ schowka. Powód: " + reason);
