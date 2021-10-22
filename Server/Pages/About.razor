@@ -12,13 +12,13 @@
     Licencje Open Source: <a href="/credits">Link</a>
 </p>
 <p>
-    Version: @if (System.IO.File.Exists("Remotely_Server.dll"))
+    Version: @if (System.IO.File.Exists("nex-Remote_Server.dll"))
     {
-        <span>@System.Diagnostics.FileVersionInfo.GetVersionInfo("Remotely_Server.dll").FileVersion.ToString()</span>
+        <span>@System.Diagnostics.FileVersionInfo.GetVersionInfo("nex-Remote_Server.dll").FileVersion.ToString()</span>
     }
     else
     {
-        <span>1.0.0.0</span>
+        <span>2.0.0.0</span>
     }
 
 </p>

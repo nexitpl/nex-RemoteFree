@@ -1,9 +1,9 @@
 FROM ubuntu:focal
 
-EXPOSE 5000
+EXPOSE 5002
 
 ENV ASPNETCORE_ENVIRONMENT="Production"
-ENV ASPNETCORE_URLS="http://*:5000"
+ENV ASPNETCORE_URLS="http://*:5002"
 
 RUN \
   apt-get -y update && \
@@ -24,9 +24,9 @@ RUN \
 RUN \
   mkdir -p /var/www/remotely && \
   mkdir /config && \
-  wget -q https://github.com/lucent-sea/Remotely/releases/latest/download/Remotely_Server_Linux-x64.zip && \
-  unzip -o Remotely_Server_Linux-x64.zip -d /var/www/remotely && \
-  rm Remotely_Server_Linux-x64.zip
+  wget -q https://github.com/lucent-sea/Remotely/releases/latest/download/nex-Remote_Server_Linux-x64.zip && \
+  unzip -o nex-Remote_Server_Linux-x64.zip -d /var/www/remotely && \
+  rm nex-Remote_Server_Linux-x64.zip
 
 RUN \
   mkdir -p /remotely-data && \

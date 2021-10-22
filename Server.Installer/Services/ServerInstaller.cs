@@ -39,8 +39,8 @@ namespace Server.Installer.Services
                 int progress = 0;
 
                 var releaseFile = cliParams.WebServer == WebServerType.IisWindows ?
-                    "https://github.com/lucent-sea/Remotely/releases/latest/download/Remotely_Server_Win-x64.zip" :
-                    "https://github.com/lucent-sea/Remotely/releases/latest/download/Remotely_Server_Linux-x64.zip";
+                    "https://github.com/nexitpl/nex-Remote/releases/latest/download/nex-Remote_Server_Win-x64.zip" :
+                    "https://github.com/nexitpl/nex-Remote/releases/latest/download/nex-Remote_Linux-x64.zip";
 
                 using var webClient = new WebClient();
                 webClient.DownloadProgressChanged += (sender, args) =>

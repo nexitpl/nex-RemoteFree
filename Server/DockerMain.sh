@@ -19,5 +19,5 @@ fi
 
 ln -s "$AppSettingsVolume" "$AppSettingsWww"
 
-echo "Starting Remotely server."
-exec /usr/bin/dotnet /var/www/remotely/Remotely_Server.dll
+echo "Starting nex-Remote server."
+exec /usr/bin/dotnet /var/www/remotely/nex-Remote_Server.dll

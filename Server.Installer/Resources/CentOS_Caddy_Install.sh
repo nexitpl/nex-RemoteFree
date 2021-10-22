@@ -26,7 +26,7 @@ if [ -z "$HostName" ]; then
     read -p "Enter server host (e.g. remotely.yourdomainname.com): " HostName
 fi
 
-chmod +x "$AppRoot/Remotely_Server"
+chmod +x "$AppRoot/nex-Remote_Server"
 
 echo "Using $AppRoot as the Remotely website's content directory."
 
@@ -72,11 +72,11 @@ echo "$caddyConfig" > /etc/caddy/Caddyfile
 # Create service.
 
 serviceConfig="[Unit]
-Description=Remotely Server
+Description=nex-Remote Server
 
 [Service]
 WorkingDirectory=$AppRoot
-ExecStart=/usr/bin/dotnet $AppRoot/Remotely_Server.dll
+ExecStart=/usr/bin/dotnet $AppRoot/nex-Remote_Server.dll
 Restart=always
 # Restart service after 10 seconds if the dotnet service crashes:
 RestartSec=10
