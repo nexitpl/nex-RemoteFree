@@ -23,7 +23,7 @@ namespace nexRemote.Server.API
         public RemoteControlController(IDataService dataService,
             IHubContext<AgentHub> agentHub,
             IApplicationConfig appConfig,
-            SignInManager<RemotelyUser> signInManager)
+            SignInManager<nexRemoteUser> signInManager)
         {
             DataService = dataService;
             AgentHubContext = agentHub;
@@ -34,7 +34,7 @@ namespace nexRemote.Server.API
         public IDataService DataService { get; }
         public IHubContext<AgentHub> AgentHubContext { get; }
         public IApplicationConfig AppConfig { get; }
-        public SignInManager<RemotelyUser> SignInManager { get; }
+        public SignInManager<nexRemoteUser> SignInManager { get; }
 
         [HttpGet("{deviceID}")]
         [ServiceFilter(typeof(ApiAuthorizationFilter))]

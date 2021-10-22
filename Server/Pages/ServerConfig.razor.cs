@@ -137,7 +137,7 @@ namespace nexRemote.Server.Pages
         private string _trustedCorsOriginSelected;
         private string _trustedCorsOriginToAdd;
 
-        private readonly List<RemotelyUser> _userList = new();
+        private readonly List<nexRemoteUser> _userList = new();
 
 
         [Inject]
@@ -170,7 +170,7 @@ namespace nexRemote.Server.Pages
         [Inject]
         private IToastService ToastService { get; set; }
         private int TotalDevices => DataService.GetTotalDevices();
-        private IEnumerable<RemotelyUser> UserList
+        private IEnumerable<nexRemoteUser> UserList
         {
             get
             {
@@ -362,7 +362,7 @@ namespace nexRemote.Server.Pages
 
             await System.IO.File.WriteAllTextAsync(savePath, JsonSerializer.Serialize(settingsJson, new JsonSerializerOptions() { WriteIndented = true }));
         }
-        private void SetIsServerAdmin(ChangeEventArgs ev, RemotelyUser user)
+        private void SetIsServerAdmin(ChangeEventArgs ev, nexRemoteUser user)
         {
             var isAdmin = (bool)ev.Value;
             DataService.SetIsServerAdmin(user.Id, isAdmin, User.Id);

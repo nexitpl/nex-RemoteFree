@@ -19,7 +19,7 @@ namespace nexRemote.Server.Components
 
         public bool IsAuthenticated { get; private set; }
 
-        public RemotelyUser User { get; private set; }
+        public nexRemoteUser User { get; private set; }
 
         public string Username { get; private set; }
 

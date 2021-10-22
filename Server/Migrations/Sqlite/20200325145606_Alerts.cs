@@ -33,9 +33,9 @@ namespace nexRemote.Server.Migrations.Sqlite
                         principalColumn: "ID",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_Alerts_RemotelyUsers_UserID",
+                        name: "FK_Alerts_nexRemoteUsers_UserID",
                         column: x => x.UserID,
-                        principalTable: "RemotelyUsers",
+                        principalTable: "nexRemoteUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });

@@ -136,7 +136,7 @@ namespace nexRemote.Server.Migrations.PostgreSql
                         .IsUnique()
                         .HasName("UserNameIndex");
 
-                    b.ToTable("RemotelyUsers");
+                    b.ToTable("nexRemoteUsers");
 
                     b.HasDiscriminator<string>("Discriminator").HasValue("IdentityUser");
                 });
@@ -549,7 +549,7 @@ namespace nexRemote.Server.Migrations.PostgreSql
                     b.ToTable("PermissionLinks");
                 });
 
-            modelBuilder.Entity("Remotely.Shared.Models.RemotelyUser", b =>
+            modelBuilder.Entity("Remotely.Shared.Models.nexRemoteUser", b =>
                 {
                     b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityUser");
 
@@ -576,7 +576,7 @@ namespace nexRemote.Server.Migrations.PostgreSql
 
                     b.HasIndex("UserName");
 
-                    b.HasDiscriminator().HasValue("RemotelyUser");
+                    b.HasDiscriminator().HasValue("nexRemoteUser");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -640,7 +640,7 @@ namespace nexRemote.Server.Migrations.PostgreSql
                         .WithMany("Alerts")
                         .HasForeignKey("OrganizationID");
 
-                    b.HasOne("Remotely.Shared.Models.RemotelyUser", "User")
+                    b.HasOne("Remotely.Shared.Models.nexRemoteUser", "User")
                         .WithMany("Alerts")
                         .HasForeignKey("UserID");
                 });
@@ -704,15 +704,15 @@ namespace nexRemote.Server.Migrations.PostgreSql
                         .WithMany("PermissionLinks")
                         .HasForeignKey("DeviceGroupID");
 
-                    b.HasOne("Remotely.Shared.Models.RemotelyUser", "User")
+                    b.HasOne("Remotely.Shared.Models.nexRemoteUser", "User")
                         .WithMany("PermissionLinks")
                         .HasForeignKey("UserID");
                 });
 
-            modelBuilder.Entity("Remotely.Shared.Models.RemotelyUser", b =>
+            modelBuilder.Entity("Remotely.Shared.Models.nexRemoteUser", b =>
                 {
                     b.HasOne("Remotely.Shared.Models.Organization", "Organization")
-                        .WithMany("RemotelyUsers")
+                        .WithMany("nexRemoteUsers")
                         .HasForeignKey("OrganizationID");
                 });
 #pragma warning restore 612, 618

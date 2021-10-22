@@ -23,7 +23,7 @@ namespace nexRemote.Shared.Models
         public string OrganizationID { get; set; }
 
         [JsonIgnore]
-        public RemotelyUser User { get; set; }
+        public nexRemoteUser User { get; set; }
         public string UserID { get; set; }
         public string Details { get; set; }
     }

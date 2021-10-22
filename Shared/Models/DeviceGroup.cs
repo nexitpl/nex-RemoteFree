@@ -24,7 +24,7 @@ namespace nexRemote.Shared.Models
         public string OrganizationID { get; set; }
 
         [JsonIgnore]
-        public List<RemotelyUser> Users { get; set; }
+        public List<nexRemoteUser> Users { get; set; }
 
         [JsonIgnore]
         public List<ScriptSchedule> ScriptSchedules { get; set; }

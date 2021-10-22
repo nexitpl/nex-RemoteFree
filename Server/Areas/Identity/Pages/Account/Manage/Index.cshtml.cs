@@ -12,12 +12,12 @@ namespace nexRemote.Server.Areas.Identity.Pages.Account.Manage
 {
     public partial class IndexModel : PageModel
     {
-        private readonly UserManager<RemotelyUser> _userManager;
-        private readonly SignInManager<RemotelyUser> _signInManager;
+        private readonly UserManager<nexRemoteUser> _userManager;
+        private readonly SignInManager<nexRemoteUser> _signInManager;
 
         public IndexModel(
-            UserManager<RemotelyUser> userManager,
-            SignInManager<RemotelyUser> signInManager)
+            UserManager<nexRemoteUser> userManager,
+            SignInManager<nexRemoteUser> signInManager)
         {
             _userManager = userManager;
             _signInManager = signInManager;
@@ -38,7 +38,7 @@ namespace nexRemote.Server.Areas.Identity.Pages.Account.Manage
             public string PhoneNumber { get; set; }
         }
 
-        private async Task LoadAsync(RemotelyUser user)
+        private async Task LoadAsync(nexRemoteUser user)
         {
             var userName = await _userManager.GetUserNameAsync(user);
             var phoneNumber = await _userManager.GetPhoneNumberAsync(user);

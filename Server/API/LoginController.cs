@@ -16,7 +16,7 @@ namespace nexRemote.Server.API
     [Obsolete("This controller is here only for legacy purposes.  For new integrations, use API tokens.")]
     public class LoginController : ControllerBase
     {
-        public LoginController(SignInManager<RemotelyUser> signInManager,
+        public LoginController(SignInManager<nexRemoteUser> signInManager,
             IDataService dataService,
             IApplicationConfig appConfig,
             IHubContext<CasterHub> casterHubContext,
@@ -29,7 +29,7 @@ namespace nexRemote.Server.API
             ViewerHubContext = viewerHubContext;
         }
 
-        private SignInManager<RemotelyUser> SignInManager { get; }
+        private SignInManager<nexRemoteUser> SignInManager { get; }
         private IDataService DataService { get; }
         public IApplicationConfig AppConfig { get; }
         private IHubContext<CasterHub> CasterHubContext { get; }

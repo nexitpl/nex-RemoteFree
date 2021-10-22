@@ -54,7 +54,7 @@ namespace nexRemote.Tests
             services.AddScoped(p =>
                 p.GetRequiredService<IDbContextFactory<AppDb>>().CreateDbContext());
 
-            services.AddIdentity<RemotelyUser, IdentityRole>(options => options.Stores.MaxLengthForKeys = 128)
+            services.AddIdentity<nexRemoteUser, IdentityRole>(options => options.Stores.MaxLengthForKeys = 128)
              .AddEntityFrameworkStores<AppDb>()
              .AddDefaultUI()
              .AddDefaultTokenProviders();

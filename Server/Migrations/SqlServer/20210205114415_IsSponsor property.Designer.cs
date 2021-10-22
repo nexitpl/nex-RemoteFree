@@ -21,7 +21,7 @@ namespace nexRemote.Server.Migrations.SqlServer
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("ProductVersion", "5.0.2");
 
-            modelBuilder.Entity("DeviceGroupRemotelyUser", b =>
+            modelBuilder.Entity("DeviceGroupnexRemoteUser", b =>
                 {
                     b.Property<string>("DeviceGroupsID")
                         .HasColumnType("nvarchar(450)");
@@ -33,7 +33,7 @@ namespace nexRemote.Server.Migrations.SqlServer
 
                     b.HasIndex("UsersId");
 
-                    b.ToTable("DeviceGroupRemotelyUser");
+                    b.ToTable("DeviceGroupnexRemoteUser");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -153,7 +153,7 @@ namespace nexRemote.Server.Migrations.SqlServer
                         .HasDatabaseName("UserNameIndex")
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
-                    b.ToTable("RemotelyUsers");
+                    b.ToTable("nexRemoteUsers");
 
                     b.HasDiscriminator<string>("Discriminator").HasValue("IdentityUser");
                 });
@@ -552,7 +552,7 @@ namespace nexRemote.Server.Migrations.SqlServer
                     b.ToTable("SharedFiles");
                 });
 
-            modelBuilder.Entity("Remotely.Shared.Models.RemotelyUser", b =>
+            modelBuilder.Entity("Remotely.Shared.Models.nexRemoteUser", b =>
                 {
                     b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityUser");
 
@@ -579,10 +579,10 @@ namespace nexRemote.Server.Migrations.SqlServer
 
                     b.HasIndex("UserName");
 
-                    b.HasDiscriminator().HasValue("RemotelyUser");
+                    b.HasDiscriminator().HasValue("nexRemoteUser");
                 });
 
-            modelBuilder.Entity("DeviceGroupRemotelyUser", b =>
+            modelBuilder.Entity("DeviceGroupnexRemoteUser", b =>
                 {
                     b.HasOne("Remotely.Shared.Models.DeviceGroup", null)
                         .WithMany()
@@ -590,7 +590,7 @@ namespace nexRemote.Server.Migrations.SqlServer
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Remotely.Shared.Models.RemotelyUser", null)
+                    b.HasOne("Remotely.Shared.Models.nexRemoteUser", null)
                         .WithMany()
                         .HasForeignKey("UsersId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -658,7 +658,7 @@ namespace nexRemote.Server.Migrations.SqlServer
                         .WithMany("Alerts")
                         .HasForeignKey("OrganizationID");
 
-                    b.HasOne("Remotely.Shared.Models.RemotelyUser", "User")
+                    b.HasOne("Remotely.Shared.Models.nexRemoteUser", "User")
                         .WithMany("Alerts")
                         .HasForeignKey("UserID");
 
@@ -738,10 +738,10 @@ namespace nexRemote.Server.Migrations.SqlServer
                     b.Navigation("Organization");
                 });
 
-            modelBuilder.Entity("Remotely.Shared.Models.RemotelyUser", b =>
+            modelBuilder.Entity("Remotely.Shared.Models.nexRemoteUser", b =>
                 {
                     b.HasOne("Remotely.Shared.Models.Organization", "Organization")
-                        .WithMany("RemotelyUsers")
+                        .WithMany("nexRemoteUsers")
                         .HasForeignKey("OrganizationID");
 
                     b.Navigation("Organization");
@@ -773,12 +773,12 @@ namespace nexRemote.Server.Migrations.SqlServer
 
                     b.Navigation("InviteLinks");
 
-                    b.Navigation("RemotelyUsers");
+                    b.Navigation("nexRemoteUsers");
 
                     b.Navigation("SharedFiles");
                 });
 
-            modelBuilder.Entity("Remotely.Shared.Models.RemotelyUser", b =>
+            modelBuilder.Entity("Remotely.Shared.Models.nexRemoteUser", b =>
                 {
                     b.Navigation("Alerts");
                 });

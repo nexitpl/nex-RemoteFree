@@ -15,12 +15,12 @@ namespace nexRemote.Server.Pages
             _dataService = dataService;
         }
 
-        public RemotelyUser RemotelyUser { get; private set; }
+        public nexRemoteUser nexRemoteUser { get; private set; }
         public void OnGet()
         {
             if (User.Identity.IsAuthenticated)
             {
-                RemotelyUser = _dataService.GetUserByNameWithOrg(base.User.Identity.Name);
+                nexRemoteUser = _dataService.GetUserByNameWithOrg(base.User.Identity.Name);
             }
         }
     }

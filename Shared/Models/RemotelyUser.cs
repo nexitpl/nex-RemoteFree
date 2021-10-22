@@ -5,7 +5,7 @@ using System.Text.Json.Serialization;
 
 namespace nexRemote.Shared.Models
 {
-    public class RemotelyUser : IdentityUser
+    public class nexRemoteUser : IdentityUser
     {
         public ICollection<Alert> Alerts { get; set; }
 
@@ -23,6 +23,6 @@ namespace nexRemote.Shared.Models
 
         public string TempPassword { get; set; }
 
-        public RemotelyUserOptions UserOptions { get; set; }
+        public nexRemoteUserOptions UserOptions { get; set; }
     }
 }

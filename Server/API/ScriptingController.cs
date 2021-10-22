@@ -25,9 +25,9 @@ namespace nexRemote.Server.API
 
         private readonly IExpiringTokenService _expiringTokenService;
 
-        private readonly UserManager<RemotelyUser> _userManager;
+        private readonly UserManager<nexRemoteUser> _userManager;
 
-        public ScriptingController(UserManager<RemotelyUser> userManager,
+        public ScriptingController(UserManager<nexRemoteUser> userManager,
                                             IDataService dataService,
             IExpiringTokenService expiringTokenService,
             IHubContext<AgentHub> agentHub)

@@ -18,7 +18,7 @@ namespace nexRemote.Server.API
     public class OrganizationManagementController : ControllerBase
     {
         public OrganizationManagementController(IDataService dataService, 
-            UserManager<RemotelyUser> userManager, 
+            UserManager<nexRemoteUser> userManager, 
             IEmailSenderEx emailSender)
         {
             DataService = dataService;
@@ -28,7 +28,7 @@ namespace nexRemote.Server.API
 
         private IDataService DataService { get; }
         private IEmailSenderEx EmailSender { get; }
-        private UserManager<RemotelyUser> UserManager { get; }
+        private UserManager<nexRemoteUser> UserManager { get; }
 
 
         [HttpPost("ChangeIsAdmin/{userID}")]

@@ -1,4 +1,4 @@
-	interface remotelyUserOptions {
+	interface nexRemoteUserOptions {
 		displayName: string;
 		commandModeShortcutPSCore: string;
 		commandModeShortcutWinPS: string;

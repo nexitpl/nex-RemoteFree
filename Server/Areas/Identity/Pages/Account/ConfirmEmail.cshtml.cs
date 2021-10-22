@@ -15,9 +15,9 @@ namespace nexRemote.Server.Areas.Identity.Pages.Account
     [AllowAnonymous]
     public class ConfirmEmailModel : PageModel
     {
-        private readonly UserManager<RemotelyUser> _userManager;
+        private readonly UserManager<nexRemoteUser> _userManager;
 
-        public ConfirmEmailModel(UserManager<RemotelyUser> userManager)
+        public ConfirmEmailModel(UserManager<nexRemoteUser> userManager)
         {
             _userManager = userManager;
         }

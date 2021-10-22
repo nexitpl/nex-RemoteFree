@@ -21,13 +21,13 @@ namespace nexRemote.Server.Areas.Identity.Pages.Account
     [AllowAnonymous]
     public class LoginModel : PageModel
     {
-        private readonly UserManager<RemotelyUser> _userManager;
-        private readonly SignInManager<RemotelyUser> _signInManager;
+        private readonly UserManager<nexRemoteUser> _userManager;
+        private readonly SignInManager<nexRemoteUser> _signInManager;
         private readonly ILogger<LoginModel> _logger;
         private readonly IDataService _dataService;
 
-        public LoginModel(SignInManager<RemotelyUser> signInManager, 
-            UserManager<RemotelyUser> userManager,
+        public LoginModel(SignInManager<nexRemoteUser> signInManager, 
+            UserManager<nexRemoteUser> userManager,
             ILogger<LoginModel> logger,
             IDataService dataService)
         {

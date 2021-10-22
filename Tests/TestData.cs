@@ -19,16 +19,16 @@ namespace nexRemote.Tests
             Init().Wait();
         }
 
-        public RemotelyUser Admin1 { get; } = new RemotelyUser()
+        public nexRemoteUser Admin1 { get; } = new nexRemoteUser()
         {
             UserName = "admin1@test.com",
             IsAdministrator = true,
             IsServerAdmin = true,
             Organization = new Organization(),
-            UserOptions = new RemotelyUserOptions()
+            UserOptions = new nexRemoteUserOptions()
         };
 
-        public RemotelyUser Admin2 { get; private set; } 
+        public nexRemoteUser Admin2 { get; private set; } 
 
         public Device Device1 { get; private set; } = new Device()
         {
@@ -54,9 +54,9 @@ namespace nexRemote.Tests
 
         public string OrganizationID { get; private set; }
 
-        public RemotelyUser User1 { get; private set; }
+        public nexRemoteUser User1 { get; private set; }
 
-        public RemotelyUser User2 { get; private set; }
+        public nexRemoteUser User2 { get; private set; }
 
         public void ClearData()
         {
@@ -74,7 +74,7 @@ namespace nexRemote.Tests
             ClearData();
 
             var dataService = IoCActivator.ServiceProvider.GetRequiredService<IDataService>();
-            var userManager = IoCActivator.ServiceProvider.GetRequiredService<UserManager<RemotelyUser>>();
+            var userManager = IoCActivator.ServiceProvider.GetRequiredService<UserManager<nexRemoteUser>>();
             var emailSender = IoCActivator.ServiceProvider.GetRequiredService<IEmailSenderEx>();
 
             await userManager.CreateAsync(Admin1);

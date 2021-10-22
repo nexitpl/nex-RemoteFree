@@ -8,7 +8,7 @@ namespace nexRemote.Server.Migrations.Sqlite
         {
             migrationBuilder.AddColumn<string>(
                 name: "DisplayName",
-                table: "RemotelyUsers",
+                table: "nexRemoteUsers",
                 maxLength: 100,
                 nullable: true);
         }
@@ -17,7 +17,7 @@ namespace nexRemote.Server.Migrations.Sqlite
         {
             migrationBuilder.DropColumn(
                 name: "DisplayName",
-                table: "RemotelyUsers");
+                table: "nexRemoteUsers");
         }
     }
 }

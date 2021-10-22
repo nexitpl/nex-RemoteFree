@@ -11,10 +11,10 @@ namespace nexRemote.Server.Auth
 {
     public class TwoFactorRequiredHandler : AuthorizationHandler<TwoFactorRequiredRequirement>
     {
-        private readonly UserManager<RemotelyUser> _userManager;
+        private readonly UserManager<nexRemoteUser> _userManager;
         private readonly IApplicationConfig _appConfig;
 
-        public TwoFactorRequiredHandler(UserManager<RemotelyUser> userManager, IApplicationConfig appConfig)
+        public TwoFactorRequiredHandler(UserManager<nexRemoteUser> userManager, IApplicationConfig appConfig)
         {
             _userManager = userManager;
             _appConfig = appConfig;

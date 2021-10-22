@@ -21,16 +21,16 @@ namespace nexRemote.Server.Areas.Identity.Pages.Account
     [AllowAnonymous]
     public class RegisterModel : PageModel
     {
-        private readonly SignInManager<RemotelyUser> _signInManager;
-        private readonly UserManager<RemotelyUser> _userManager;
+        private readonly SignInManager<nexRemoteUser> _signInManager;
+        private readonly UserManager<nexRemoteUser> _userManager;
         private readonly ILogger<RegisterModel> _logger;
         private readonly IEmailSenderEx _emailSender;
         private readonly IDataService _dataService;
         private readonly IApplicationConfig _appConfig;
 
         public RegisterModel(
-            UserManager<RemotelyUser> userManager,
-            SignInManager<RemotelyUser> signInManager,
+            UserManager<nexRemoteUser> userManager,
+            SignInManager<nexRemoteUser> signInManager,
             ILogger<RegisterModel> logger,
             IEmailSenderEx emailSender,
             IDataService dataService,
@@ -89,13 +89,13 @@ namespace nexRemote.Server.Areas.Identity.Pages.Account
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
             if (ModelState.IsValid)
             {
-                var user = new RemotelyUser
+                var user = new nexRemoteUser
                 {
                     UserName = Input.Email,
                     Email = Input.Email,
                     IsServerAdmin = organizationCount == 0,
                     Organization = new Organization(),
-                    UserOptions = new RemotelyUserOptions(),
+                    UserOptions = new nexRemoteUserOptions(),
                     IsAdministrator = true
                 };
 

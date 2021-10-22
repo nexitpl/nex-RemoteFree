@@ -29,9 +29,9 @@
         <link href="~/css/remote-control-dark.css" rel="stylesheet" asp-append-version="true" />
     }
 
-    @if (Model.RemotelyUser is not null)
+    @if (Model.nexRemoteUser is not null)
     {
-        switch (Model.RemotelyUser.UserOptions.Theme)
+        switch (Model.nexRemoteUser.UserOptions.Theme)
         {
             case nexRemote.Shared.Enums.Theme.Light:
                 <link href="~/css/remote-control-light.css" rel="stylesheet" asp-append-version="true" />
@@ -210,7 +210,7 @@
         <div class="form-block">
             <label>Nazwa (pokazana klientowi): </label>
             <br />
-            <input id="nameInput" type="text" value="@Model.RemotelyUser?.UserOptions?.DisplayName" />
+            <input id="nameInput" type="text" value="@Model.nexRemoteUser?.UserOptions?.DisplayName" />
         </div>
         <div class="form-block">
             <label>ID Sesji: </label>

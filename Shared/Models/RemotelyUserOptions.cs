@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace nexRemote.Shared.Models
 {
-    public class RemotelyUserOptions
+    public class nexRemoteUserOptions
     {
         [Display(Name = "Nazwa wyświetlana")]
         [StringLength(100)]

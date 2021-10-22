@@ -13,7 +13,7 @@ namespace nexRemote.Server.Services
     public interface IAuthService
     {
         Task<bool> IsAuthenticated();
-        Task<RemotelyUser> GetUser();
+        Task<nexRemoteUser> GetUser();
     }
 
     public class AuthService : IAuthService
@@ -35,7 +35,7 @@ namespace nexRemote.Server.Services
             return principal?.User?.Identity?.IsAuthenticated ?? false;
         }
 
-        public async Task<RemotelyUser> GetUser()
+        public async Task<nexRemoteUser> GetUser()
         {
             var principal = await _authProvider.GetAuthenticationStateAsync();
 

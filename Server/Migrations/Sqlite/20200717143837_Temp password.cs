@@ -8,7 +8,7 @@ namespace nexRemote.Server.Migrations.Sqlite
         {
             migrationBuilder.AddColumn<string>(
                 name: "TempPassword",
-                table: "RemotelyUsers",
+                table: "nexRemoteUsers",
                 nullable: true);
         }
 
@@ -16,7 +16,7 @@ namespace nexRemote.Server.Migrations.Sqlite
         {
             migrationBuilder.DropColumn(
                 name: "TempPassword",
-                table: "RemotelyUsers");
+                table: "nexRemoteUsers");
         }
     }
 }

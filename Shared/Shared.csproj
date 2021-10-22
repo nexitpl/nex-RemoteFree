@@ -27,15 +27,15 @@
     <Compile Update="Models\Device.cs">
       <Generator></Generator>
     </Compile>
-    <Compile Update="Models\RemotelyUserOptions.cs">
-      <LastGenOutput>RemotelyUserOptions.cs.d.ts</LastGenOutput>
+    <Compile Update="Models\nexRemoteUserOptions.cs">
+      <LastGenOutput>nexRemoteUserOptions.cs.d.ts</LastGenOutput>
       <Generator>DtsGenerator</Generator>
     </Compile>
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="Models\RemotelyUserOptions.cs.d.ts">
-      <DependentUpon>RemotelyUserOptions.cs</DependentUpon>
+    <None Update="Models\nexRemoteUserOptions.cs.d.ts">
+      <DependentUpon>nexRemoteUserOptions.cs</DependentUpon>
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
     </None>

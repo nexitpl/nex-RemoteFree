@@ -101,7 +101,7 @@ namespace nexRemote.Server
                     p.GetRequiredService<IDbContextFactory<PostgreSqlDbContext>>().CreateDbContext());
             }
 
-            services.AddIdentity<RemotelyUser, IdentityRole>(options =>
+            services.AddIdentity<nexRemoteUser, IdentityRole>(options =>
             {
                 options.Stores.MaxLengthForKeys = 128;
                 options.Password.RequireNonAlphanumeric = false;
@@ -122,7 +122,7 @@ namespace nexRemote.Server
 
             services.AddRazorPages();
             services.AddServerSideBlazor();
-            services.AddScoped<AuthenticationStateProvider, RevalidatingIdentityAuthenticationStateProvider<RemotelyUser>>();
+            services.AddScoped<AuthenticationStateProvider, RevalidatingIdentityAuthenticationStateProvider<nexRemoteUser>>();
             services.AddDatabaseDeveloperPageExceptionFilter();
 
             var trustedOrigins = Configuration.GetSection("ApplicationOptions:TrustedCorsOrigins").Get<string[]>();

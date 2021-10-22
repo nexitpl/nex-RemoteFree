@@ -22,7 +22,7 @@ namespace nexRemote.Server.Pages
     {
         private readonly List<DeviceGroup> _deviceGroups = new();
         private readonly List<InviteLink> _invites = new();
-        private readonly List<RemotelyUser> _orgUsers = new();
+        private readonly List<nexRemoteUser> _orgUsers = new();
         private bool _inviteAsAdmin;
         private string _inviteEmail;
         private string _newDeviceGroupName;
@@ -47,7 +47,7 @@ namespace nexRemote.Server.Pages
         [Inject]
         private IToastService ToastService { get; set; }
         [Inject]
-        private UserManager<RemotelyUser> UserManager { get; set; }
+        private UserManager<nexRemoteUser> UserManager { get; set; }
 
 
         protected override async Task OnInitializedAsync()
@@ -139,7 +139,7 @@ namespace nexRemote.Server.Pages
             _selectedDeviceGroupId = string.Empty;
         }
 
-        private async Task DeleteUser(RemotelyUser user)
+        private async Task DeleteUser(nexRemoteUser user)
         {
             if (!User.IsAdministrator)
             {
@@ -163,7 +163,7 @@ namespace nexRemote.Server.Pages
             ToastService.ShowToast("Użytkownik usunięty.");
         }
 
-        private async Task EditDeviceGroups(RemotelyUser user)
+        private async Task EditDeviceGroups(nexRemoteUser user)
         {
             void editDeviceGroupsModal(RenderTreeBuilder builder)
             {
@@ -230,7 +230,7 @@ namespace nexRemote.Server.Pages
             var orgUsers = await DataService.GetAllUsersInOrganization(User.OrganizationID);
             _orgUsers.AddRange(orgUsers.OrderBy(x => x.UserName));
         }
-        private async Task ResetPassword(RemotelyUser user)
+        private async Task ResetPassword(nexRemoteUser user)
         {
             if (!User.IsAdministrator)
             {
@@ -313,7 +313,7 @@ namespace nexRemote.Server.Pages
             }
         }
 
-        private void SetUserIsAdmin(ChangeEventArgs args, RemotelyUser orgUser)
+        private void SetUserIsAdmin(ChangeEventArgs args, nexRemoteUser orgUser)
         {
             if (!User.IsAdministrator)
             {

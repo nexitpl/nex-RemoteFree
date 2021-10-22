@@ -18,11 +18,11 @@ namespace nexRemote.Server.Areas.Identity.Pages.Account
     [AllowAnonymous]
     public class ForgotPasswordModel : PageModel
     {
-        private readonly UserManager<RemotelyUser> _userManager;
+        private readonly UserManager<nexRemoteUser> _userManager;
         private readonly IEmailSenderEx _emailSender;
         private readonly IDataService _dataService;
 
-        public ForgotPasswordModel(UserManager<RemotelyUser> userManager,
+        public ForgotPasswordModel(UserManager<nexRemoteUser> userManager,
             IEmailSenderEx emailSender,
             IDataService dataService)
         {

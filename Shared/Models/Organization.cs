@@ -40,7 +40,7 @@ namespace nexRemote.Shared.Models
 
         public string RelayCode { get; set; }
 
-        public ICollection<RemotelyUser> RemotelyUsers { get; set; }
+        public ICollection<nexRemoteUser> nexRemoteUsers { get; set; }
         public ICollection<SharedFile> SharedFiles { get; set; }
     }
 }

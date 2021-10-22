@@ -23,7 +23,7 @@ namespace nexRemote.Server.Hubs
     public interface ICircuitConnection
     {
         event EventHandler<CircuitEvent> MessageReceived;
-        RemotelyUser User { get; }
+        nexRemoteUser User { get; }
 
         Task DeleteRemoteLogs(string deviceId);
 
@@ -92,7 +92,7 @@ namespace nexRemote.Server.Hubs
         public event EventHandler<CircuitEvent> MessageReceived;
 
         public string ConnectionId { get; set; }
-        public RemotelyUser User { get; set; }
+        public nexRemoteUser User { get; set; }
 
 
         public Task DeleteRemoteLogs(string deviceId)

@@ -16,7 +16,7 @@ namespace nexRemote.Server.Migrations.SqlServer
 
             migrationBuilder.DropColumn(
                 name: "DisplayName",
-                table: "RemotelyUsers");
+                table: "nexRemoteUsers");
 
             migrationBuilder.DropColumn(
                 name: "Token",
@@ -50,9 +50,9 @@ namespace nexRemote.Server.Migrations.SqlServer
                         principalColumn: "ID",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_SavedScripts_RemotelyUsers_CreatorId",
+                        name: "FK_SavedScripts_nexRemoteUsers_CreatorId",
                         column: x => x.CreatorId,
-                        principalTable: "RemotelyUsers",
+                        principalTable: "nexRemoteUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
@@ -84,9 +84,9 @@ namespace nexRemote.Server.Migrations.SqlServer
                         principalColumn: "ID",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_ScriptSchedules_RemotelyUsers_CreatorId",
+                        name: "FK_ScriptSchedules_nexRemoteUsers_CreatorId",
                         column: x => x.CreatorId,
-                        principalTable: "RemotelyUsers",
+                        principalTable: "nexRemoteUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
@@ -368,7 +368,7 @@ namespace nexRemote.Server.Migrations.SqlServer
 
             migrationBuilder.AddColumn<string>(
                 name: "DisplayName",
-                table: "RemotelyUsers",
+                table: "nexRemoteUsers",
                 type: "nvarchar(100)",
                 maxLength: 100,
                 nullable: true);

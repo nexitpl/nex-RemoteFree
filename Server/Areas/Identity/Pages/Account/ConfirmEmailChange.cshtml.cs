@@ -15,10 +15,10 @@ namespace nexRemote.Server.Areas.Identity.Pages.Account
     [AllowAnonymous]
     public class ConfirmEmailChangeModel : PageModel
     {
-        private readonly UserManager<RemotelyUser> _userManager;
-        private readonly SignInManager<RemotelyUser> _signInManager;
+        private readonly UserManager<nexRemoteUser> _userManager;
+        private readonly SignInManager<nexRemoteUser> _signInManager;
 
-        public ConfirmEmailChangeModel(UserManager<RemotelyUser> userManager, SignInManager<RemotelyUser> signInManager)
+        public ConfirmEmailChangeModel(UserManager<nexRemoteUser> userManager, SignInManager<nexRemoteUser> signInManager)
         {
             _userManager = userManager;
             _signInManager = signInManager;
