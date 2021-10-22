@@ -235,7 +235,7 @@ namespace nexRemote.Server.Migrations.Sqlite
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("Remotely.Shared.Models.Alert", b =>
+            modelBuilder.Entity("nexRemote.Shared.Models.Alert", b =>
                 {
                     b.Property<string>("ID")
                         .HasColumnType("TEXT");
@@ -267,7 +267,7 @@ namespace nexRemote.Server.Migrations.Sqlite
                     b.ToTable("Alerts");
                 });
 
-            modelBuilder.Entity("Remotely.Shared.Models.ApiToken", b =>
+            modelBuilder.Entity("nexRemote.Shared.Models.ApiToken", b =>
                 {
                     b.Property<string>("ID")
                         .HasColumnType("TEXT");
@@ -297,7 +297,7 @@ namespace nexRemote.Server.Migrations.Sqlite
                     b.ToTable("ApiTokens");
                 });
 
-            modelBuilder.Entity("Remotely.Shared.Models.BrandingInfo", b =>
+            modelBuilder.Entity("nexRemote.Shared.Models.BrandingInfo", b =>
                 {
                     b.Property<string>("InfoId")
                         .HasColumnType("TEXT");
@@ -341,7 +341,7 @@ namespace nexRemote.Server.Migrations.Sqlite
                     b.ToTable("BrandingInfo");
                 });
 
-            modelBuilder.Entity("Remotely.Shared.Models.CommandResult", b =>
+            modelBuilder.Entity("nexRemote.Shared.Models.CommandResult", b =>
                 {
                     b.Property<string>("ID")
                         .HasColumnType("TEXT");
@@ -381,7 +381,7 @@ namespace nexRemote.Server.Migrations.Sqlite
                     b.ToTable("CommandResults");
                 });
 
-            modelBuilder.Entity("Remotely.Shared.Models.Device", b =>
+            modelBuilder.Entity("nexRemote.Shared.Models.Device", b =>
                 {
                     b.Property<string>("ID")
                         .HasColumnType("TEXT");
@@ -472,7 +472,7 @@ namespace nexRemote.Server.Migrations.Sqlite
                     b.ToTable("Devices");
                 });
 
-            modelBuilder.Entity("Remotely.Shared.Models.DeviceGroup", b =>
+            modelBuilder.Entity("nexRemote.Shared.Models.DeviceGroup", b =>
                 {
                     b.Property<string>("ID")
                         .HasColumnType("TEXT");
@@ -491,7 +491,7 @@ namespace nexRemote.Server.Migrations.Sqlite
                     b.ToTable("DeviceGroups");
                 });
 
-            modelBuilder.Entity("Remotely.Shared.Models.EventLog", b =>
+            modelBuilder.Entity("nexRemote.Shared.Models.EventLog", b =>
                 {
                     b.Property<string>("ID")
                         .HasColumnType("TEXT");
@@ -522,7 +522,7 @@ namespace nexRemote.Server.Migrations.Sqlite
                     b.ToTable("EventLogs");
                 });
 
-            modelBuilder.Entity("Remotely.Shared.Models.InviteLink", b =>
+            modelBuilder.Entity("nexRemote.Shared.Models.InviteLink", b =>
                 {
                     b.Property<string>("ID")
                         .HasColumnType("TEXT");
@@ -550,7 +550,7 @@ namespace nexRemote.Server.Migrations.Sqlite
                     b.ToTable("InviteLinks");
                 });
 
-            modelBuilder.Entity("Remotely.Shared.Models.Organization", b =>
+            modelBuilder.Entity("nexRemote.Shared.Models.Organization", b =>
                 {
                     b.Property<string>("ID")
                         .HasColumnType("TEXT");
@@ -584,7 +584,7 @@ namespace nexRemote.Server.Migrations.Sqlite
                     b.ToTable("Organizations");
                 });
 
-            modelBuilder.Entity("Remotely.Shared.Models.SharedFile", b =>
+            modelBuilder.Entity("nexRemote.Shared.Models.SharedFile", b =>
                 {
                     b.Property<string>("ID")
                         .HasColumnType("TEXT");
@@ -612,7 +612,7 @@ namespace nexRemote.Server.Migrations.Sqlite
                     b.ToTable("SharedFiles");
                 });
 
-            modelBuilder.Entity("Remotely.Shared.Models.nexRemoteUser", b =>
+            modelBuilder.Entity("nexRemote.Shared.Models.nexRemoteUser", b =>
                 {
                     b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityUser");
 
@@ -644,13 +644,13 @@ namespace nexRemote.Server.Migrations.Sqlite
 
             modelBuilder.Entity("DeviceGroupnexRemoteUser", b =>
                 {
-                    b.HasOne("Remotely.Shared.Models.DeviceGroup", null)
+                    b.HasOne("nexRemote.Shared.Models.DeviceGroup", null)
                         .WithMany()
                         .HasForeignKey("DeviceGroupsID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Remotely.Shared.Models.nexRemoteUser", null)
+                    b.HasOne("nexRemote.Shared.Models.nexRemoteUser", null)
                         .WithMany()
                         .HasForeignKey("UsersId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -708,17 +708,17 @@ namespace nexRemote.Server.Migrations.Sqlite
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("Remotely.Shared.Models.Alert", b =>
+            modelBuilder.Entity("nexRemote.Shared.Models.Alert", b =>
                 {
-                    b.HasOne("Remotely.Shared.Models.Device", "Device")
+                    b.HasOne("nexRemote.Shared.Models.Device", "Device")
                         .WithMany("Alerts")
                         .HasForeignKey("DeviceID");
 
-                    b.HasOne("Remotely.Shared.Models.Organization", "Organization")
+                    b.HasOne("nexRemote.Shared.Models.Organization", "Organization")
                         .WithMany("Alerts")
                         .HasForeignKey("OrganizationID");
 
-                    b.HasOne("Remotely.Shared.Models.nexRemoteUser", "User")
+                    b.HasOne("nexRemote.Shared.Models.nexRemoteUser", "User")
                         .WithMany("Alerts")
                         .HasForeignKey("UserID");
 
@@ -729,31 +729,31 @@ namespace nexRemote.Server.Migrations.Sqlite
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("Remotely.Shared.Models.ApiToken", b =>
+            modelBuilder.Entity("nexRemote.Shared.Models.ApiToken", b =>
                 {
-                    b.HasOne("Remotely.Shared.Models.Organization", "Organization")
+                    b.HasOne("nexRemote.Shared.Models.Organization", "Organization")
                         .WithMany("ApiTokens")
                         .HasForeignKey("OrganizationID");
 
                     b.Navigation("Organization");
                 });
 
-            modelBuilder.Entity("Remotely.Shared.Models.CommandResult", b =>
+            modelBuilder.Entity("nexRemote.Shared.Models.CommandResult", b =>
                 {
-                    b.HasOne("Remotely.Shared.Models.Organization", "Organization")
+                    b.HasOne("nexRemote.Shared.Models.Organization", "Organization")
                         .WithMany("CommandResults")
                         .HasForeignKey("OrganizationID");
 
                     b.Navigation("Organization");
                 });
 
-            modelBuilder.Entity("Remotely.Shared.Models.Device", b =>
+            modelBuilder.Entity("nexRemote.Shared.Models.Device", b =>
                 {
-                    b.HasOne("Remotely.Shared.Models.DeviceGroup", "DeviceGroup")
+                    b.HasOne("nexRemote.Shared.Models.DeviceGroup", "DeviceGroup")
                         .WithMany("Devices")
                         .HasForeignKey("DeviceGroupID");
 
-                    b.HasOne("Remotely.Shared.Models.Organization", "Organization")
+                    b.HasOne("nexRemote.Shared.Models.Organization", "Organization")
                         .WithMany("Devices")
                         .HasForeignKey("OrganizationID");
 
@@ -762,71 +762,71 @@ namespace nexRemote.Server.Migrations.Sqlite
                     b.Navigation("Organization");
                 });
 
-            modelBuilder.Entity("Remotely.Shared.Models.DeviceGroup", b =>
+            modelBuilder.Entity("nexRemote.Shared.Models.DeviceGroup", b =>
                 {
-                    b.HasOne("Remotely.Shared.Models.Organization", "Organization")
+                    b.HasOne("nexRemote.Shared.Models.Organization", "Organization")
                         .WithMany("DeviceGroups")
                         .HasForeignKey("OrganizationID");
 
                     b.Navigation("Organization");
                 });
 
-            modelBuilder.Entity("Remotely.Shared.Models.EventLog", b =>
+            modelBuilder.Entity("nexRemote.Shared.Models.EventLog", b =>
                 {
-                    b.HasOne("Remotely.Shared.Models.Organization", "Organization")
+                    b.HasOne("nexRemote.Shared.Models.Organization", "Organization")
                         .WithMany("EventLogs")
                         .HasForeignKey("OrganizationID");
 
                     b.Navigation("Organization");
                 });
 
-            modelBuilder.Entity("Remotely.Shared.Models.InviteLink", b =>
+            modelBuilder.Entity("nexRemote.Shared.Models.InviteLink", b =>
                 {
-                    b.HasOne("Remotely.Shared.Models.Organization", "Organization")
+                    b.HasOne("nexRemote.Shared.Models.Organization", "Organization")
                         .WithMany("InviteLinks")
                         .HasForeignKey("OrganizationID");
 
                     b.Navigation("Organization");
                 });
 
-            modelBuilder.Entity("Remotely.Shared.Models.Organization", b =>
+            modelBuilder.Entity("nexRemote.Shared.Models.Organization", b =>
                 {
-                    b.HasOne("Remotely.Shared.Models.BrandingInfo", "BrandingInfo")
+                    b.HasOne("nexRemote.Shared.Models.BrandingInfo", "BrandingInfo")
                         .WithMany()
                         .HasForeignKey("BrandingInfoInfoId");
 
                     b.Navigation("BrandingInfo");
                 });
 
-            modelBuilder.Entity("Remotely.Shared.Models.SharedFile", b =>
+            modelBuilder.Entity("nexRemote.Shared.Models.SharedFile", b =>
                 {
-                    b.HasOne("Remotely.Shared.Models.Organization", "Organization")
+                    b.HasOne("nexRemote.Shared.Models.Organization", "Organization")
                         .WithMany("SharedFiles")
                         .HasForeignKey("OrganizationID");
 
                     b.Navigation("Organization");
                 });
 
-            modelBuilder.Entity("Remotely.Shared.Models.nexRemoteUser", b =>
+            modelBuilder.Entity("nexRemote.Shared.Models.nexRemoteUser", b =>
                 {
-                    b.HasOne("Remotely.Shared.Models.Organization", "Organization")
+                    b.HasOne("nexRemote.Shared.Models.Organization", "Organization")
                         .WithMany("nexRemoteUsers")
                         .HasForeignKey("OrganizationID");
 
                     b.Navigation("Organization");
                 });
 
-            modelBuilder.Entity("Remotely.Shared.Models.Device", b =>
+            modelBuilder.Entity("nexRemote.Shared.Models.Device", b =>
                 {
                     b.Navigation("Alerts");
                 });
 
-            modelBuilder.Entity("Remotely.Shared.Models.DeviceGroup", b =>
+            modelBuilder.Entity("nexRemote.Shared.Models.DeviceGroup", b =>
                 {
                     b.Navigation("Devices");
                 });
 
-            modelBuilder.Entity("Remotely.Shared.Models.Organization", b =>
+            modelBuilder.Entity("nexRemote.Shared.Models.Organization", b =>
                 {
                     b.Navigation("Alerts");
 
@@ -847,7 +847,7 @@ namespace nexRemote.Server.Migrations.Sqlite
                     b.Navigation("SharedFiles");
                 });
 
-            modelBuilder.Entity("Remotely.Shared.Models.nexRemoteUser", b =>
+            modelBuilder.Entity("nexRemote.Shared.Models.nexRemoteUser", b =>
                 {
                     b.Navigation("Alerts");
                 });

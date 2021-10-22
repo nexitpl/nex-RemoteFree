@@ -220,7 +220,7 @@ namespace nexRemote.Server.Migrations.Sqlite
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("Remotely.Shared.Models.Alert", b =>
+            modelBuilder.Entity("nexRemote.Shared.Models.Alert", b =>
                 {
                     b.Property<string>("ID")
                         .HasColumnType("TEXT");
@@ -252,7 +252,7 @@ namespace nexRemote.Server.Migrations.Sqlite
                     b.ToTable("Alerts");
                 });
 
-            modelBuilder.Entity("Remotely.Shared.Models.ApiToken", b =>
+            modelBuilder.Entity("nexRemote.Shared.Models.ApiToken", b =>
                 {
                     b.Property<string>("ID")
                         .HasColumnType("TEXT");
@@ -282,7 +282,7 @@ namespace nexRemote.Server.Migrations.Sqlite
                     b.ToTable("ApiTokens");
                 });
 
-            modelBuilder.Entity("Remotely.Shared.Models.CommandResult", b =>
+            modelBuilder.Entity("nexRemote.Shared.Models.CommandResult", b =>
                 {
                     b.Property<string>("ID")
                         .HasColumnType("TEXT");
@@ -322,7 +322,7 @@ namespace nexRemote.Server.Migrations.Sqlite
                     b.ToTable("CommandResults");
                 });
 
-            modelBuilder.Entity("Remotely.Shared.Models.Device", b =>
+            modelBuilder.Entity("nexRemote.Shared.Models.Device", b =>
                 {
                     b.Property<string>("ID")
                         .HasColumnType("TEXT");
@@ -407,7 +407,7 @@ namespace nexRemote.Server.Migrations.Sqlite
                     b.ToTable("Devices");
                 });
 
-            modelBuilder.Entity("Remotely.Shared.Models.DeviceGroup", b =>
+            modelBuilder.Entity("nexRemote.Shared.Models.DeviceGroup", b =>
                 {
                     b.Property<string>("ID")
                         .HasColumnType("TEXT");
@@ -426,7 +426,7 @@ namespace nexRemote.Server.Migrations.Sqlite
                     b.ToTable("DeviceGroups");
                 });
 
-            modelBuilder.Entity("Remotely.Shared.Models.EventLog", b =>
+            modelBuilder.Entity("nexRemote.Shared.Models.EventLog", b =>
                 {
                     b.Property<string>("ID")
                         .HasColumnType("TEXT");
@@ -457,7 +457,7 @@ namespace nexRemote.Server.Migrations.Sqlite
                     b.ToTable("EventLogs");
                 });
 
-            modelBuilder.Entity("Remotely.Shared.Models.InviteLink", b =>
+            modelBuilder.Entity("nexRemote.Shared.Models.InviteLink", b =>
                 {
                     b.Property<string>("ID")
                         .HasColumnType("TEXT");
@@ -485,7 +485,7 @@ namespace nexRemote.Server.Migrations.Sqlite
                     b.ToTable("InviteLinks");
                 });
 
-            modelBuilder.Entity("Remotely.Shared.Models.Organization", b =>
+            modelBuilder.Entity("nexRemote.Shared.Models.Organization", b =>
                 {
                     b.Property<string>("ID")
                         .HasColumnType("TEXT");
@@ -499,7 +499,7 @@ namespace nexRemote.Server.Migrations.Sqlite
                     b.ToTable("Organizations");
                 });
 
-            modelBuilder.Entity("Remotely.Shared.Models.SharedFile", b =>
+            modelBuilder.Entity("nexRemote.Shared.Models.SharedFile", b =>
                 {
                     b.Property<string>("ID")
                         .HasColumnType("TEXT");
@@ -527,7 +527,7 @@ namespace nexRemote.Server.Migrations.Sqlite
                     b.ToTable("SharedFiles");
                 });
 
-            modelBuilder.Entity("Remotely.Shared.Models.UserDevicePermission", b =>
+            modelBuilder.Entity("nexRemote.Shared.Models.UserDevicePermission", b =>
                 {
                     b.Property<string>("ID")
                         .HasColumnType("TEXT");
