@@ -1,5 +1,5 @@
 #!/bin/bash
-echo "Thanks for trying Remotely!"
+echo "Thanks for trying nex-Remote!"
 echo
 
 Args=( "$@" )
@@ -15,14 +15,14 @@ do
 done
 
 if [ -z "$AppRoot" ]; then
-    read -p "Enter path where the Remotely server files should be installed (typically /var/www/nex-Remote): " AppRoot
+    read -p "Enter path where the nex-Remote server files should be installed (typically /var/www/nex-Remote): " AppRoot
     if [ -z "$AppRoot" ]; then
         AppRoot="/var/www/nex-Remote"
     fi
 fi
 
 if [ -z "$HostName" ]; then
-    read -p "Enter server host (e.g. remotely.yourdomainname.com): " HostName
+    read -p "Enter server host (e.g. https://remote.nex-it.pl): " HostName
 fi
 
 chmod +x "$AppRoot/nex-Remote_Server"
@@ -52,7 +52,7 @@ apt-get -y install libc6-dev
 apt-get -y install libgdiplus
 
 
-# Set permissions on Remotely files.
+# Set permissions on nex-Remote files.
 setfacl -R -m u:www-data:rwx $AppRoot
 chown -R "$USER":www-data $AppRoot
 chmod +x "$AppRoot/nex-Remote_Server"
@@ -124,9 +124,9 @@ server {
     }
 }"
 
-echo "$nginxConfig" > /etc/nginx/sites-available/remotely
+echo "$nginxConfig" > /etc/nginx/sites-available/nexRemote
 
-ln -s /etc/nginx/sites-available/remotely /etc/nginx/sites-enabled/remotely
+ln -s /etc/nginx/sites-available/nexRemote /etc/nginx/sites-enabled/nexRemote
 
 # Test config.
 nginx -t
@@ -148,7 +148,7 @@ ExecStart=/usr/bin/dotnet $AppRoot/nex-Remote_Server.dll
 Restart=always
 # Restart service after 10 seconds if the dotnet service crashes:
 RestartSec=10
-SyslogIdentifier=remotely
+SyslogIdentifier=nexRemote
 User=www-data
 Environment=ASPNETCORE_ENVIRONMENT=Production
 Environment=DOTNET_PRINT_TELEMETRY_MESSAGE=false
@@ -156,13 +156,13 @@ Environment=DOTNET_PRINT_TELEMETRY_MESSAGE=false
 [Install]
 WantedBy=multi-user.target"
 
-echo "$serviceConfig" > /etc/systemd/system/remotely.service
+echo "$serviceConfig" > /etc/systemd/system/nex-Remote.service
 
 
 # Enable service.
-systemctl enable remotely.service
+systemctl enable nex-Remote.service
 # Start service.
-systemctl restart remotely.service
+systemctl restart nex-Remote.service
 
 
 # Install Certbot and get SSL cert.

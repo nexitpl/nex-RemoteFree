@@ -43,13 +43,13 @@
     <None Remove="Models\**" />
   </ItemGroup>
   <ItemGroup>
-    <AvaloniaResource Remove="Assets\Remotely_Icon.png" />
+    <AvaloniaResource Remove="Assets\nex-Remote_Icon.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Remove="Assets\Remotely_Icon.png" />
+    <None Remove="Assets\nex-Remote_Icon.png" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Assets\Remotely_Icon.png" />
+    <EmbeddedResource Include="Assets\nex-Remote_Icon.png" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Avalonia" Version="0.10.6" />

@@ -254,7 +254,7 @@ namespace nexRemote.Server.Hubs
             string username;
             if (runAsHostedService)
             {
-                username = "Remotely Server";
+                username = "nexRemote Server";
             }
             else
             {

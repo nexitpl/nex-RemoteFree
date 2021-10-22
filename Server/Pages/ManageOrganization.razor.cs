@@ -290,7 +290,7 @@ namespace nexRemote.Server.Pages
 
                 var inviteURL = $"{NavManager.BaseUri}Invite?id={newInvite.ID}";
                 var emailResult = await EmailSender.SendEmailAsync(invite.InvitedUser, "Zaproszenie do organizacji w nex-Remote",
-                        $@"<img src='{NavManager.BaseUri}images/Remotely_Logo.png'/>
+                        $@"<img src='{NavManager.BaseUri}images/nex-Remote_Logo.png'/>
                             <br><br>
                             Witaj!
                             <br><br>

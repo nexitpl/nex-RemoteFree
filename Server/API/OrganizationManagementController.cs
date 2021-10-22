@@ -280,7 +280,7 @@ namespace nexRemote.Server.API
 
                 var inviteURL = $"{Request.Scheme}://{Request.Host}/Invite?id={newInvite.ID}";
                 var emailResult = await EmailSender.SendEmailAsync(invite.InvitedUser, "Zaproszenie do nex-Remote",
-                            $@"<img src='{Request.Scheme}://{Request.Host}/images/Remotely_Logo.png'/>
+                            $@"<img src='{Request.Scheme}://{Request.Host}/images/nex-Remote_Logo.png'/>
                             <br><br>
                             Witaj!
                             <br><br>

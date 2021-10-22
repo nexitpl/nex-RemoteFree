@@ -24,15 +24,15 @@ RUN \
 RUN \
   mkdir -p /var/www/nex-Remote && \
   mkdir /config && \
-  wget -q https://github.com/lucent-sea/Remotely/releases/latest/download/nex-Remote_Server_Linux-x64.zip && \
+  wget -q https://github.com/nexitpl/nex-Remote/releases/latest/download/nex-Remote_Server_Linux-x64.zip && \
   unzip -o nex-Remote_Server_Linux-x64.zip -d /var/www/nex-Remote && \
   rm nex-Remote_Server_Linux-x64.zip
 
 RUN \
-  mkdir -p /remotely-data && \
-  sed -i 's/DataSource=Remotely.db/DataSource=\/remotely-data\/Remotely.db/' /var/www/nex-Remote/appsettings.json
+  mkdir -p /nexRemote-data && \
+  sed -i 's/DataSource=nexRemote.db/DataSource=\/nexRemote-data\/nexRemote.db/' /var/www/nex-Remote/appsettings.json
 
-VOLUME "/remotely-data"
+VOLUME "/nexRemote-data"
 
 WORKDIR /var/www/nex-Remote
 

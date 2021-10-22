@@ -1,5 +1,5 @@
 #!/bin/bash
-echo "Thanks for trying Remotely!"
+echo "Thanks for trying nex-Remote!"
 echo
 
 Args=( "$@" )
@@ -15,17 +15,17 @@ do
 done
 
 if [ -z "$AppRoot" ]; then
-    read -p "Enter path where the Remotely server files should be installed (typically /var/www/nex-Remote): " AppRoot
+    read -p "Enter path where the nex-Remote server files should be installed (typically /var/www/nex-Remote): " AppRoot
     if [ -z "$AppRoot" ]; then
         AppRoot="/var/www/nex-Remote"
     fi
 fi
 
 if [ -z "$HostName" ]; then
-    read -p "Enter server host (e.g. remotely.yourdomainname.com): " HostName
+    read -p "Enter server host (e.g. https://remote.nex-it.pl): " HostName
 fi
 
-echo "Using $AppRoot as the Remotely website's content directory."
+echo "Using $AppRoot as the nex-Remote website's content directory."
 
 yum update
 yum -y install curl
@@ -50,7 +50,7 @@ yum -y install libc6-dev
 yum -y install libgdiplus
 
 
-# Set permissions on Remotely files.
+# Set permissions on nex-Remote files.
 setfacl -R -m u:apache:rwx $AppRoot
 chown -R apache:apache $AppRoot
 chmod +x "$AppRoot/nex-Remote_Server"
@@ -112,7 +112,7 @@ nginxConfig="server {
     }
 }"
 
-echo "$nginxConfig" > /etc/nginx/conf.d/remotely.conf
+echo "$nginxConfig" > /etc/nginx/conf.d/nexRemote.conf
 
 # Test config.
 nginx -t
@@ -124,7 +124,7 @@ nginx -s reload
 # Create service.
 
 serviceConfig="[Unit]
-Description=Remotely Server
+Description=nex-Remote Server
 
 [Service]
 WorkingDirectory=$AppRoot
@@ -132,20 +132,20 @@ ExecStart=/usr/bin/dotnet $AppRoot/nex-Remote_Server.dll
 Restart=always
 # Restart service after 10 seconds if the dotnet service crashes:
 RestartSec=10
-SyslogIdentifier=remotely
+SyslogIdentifier=nexRemote
 Environment=ASPNETCORE_ENVIRONMENT=Production
 Environment=DOTNET_PRINT_TELEMETRY_MESSAGE=false
 
 [Install]
 WantedBy=multi-user.target"
 
-echo "$serviceConfig" > /etc/systemd/system/remotely.service
+echo "$serviceConfig" > /etc/systemd/system/nex-Remote.service
 
 
 # Enable service.
-systemctl enable remotely.service
+systemctl enable nex-Remote.service
 # Start service.
-systemctl start remotely.service
+systemctl start nex-Remote.service
 
 firewall-cmd --permanent --zone=public --add-service=http
 firewall-cmd --permanent --zone=public --add-service=https

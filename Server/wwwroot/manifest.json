@@ -1,5 +1,5 @@
 {
-  "id": "Remotely",
+  "id": "nex-Remote",
   "name": "nex-Remote - System Pomocy Zdalnej",
   "short_name": "nex-Remote",
   "start_url": "./",
@@ -10,12 +10,12 @@
   "description": "nex-Remote System Pomocy Zdalnej",
   "icons": [
     {
-      "src": "./images/Remotely_Icon_128.png",
+      "src": "./images/nex-Remote_Icon_128.png",
       "sizes": "128x128",
       "type": "image/png"
     },
     {
-      "src": "./images/Remotely_Icon_512.png",
+      "src": "./images/nex-Remote_Icon_512.png",
       "sizes": "512x512",
       "type": "image/png"
     }
@@ -23,7 +23,7 @@
   "related_applications": [
     {
       "platform": "windows",
-      "url":  "./"
+      "url": "./"
     },
     {
       "platform": "play",

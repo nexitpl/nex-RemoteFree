@@ -10,7 +10,7 @@ namespace nexRemote.Desktop.XPlat.Services
     public class ConfigServiceLinux : IConfigService
     {
         private static string ConfigFile => Path.Combine(ConfigFolder, "Config.json");
-        private static string ConfigFolder => Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), "remotely.json");
+        private static string ConfigFolder => Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), "nexRemote.json");
 
         public DesktopAppConfig GetConfig()
         {

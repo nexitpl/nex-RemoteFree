@@ -12,7 +12,7 @@ for (( i=0; i<${ArgLength}; i+=2 ));
 do
     if [ "${Args[$i]}" = "--uninstall" ]; then
         systemctl stop nex-Remote-agent
-        rm -r -f /usr/local/bin/Remotely
+        rm -r -f /usr/local/bin/nex-Remote
         rm -f /etc/systemd/system/nex-Remote-agent.service
         systemctl daemon-reload
         exit
@@ -40,7 +40,7 @@ if [ -f "/usr/local/bin/nex-Remote/ConnectionInfo.json" ]; then
 fi
 
 rm -r -f /usr/local/bin/nex-Remote
-rm -f /etc/systemd/system/remotely-agent.service
+rm -f /etc/systemd/system/nex-Remote-agent.service
 
 mkdir -p /usr/local/bin/nex-Remote/
 cd /usr/local/bin/nex-Remote/
@@ -56,8 +56,8 @@ fi
 
 unzip ./nex-Remote-Linux.zip
 rm -f ./nex-Remote-Linux.zip
-chmod +x ./Remotely_Agent
-chmod +x ./Desktop/Remotely_Desktop
+chmod +x ./nex-Remote_Agent
+chmod +x ./Desktop/nex-Remote_Desktop
 
 
 connectionInfo="{

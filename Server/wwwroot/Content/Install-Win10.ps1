@@ -117,7 +117,7 @@ function Install-nex-Remote {
 		Do-Exit
 	}
 
-	Stop-Remotely
+	Stop-nex-Remote
 	Get-ChildItem -Path "C:\Program Files\nex-Remote" | Where-Object {$_.Name -notlike "ConnectionInfo.json"} | Remove-Item -Recurse -Force
 
 	Expand-Archive -Path "$env:TEMP\nex-Remote-Win10-$Platform.zip" -DestinationPath "$InstallPath"  -Force
@@ -150,14 +150,14 @@ try {
 
 	if ($Uninstall) {
 		Write-Log "Rozpoczęto dezinstalację."
-		Uninstall-Remotely
+		Uninstall-nex-Remote
 		Write-Log "Dezinstalacja zakończona."
 		exit
 	}
 	else {
 		Write-Log "Instalacja rozpoczęta."
         Write-Log
-		Install-Remotely
+		Install-nex-Remote
 		Write-Log "Instalacja zakończona."
 		exit
 	}

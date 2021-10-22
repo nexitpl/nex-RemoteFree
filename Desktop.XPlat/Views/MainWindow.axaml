@@ -88,7 +88,7 @@
             <MenuItem Header="Zmiana Serwera" Command="{Binding ChangeServerCommand}"></MenuItem>
           </ContextMenu>
         </Button.ContextMenu>
-        <Image Source="avares://nexRemote_Desktop/Assets/Gear.png"></Image>
+        <Image Source="avares://nex-Remote_Desktop/Assets/Gear.png"></Image>
       </Button>
     </Grid>
 </Window>

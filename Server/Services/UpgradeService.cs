@@ -32,7 +32,7 @@ namespace nexRemote.Server.Services
             try
             {
                 using var client = _httpClientFactory.CreateClient();
-                var response = await client.GetAsync("https://github.com/nexitpl/Remotely/releases/latest");
+                var response = await client.GetAsync("https://github.com/nexitpl/nex-Remote/releases/latest");
                 var versionString = response.RequestMessage.RequestUri.ToString().Split("/").Last()[1..];
                 var remoteVersion = Version.Parse(versionString);
                 var filePath = Directory.GetFiles(Directory.GetCurrentDirectory(), "nex-Remote_Server.dll", SearchOption.AllDirectories).First();

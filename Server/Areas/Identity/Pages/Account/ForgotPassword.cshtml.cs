@@ -67,7 +67,7 @@ namespace nexRemote.Server.Areas.Identity.Pages.Account
                 var emailResult = await _emailSender.SendEmailAsync(
                     Input.Email,
                     "Reset Password",
-                    $"<img src='{Request.Scheme}://{Request.Host}/images/Remotely_Logo.png'/><br><br>Please reset your Remotely password by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
+                    $"<img src='{Request.Scheme}://{Request.Host}/images/nex-Remote_Logo.png'/><br><br>Please reset your nex-Remote password by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
 
                 if (!emailResult)
                 {

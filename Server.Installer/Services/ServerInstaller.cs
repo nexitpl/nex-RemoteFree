@@ -66,7 +66,7 @@ namespace Server.Installer.Services
                     if (!dispatchResult)
                     {
                         ConsoleHelper.WriteError("GitHub API call to trigger build action failed.  Do you have " +
-                            "Actions enabled on your forked Remotely repo on the Actions tab?  If not, enable them and try again. " +
+                            "Actions enabled on your forked nex-Remote repo on the Actions tab?  If not, enable them and try again. " +
                             "Otherwise, please check your input parameters.");
                         return;
                     }
@@ -103,8 +103,8 @@ namespace Server.Installer.Services
                 var w3wpProcs = Process.GetProcessesByName("w3wp");
                 if (w3wpProcs.Length > 0)
                 {
-                    Process.Start("powershell.exe", "-Command & \"{ Stop-WebAppPool -Name Remotely -ErrorAction SilentlyContinue }\"").WaitForExit();
-                    Process.Start("powershell.exe", "-Command & \"{ Stop-Website -Name Remotely -ErrorAction SilentlyContinue }\"").WaitForExit();
+                    Process.Start("powershell.exe", "-Command & \"{ Stop-WebAppPool -Name nexRemote -ErrorAction SilentlyContinue }\"").WaitForExit();
+                    Process.Start("powershell.exe", "-Command & \"{ Stop-Website -Name nexRemote -ErrorAction SilentlyContinue }\"").WaitForExit();
 
                     ConsoleHelper.WriteLine("Waiting for w3wp processes to close...");
                     foreach (var proc in w3wpProcs)

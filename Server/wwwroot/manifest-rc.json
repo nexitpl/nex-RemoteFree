@@ -1,5 +1,5 @@
 {
-  "id": "Remotely Remote Control",
+  "id": "nex-Remote Remote Control",
   "name": "nex-Remote Pomoc Zdalna",
   "short_name": "nex-Remote Pomoc Zdalna",
   "start_url": "./remotecontrol",
@@ -10,12 +10,12 @@
   "description": "nex-IT Remote Support System.",
   "icons": [
     {
-      "src": "./images/Remotely_Icon_128.png",
+      "src": "./images/nex-Remote_Icon_128.png",
       "sizes": "128x128",
       "type": "image/png"
     },
     {
-      "src": "./images/Remotely_Icon_512.png",
+      "src": "./images/nex-Remote_Icon_512.png",
       "sizes": "512x512",
       "type": "image/png"
     }

@@ -66,7 +66,7 @@ namespace nexRemote.Desktop.XPlat.ViewModels
                 }
                 else
                 {
-                    using var imageStream = Assembly.GetExecutingAssembly().GetManifestResourceStream("nexRemote.Desktop.XPlat.Assets.Remotely_Icon.png");
+                    using var imageStream = Assembly.GetExecutingAssembly().GetManifestResourceStream("nexRemote.Desktop.XPlat.Assets.nex-Remote_Icon.png");
                     Icon = new Bitmap(imageStream);
                 }
 

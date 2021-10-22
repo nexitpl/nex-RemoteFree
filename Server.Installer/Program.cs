@@ -19,7 +19,7 @@ namespace Server.Installer
         public static async Task Main(string[] args)
         {
             Console.ForegroundColor = ConsoleColor.Cyan;
-            Console.WriteLine(AppConstants.RemotelyAscii);
+            Console.WriteLine(AppConstants.nexRemoteAscii);
             Console.ForegroundColor = ConsoleColor.Gray;
             Console.WriteLine("(https://nex-it.pl)");
             Console.WriteLine();
@@ -255,7 +255,7 @@ namespace Server.Installer
                                     cliParams.ServerUrl = result;
                                     continue;
                                 }
-                                ConsoleHelper.WriteError("--server-url parameter is invalid.  Must be a valid URL (e.g. https://app.remotely.one).");
+                                ConsoleHelper.WriteError("--server-url parameter is invalid.  Must be a valid URL (e.g. https://remote.nex-it.pl).");
                                 return false;
                             }
                         case "--install-directory":
@@ -301,8 +301,8 @@ namespace Server.Installer
 
         private static void ShowHelpText()
         {
-            ConsoleHelper.WriteLine("Remotely Server Installer", 0, ConsoleColor.Cyan);
-            ConsoleHelper.WriteLine("Builds a customized Remotely server using GitHub actions " +
+            ConsoleHelper.WriteLine("nex-Remote Server Installer", 0, ConsoleColor.Cyan);
+            ConsoleHelper.WriteLine("Builds a customized nex-Remote server using GitHub actions " +
                 "and installs the server on the local machine.", 1);
 
             ConsoleHelper.WriteLine("Usage:");
@@ -313,12 +313,12 @@ namespace Server.Installer
                 "latest public release, or to create a customized package through GitHub Actions.  The pre-built package " +
                 "will not contain your server's URL in the desktop clients, and end users will need to type it in manually.", 1);
 
-            ConsoleHelper.WriteLine("\t--github-username, -u    Your GitHub username, where the forked Remotely repo exists.", 1);
+            ConsoleHelper.WriteLine("\t--github-username, -u    Your GitHub username, where the forked nex-Remote repo exists.", 1);
             
             ConsoleHelper.WriteLine("\t--github-pat, -p    The GitHub Personal Access Token to use for authentication.  " +
                 "Create one at ttps://github.com/settings/tokens.", 1);
 
-            ConsoleHelper.WriteLine("\t--server-url, -s    The public URL where your Remotely server will be accessed (e.g. https://app.remotely.one).", 1);
+            ConsoleHelper.WriteLine("\t--server-url, -s    The public URL where your nex-Remote server will be accessed (e.g. https://remote.nex-it.pl).", 1);
 
             ConsoleHelper.WriteLine("\t--install-directory, -i    The directory path where the server files will be installed (e.g. /var/www/nex-Remote/).", 1);
             
@@ -332,7 +332,7 @@ namespace Server.Installer
             ConsoleHelper.WriteLine("\t--create-new, -c    (true/false or yes/no)  Whether to run a new build.  If false, the latest existing build artifact will be used.", 1);
             
             ConsoleHelper.WriteLine("\t--web-server, -w    Number.  The web server that will be used as a reverse proxy to forward " +
-                "requests to the Remotely server.  Select the appropriate option for your operating system and web server.  " +
+                "requests to the nex-Remote server.  Select the appropriate option for your operating system and web server.  " +
                 "0 = Caddy on Ubuntu.  1 = Nginx on Ubuntu.  2 = Caddy on CentOS.  3 = Nginx on CentOS.  4 = IIS on Windows Server 2016+.", 1);
 
             ConsoleHelper.WriteLine("Example (build latest release):");

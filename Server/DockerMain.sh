@@ -3,9 +3,9 @@
 echo "Entered main script."
 
 ServerDir=/var/www/nex-Remote
-RemotelyData=/remotely-data
+nexRemoteData=/nexRemote-data
 
-AppSettingsVolume=/remotely-data/appsettings.json
+AppSettingsVolume=/nexRemote-data/appsettings.json
 AppSettingsWww=/var/www/nex-Remote/appsettings.json
 
 if [ ! -f "$AppSettingsVolume" ]; then

@@ -1,8 +1,8 @@
 <#
 .SYNOPSIS
-   Publishes the Remotely clients.
+   Publishes the nex-Remote clients.
 .DESCRIPTION
-   Publishes the Remotely clients.
+   Publishes the nex-Remote clients.
    To deploy the server, supply the following arguments: -rid win10-x64 -outdir path\to\dir -hostname https://mysite.mydomain.com
 .COPYRIGHT
    Copyright 2020 Translucency Software.  All rights reserved.

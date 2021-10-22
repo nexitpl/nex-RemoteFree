@@ -79,7 +79,7 @@ namespace nexRemote.Desktop.Win.ViewModels
             }
             else
             {
-                imageStream = Assembly.GetExecutingAssembly().GetManifestResourceStream("nexRemote.Desktop.Win.Assets.Remotely_Icon.png");
+                imageStream = Assembly.GetExecutingAssembly().GetManifestResourceStream("nexRemote.Desktop.Win.Assets.nex-Remote_Icon.png");
             }
 
             var bitmap = new BitmapImage();

@@ -32,11 +32,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Assets\Remotely_Icon.png" />
+    <None Remove="Assets\nex-Remote_Icon.png" />
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="Assets\Remotely_Icon.png" />
+    <EmbeddedResource Include="Assets\nex-Remote_Icon.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -56,7 +56,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Assets\Remotely_Icon.png" />
+    <Resource Include="Assets\nex-Remote_Icon.png" />
   </ItemGroup>
 
 </Project>

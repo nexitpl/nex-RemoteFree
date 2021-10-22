@@ -70,7 +70,7 @@ $HostName {
 echo "$caddyConfig" > /etc/caddy/Caddyfile
 
 
-# Create Remotely service.
+# Create nex-Remote service.
 
 serviceConfig="[Unit]
 Description=nex-Remote

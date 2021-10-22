@@ -14,7 +14,7 @@ namespace nexRemote.Shared.Utilities
         public const int RelayCodeLength = 4;
         public const double ScriptRunExpirationMinutes = 30;
 
-        public const string RemotelyAscii = @"
+        public const string nexRemoteAscii = @"
                          _______  
                       |     |
   ____   ___  \  /    |     |

@@ -447,7 +447,7 @@ namespace nexRemote.Agent.Installer.Win.ViewModels
             }
             else
             {
-                imageStream = Assembly.GetExecutingAssembly().GetManifestResourceStream("nexRemote.Agent.Installer.Win.Assets.Remotely_Icon.png");
+                imageStream = Assembly.GetExecutingAssembly().GetManifestResourceStream("nexRemote.Agent.Installer.Win.Assets.nex-Remote_Icon.png");
             }
 
             var bitmap = new BitmapImage();

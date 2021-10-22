@@ -1,20 +1,20 @@
 ﻿<#
 .SYNOPSIS
-   Configures IIS and installs the Remotely server.
+   Configures IIS and installs the nex-Remote Server.
 .COPYRIGHT
    Copyright ©  2020 Translucency Software.  All rights reserved.
 #>
 param (
-    # The host name (excluding scheme) for the server that will run Remotely.
+    # The host name (excluding scheme) for the server that will run nex-Remote.
     [Parameter(Mandatory=$True)]
 	[string]$HostName,
-     # The name to use for the IIS Application Pool for the Remotely site.
+     # The name to use for the IIS Application Pool for the nex-Remote site.
     [Parameter(Mandatory=$True)]
 	[string]$AppPoolName,
      # The name to use for the IIS site.
     [Parameter(Mandatory=$True)]
 	[string]$SiteName,
-    # The folder path where the Remotely server files are located.
+    # The folder path where the nex-Remote Server files are located.
     [Parameter(Mandatory=$True)]
     [string]$SitePath,
     # Whether to run the script without any prompts.
@@ -27,7 +27,7 @@ param (
     [string]$EmailAddress
 )
 
-$Host.UI.RawUI.WindowTitle = "Remotely Setup"
+$Host.UI.RawUI.WindowTitle = "nex-Remote Setup"
 Clear-Host
 
 #region Variables
@@ -131,7 +131,7 @@ if (!$PSScriptRoot) {
 $OS = Get-WmiObject -Class Win32_OperatingSystem
 if ($OS.Name.ToLower().Contains("home") -or $OS.Caption.ToLower().Contains("home")) {
     Wrap-Host
-    Wrap-Host "Error: Windows Home version does not have the necessary features to run Remotely." -ForegroundColor Red
+    Wrap-Host "Error: Windows Home version does not have the necessary features to run nex-Remote." -ForegroundColor Red
     Do-Pause
     return
 }
@@ -152,12 +152,12 @@ if ($OS.Name.ToLower().Contains("home") -or $OS.Caption.ToLower().Contains("home
 Clear-Host
 Wrap-Host
 Wrap-Host "**********************************"
-Wrap-Host "         Remotely Setup" -ForegroundColor Cyan
+Wrap-Host "         nex-Remote Setup" -ForegroundColor Cyan
 Wrap-Host "**********************************"
 Wrap-Host
-Wrap-Host "Hello, and thank you for trying out Remotely!" -ForegroundColor Green
+Wrap-Host "Hello, and thank you for trying out nex-Remote!" -ForegroundColor Green
 Wrap-Host
-Wrap-Host "This setup script will create an IIS site and install Remotely on this machine." -ForegroundColor Green
+Wrap-Host "This setup script will create an IIS site and install nex-Remote on this machine." -ForegroundColor Green
 Wrap-Host
 Do-Pause
 Clear-Host
