@@ -2,11 +2,11 @@
 
 echo "Entered main script."
 
-ServerDir=/var/www/remotely
+ServerDir=/var/www/nex-Remote
 RemotelyData=/remotely-data
 
 AppSettingsVolume=/remotely-data/appsettings.json
-AppSettingsWww=/var/www/remotely/appsettings.json
+AppSettingsWww=/var/www/nex-Remote/appsettings.json
 
 if [ ! -f "$AppSettingsVolume" ]; then
 	echo "Copying appsettings.json to volume."
@@ -20,4 +20,4 @@ fi
 ln -s "$AppSettingsVolume" "$AppSettingsWww"
 
 echo "Starting nex-Remote server."
-exec /usr/bin/dotnet /var/www/remotely/nex-Remote_Server.dll
+exec /usr/bin/dotnet /var/www/nex-Remote/nex-Remote_Server.dll
