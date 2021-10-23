@@ -29,7 +29,7 @@
         <Border Height="50">
             <DockPanel Margin="10,0,0,0">
                 <DockPanel>
-                    <Image Height="50" Width="50"  Margin="0,0,10,0" Source="{Binding Icon}"></Image>
+                    <Image Height="50" Width="50"  Margin="0,0,10,0" Source="Assets/nex-Remote_Icon.png"/>
                     <TextBlock Foreground="{Binding TitleForegroundColor}" FontWeight="Bold" FontSize="20" VerticalAlignment="Center" Text="nex-Remote Instalator"/>
                 </DockPanel>
                 <Button Style="{StaticResource TitlebarButton}" Click="CloseButton_Click" Content="X" Background="Black" />

@@ -33,6 +33,7 @@
 
     .nav-item ::deep a {
         color: #d7d7d7;
+        background-color: #00A0E3;
         border-radius: 4px;
         height: 3rem;
         display: flex;
@@ -41,12 +42,12 @@
     }
 
 .nav-item ::deep a.active {
-    background-color: #00A0E3;
+    background-color: green;
     color: white;
 }
 
 .nav-item ::deep a:hover {
-    background-color: rgba(255,255,255,0.1);
+    background-color: black;
     color: white;
 }
 
