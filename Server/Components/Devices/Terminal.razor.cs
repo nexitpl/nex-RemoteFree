@@ -76,7 +76,7 @@ namespace nexRemote.Server.Components.Devices
 
                 await CircuitConnection.RunScript(AppState.DevicesFrameSelectedDevices, script.Id, scriptRun.Id, ScriptInputType.OneTimeScript, false);
 
-                ToastService.ShowToast($"Running script on {scriptRun.Devices.Count} devices.");
+                ToastService.ShowToast($"Uruchamianie skryptu na {scriptRun.Devices.Count} urządzeniach.");
             });
 
         [Inject]
@@ -124,7 +124,7 @@ namespace nexRemote.Server.Components.Devices
             }
             catch (Exception ex)
             {
-                Logger.LogWarning(ex, "Error appying command completion.");
+                Logger.LogWarning(ex, "Błąd podczas wypełniania polecenia.");
             }
         }
 
@@ -163,7 +163,7 @@ namespace nexRemote.Server.Components.Devices
             var deviceId = AppState.DevicesFrameSelectedDevices.FirstOrDefault();
             var device = AgentHub.GetDevice(deviceId);
 
-            AppState.AddTerminalLine($"Completions for {device?.DeviceName}", className: "font-weight-bold");
+            AppState.AddTerminalLine($"Uzupełnienia dla {device?.DeviceName}", className: "font-weight-bold");
 
             foreach (var match in completionMatches)
             {
@@ -182,7 +182,7 @@ namespace nexRemote.Server.Components.Devices
                 var devices = AppState.DevicesFrameSelectedDevices.ToArray();
                 if (!devices.Any())
                 {
-                    ToastService.ShowToast("You must select at least one device.", classString: "bg-warning");
+                    ToastService.ShowToast("Musisz wybrać przynajmniej jedno urządzenie.", classString: "bg-warning");
                     return;
                 }
                 CircuitConnection.ExecuteCommandOnAgent(_shell, InputText, devices);
@@ -212,13 +212,13 @@ namespace nexRemote.Server.Components.Devices
             {
                 if (_shell != ScriptingShell.PSCore && _shell != ScriptingShell.WinPS)
                 {
-                    ToastService.ShowToast("PowerShell is required for tab completion.", classString: "bg-warning");
+                    ToastService.ShowToast("PowerShell jest wymagany do ukończenia zakładki.", classString: "bg-warning");
                     return;
                 }
 
                 if (!AppState.DevicesFrameSelectedDevices.Any())
                 {
-                    ToastService.ShowToast("No devices are selected.", classString: "bg-warning");
+                    ToastService.ShowToast("Nie wybrano żadnych urządzeń.", classString: "bg-warning");
                     return;
                 }
 
@@ -272,13 +272,13 @@ namespace nexRemote.Server.Components.Devices
             var quickScripts = await DataService.GetQuickScripts(User.Id);
             if (quickScripts?.Any() != true)
             {
-                ToastService.ShowToast("No quick scripts saved.", classString: "bg-warning");
+                ToastService.ShowToast("Brak zapisanych szybkich skryptów.", classString: "bg-warning");
                 return;
             }
 
             if (!AppState.DevicesFrameSelectedDevices.Any())
             {
-                ToastService.ShowToast("You must select at least one device.", classString: "bg-warning");
+                ToastService.ShowToast("Musisz wybrać przynajmniej jedno urządzenie.", classString: "bg-warning");
                 return;
             }
 
@@ -298,21 +298,21 @@ namespace nexRemote.Server.Components.Devices
         {
             ModalService.ShowModal("Terminal Help", new[]
             {
-                "Enter terminal commands that will execute on all selected devices.",
+                "Wprowadź polecenia terminala, które będą wykonywane na wszystkich wybranych urządzeniach.",
 
-                "Tab completion is available for PowerShell Core (PSCore) and Windows PowerShell (WinPS).  Tab and Shift + Tab " +
-                "will cycle through potential completions.  Ctrl + Space will show all available completions.",
+                "Uzupełnianie komend jest dostępne dla PowerShell Core (PSCore) i Windows PowerShell (WinPS). Tab i Shift + Tab " +
+                "będzie przechodzić przez potencjalne uzupełnienia. Ctrl + spacja pokaże wszystkie dostępne uzupełnienia.",
 
-                "If more than one devices is selected, the first device's file system will be used when " +
-                "auto-completing file and directory paths.",
+                "Jeśli wybrano więcej niż jedno urządzenie, system plików pierwszego urządzenia będzie używany podczas  " +
+                "automatycznego uzupełniania ścieżek plików i katalogów.",
 
-                "PowerShell Core is cross-platform and is available on all client operating systems.  Bash is available " +
-                "on Windows 10 if WSL (Windows Subsystem for Linux) is installed.",
+                "Program PowerShell Core jest wieloplatformowy i jest dostępny we wszystkich klienckich systemach operacyjnych. Bash jest dostępny w systemie " +
+                "Windows 10, jeśli zainstalowano WSL (Windows Subsystem for Linux).",
 
-                "Up and down arrow keys will cycle through terminal input history.  Ctrl + Q will clear the output window.",
+                "Klawisze strzałek w górę i w dół umożliwiają przeglądanie historii wprowadzania terminala. Ctrl + Q wyczyści okno wyjściowe.",
 
-                "Note: The first PS Core command or tab completion takes a few moments while the service is " +
-                "starting on the remote device."
+                "Uwaga: pierwsze polecenie lub wypełnienie karty PS Core zajmuje kilka chwil, gdy usługa jest " +
+                "jest uruchamiana na zdalnym urządzeniu."
             });
         }
         private void ToggleTerminalOpen()
