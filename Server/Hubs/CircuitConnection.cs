@@ -380,7 +380,7 @@ namespace nexRemote.Server.Hubs
             _dataService.WriteEvent(new EventLog()
             {
                 EventType = EventType.Info,
-                Message = $"File transfer started by {User.UserName}.  File transfer IDs: {string.Join(", ", fileIDs)}.",
+                Message = $"Przesyłanie plików rozpoczęte przez {User.UserName}.  ID Transferu Plików: {string.Join(", ", fileIDs)}.",
                 TimeStamp = Time.Now,
                 OrganizationID = User.OrganizationID
             });

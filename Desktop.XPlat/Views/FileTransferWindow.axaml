@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:nexRemote.Desktop.XPlat.Views;assembly=nex-Remote_Desktop"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="nexRemote.Desktop.XPlat.Views.FileTransferWindow"
-        Title="File Transfer"
+        Title="Transfer Plików"
         Height="300" Width="400" 
         Topmost="True"
         Icon="{Binding WindowIcon}">

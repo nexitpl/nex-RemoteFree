@@ -39,11 +39,11 @@ namespace nexRemote.Server.Pages
 
             var alertParts = new string[]
             {
-                $"{Input.Name} is requesting support.",
-                $"Device ID: {deviceId}",
+                $"{Input.Name} prosi o wsparcie.",
+                $"ID urządzenia: {deviceId}",
                 $"Email: {Input.Email}.",
-                $"Phone: {Input.Phone}.",
-                $"Chat OK: {Input.ChatResponseOk}."
+                $"Telefon: {Input.Phone}.",
+                $"Czat OK: {Input.ChatResponseOk}."
             };
 
             var alertMessage = string.Join("  ", alertParts);
@@ -56,7 +56,7 @@ namespace nexRemote.Server.Pages
                 await _emailSender.SendEmailAsync(user.Email, "Support Request", emailMessage);
             }
 
-            StatusMessage = "We got it!  Someone will contact you soon.";
+            StatusMessage = "Dziękujemy! Ktoś wkrótce się z Państwem skontaktuje.";
 
             return RedirectToPage("GetSupport", new { deviceId });
         }
