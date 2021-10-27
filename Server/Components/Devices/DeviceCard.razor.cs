@@ -177,14 +177,14 @@ namespace nexRemote.Server.Components.Devices
                   Device.Notes,
                   Device.WebRtcSetting);
 
-            ToastService.ShowToast("Device settings saved.");
+            ToastService.ShowToast("Zapisano ustawienia urządzenia.");
 
             await CircuitConnection.TriggerHeartbeat(Device.ID);
         }
 
         private async Task OnFileInputChanged(InputFileChangeEventArgs args)
         {
-            ToastService.ShowToast("File upload started.");
+            ToastService.ShowToast("Rozpoczęto przesyłanie pliku.");
 
             var fileId = await DataService.AddSharedFile(args.File, User.OrganizationID, OnFileInputProgress);
 
@@ -194,11 +194,11 @@ namespace nexRemote.Server.Components.Devices
 
             if (!result)
             {
-                ToastService.ShowToast("Device not found.", classString: "bg-warning");
+                ToastService.ShowToast("Urządzenie nie zostało znalezione.", classString: "bg-warning");
             }
             else
             {
-                ToastService.ShowToast("File upload completed.");
+                ToastService.ShowToast("Przesyłanie pliku zakończone.");
             }
         }
 
@@ -234,7 +234,7 @@ namespace nexRemote.Server.Components.Devices
                 builder.AddMarkupContent(0, $"<div style='white-space: pre'>{disksString}</div>");
             }
 
-            ModalService.ShowModal($"All Disks for {Device.DeviceName}", modalBody);
+            ModalService.ShowModal($"Wszystkie dyski dla {Device.DeviceName}", modalBody);
         }
 
         private void StartChat()
@@ -284,7 +284,7 @@ namespace nexRemote.Server.Components.Devices
 
         private async Task UninstallAgent()
         {
-            var result = await JsInterop.Confirm("Are you sure you want to uninstall this agent?  This is permanent!");
+            var result = await JsInterop.Confirm("Czy na pewno chcesz odinstalować tego agenta? To jest nieodwracalne!");
             if (result)
             {
                 await CircuitConnection.UninstallAgents(new[] { Device.ID });
