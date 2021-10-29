@@ -101,7 +101,7 @@
                                              OnChanged="OnFileInputChanged">
                                 <ButtonContent>
                                     <i class="oi oi-data-transfer-upload" title="Transfer Pliku"></i>
-                                    <span class="ml-2">Transfer Pliku</span>
+                                    <span class="ml-2">Upload File</span>
                                 </ButtonContent>
                             </FileInputButton>
                         </li>
@@ -116,19 +116,19 @@
             </div>
 
             <div class="font-weight-bold text-info">
-                <label>Platforma</label>
+                <label>System</label>
             </div>
             <div>
                 @Device.Platform
             </div>
 
             <div class="font-weight-bold text-info">
-                <label>Disk</label>
+                <label>Dysk</label>
                 <button class="btn btn-link p-0 m-0 expanded-visible"
                         style="font-size: 50%"
                         @onclick="ShowAllDisks" 
                         @onclick:stopPropagation>
-                    (View All)
+                    (Pokaż Wszystkie)
                 </button>
             </div>
             <div>

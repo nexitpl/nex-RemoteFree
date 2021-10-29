@@ -294,7 +294,7 @@ namespace nexRemote.Server.Hubs
                 if (_appConfig.BannedDevices.Any(x => !string.IsNullOrWhiteSpace(x) &&
                     x.Equals(device, StringComparison.OrdinalIgnoreCase)))
                 {
-                    _dataService.WriteEvent($"Device ID/name/IP ({device}) is banned.  Sending uninstall command.", null);
+                    _dataService.WriteEvent($"Device ID/name/IP ({device}) jest zakazane.  Wysyłanie polecenia odinstalowania.", null);
 
                     _ = Clients.Caller.SendAsync("UninstallAgent");
                     return true;

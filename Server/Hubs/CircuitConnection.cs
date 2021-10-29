@@ -100,11 +100,11 @@ namespace nexRemote.Server.Hubs
             var (canAccess, key) = CanAccessDevice(deviceId);
             if (!canAccess)
             {
-                _toastService.ShowToast("Access denied.", classString: "bg-warning");
+                _toastService.ShowToast("Brak dostępu.", classString: "bg-warning");
                 return Task.CompletedTask;
             }
 
-            _logger.LogInformation("Delete logs command sent.  Device: {deviceId}.  User: {username}",
+            _logger.LogInformation("Wysłano polecenie usunięcia dzienników.  Urządzenie: {deviceId}.  Użytkownik: {username}",
                 deviceId,
                 User.UserName);
 
@@ -126,7 +126,7 @@ namespace nexRemote.Server.Hubs
             deviceIDs = _dataService.FilterDeviceIDsByUserPermission(deviceIDs, User);
             var connections = GetActiveClientConnections(deviceIDs);
 
-            _logger.LogInformation("Command executed by {username}.  Shell: {shell}.  Command: {command}.  Devices: {deviceIds}",
+            _logger.LogInformation("Polecenie wykonane przez {username}.  Powłoka: {shell}.  Polecenie: {command}.  Urządzenia: {deviceIds}",
                   User.UserName,
                   shell,
                   command,
@@ -163,7 +163,7 @@ namespace nexRemote.Server.Hubs
             var (canAccess, key) = CanAccessDevice(deviceId);
             if (!canAccess)
             {
-                _toastService.ShowToast("Access denied.", classString: "bg-warning");
+                _toastService.ShowToast("Brak dostępu.", classString: "bg-warning");
                 return Task.CompletedTask;
             }
 
@@ -215,8 +215,8 @@ namespace nexRemote.Server.Hubs
             if (targetDevice.Value is null)
             {
                 MessageReceived?.Invoke(this, new CircuitEvent(CircuitEventName.DisplayMessage,
-                    "The selected device is not online.",
-                    "Device is not online.",
+                    "Wybrane urządzenie nie jest online.",
+                    "Urządzenie nie jest online.",
                     "bg-warning"));
                 return false;
             }
@@ -227,8 +227,8 @@ namespace nexRemote.Server.Hubs
                 if (currentUsers >= _appConfig.RemoteControlSessionLimit)
                 {
                     MessageReceived?.Invoke(this, new CircuitEvent(CircuitEventName.DisplayMessage,
-                        "There are already the maximum amount of active remote control sessions for your organization.",
-                        "Max number of concurrent sessions reached.",
+                        "Istnieje już maksymalna liczba aktywnych sesji zdalnego sterowania dla Twojej organizacji.",
+                        "Osiągnięto maksymalną liczbę jednoczesnych sesji.",
                         "bg-warning"));
                     return false;
                 }
@@ -237,7 +237,7 @@ namespace nexRemote.Server.Hubs
             }
             else
             {
-                _dataService.WriteEvent($"Remote control attempted by unauthorized user.  Device ID: {deviceID}.  User Name: {User.UserName}.", EventType.Warning, targetDevice.Value.OrganizationID);
+                _dataService.WriteEvent($"Próba zdalnego sterowania przez nieautoryzowanego użytkownika.  Device ID: {deviceID}.  Użytkownik: {User.UserName}.", EventType.Warning, targetDevice.Value.OrganizationID);
                 return false;
             }
         }
@@ -287,7 +287,7 @@ namespace nexRemote.Server.Hubs
 
             if (connection.Value is null)
             {
-                _toastService.ShowToast("Device not found.");
+                _toastService.ShowToast("Urządzenie nie zostało znalezione.");
                 return Task.CompletedTask;
             }
 
@@ -362,14 +362,14 @@ namespace nexRemote.Server.Hubs
                 if (tags.Length > 200)
                 {
                     MessageReceived?.Invoke(this, new CircuitEvent(CircuitEventName.DisplayMessage,
-                        $"Tag must be 200 characters or less. Supplied length is {tags.Length}.",
-                        "Tag must be under 200 characters.",
+                        $"Tag musi mieć maksymalnie 200 znaków. Dostarczona długość to {tags.Length}.",
+                        "Tag musi mieć mniej niż 200 znaków.",
                         "bg-warning"));
                 }
                 _dataService.UpdateTags(deviceID, tags);
                 MessageReceived?.Invoke(this, new CircuitEvent(CircuitEventName.DisplayMessage,
-                    "Device updated successfully.",
-                    "Device updated.",
+                    "Urządzenie zostało zaktualizowane pomyślnie.",
+                    "Zaktualizowano urządzenie.",
                     "bg-success"));
             }
             return Task.CompletedTask;
@@ -435,7 +435,7 @@ namespace nexRemote.Server.Hubs
                     }
                     catch (Exception ex)
                     {
-                        _logger.LogError(ex, "Error while invoking circuit event.");
+                        _logger.LogError(ex, "Błąd podczas wywoływania zdarzenia obwodu.");
                     }
                 }
             }
