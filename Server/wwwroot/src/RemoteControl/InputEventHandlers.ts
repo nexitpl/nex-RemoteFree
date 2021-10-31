@@ -78,21 +78,21 @@ export function ApplyInputHandlers() {
     });
     TypeClipboardButton.addEventListener("click", (ev) => {
         if (!navigator.clipboard.readText) {
-            alert("Clipboard access isn't supported on this browser.");
+            alert("Dostęp do schowka nie jest obsługiwany w tej przeglądarce.");
             return;
         }
 
         if (ViewerApp.ViewOnlyMode) {
-            alert("View-only mode is enabled.");
+            alert("Tryb tylko do wyświetlania jest włączony.");
             return;
         }
 
         navigator.clipboard.readText().then(text => {
             ViewerApp.MessageSender.SendClipboardTransfer(text, true);
-            ShowMessage("Clipboard sent!");
+            ShowMessage("Schowek wysłany!");
         }, reason => {
-            alert("Unable to read clipboard.  Please check your permissions.");
-            console.log("Unable to read clipboard.  Reason: " + reason);
+            alert("Nie można odczytać schowka. Sprawdź swoje uprawnienia.");
+            console.log("Nie można odczytać schowka. Powód: " + reason);
         });
     });
     ConnectButton.addEventListener("click", (ev) => {
@@ -100,12 +100,12 @@ export function ApplyInputHandlers() {
     });
     CtrlAltDelButton.addEventListener("click", (ev) => {
         if (!ViewerApp.ServiceID) {
-            ShowMessage("Not available for this session.");
+            ShowMessage("Niedostępne w tej sesji.");
             return;
         }
 
         if (ViewerApp.ViewOnlyMode) {
-            alert("View-only mode is enabled.");
+            alert("Tryb tylko do wyświetlania jest włączony.");
             return;
         }
 
@@ -135,7 +135,7 @@ export function ApplyInputHandlers() {
     });
     FileDownloadButton.addEventListener("click", (ev) => {
         if (ViewerApp.ViewOnlyMode) {
-            alert("View-only mode is enabled.");
+            alert("Tryb tylko do wyświetlania jest włączony.");
             return;
         }
 
@@ -164,7 +164,7 @@ export function ApplyInputHandlers() {
     })
     BlockInputButton.addEventListener("click", (ev) => {
         if (ViewerApp.ViewOnlyMode) {
-            alert("View-only mode is enabled.");
+            alert("Tryb tylko do wyświetlania jest włączony.");
             return;
         }
         BlockInputButton.classList.toggle("toggled");
@@ -184,7 +184,7 @@ export function ApplyInputHandlers() {
             url = `${location.origin}${location.pathname}?casterID=${ViewerApp.CasterID}&serviceID=${ViewerApp.ServiceID}`;
         }
         ViewerApp.ClipboardWatcher.SetClipboardText(url);
-        ShowMessage("Link copied to clipboard.");
+        ShowMessage("Link skopiowany do schowka.");
     });
     KeyboardButton.addEventListener("click", (ev) => {
         closeAllHorizontalBars(null);
@@ -516,7 +516,7 @@ export function ApplyInputHandlers() {
         ViewerApp.MessageSender.GetWindowsSessions();
     });
     WindowsSessionSelect.addEventListener("change", () => {
-        ShowMessage("Switching sessions...");
+        ShowMessage("Przełączanie sesji...");
         ViewerApp.MessageSender.ChangeWindowsSession(Number(WindowsSessionSelect.selectedOptions[0].value));
     });
     RecordSessionButton.addEventListener("click", () => {

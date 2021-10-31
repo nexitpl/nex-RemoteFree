@@ -35,7 +35,7 @@ namespace Server.Installer
             if (EnvironmentHelper.Platform != Platform.Windows &&
                 EnvironmentHelper.Platform != Platform.Linux)
             {
-                ConsoleHelper.WriteError("nex-IT Remote Support System can only be installed on Linux or Windows.");
+                ConsoleHelper.WriteError("nex-Remote server można zainstalować tylko w systemie Linux lub Windows.");
                 return;
             }
 
