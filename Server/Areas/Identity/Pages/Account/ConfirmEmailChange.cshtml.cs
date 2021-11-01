@@ -44,7 +44,7 @@ namespace nexRemote.Server.Areas.Identity.Pages.Account
             var result = await _userManager.ChangeEmailAsync(user, email, code);
             if (!result.Succeeded)
             {
-                StatusMessage = "Error changing email.";
+                StatusMessage = "Błąd podczas zmiany adresu e-mail.";
                 return Page();
             }
 
