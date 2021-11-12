@@ -60,7 +60,7 @@ namespace nexRemote.Server.Services
                 await client.SendAsync(message);
                 await client.DisconnectAsync(true);
 
-                DataService.WriteEvent($"Email successfully sent to {toEmail}.  Subject: \"{subject}\".", organizationID);
+                DataService.WriteEvent($"E-mail pomyœlnie wys³any do {toEmail}.  Temat: \"{subject}\".", organizationID);
 
                 return true;
             }
