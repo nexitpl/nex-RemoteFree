@@ -28,6 +28,8 @@
     <Description>System zdalnej pomocy nex-IT Jakub Potoczny.</Description>
     <Copyright>nex-IT Jakub Potoczny</Copyright>
     <PackageProjectUrl>https://nex-it.pl</PackageProjectUrl>
+    <SignAssembly>false</SignAssembly>
+    <AssemblyOriginatorKeyFile>nex-Remote.pfx</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
     <Compile Update="**\*.xaml.cs">

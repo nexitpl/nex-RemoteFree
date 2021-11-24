@@ -18,6 +18,9 @@
     <PackageProjectUrl>https://nex-it.pl</PackageProjectUrl>
     <Platforms>AnyCPU;x86;x64</Platforms>
     <StartupObject>nexRemote.Desktop.Win.App</StartupObject>
+    <SignAssembly>false</SignAssembly>
+    <DelaySign>false</DelaySign>
+    <AssemblyOriginatorKeyFile>nex-Remote.pfx</AssemblyOriginatorKeyFile>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
