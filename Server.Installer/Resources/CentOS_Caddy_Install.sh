@@ -1,5 +1,5 @@
 #!/bin/bash
-echo "Thanks for trying nex-Remote!"
+echo "Thanks for trying nex-RemoteFree!"
 echo
 
 
@@ -16,9 +16,9 @@ do
 done
 
 if [ -z "$AppRoot" ]; then
-    read -p "Enter path where the nex-Remote server files should be installed (typically /var/www/nex-Remote): " AppRoot
+    read -p "Enter path where the nex-RemoteFree server files should be installed (typically /var/www/nex-RemoteFree): " AppRoot
     if [ -z "$AppRoot" ]; then
-        AppRoot="/var/www/nex-Remote"
+        AppRoot="/var/www/nex-RemoteFree"
     fi
 fi
 
@@ -26,9 +26,9 @@ if [ -z "$HostName" ]; then
     read -p "Enter server host (e.g. https://remote.nex-it.pl): " HostName
 fi
 
-chmod +x "$AppRoot/nex-Remote_Server"
+chmod +x "$AppRoot/nex-RemoteFree_Server"
 
-echo "Using $AppRoot as the nex-Remote website's content directory."
+echo "Using $AppRoot as the nex-RemoteFree website's content directory."
 
 yum update
 yum -y install curl
@@ -72,28 +72,28 @@ echo "$caddyConfig" > /etc/caddy/Caddyfile
 # Create service.
 
 serviceConfig="[Unit]
-Description=nex-Remote Server
+Description=nex-RemoteFree Server
 
 [Service]
 WorkingDirectory=$AppRoot
-ExecStart=/usr/bin/dotnet $AppRoot/nex-Remote_Server.dll
+ExecStart=/usr/bin/dotnet $AppRoot/nex-RemoteFree_Server.dll
 Restart=always
 # Restart service after 10 seconds if the dotnet service crashes:
 RestartSec=10
-SyslogIdentifier=nexRemote
+SyslogIdentifier=nexRemoteFree
 Environment=ASPNETCORE_ENVIRONMENT=Production
 Environment=DOTNET_PRINT_TELEMETRY_MESSAGE=false
 
 [Install]
 WantedBy=multi-user.target"
 
-echo "$serviceConfig" > /etc/systemd/system/nex-Remote.service
+echo "$serviceConfig" > /etc/systemd/system/nex-RemoteFree.service
 
 
 # Enable service.
-systemctl enable nex-Remote.service
+systemctl enable nex-RemoteFree.service
 # Start service.
-systemctl start nex-Remote.service
+systemctl start nex-RemoteFree.service
 
 firewall-cmd --permanent --zone=public --add-service=http
 firewall-cmd --permanent --zone=public --add-service=https

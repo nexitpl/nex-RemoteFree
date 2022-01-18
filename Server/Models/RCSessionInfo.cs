@@ -1,8 +1,8 @@
-﻿using nexRemote.Shared.Enums;
+﻿using nexRemoteFree.Shared.Enums;
 using System;
 using System.Collections.Concurrent;
 
-namespace nexRemote.Server.Models
+namespace nexRemoteFree.Server.Models
 {
     public class RCSessionInfo
     {

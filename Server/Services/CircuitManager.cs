@@ -1,13 +1,13 @@
 ﻿using Microsoft.Extensions.Logging;
-using nexRemote.Server.Hubs;
-using nexRemote.Server.Models;
+using nexRemoteFree.Server.Hubs;
+using nexRemoteFree.Server.Models;
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace nexRemote.Server.Services
+namespace nexRemoteFree.Server.Services
 {
     public interface ICircuitManager
     {

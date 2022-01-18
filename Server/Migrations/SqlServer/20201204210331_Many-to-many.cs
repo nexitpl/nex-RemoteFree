@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace nexRemote.Server.Migrations.SqlServer
+namespace nexRemoteFree.Server.Migrations.SqlServer
 {
     public partial class Manytomany : Migration
     {
@@ -10,7 +10,7 @@ namespace nexRemote.Server.Migrations.SqlServer
                 name: "PermissionLinks");
 
             migrationBuilder.CreateTable(
-                name: "DeviceGroupnexRemoteUser",
+                name: "DeviceGroupnexRemoteFreeUser",
                 columns: table => new
                 {
                     DeviceGroupsID = table.Column<string>(type: "nvarchar(450)", nullable: false),
@@ -18,31 +18,31 @@ namespace nexRemote.Server.Migrations.SqlServer
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_DeviceGroupnexRemoteUser", x => new { x.DeviceGroupsID, x.UsersId });
+                    table.PrimaryKey("PK_DeviceGroupnexRemoteFreeUser", x => new { x.DeviceGroupsID, x.UsersId });
                     table.ForeignKey(
-                        name: "FK_DeviceGroupnexRemoteUser_DeviceGroups_DeviceGroupsID",
+                        name: "FK_DeviceGroupnexRemoteFreeUser_DeviceGroups_DeviceGroupsID",
                         column: x => x.DeviceGroupsID,
                         principalTable: "DeviceGroups",
                         principalColumn: "ID",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_DeviceGroupnexRemoteUser_nexRemoteUsers_UsersId",
+                        name: "FK_DeviceGroupnexRemoteFreeUser_nexRemoteFreeUsers_UsersId",
                         column: x => x.UsersId,
-                        principalTable: "nexRemoteUsers",
+                        principalTable: "nexRemoteFreeUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_DeviceGroupnexRemoteUser_UsersId",
-                table: "DeviceGroupnexRemoteUser",
+                name: "IX_DeviceGroupnexRemoteFreeUser_UsersId",
+                table: "DeviceGroupnexRemoteFreeUser",
                 column: "UsersId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "DeviceGroupnexRemoteUser");
+                name: "DeviceGroupnexRemoteFreeUser");
 
             migrationBuilder.CreateTable(
                 name: "PermissionLinks",
@@ -62,9 +62,9 @@ namespace nexRemote.Server.Migrations.SqlServer
                         principalColumn: "ID",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_PermissionLinks_nexRemoteUsers_UserID",
+                        name: "FK_PermissionLinks_nexRemoteFreeUsers_UserID",
                         column: x => x.UserID,
-                        principalTable: "nexRemoteUsers",
+                        principalTable: "nexRemoteFreeUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });

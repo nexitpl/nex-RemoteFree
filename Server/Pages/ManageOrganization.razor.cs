@@ -4,11 +4,11 @@ using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.WebUtilities;
-using nexRemote.Server.Components;
-using nexRemote.Server.Components.ModalContents;
-using nexRemote.Server.Services;
-using nexRemote.Shared.Models;
-using nexRemote.Shared.ViewModels;
+using nexRemoteFree.Server.Components;
+using nexRemoteFree.Server.Components.ModalContents;
+using nexRemoteFree.Server.Services;
+using nexRemoteFree.Shared.Models;
+using nexRemoteFree.Shared.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,13 +16,13 @@ using System.Text;
 using System.Text.Encodings.Web;
 using System.Threading.Tasks;
 
-namespace nexRemote.Server.Pages
+namespace nexRemoteFree.Server.Pages
 {
     public partial class ManageOrganization : AuthComponentBase
     {
         private readonly List<DeviceGroup> _deviceGroups = new();
         private readonly List<InviteLink> _invites = new();
-        private readonly List<nexRemoteUser> _orgUsers = new();
+        private readonly List<nexRemoteFreeUser> _orgUsers = new();
         private bool _inviteAsAdmin;
         private string _inviteEmail;
         private string _newDeviceGroupName;
@@ -47,7 +47,7 @@ namespace nexRemote.Server.Pages
         [Inject]
         private IToastService ToastService { get; set; }
         [Inject]
-        private UserManager<nexRemoteUser> UserManager { get; set; }
+        private UserManager<nexRemoteFreeUser> UserManager { get; set; }
 
 
         protected override async Task OnInitializedAsync()
@@ -139,7 +139,7 @@ namespace nexRemote.Server.Pages
             _selectedDeviceGroupId = string.Empty;
         }
 
-        private async Task DeleteUser(nexRemoteUser user)
+        private async Task DeleteUser(nexRemoteFreeUser user)
         {
             if (!User.IsAdministrator)
             {
@@ -163,7 +163,7 @@ namespace nexRemote.Server.Pages
             ToastService.ShowToast("Użytkownik usunięty.");
         }
 
-        private async Task EditDeviceGroups(nexRemoteUser user)
+        private async Task EditDeviceGroups(nexRemoteFreeUser user)
         {
             void editDeviceGroupsModal(RenderTreeBuilder builder)
             {
@@ -230,7 +230,7 @@ namespace nexRemote.Server.Pages
             var orgUsers = await DataService.GetAllUsersInOrganization(User.OrganizationID);
             _orgUsers.AddRange(orgUsers.OrderBy(x => x.UserName));
         }
-        private async Task ResetPassword(nexRemoteUser user)
+        private async Task ResetPassword(nexRemoteFreeUser user)
         {
             if (!User.IsAdministrator)
             {
@@ -289,12 +289,12 @@ namespace nexRemote.Server.Pages
                 var newInvite = DataService.AddInvite(User.OrganizationID, invite);
 
                 var inviteURL = $"{NavManager.BaseUri}Invite?id={newInvite.ID}";
-                var emailResult = await EmailSender.SendEmailAsync(invite.InvitedUser, "Zaproszenie do organizacji w nex-Remote",
-                        $@"<img src='{NavManager.BaseUri}images/nex-Remote_Logo.png'/>
+                var emailResult = await EmailSender.SendEmailAsync(invite.InvitedUser, "Zaproszenie do organizacji w nex-RemoteFree",
+                        $@"<img src='{NavManager.BaseUri}images/nex-RemoteFree_Logo.png'/>
                             <br><br>
                             Witaj!
                             <br><br>
-                            Zaproszono Cię do dołączenia do organizacji w nex-Remote.
+                            Zaproszono Cię do dołączenia do organizacji w nex-RemoteFree.
                             <br><br>
                             Możesz dołączyć do organizacji przez <a href='{HtmlEncoder.Default.Encode(inviteURL)}'>clicking here</a>.",
                         User.OrganizationID);
@@ -313,7 +313,7 @@ namespace nexRemote.Server.Pages
             }
         }
 
-        private void SetUserIsAdmin(ChangeEventArgs args, nexRemoteUser orgUser)
+        private void SetUserIsAdmin(ChangeEventArgs args, nexRemoteFreeUser orgUser)
         {
             if (!User.IsAdministrator)
             {
@@ -363,7 +363,7 @@ namespace nexRemote.Server.Pages
         {
             ModalService.ShowModal("Kod", new[]
             {
-                @"Ten kod zostanie dołączony do nazw plików EXE. Gdyby nex-Remote został skompilowany
+                @"Ten kod zostanie dołączony do nazw plików EXE. Gdyby nex-RemoteFree został skompilowany
                 ze źródła i miał osadzony adres URL serwera, użyj tego kodu do zidentyfikowania organizacji."
             });
         }

@@ -1,14 +1,14 @@
 ﻿using Microsoft.AspNetCore.Http.Extensions;
 using Microsoft.AspNetCore.Mvc;
-using nexRemote.Server.Auth;
-using nexRemote.Server.Services;
-using nexRemote.Shared.Models;
+using nexRemoteFree.Server.Auth;
+using nexRemoteFree.Server.Services;
+using nexRemoteFree.Shared.Models;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
-namespace nexRemote.Server.API
+namespace nexRemoteFree.Server.API
 {
     [ApiController]
     [Route("api/[controller]")]

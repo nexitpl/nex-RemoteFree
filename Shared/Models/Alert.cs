@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text.Json.Serialization;
 
-namespace nexRemote.Shared.Models
+namespace nexRemoteFree.Shared.Models
 {
     public class Alert
     {
@@ -23,7 +23,7 @@ namespace nexRemote.Shared.Models
         public string OrganizationID { get; set; }
 
         [JsonIgnore]
-        public nexRemoteUser User { get; set; }
+        public nexRemoteFreeUser User { get; set; }
         public string UserID { get; set; }
         public string Details { get; set; }
     }

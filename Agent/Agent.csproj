@@ -6,18 +6,18 @@
     <TargetLatestRuntimePatch>true</TargetLatestRuntimePatch>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <Copyright>nex-IT Jakub Potoczny</Copyright>
-    <Description>nex-Remote - System Pomocy Zdalnej</Description>
+    <Description>nex-RemoteFree - System Pomocy Zdalnej</Description>
     <Authors>Jakub Potoczny</Authors>
-    <Product>nex-Remote Agent</Product>
+    <Product>nex-RemoteFree Agent</Product>
     <Company>Usługi Informatyczne "nex-IT" Jakub Potoczny</Company>
     <AssemblyVersion>2.0.0.0</AssemblyVersion>
     <PackageProjectUrl>https://nex-it.pl</PackageProjectUrl>
     <Platforms>AnyCPU;x86;x64</Platforms>
-    <AssemblyName>nex-Remote_Agent</AssemblyName>
-    <RootNamespace>nex-Remote.Agent</RootNamespace>
+    <AssemblyName>nex-RemoteFree_Agent</AssemblyName>
+    <RootNamespace>nex-RemoteFree.Agent</RootNamespace>
     <ApplicationIcon>Assets\favicon.ico</ApplicationIcon>
     <SignAssembly>false</SignAssembly>
-    <AssemblyOriginatorKeyFile>nex-Remote.pfx</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>nex-RemoteFree.pfx</AssemblyOriginatorKeyFile>
     <DelaySign>false</DelaySign>
   </PropertyGroup>
 

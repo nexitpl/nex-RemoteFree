@@ -3,7 +3,7 @@ using System;
 using System.Runtime.ConstrainedExecution;
 using System.Runtime.InteropServices;
 
-namespace nexRemote.Shared.Win32
+namespace nexRemoteFree.Shared.Win32
 {
     public static class User32
     {

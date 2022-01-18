@@ -1,6 +1,6 @@
-﻿using nexRemote.Desktop.Core.Interfaces;
-using nexRemote.Desktop.XPlat.Native.Linux;
-using nexRemote.Shared.Utilities;
+﻿using nexRemoteFree.Desktop.Core.Interfaces;
+using nexRemoteFree.Desktop.XPlat.Native.Linux;
+using nexRemoteFree.Shared.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 using System.Text.Json;
 using System.Threading;
 
-namespace nexRemote.Desktop.XPlat.Services
+namespace nexRemoteFree.Desktop.XPlat.Services
 {
     public class ScreenCapturerLinux : IScreenCapturer
     {

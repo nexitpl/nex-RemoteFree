@@ -7,7 +7,7 @@ using System;
 using System.Net;
 using System.Threading.Tasks;
 
-namespace nexRemote.Server.Services
+namespace nexRemoteFree.Server.Services
 {
     public interface IEmailSenderEx
     {

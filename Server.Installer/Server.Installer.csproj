@@ -3,9 +3,9 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>net5.0</TargetFramework>
-    <AssemblyName>nex-Remote_Installer</AssemblyName>
-    <ApplicationIcon>nex-Remote_Icon.ico</ApplicationIcon>
-    <RootNamespace>nexRemote.Server.Installer</RootNamespace>
+    <AssemblyName>nex-RemoteFree_Installer</AssemblyName>
+    <ApplicationIcon>nex-RemoteFree_Icon.ico</ApplicationIcon>
+    <RootNamespace>nexRemoteFree.Server.Installer</RootNamespace>
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
 

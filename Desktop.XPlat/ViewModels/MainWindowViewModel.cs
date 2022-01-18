@@ -3,15 +3,15 @@ using Avalonia.Controls;
 using Avalonia.Threading;
 using Microsoft.Extensions.DependencyInjection;
 using ReactiveUI;
-using nexRemote.Desktop.Core;
-using nexRemote.Desktop.Core.Interfaces;
-using nexRemote.Desktop.Core.Services;
-using nexRemote.Desktop.XPlat.Controls;
-using nexRemote.Desktop.XPlat.Native.Linux;
-using nexRemote.Desktop.XPlat.Services;
-using nexRemote.Desktop.XPlat.Views;
-using nexRemote.Shared.Models;
-using nexRemote.Shared.Utilities;
+using nexRemoteFree.Desktop.Core;
+using nexRemoteFree.Desktop.Core.Interfaces;
+using nexRemoteFree.Desktop.Core.Services;
+using nexRemoteFree.Desktop.XPlat.Controls;
+using nexRemoteFree.Desktop.XPlat.Native.Linux;
+using nexRemoteFree.Desktop.XPlat.Services;
+using nexRemoteFree.Desktop.XPlat.Views;
+using nexRemoteFree.Shared.Models;
+using nexRemoteFree.Shared.Utilities;
 using System;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
@@ -19,7 +19,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace nexRemote.Desktop.XPlat.ViewModels
+namespace nexRemoteFree.Desktop.XPlat.ViewModels
 {
     public class MainWindowViewModel : BrandedViewModelBase
     {

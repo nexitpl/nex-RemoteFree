@@ -1,10 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using nexRemote.Server.Services;
+using nexRemoteFree.Server.Services;
 using System.ComponentModel.DataAnnotations;
 using System.Threading.Tasks;
 
-namespace nexRemote.Server.Pages
+namespace nexRemoteFree.Server.Pages
 {
     public class GetSupportModel : PageModel
     {

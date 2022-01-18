@@ -1,11 +1,11 @@
-﻿using nexRemote.Shared.Models;
+﻿using nexRemoteFree.Shared.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace nexRemote.Desktop.Core.Interfaces
+namespace nexRemoteFree.Desktop.Core.Interfaces
 {
     public interface IConfigService
     {

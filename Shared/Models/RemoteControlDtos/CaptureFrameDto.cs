@@ -1,8 +1,8 @@
-﻿using nexRemote.Shared.Enums;
+﻿using nexRemoteFree.Shared.Enums;
 using System;
 using System.Runtime.Serialization;
 
-namespace nexRemote.Shared.Models.RemoteControlDtos
+namespace nexRemoteFree.Shared.Models.RemoteControlDtos
 {
     [DataContract]
     public class CaptureFrameDto : BaseDto

@@ -1,9 +1,9 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.SignalR.Client;
-using nexRemote.Agent.Interfaces;
+using nexRemoteFree.Agent.Interfaces;
 
-namespace nexRemote.Agent.Services
+namespace nexRemoteFree.Agent.Services
 {
     public class AppLauncherMac : IAppLauncher
     {

@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace nexRemote.Shared.Models
+namespace nexRemoteFree.Shared.Models
 {
     public class BrandingInfo
     {
@@ -15,7 +15,7 @@ namespace nexRemote.Shared.Models
         public string Id { get; set; }
 
         [StringLength(25)]
-        public string Product { get; set; } = "nex-Remote";
+        public string Product { get; set; } = "nex-RemoteFree";
 
         public byte[] Icon { get; set; }
 

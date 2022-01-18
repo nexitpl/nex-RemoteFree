@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 
-namespace nexRemote.Agent.Interfaces
+namespace nexRemoteFree.Agent.Interfaces
 {
     public interface IUpdater : IDisposable
     {

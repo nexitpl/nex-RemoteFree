@@ -2,7 +2,7 @@
 using System.Runtime.InteropServices;
 using System.Security;
 
-namespace nexRemote.Shared.Win32
+namespace nexRemoteFree.Shared.Win32
 {
     public static class ADVAPI32
     {

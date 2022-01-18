@@ -1,20 +1,20 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
-using nexRemote.Server.Services;
-using nexRemote.Shared.Models;
+using nexRemoteFree.Server.Services;
+using nexRemoteFree.Shared.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace nexRemote.Server.Auth
+namespace nexRemoteFree.Server.Auth
 {
     public class TwoFactorRequiredHandler : AuthorizationHandler<TwoFactorRequiredRequirement>
     {
-        private readonly UserManager<nexRemoteUser> _userManager;
+        private readonly UserManager<nexRemoteFreeUser> _userManager;
         private readonly IApplicationConfig _appConfig;
 
-        public TwoFactorRequiredHandler(UserManager<nexRemoteUser> userManager, IApplicationConfig appConfig)
+        public TwoFactorRequiredHandler(UserManager<nexRemoteFreeUser> userManager, IApplicationConfig appConfig)
         {
             _userManager = userManager;
             _appConfig = appConfig;

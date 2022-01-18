@@ -2,13 +2,13 @@
 using Avalonia.Controls;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Markup.Xaml;
-using nexRemote.Desktop.XPlat.ViewModels;
-using nexRemote.Shared.Utilities;
+using nexRemoteFree.Desktop.XPlat.ViewModels;
+using nexRemoteFree.Shared.Utilities;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace nexRemote.Desktop.XPlat.Controls
+namespace nexRemoteFree.Desktop.XPlat.Controls
 {
     public class MessageBox : Window
     {

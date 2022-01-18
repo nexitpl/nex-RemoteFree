@@ -1,11 +1,11 @@
 ﻿using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Markup.Xaml;
-using nexRemote.Desktop.XPlat.ViewModels;
+using nexRemoteFree.Desktop.XPlat.ViewModels;
 using System;
 using System.Threading.Tasks;
 
-namespace nexRemote.Desktop.XPlat.Views
+namespace nexRemoteFree.Desktop.XPlat.Views
 {
     public class ChatWindow : Window
     {

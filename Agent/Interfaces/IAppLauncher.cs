@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace nexRemote.Agent.Interfaces
+namespace nexRemoteFree.Agent.Interfaces
 {
     public interface IAppLauncher
     {

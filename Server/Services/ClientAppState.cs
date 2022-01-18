@@ -1,13 +1,13 @@
-﻿using nexRemote.Server.Enums;
-using nexRemote.Shared.Enums;
-using nexRemote.Shared.Models;
-using nexRemote.Shared.ViewModels;
+﻿using nexRemoteFree.Server.Enums;
+using nexRemoteFree.Shared.Enums;
+using nexRemoteFree.Shared.Models;
+using nexRemoteFree.Shared.ViewModels;
 using System.Collections.Concurrent;
 using System.ComponentModel;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace nexRemote.Server.Services
+namespace nexRemoteFree.Server.Services
 {
     public interface IClientAppState : INotifyPropertyChanged, IInvokePropertyChanged
     {

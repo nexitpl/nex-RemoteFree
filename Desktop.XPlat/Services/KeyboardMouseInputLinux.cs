@@ -1,11 +1,11 @@
-﻿using nexRemote.Desktop.Core.Enums;
-using nexRemote.Desktop.Core.Interfaces;
-using nexRemote.Desktop.Core.Services;
-using nexRemote.Desktop.XPlat.Native.Linux;
-using nexRemote.Shared.Utilities;
+﻿using nexRemoteFree.Desktop.Core.Enums;
+using nexRemoteFree.Desktop.Core.Interfaces;
+using nexRemoteFree.Desktop.Core.Services;
+using nexRemoteFree.Desktop.XPlat.Native.Linux;
+using nexRemoteFree.Shared.Utilities;
 using System;
 
-namespace nexRemote.Desktop.XPlat.Services
+namespace nexRemoteFree.Desktop.XPlat.Services
 {
     public class KeyboardMouseInputLinux : IKeyboardMouseInput
     {

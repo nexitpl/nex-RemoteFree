@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace nexRemote.Shared.Models
+namespace nexRemoteFree.Shared.Models
 {
     public class AlertOptions
     {

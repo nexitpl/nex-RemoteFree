@@ -1,4 +1,4 @@
-﻿namespace nexRemote.Shared.ViewModels
+﻿namespace nexRemoteFree.Shared.ViewModels
 {
     public class OrganizationUser
     {

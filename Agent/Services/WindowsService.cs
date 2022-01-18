@@ -1,9 +1,9 @@
-﻿using nexRemote.Shared.Utilities;
+﻿using nexRemoteFree.Shared.Utilities;
 using System;
 using System.Diagnostics;
 using System.ServiceProcess;
 
-namespace nexRemote.Agent.Services
+namespace nexRemoteFree.Agent.Services
 {
     partial class WindowsService : ServiceBase
     {
@@ -22,7 +22,7 @@ namespace nexRemote.Agent.Services
                    changeDescription.Reason == SessionChangeReason.RemoteDisconnect)
                 {
 
-                    foreach (var screenCaster in Process.GetProcessesByName("nex-Remote_Desktop"))
+                    foreach (var screenCaster in Process.GetProcessesByName("nex-RemoteFree_Desktop"))
                     {
                         if (screenCaster.SessionId == changeDescription.SessionId)
                         {

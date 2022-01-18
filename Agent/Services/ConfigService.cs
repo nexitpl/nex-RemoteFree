@@ -1,12 +1,12 @@
-﻿using nexRemote.Shared.Models;
-using nexRemote.Shared.Utilities;
+﻿using nexRemoteFree.Shared.Models;
+using nexRemoteFree.Shared.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Text.Json;
 
-namespace nexRemote.Agent.Services
+namespace nexRemoteFree.Agent.Services
 {
     public class ConfigService
     {

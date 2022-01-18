@@ -1,15 +1,15 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SignalR;
-using nexRemote.Server.Auth;
-using nexRemote.Server.Models;
-using nexRemote.Server.Services;
-using nexRemote.Shared.Enums;
-using nexRemote.Shared.Models;
+using nexRemoteFree.Server.Auth;
+using nexRemoteFree.Server.Models;
+using nexRemoteFree.Server.Services;
+using nexRemoteFree.Shared.Enums;
+using nexRemoteFree.Shared.Models;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace nexRemote.Server.Hubs
+namespace nexRemoteFree.Server.Hubs
 {
     [ServiceFilter(typeof(RemoteControlFilterAttribute))]
     public class ViewerHub : Hub

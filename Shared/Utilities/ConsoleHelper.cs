@@ -5,7 +5,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace nexRemote.Shared.Utilities
+namespace nexRemoteFree.Shared.Utilities
 {
     public static class ConsoleHelper
     {

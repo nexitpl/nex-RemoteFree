@@ -3,9 +3,9 @@
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
     <TargetLatestRuntimePatch>true</TargetLatestRuntimePatch>
-    <AssemblyName>nex-Remote_Shared</AssemblyName>
+    <AssemblyName>nex-RemoteFree_Shared</AssemblyName>
     <Platforms>AnyCPU;x64;x86</Platforms>
-    <RootNamespace>nexRemote.Shared</RootNamespace>
+    <RootNamespace>nexRemoteFree.Shared</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
@@ -27,15 +27,15 @@
     <Compile Update="Models\Device.cs">
       <Generator></Generator>
     </Compile>
-    <Compile Update="Models\nexRemoteUserOptions.cs">
-      <LastGenOutput>nexRemoteUserOptions.cs.d.ts</LastGenOutput>
+    <Compile Update="Models\nexRemoteFreeUserOptionsnexRemoteFree.cs">
+      <LastGenOutput>nexRemoteFreeUserOptionsnexRemoteFree.cs.d.ts</LastGenOutput>
       <Generator>DtsGenerator</Generator>
     </Compile>
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="Models\nexRemoteUserOptions.cs.d.ts">
-      <DependentUpon>nexRemoteUserOptions.cs</DependentUpon>
+    <None Update="Models\nexRemoteFreeUserOptionsnexRemoteFree.cs.d.ts">
+      <DependentUpon>nexRemoteFreeUserOptionsnexRemoteFree.cs</DependentUpon>
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
     </None>

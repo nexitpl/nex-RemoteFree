@@ -1,8 +1,8 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using nexRemote.Shared.Enums;
-using nexRemote.Shared.Services;
-using nexRemote.Shared.Utilities;
+using nexRemoteFree.Shared.Enums;
+using nexRemoteFree.Shared.Services;
+using nexRemoteFree.Shared.Utilities;
 using Server.Installer.Models;
 using Server.Installer.Services;
 using System;
@@ -19,7 +19,7 @@ namespace Server.Installer
         public static async Task Main(string[] args)
         {
             Console.ForegroundColor = ConsoleColor.Cyan;
-            Console.WriteLine(AppConstants.nexRemoteAscii);
+            Console.WriteLine(AppConstants.nexRemoteFreeAscii);
             Console.ForegroundColor = ConsoleColor.Gray;
             Console.WriteLine("(https://nex-it.pl)");
             Console.WriteLine();
@@ -35,7 +35,7 @@ namespace Server.Installer
             if (EnvironmentHelper.Platform != Platform.Windows &&
                 EnvironmentHelper.Platform != Platform.Linux)
             {
-                ConsoleHelper.WriteError("nex-Remote server można zainstalować tylko w systemie Linux lub Windows.");
+                ConsoleHelper.WriteError("nex-RemoteFree server można zainstalować tylko w systemie Linux lub Windows.");
                 return;
             }
 
@@ -53,7 +53,7 @@ namespace Server.Installer
             }
 
             ConsoleHelper.WriteLine("Usługi Informatyczne nex-IT Jakub Potoczny.  Ten instalator poprowadzi Cię " +
-                "poprzez wdrożenie serwera nex-Remote na tym komputerze.");
+                "poprzez wdrożenie serwera nex-RemoteFree na tym komputerze.");
 
 
             while (cliParams.UsePrebuiltPackage is null)
@@ -69,7 +69,7 @@ namespace Server.Installer
 
             while (string.IsNullOrWhiteSpace(cliParams.InstallDirectory))
             {
-                cliParams.InstallDirectory = ConsoleHelper.ReadLine("Do którego katalogu należy rozpakować pliki serwera (np. /var/www/nex-remote/)?").Trim();
+                cliParams.InstallDirectory = ConsoleHelper.ReadLine("Do którego katalogu należy rozpakować pliki serwera (np. /var/www/nex-RemoteFree/)?").Trim();
             }
 
             while (cliParams.ServerUrl is null)
@@ -301,8 +301,8 @@ namespace Server.Installer
 
         private static void ShowHelpText()
         {
-            ConsoleHelper.WriteLine("nex-Remote Server Installer", 0, ConsoleColor.Cyan);
-            ConsoleHelper.WriteLine("Builds a customized nex-Remote server using GitHub actions " +
+            ConsoleHelper.WriteLine("nex-RemoteFree Server Installer", 0, ConsoleColor.Cyan);
+            ConsoleHelper.WriteLine("Builds a customized nex-RemoteFree server using GitHub actions " +
                 "and installs the server on the local machine.", 1);
 
             ConsoleHelper.WriteLine("Usage:");
@@ -313,14 +313,14 @@ namespace Server.Installer
                 "latest public release, or to create a customized package through GitHub Actions.  The pre-built package " +
                 "will not contain your server's URL in the desktop clients, and end users will need to type it in manually.", 1);
 
-            ConsoleHelper.WriteLine("\t--github-username, -u    Your GitHub username, where the forked nex-Remote repo exists.", 1);
+            ConsoleHelper.WriteLine("\t--github-username, -u    Your GitHub username, where the forked nex-RemoteFree repo exists.", 1);
             
             ConsoleHelper.WriteLine("\t--github-pat, -p    The GitHub Personal Access Token to use for authentication.  " +
                 "Create one at ttps://github.com/settings/tokens.", 1);
 
-            ConsoleHelper.WriteLine("\t--server-url, -s    The public URL where your nex-Remote server will be accessed (e.g. https://remote.nex-it.pl).", 1);
+            ConsoleHelper.WriteLine("\t--server-url, -s    The public URL where your nex-RemoteFree server will be accessed (e.g. https://remote.nex-it.pl).", 1);
 
-            ConsoleHelper.WriteLine("\t--install-directory, -i    The directory path where the server files will be installed (e.g. /var/www/nex-Remote/).", 1);
+            ConsoleHelper.WriteLine("\t--install-directory, -i    The directory path where the server files will be installed (e.g. /var/www/nex-RemoteFree/).", 1);
             
             ConsoleHelper.WriteLine("Enter the GitHub branch or tag name from which to build.  For example, you can enter " +
                   " \"master\" to build the latest changes from the default branch.  Or you can enter a release tag like \"v2021.04.13.1604\".", 1);
@@ -332,14 +332,14 @@ namespace Server.Installer
             ConsoleHelper.WriteLine("\t--create-new, -c    (true/false or yes/no)  Whether to run a new build.  If false, the latest existing build artifact will be used.", 1);
             
             ConsoleHelper.WriteLine("\t--web-server, -w    Number.  The web server that will be used as a reverse proxy to forward " +
-                "requests to the nex-Remote server.  Select the appropriate option for your operating system and web server.  " +
+                "requests to the nex-RemoteFree server.  Select the appropriate option for your operating system and web server.  " +
                 "0 = Caddy on Ubuntu.  1 = Nginx on Ubuntu.  2 = Caddy on CentOS.  3 = Nginx on CentOS.  4 = IIS on Windows Server 2016+.", 1);
 
             ConsoleHelper.WriteLine("Example (build latest release):");
-            ConsoleHelper.WriteLine("sudo ./nex-Remote_Server_Installer -b false -u nexitpl -p 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 -s https://remote.nex-it.pl -i /var/www/nex-Remote/ -r latest -c true -w 0", 1);
+            ConsoleHelper.WriteLine("sudo ./nex-RemoteFree_Server_Installer -b false -u nexitpl -p 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 -s https://remote.nex-it.pl -i /var/www/nex-RemoteFree/ -r latest -c true -w 0", 1);
 
             ConsoleHelper.WriteLine("Example (use pre-built package):");
-            ConsoleHelper.WriteLine("sudo ./nex-Remote_Server_Installer -b true -s https://remote.nex-it.pl -i /var/www/nex-Remote/ -w 0");
+            ConsoleHelper.WriteLine("sudo ./nex-RemoteFree_Server_Installer -b true -s https://remote.nex-it.pl -i /var/www/nex-RemoteFree/ -w 0");
         }
     }
 }

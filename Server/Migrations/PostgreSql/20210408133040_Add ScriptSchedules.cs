@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore.Migrations;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
-namespace nexRemote.Server.Migrations.PostgreSql
+namespace nexRemoteFree.Server.Migrations.PostgreSql
 {
     public partial class AddScriptSchedules : Migration
     {
@@ -17,7 +17,7 @@ namespace nexRemote.Server.Migrations.PostgreSql
 
             migrationBuilder.DropColumn(
                 name: "DisplayName",
-                table: "nexRemoteUsers");
+                table: "nexRemoteFreeUsers");
 
             migrationBuilder.DropColumn(
                 name: "Token",
@@ -60,9 +60,9 @@ namespace nexRemote.Server.Migrations.PostgreSql
                         principalColumn: "ID",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_SavedScripts_nexRemoteUsers_CreatorId",
+                        name: "FK_SavedScripts_nexRemoteFreeUsers_CreatorId",
                         column: x => x.CreatorId,
-                        principalTable: "nexRemoteUsers",
+                        principalTable: "nexRemoteFreeUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
@@ -94,9 +94,9 @@ namespace nexRemote.Server.Migrations.PostgreSql
                         principalColumn: "ID",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_ScriptSchedules_nexRemoteUsers_CreatorId",
+                        name: "FK_ScriptSchedules_nexRemoteFreeUsers_CreatorId",
                         column: x => x.CreatorId,
-                        principalTable: "nexRemoteUsers",
+                        principalTable: "nexRemoteFreeUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
@@ -378,7 +378,7 @@ namespace nexRemote.Server.Migrations.PostgreSql
 
             migrationBuilder.AddColumn<string>(
                 name: "DisplayName",
-                table: "nexRemoteUsers",
+                table: "nexRemoteFreeUsers",
                 type: "character varying(100)",
                 maxLength: 100,
                 nullable: true);

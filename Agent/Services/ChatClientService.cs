@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.SignalR.Client;
-using nexRemote.Agent.Interfaces;
-using nexRemote.Agent.Models;
-using nexRemote.Shared.Models;
-using nexRemote.Shared.Utilities;
+using nexRemoteFree.Agent.Interfaces;
+using nexRemoteFree.Agent.Models;
+using nexRemoteFree.Shared.Models;
+using nexRemoteFree.Shared.Utilities;
 using System;
 using System.Diagnostics;
 using System.IO;
@@ -12,7 +12,7 @@ using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace nexRemote.Agent.Services
+namespace nexRemoteFree.Agent.Services
 {
     public class ChatClientService
     {
@@ -72,7 +72,7 @@ namespace nexRemote.Agent.Services
                         return;
                     }
 
-                    var clientPipe = new NamedPipeClientStream(".", "nex-Remote_Chat" + senderConnectionID, PipeDirection.InOut, PipeOptions.Asynchronous);
+                    var clientPipe = new NamedPipeClientStream(".", "nex-RemoteFree_Chat" + senderConnectionID, PipeDirection.InOut, PipeOptions.Asynchronous);
                     clientPipe.Connect(15000);
                     if (!clientPipe.IsConnected)
                     {

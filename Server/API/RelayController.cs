@@ -1,13 +1,13 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using nexRemote.Server.Services;
+using nexRemoteFree.Server.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace nexRemote.Server.API
+namespace nexRemoteFree.Server.API
 {
     [Route("api/[controller]")]
     [ApiController]

@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using System.Security.Cryptography;
 
-namespace nexRemote.Shared.Utilities
+namespace nexRemoteFree.Shared.Utilities
 {
     public class RandomGenerator
     {

@@ -3,7 +3,7 @@
 @inherits AuthComponentBase
 
 @inject AuthenticationStateProvider AuthProvider
-@inject UserManager<nexRemoteUser> UserManager
+@inject UserManager<nexRemoteFreeUser> UserManager
 @inject IDataService DataService
 @inject IToastService ToastService
 @inject IModalService ModalService
@@ -91,7 +91,7 @@
 
 
 @code {
-    private nexRemoteUserOptions _options = new();
+    private nexRemoteFreeUserOptions _options = new();
     private string _alertMessage;
 
     protected override async Task OnInitializedAsync()

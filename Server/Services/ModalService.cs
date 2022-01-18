@@ -1,11 +1,11 @@
 ﻿using Microsoft.AspNetCore.Components;
-using nexRemote.Server.Models;
+using nexRemoteFree.Server.Models;
 using System;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace nexRemote.Server.Services
+namespace nexRemoteFree.Server.Services
 {
     public interface IModalService
     {

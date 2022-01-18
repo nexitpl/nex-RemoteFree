@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
-namespace nexRemote.Agent.Installer.Win.ViewModels
+namespace nexRemoteFree.Agent.Installer.Win.ViewModels
 {
     public class ViewModelBase : INotifyPropertyChanged
     {

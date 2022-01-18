@@ -22,10 +22,10 @@
 // THE SOFTWARE.
 
 using Microsoft.Win32;
-using nexRemote.Desktop.Core.Interfaces;
-using nexRemote.Desktop.Win.Models;
-using nexRemote.Shared.Utilities;
-using nexRemote.Shared.Win32;
+using nexRemoteFree.Desktop.Core.Interfaces;
+using nexRemoteFree.Desktop.Win.Models;
+using nexRemoteFree.Shared.Utilities;
+using nexRemoteFree.Shared.Win32;
 using SharpDX;
 using SharpDX.Direct3D11;
 using SharpDX.DXGI;
@@ -38,7 +38,7 @@ using System.Runtime.InteropServices;
 using System.Threading;
 using System.Windows.Forms;
 
-namespace nexRemote.Desktop.Win.Services
+namespace nexRemoteFree.Desktop.Win.Services
 {
     public class ScreenCapturerWin : IScreenCapturer
     {

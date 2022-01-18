@@ -8,7 +8,7 @@ using System.Net.Http.Json;
 using System.Text.Json;
 using System.Threading.Tasks;
 
-namespace nexRemote.Server.Services
+namespace nexRemoteFree.Server.Services
 {
     public interface IUpgradeService
     {
@@ -32,10 +32,10 @@ namespace nexRemote.Server.Services
             try
             {
                 using var client = _httpClientFactory.CreateClient();
-                var response = await client.GetAsync("https://github.com/nexitpl/nex-Remote/releases/latest");
+                var response = await client.GetAsync("https://github.com/nexitpl/nex-RemoteFree/releases/latest");
                 var versionString = response.RequestMessage.RequestUri.ToString().Split("/").Last()[1..];
                 var remoteVersion = Version.Parse(versionString);
-                var filePath = Directory.GetFiles(Directory.GetCurrentDirectory(), "nex-Remote_Server.dll", SearchOption.AllDirectories).First();
+                var filePath = Directory.GetFiles(Directory.GetCurrentDirectory(), "nex-RemoteFree_Server.dll", SearchOption.AllDirectories).First();
                 var localVersion = Version.Parse(System.Diagnostics.FileVersionInfo.GetVersionInfo(filePath).FileVersion);
                 if (remoteVersion > localVersion)
                 {

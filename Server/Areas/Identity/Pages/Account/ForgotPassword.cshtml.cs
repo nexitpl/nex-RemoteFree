@@ -10,19 +10,19 @@ using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
-using nexRemote.Shared.Models;
-using nexRemote.Server.Services;
+using nexRemoteFree.Shared.Models;
+using nexRemoteFree.Server.Services;
 
-namespace nexRemote.Server.Areas.Identity.Pages.Account
+namespace nexRemoteFree.Server.Areas.Identity.Pages.Account
 {
     [AllowAnonymous]
     public class ForgotPasswordModel : PageModel
     {
-        private readonly UserManager<nexRemoteUser> _userManager;
+        private readonly UserManager<nexRemoteFreeUser> _userManager;
         private readonly IEmailSenderEx _emailSender;
         private readonly IDataService _dataService;
 
-        public ForgotPasswordModel(UserManager<nexRemoteUser> userManager,
+        public ForgotPasswordModel(UserManager<nexRemoteFreeUser> userManager,
             IEmailSenderEx emailSender,
             IDataService dataService)
         {
@@ -67,7 +67,7 @@ namespace nexRemote.Server.Areas.Identity.Pages.Account
                 var emailResult = await _emailSender.SendEmailAsync(
                     Input.Email,
                     "Reset Password",
-                    $"<img src='{Request.Scheme}://{Request.Host}/images/nex-Remote_Logo.png'/><br><br>Please reset your nex-Remote password by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
+                    $"<img src='{Request.Scheme}://{Request.Host}/images/nex-RemoteFree_Logo.png'/><br><br>Please reset your nex-RemoteFree password by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
 
                 if (!emailResult)
                 {

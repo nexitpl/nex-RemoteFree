@@ -1,12 +1,12 @@
-﻿using nexRemote.Desktop.Core.ViewModels;
-using nexRemote.Desktop.Win.Services;
+﻿using nexRemoteFree.Desktop.Core.ViewModels;
+using nexRemoteFree.Desktop.Win.Services;
 using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
 using System.Windows.Input;
 
-namespace nexRemote.Desktop.Win.ViewModels
+namespace nexRemoteFree.Desktop.Win.ViewModels
 {
     public class PromptForAccessWindowViewModel : BrandedViewModelBase
     {

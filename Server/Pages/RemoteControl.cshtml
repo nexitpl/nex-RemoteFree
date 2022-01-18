@@ -1,7 +1,7 @@
 ﻿@page
-@using nexRemote.Shared.Models
-@inject nexRemote.Server.Services.IApplicationConfig AppConfig
-@model nexRemote.Server.Pages.RemoteControlModel
+@using nexRemoteFree.Shared.Models
+@inject nexRemoteFree.Server.Services.IApplicationConfig AppConfig
+@model nexRemoteFree.Server.Pages.RemoteControlModel
 @{
     Layout = null;
 }
@@ -13,14 +13,14 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=0.9, user-scalable=no" />
     <link rel="icon" href="~/favicon.ico" />
-    <title>nex-Remote Control</title>
+    <title>nex-RemoteFree Control</title>
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="mobile-web-app-capable" content="yes" />
     <link href="~/manifest-rc.json" rel="manifest" />
     <meta name="description" content="Remote support tools designed to get things done quickly." />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link href="~/css/remote-control.css" rel="stylesheet" asp-append-version="true" />
-    @if (AppConfig.Theme == nexRemote.Shared.Enums.Theme.Light)
+    @if (AppConfig.Theme == nexRemoteFree.Shared.Enums.Theme.Light)
     {
         <link href="~/css/remote-control-light.css" rel="stylesheet" asp-append-version="true" />
     }
@@ -29,14 +29,14 @@
         <link href="~/css/remote-control-dark.css" rel="stylesheet" asp-append-version="true" />
     }
 
-    @if (Model.nexRemoteUser is not null)
+    @if (Model.nexRemoteFreeUser is not null)
     {
-        switch (Model.nexRemoteUser.UserOptions.Theme)
+        switch (Model.nexRemoteFreeUser.UserOptions.Theme)
         {
-            case nexRemote.Shared.Enums.Theme.Light:
+            case nexRemoteFree.Shared.Enums.Theme.Light:
                 <link href="~/css/remote-control-light.css" rel="stylesheet" asp-append-version="true" />
                 break;
-            case nexRemote.Shared.Enums.Theme.Dark:
+            case nexRemoteFree.Shared.Enums.Theme.Dark:
                 <link href="~/css/remote-control-dark.css" rel="stylesheet" asp-append-version="true" />
                 break;
             default:
@@ -45,7 +45,7 @@
     }
     else
     {
-        if (AppConfig.Theme == nexRemote.Shared.Enums.Theme.Light)
+        if (AppConfig.Theme == nexRemoteFree.Shared.Enums.Theme.Light)
         {
             <link href="~/css/remote-control-light.css" rel="stylesheet" asp-append-version="true" />
         }
@@ -70,9 +70,9 @@
     </environment>
 </head>
 <body>
-    <div class="nex-Remote-header" title="nex-Remote">
+    <div class="nex-RemoteFree-header" title="nex-RemoteFree">
         <div class="logo-title">
-            nex-Remote
+            nex-RemoteFree
         </div>
         <div class="logo-subtitle">nex-IT Jakub Potoczny</div>
     </div>
@@ -206,11 +206,11 @@
         </div>
     </div>
     <div id="connectBox" class="center-connection-box" style="display: none">
-        <h3>nex-Remote</h3>
+        <h3>nex-RemoteFree</h3>
         <div class="form-block">
             <label>Twoja nazwa: </label>
             <br />
-            <input id="nameInput" type="text" value="@Model.nexRemoteUser?.UserOptions?.DisplayName" />
+            <input id="nameInput" type="text" value="@Model.nexRemoteFreeUser?.UserOptions?.DisplayName" />
         </div>
         <div class="form-block">
             <label>ID Sesji: </label>

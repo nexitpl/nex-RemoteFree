@@ -5,16 +5,16 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using nexRemote.Agent.Interfaces;
-using nexRemote.Agent.Services;
-using nexRemote.Server.API;
-using nexRemote.Server.Data;
-using nexRemote.Server.Services;
-using nexRemote.Shared.Models;
-using nexRemote.Shared.Utilities;
+using nexRemoteFree.Agent.Interfaces;
+using nexRemoteFree.Agent.Services;
+using nexRemoteFree.Server.API;
+using nexRemoteFree.Server.Data;
+using nexRemoteFree.Server.Services;
+using nexRemoteFree.Shared.Models;
+using nexRemoteFree.Shared.Utilities;
 using System;
 
-namespace nexRemote.Tests
+namespace nexRemoteFree.Tests
 {
     [TestClass]
     public class IoCActivator
@@ -48,13 +48,13 @@ namespace nexRemote.Tests
         {
             services.AddDbContextFactory<AppDb>(options =>
             {
-                options.UseInMemoryDatabase("nexRemote");
+                options.UseInMemoryDatabase("nexRemoteFree");
             });
 
             services.AddScoped(p =>
                 p.GetRequiredService<IDbContextFactory<AppDb>>().CreateDbContext());
 
-            services.AddIdentity<nexRemoteUser, IdentityRole>(options => options.Stores.MaxLengthForKeys = 128)
+            services.AddIdentity<nexRemoteFreeUser, IdentityRole>(options => options.Stores.MaxLengthForKeys = 128)
              .AddEntityFrameworkStores<AppDb>()
              .AddDefaultUI()
              .AddDefaultTokenProviders();

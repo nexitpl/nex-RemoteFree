@@ -1,12 +1,12 @@
 ﻿using Avalonia.Controls;
 using ReactiveUI;
-using nexRemote.Desktop.XPlat.Services;
+using nexRemoteFree.Desktop.XPlat.Services;
 using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows.Input;
 
-namespace nexRemote.Desktop.XPlat.ViewModels
+namespace nexRemoteFree.Desktop.XPlat.ViewModels
 {
     public class PromptForAccessWindowViewModel : BrandedViewModelBase
     {

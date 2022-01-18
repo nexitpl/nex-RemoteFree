@@ -11,10 +11,10 @@
             }
             else
             {
-                <span>nex-Remote</span>
+                <span>nex-RemoteFree</span>
             }
         </div>
-        <div class="logo-subtitle">nex-Remote</div>
+        <div class="logo-subtitle">nex-RemoteFree</div>
     </a>
     <button class="navbar-toggler" @onclick="ToggleNavMenu">
         <span class="navbar-toggler-icon"></span>
@@ -136,7 +136,7 @@
     private Dictionary<string, object> _remoteControlAttributes
         = new() { ["target"] = "blank", ["href"] = "/RemoteControl" };
 
-    private nexRemoteUser _user;
+    private nexRemoteFreeUser _user;
     private Organization _organization;
 
     protected override async Task OnInitializedAsync()

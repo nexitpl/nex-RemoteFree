@@ -1,10 +1,10 @@
-﻿using nexRemote.Desktop.Core.Interfaces;
-using nexRemote.Shared.Utilities;
+﻿using nexRemoteFree.Desktop.Core.Interfaces;
+using nexRemoteFree.Shared.Utilities;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace nexRemote.Desktop.XPlat.Services
+namespace nexRemoteFree.Desktop.XPlat.Services
 {
     public class ClipboardServiceLinux : IClipboardService
     {

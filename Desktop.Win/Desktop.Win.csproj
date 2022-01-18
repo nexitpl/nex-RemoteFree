@@ -5,22 +5,22 @@
     <TargetFramework>net5.0-windows</TargetFramework>
     <UseWPF>true</UseWPF>
     <UseWindowsForms>true</UseWindowsForms>
-    <AssemblyName>nex-Remote_Desktop</AssemblyName>
-    <RootNamespace>nexRemote.Desktop.Win</RootNamespace>
+    <AssemblyName>nex-RemoteFree_Desktop</AssemblyName>
+    <RootNamespace>nexRemoteFree.Desktop.Win</RootNamespace>
     <ApplicationIcon>Assets\favicon.ico</ApplicationIcon>
     <ApplicationManifest>app.manifest</ApplicationManifest>
-    <Description>nex-Remote System Zdalnej Pomocy.</Description>
+    <Description>nex-RemoteFree System Zdalnej Pomocy.</Description>
     <Copyright>nex-IT Jakub Potoczny</Copyright>
-    <PackageId>nex-Remote Desktop</PackageId>
+    <PackageId>nex-RemoteFree Desktop</PackageId>
     <Authors>Jakub Potoczny</Authors>
     <Company>nex-IT Jakub Potoczny</Company>
-    <Product>nex-Remote Desktop</Product>
+    <Product>nex-RemoteFree Desktop</Product>
     <PackageProjectUrl>https://nex-it.pl</PackageProjectUrl>
     <Platforms>AnyCPU;x86;x64</Platforms>
-    <StartupObject>nexRemote.Desktop.Win.App</StartupObject>
+    <StartupObject>nexRemoteFree.Desktop.Win.App</StartupObject>
     <SignAssembly>false</SignAssembly>
     <DelaySign>false</DelaySign>
-    <AssemblyOriginatorKeyFile>nex-Remote.pfx</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>nex-RemoteFree.pfx</AssemblyOriginatorKeyFile>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -33,7 +33,6 @@
 
   <ItemGroup>
     <None Remove="Assets\favicon.ico" />
-    <None Remove="Assets\nex-Remote_Icon.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -52,7 +51,6 @@
 
   <ItemGroup>
     <Resource Include="Assets\favicon.ico" />
-    <EmbeddedResource Include="Assets\nex-Remote_Icon.png" />
   </ItemGroup>
 
   <ItemGroup>

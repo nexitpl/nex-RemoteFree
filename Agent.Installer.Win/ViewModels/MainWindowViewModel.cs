@@ -1,8 +1,8 @@
-using nexRemote.Agent.Installer.Win.Models;
-using nexRemote.Agent.Installer.Win.Services;
-using nexRemote.Agent.Installer.Win.Utilities;
-using nexRemote.Shared.Utilities;
-using nexRemote.Shared.Models;
+using nexRemoteFree.Agent.Installer.Win.Models;
+using nexRemoteFree.Agent.Installer.Win.Services;
+using nexRemoteFree.Agent.Installer.Win.Utilities;
+using nexRemoteFree.Shared.Utilities;
+using nexRemoteFree.Shared.Models;
 using System;
 using System.Diagnostics;
 using System.IO;
@@ -19,7 +19,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Net;
 
-namespace nexRemote.Agent.Installer.Win.ViewModels
+namespace nexRemoteFree.Agent.Installer.Win.ViewModels
 {
     public class MainWindowViewModel : ViewModelBase
     {
@@ -117,7 +117,7 @@ namespace nexRemote.Agent.Installer.Win.ViewModels
             {
                 return new Executor(param =>
                 {
-                    var logPath = Path.Combine(Path.GetTempPath(), "nex-Remote_Installer.log");
+                    var logPath = Path.Combine(Path.GetTempPath(), "nex-RemoteFree_Installer.log");
                     if (File.Exists(logPath))
                     {
                         Process.Start(logPath);
@@ -205,7 +205,7 @@ namespace nexRemote.Agent.Installer.Win.ViewModels
                 Progress = arg;
             };
 
-            IsServiceInstalled = ServiceController.GetServices().Any(x => x.ServiceName == "nex-Remote_Service");
+            IsServiceInstalled = ServiceController.GetServices().Any(x => x.ServiceName == "nex-RemoteFree_Service");
             if (IsServiceMissing)
             {
                 HeaderMessage = $"Instalacja us³ugi {ProductName} .";
@@ -239,7 +239,7 @@ namespace nexRemote.Agent.Installer.Win.ViewModels
                 var connectionInfoPath = Path.Combine(
                Path.GetPathRoot(Environment.SystemDirectory),
                    "Program Files",
-                   "nex-Remote",
+                   "nex-RemoteFree",
                    "ConnectionInfo.json");
 
                 if (File.Exists(connectionInfoPath))
@@ -269,7 +269,7 @@ namespace nexRemote.Agent.Installer.Win.ViewModels
         {
             try
             {
-                ProductName = "nex-Remote";
+                ProductName = "nex-RemoteFree";
 
                 if (!string.IsNullOrWhiteSpace(brandingInfo?.Product))
                 {
@@ -447,7 +447,7 @@ namespace nexRemote.Agent.Installer.Win.ViewModels
             }
             else
             {
-                imageStream = Assembly.GetExecutingAssembly().GetManifestResourceStream("nexRemote.Agent.Installer.Win.Assets.nex-Remote_Icon.png");
+                imageStream = Assembly.GetExecutingAssembly().GetManifestResourceStream("nexRemoteFree.Agent.Installer.Win.Assets.nex-RemoteFree_Icon.png");
             }
 
             var bitmap = new BitmapImage();
@@ -470,14 +470,14 @@ namespace nexRemote.Agent.Installer.Win.ViewModels
                     return;
                 }
 
-                HeaderMessage = "Installing nex-Remote...";
+                HeaderMessage = "Installing nex-RemoteFree...";
 
                 if (await Installer.Install(ServerUrl, OrganizationID, DeviceGroup, DeviceAlias, DeviceUuid, CreateSupportShortcut))
                 {
                     IsServiceInstalled = true;
                     Progress = 0;
                     HeaderMessage = "Instalacja zakoñczona.";
-                    StatusMessage = "nex-Remote zosta³ zainstalowany.  Mo¿esz teraz zamkn¹æ to okno.";
+                    StatusMessage = "nex-RemoteFree zosta³ zainstalowany.  Mo¿esz teraz zamkn¹æ to okno.";
                 }
                 else
                 {
@@ -506,14 +506,14 @@ namespace nexRemote.Agent.Installer.Win.ViewModels
             {
                 IsReadyState = false;
 
-                HeaderMessage = "Odinstalowywanie nex-Remote...";
+                HeaderMessage = "Odinstalowywanie nex-RemoteFree...";
 
                 if (await Installer.Uninstall())
                 {
                     IsServiceInstalled = false;
                     Progress = 0;
                     HeaderMessage = "Dezinstalacja zakoñczona.";
-                    StatusMessage = "nex-Remote zosta³ odinstalowany.  Mo¿esz teraz zamkn¹æ to okno.";
+                    StatusMessage = "nex-RemoteFree zosta³ odinstalowany.  Mo¿esz teraz zamkn¹æ to okno.";
                 }
                 else
                 {

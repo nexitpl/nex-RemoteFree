@@ -1,7 +1,7 @@
 ﻿@using Microsoft.AspNetCore.Hosting
 @using Microsoft.AspNetCore.Mvc.ViewEngines
-@using nexRemote.Server.Services
-@using nexRemote.Shared.Models
+@using nexRemoteFree.Server.Services
+@using nexRemoteFree.Shared.Models
 @inject IApplicationConfig AppConfig
 @inject IWebHostEnvironment Environment
 @inject ICompositeViewEngine Engine
@@ -31,25 +31,25 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=550, user-scalable=no" />
-    <title>@ViewData["Title"] - nex-Remote</title>
+    <title>@ViewData["Title"] - nex-RemoteFree</title>
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="mobile-web-app-capable" content="yes" />
-    <meta name="description" content="nex-Remote - System pomocy zdalnej." />
+    <meta name="description" content="nex-RemoteFree - System pomocy zdalnej." />
     <link href="~/manifest.json" rel="manifest" />
     <link rel="stylesheet" href="~/Identity/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/Identity/css/site.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
 
-    @if (user is nexRemoteUser)
+    @if (user is nexRemoteFreeUser)
     {
 
         switch (user.UserOptions.Theme)
         {
-            case nexRemote.Shared.Enums.Theme.Light:
+            case nexRemoteFree.Shared.Enums.Theme.Light:
                 <link rel="stylesheet" href="~/css/Themes/yeti.min.css" />
                 <link rel="stylesheet" href="~/css/Themes/yeti.custom.css" asp-append-version="true" />
                 break;
-            case nexRemote.Shared.Enums.Theme.Dark:
+            case nexRemoteFree.Shared.Enums.Theme.Dark:
                 <link rel="stylesheet" href="~/css/Themes/darkly.min.css" />
                 <link rel="stylesheet" href="~/css/Themes/darkly.custom.css" asp-append-version="true" />
                 break;
@@ -59,7 +59,7 @@
     }
     else
     {
-        if (AppConfig.Theme == nexRemote.Shared.Enums.Theme.Light)
+        if (AppConfig.Theme == nexRemoteFree.Shared.Enums.Theme.Light)
         {
             <link rel="stylesheet" href="~/css/Themes/yeti.min.css" />
             <link rel="stylesheet" href="~/css/Themes/yeti.custom.css" asp-append-version="true" />
@@ -79,7 +79,7 @@
                     <div>
                         @organizationName
                     </div>
-                    <div class="logo-subtitle">nex-Remote</div>
+                    <div class="logo-subtitle">nex-RemoteFree</div>
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Przełącz nawigację">

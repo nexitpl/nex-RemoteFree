@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text.Json.Serialization;
 
-namespace nexRemote.Shared.Models
+namespace nexRemoteFree.Shared.Models
 {
     public class ApiToken
     {

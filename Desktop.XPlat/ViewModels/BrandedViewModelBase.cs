@@ -3,15 +3,15 @@ using Avalonia.Media;
 using Avalonia.Media.Imaging;
 using Microsoft.Extensions.DependencyInjection;
 using ReactiveUI;
-using nexRemote.Desktop.Core;
-using nexRemote.Desktop.Core.Services;
-using nexRemote.Shared.Utilities;
+using nexRemoteFree.Desktop.Core;
+using nexRemoteFree.Desktop.Core.Services;
+using nexRemoteFree.Shared.Utilities;
 using System;
 using System.IO;
 using System.Linq;
 using System.Reflection;
 
-namespace nexRemote.Desktop.XPlat.ViewModels
+namespace nexRemoteFree.Desktop.XPlat.ViewModels
 {
     public class BrandedViewModelBase : ReactiveViewModel
     {
@@ -37,7 +37,7 @@ namespace nexRemote.Desktop.XPlat.ViewModels
             {
                 var brandingInfo = DeviceInitService?.BrandingInfo ?? new Shared.Models.BrandingInfo();
 
-                ProductName = "nex-Remote";
+                ProductName = "nex-RemoteFree";
 
                 if (!string.IsNullOrWhiteSpace(brandingInfo?.Product))
                 {
@@ -66,7 +66,7 @@ namespace nexRemote.Desktop.XPlat.ViewModels
                 }
                 else
                 {
-                    using var imageStream = Assembly.GetExecutingAssembly().GetManifestResourceStream("nexRemote.Desktop.XPlat.Assets.nex-Remote_Icon.png");
+                    using var imageStream = Assembly.GetExecutingAssembly().GetManifestResourceStream("nexRemoteFree.Desktop.XPlat.Assets.nex-RemoteFree_Icon.png");
                     Icon = new Bitmap(imageStream);
                 }
 

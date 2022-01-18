@@ -4,10 +4,10 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
-using nexRemote.Server.Hubs;
-using nexRemote.Server.Models;
-using nexRemote.Server.Services;
-using nexRemote.Shared.Models;
+using nexRemoteFree.Server.Hubs;
+using nexRemoteFree.Server.Models;
+using nexRemoteFree.Server.Services;
+using nexRemoteFree.Shared.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,7 +16,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace nexRemote.Tests
+namespace nexRemoteFree.Tests
 {
     [TestClass]
     public class AgentHubTests

@@ -2,13 +2,13 @@
 using Microsoft.Extensions.Logging;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
-using nexRemote.Desktop.Core;
-using nexRemote.Desktop.Core.Interfaces;
-using nexRemote.Desktop.Core.Services;
-using nexRemote.Desktop.Core.Utilities;
-using nexRemote.Desktop.Win.Services;
-using nexRemote.Shared.Models;
-using nexRemote.Shared.Models.RemoteControlDtos;
+using nexRemoteFree.Desktop.Core;
+using nexRemoteFree.Desktop.Core.Interfaces;
+using nexRemoteFree.Desktop.Core.Services;
+using nexRemoteFree.Desktop.Core.Utilities;
+using nexRemoteFree.Desktop.Win.Services;
+using nexRemoteFree.Shared.Models;
+using nexRemoteFree.Shared.Models.RemoteControlDtos;
 using System;
 using System.Diagnostics;
 using System.Drawing;
@@ -21,7 +21,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Media.Imaging;
 
-namespace nexRemote.Tests
+namespace nexRemoteFree.Tests
 {
     [TestClass]
     public class ManualTests
@@ -173,7 +173,7 @@ namespace nexRemote.Tests
 
         private Bitmap GetFrame(string frameFileName)
         {
-            using var mrs = Assembly.GetExecutingAssembly().GetManifestResourceStream($"nexRemote.Tests.Resources.{frameFileName}.jpg");
+            using var mrs = Assembly.GetExecutingAssembly().GetManifestResourceStream($"nexRemoteFree.Tests.Resources.{frameFileName}.jpg");
             var resourceImage = (Bitmap)Bitmap.FromStream(mrs);
 
             if (resourceImage.PixelFormat != PixelFormat.Format32bppArgb)

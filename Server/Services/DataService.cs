@@ -5,19 +5,19 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Primitives;
-using nexRemote.Server.Data;
-using nexRemote.Server.Models;
-using nexRemote.Shared.Enums;
-using nexRemote.Shared.Models;
-using nexRemote.Shared.Utilities;
-using nexRemote.Shared.ViewModels;
+using nexRemoteFree.Server.Data;
+using nexRemoteFree.Server.Models;
+using nexRemoteFree.Shared.Enums;
+using nexRemoteFree.Shared.Models;
+using nexRemoteFree.Shared.Utilities;
+using nexRemoteFree.Shared.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace nexRemote.Server.Services
+namespace nexRemoteFree.Server.Services
 {
     // TODO: Separate this into domain-specific services.
     public interface IDataService
@@ -76,11 +76,11 @@ namespace nexRemote.Server.Services
 
         bool DoesUserExist(string userName);
 
-        bool DoesUserHaveAccessToDevice(string deviceID, nexRemoteUser nexRemoteUser);
+        bool DoesUserHaveAccessToDevice(string deviceID, nexRemoteFreeUser nexRemoteFreeUser);
 
-        bool DoesUserHaveAccessToDevice(string deviceID, string nexRemoteUserID);
+        bool DoesUserHaveAccessToDevice(string deviceID, string nexRemoteFreeUserID);
         Task<DeviceGroup> GetDeviceGroup(string deviceGroupID);
-        string[] FilterDeviceIDsByUserPermission(string[] deviceIDs, nexRemoteUser nexRemoteUser);
+        string[] FilterDeviceIDsByUserPermission(string[] deviceIDs, nexRemoteFreeUser nexRemoteFreeUser);
         Task AddScriptResultToScriptRun(string scriptResultId, int scriptRunId);
         string[] FilterUsersByDevicePermission(IEnumerable<string> userIDs, string deviceID);
 
@@ -104,9 +104,9 @@ namespace nexRemote.Server.Services
 
         ScriptResult[] GetAllScriptResultsForUser(string orgId, string userName);
 
-        nexRemoteUser[] GetAllUsersForServer();
+        nexRemoteFreeUser[] GetAllUsersForServer();
 
-        Task<nexRemoteUser[]> GetAllUsersInOrganization(string orgId);
+        Task<nexRemoteFreeUser[]> GetAllUsersInOrganization(string orgId);
 
         ApiToken GetApiKey(string keyId);
 
@@ -122,7 +122,7 @@ namespace nexRemote.Server.Services
 
         int GetDeviceCount();
 
-        int GetDeviceCount(nexRemoteUser user);
+        int GetDeviceCount(nexRemoteFreeUser user);
 
         DeviceGroup[] GetDeviceGroups(string username);
 
@@ -169,13 +169,13 @@ namespace nexRemote.Server.Services
 
         int GetTotalDevices();
 
-        Task<nexRemoteUser> GetUserAsync(string username);
+        Task<nexRemoteFreeUser> GetUserAsync(string username);
 
-        nexRemoteUser GetUserByID(string userID);
+        nexRemoteFreeUser GetUserByID(string userID);
 
-        nexRemoteUser GetUserByNameWithOrg(string userName);
+        nexRemoteFreeUser GetUserByNameWithOrg(string userName);
 
-        nexRemoteUserOptions GetUserOptions(string userName);
+        nexRemoteFreeUserOptions GetUserOptions(string userName);
 
         bool JoinViaInvitation(string userName, string inviteID);
 
@@ -190,7 +190,7 @@ namespace nexRemote.Server.Services
 
         void SetAllDevicesNotOnline();
 
-        Task SetDisplayName(nexRemoteUser user, string displayName);
+        Task SetDisplayName(nexRemoteFreeUser user, string displayName);
 
         Task SetIsDefaultOrganization(string orgID, bool isDefault);
 
@@ -211,7 +211,7 @@ namespace nexRemote.Server.Services
         void UpdateDevice(string deviceID, string tag, string alias, string deviceGroupID, string notes, WebRtcSetting webRtcSetting);
         void UpdateOrganizationName(string orgID, string organizationName);
         void UpdateTags(string deviceID, string tags);
-        void UpdateUserOptions(string userName, nexRemoteUserOptions options);
+        void UpdateUserOptions(string userName, nexRemoteFreeUserOptions options);
         bool ValidateApiKey(string keyId, string apiSecret, string requestPath, string remoteIP);
         void WriteEvent(EventLog eventLog);
         void WriteEvent(Exception ex, string organizationID);
@@ -727,19 +727,19 @@ namespace nexRemote.Server.Services
 
             try
             {
-                var user = new nexRemoteUser()
+                var user = new nexRemoteFreeUser()
                 {
                     UserName = userEmail.Trim().ToLower(),
                     Email = userEmail.Trim().ToLower(),
                     IsAdministrator = isAdmin,
                     OrganizationID = organizationID,
-                    UserOptions = new nexRemoteUserOptions()
+                    UserOptions = new nexRemoteFreeUserOptions()
                 };
                 var org = dbContext.Organizations
-                    .Include(x => x.nexRemoteUsers)
+                    .Include(x => x.nexRemoteFreeUsers)
                     .FirstOrDefault(x => x.ID == organizationID);
                 dbContext.Users.Add(user);
-                org.nexRemoteUsers.Add(user);
+                org.nexRemoteFreeUsers.Add(user);
                 await dbContext.SaveChangesAsync();
                 return true;
             }
@@ -899,9 +899,9 @@ namespace nexRemote.Server.Services
 
             dbContext
                 .Organizations
-                .Include(x => x.nexRemoteUsers)
+                .Include(x => x.nexRemoteFreeUsers)
                 .FirstOrDefault(x => x.ID == orgID)
-                .nexRemoteUsers.Remove(target);
+                .nexRemoteFreeUsers.Remove(target);
 
 
             dbContext.Users.Remove(target);
@@ -942,9 +942,9 @@ namespace nexRemote.Server.Services
             return dbContext.Users.Any(x => x.UserName.Trim().ToLower() == userName.Trim().ToLower());
         }
 
-        public bool DoesUserHaveAccessToDevice(string deviceID, nexRemoteUser nexRemoteUser)
+        public bool DoesUserHaveAccessToDevice(string deviceID, nexRemoteFreeUser nexRemoteFreeUser)
         {
-            if (nexRemoteUser is null)
+            if (nexRemoteFreeUser is null)
             {
                 return false;
             }
@@ -954,25 +954,25 @@ namespace nexRemote.Server.Services
             return dbContext.Devices
                 .Include(x => x.DeviceGroup)
                 .ThenInclude(x => x.Users)
-                .Any(device => device.OrganizationID == nexRemoteUser.OrganizationID &&
+                .Any(device => device.OrganizationID == nexRemoteFreeUser.OrganizationID &&
                     device.ID == deviceID &&
                     (
-                        nexRemoteUser.IsAdministrator ||
+                        nexRemoteFreeUser.IsAdministrator ||
                         string.IsNullOrWhiteSpace(device.DeviceGroupID) ||
-                        device.DeviceGroup.Users.Any(user => user.Id == nexRemoteUser.Id
+                        device.DeviceGroup.Users.Any(user => user.Id == nexRemoteFreeUser.Id
                     )));
         }
 
-        public bool DoesUserHaveAccessToDevice(string deviceID, string nexRemoteUserID)
+        public bool DoesUserHaveAccessToDevice(string deviceID, string nexRemoteFreeUserID)
         {
             using var dbContext = _dbFactory.CreateDbContext();
 
-            var nexRemoteUser = dbContext.Users.Find(nexRemoteUserID);
+            var nexRemoteFreeUser = dbContext.Users.Find(nexRemoteFreeUserID);
 
-            return DoesUserHaveAccessToDevice(deviceID, nexRemoteUser);
+            return DoesUserHaveAccessToDevice(deviceID, nexRemoteFreeUser);
         }
 
-        public string[] FilterDeviceIDsByUserPermission(string[] deviceIDs, nexRemoteUser nexRemoteUser)
+        public string[] FilterDeviceIDsByUserPermission(string[] deviceIDs, nexRemoteFreeUser nexRemoteFreeUser)
         {
             using var dbContext = _dbFactory.CreateDbContext();
 
@@ -980,12 +980,12 @@ namespace nexRemote.Server.Services
                 .Include(x => x.DeviceGroup)
                 .ThenInclude(x => x.Users)
                 .Where(device =>
-                    device.OrganizationID == nexRemoteUser.OrganizationID &&
+                    device.OrganizationID == nexRemoteFreeUser.OrganizationID &&
                     deviceIDs.Contains(device.ID) &&
                     (
-                        nexRemoteUser.IsAdministrator ||
+                        nexRemoteFreeUser.IsAdministrator ||
                         device.DeviceGroup.Users.Count == 0 ||
-                        device.DeviceGroup.Users.Any(user => user.Id == nexRemoteUser.Id
+                        device.DeviceGroup.Users.Any(user => user.Id == nexRemoteFreeUser.Id
                     )))
                 .Select(x => x.ID)
                 .ToArray();
@@ -1100,27 +1100,27 @@ namespace nexRemote.Server.Services
                 .ToArray();
         }
 
-        public nexRemoteUser[] GetAllUsersForServer()
+        public nexRemoteFreeUser[] GetAllUsersForServer()
         {
             using var dbContext = _dbFactory.CreateDbContext();
 
             return dbContext.Users.ToArray();
         }
 
-        public async Task<nexRemoteUser[]> GetAllUsersInOrganization(string orgId)
+        public async Task<nexRemoteFreeUser[]> GetAllUsersInOrganization(string orgId)
         {
             if (string.IsNullOrWhiteSpace(orgId))
             {
-                return Array.Empty<nexRemoteUser>();
+                return Array.Empty<nexRemoteFreeUser>();
             }
 
             using var dbContext = _dbFactory.CreateDbContext();
 
             var organization = await dbContext.Organizations
-                .Include(x => x.nexRemoteUsers)
+                .Include(x => x.nexRemoteFreeUsers)
                 .FirstOrDefaultAsync(x => x.ID == orgId);
 
-            return organization.nexRemoteUsers.ToArray();
+            return organization.nexRemoteFreeUsers.ToArray();
         }
 
         public ApiToken GetApiKey(string keyId)
@@ -1203,7 +1203,7 @@ namespace nexRemote.Server.Services
             return dbContext.Devices.Count();
         }
 
-        public int GetDeviceCount(nexRemoteUser user)
+        public int GetDeviceCount(nexRemoteFreeUser user)
         {
             using var dbContext = _dbFactory.CreateDbContext();
 
@@ -1563,7 +1563,7 @@ namespace nexRemote.Server.Services
             return dbContext.Devices.Count();
         }
 
-        public async Task<nexRemoteUser> GetUserAsync(string username)
+        public async Task<nexRemoteFreeUser> GetUserAsync(string username)
         {
             if (string.IsNullOrWhiteSpace(username))
             {
@@ -1574,7 +1574,7 @@ namespace nexRemote.Server.Services
             return await dbContext.Users.FirstOrDefaultAsync(x => x.UserName == username);
         }
 
-        public nexRemoteUser GetUserByID(string userID)
+        public nexRemoteFreeUser GetUserByID(string userID)
         {
             if (string.IsNullOrWhiteSpace(userID))
             {
@@ -1585,7 +1585,7 @@ namespace nexRemote.Server.Services
             return dbContext.Users.FirstOrDefault(x => x.Id == userID);
         }
 
-        public nexRemoteUser GetUserByNameWithOrg(string userName)
+        public nexRemoteFreeUser GetUserByNameWithOrg(string userName)
         {
             if (userName == null)
             {
@@ -1599,7 +1599,7 @@ namespace nexRemote.Server.Services
                 .FirstOrDefault(x => x.UserName.ToLower().Trim() == userName.ToLower().Trim());
         }
 
-        public nexRemoteUserOptions GetUserOptions(string userName)
+        public nexRemoteFreeUserOptions GetUserOptions(string userName)
         {
             using var dbContext = _dbFactory.CreateDbContext();
 
@@ -1623,13 +1623,13 @@ namespace nexRemote.Server.Services
 
             var user = dbContext.Users.FirstOrDefault(x => x.UserName == userName);
             var organization = dbContext.Organizations
-                                .Include(x => x.nexRemoteUsers)
+                                .Include(x => x.nexRemoteFreeUsers)
                                 .FirstOrDefault(x => x.ID == invite.OrganizationID);
 
             user.Organization = organization;
             user.OrganizationID = organization.ID;
             user.IsAdministrator = invite.IsAdmin;
-            organization.nexRemoteUsers.Add(user);
+            organization.nexRemoteFreeUsers.Add(user);
 
             dbContext.SaveChanges();
 
@@ -1739,7 +1739,7 @@ namespace nexRemote.Server.Services
             dbContext.SaveChanges();
         }
 
-        public async Task SetDisplayName(nexRemoteUser user, string displayName)
+        public async Task SetDisplayName(nexRemoteFreeUser user, string displayName)
         {
             using var dbContext = _dbFactory.CreateDbContext();
 
@@ -1939,7 +1939,7 @@ namespace nexRemote.Server.Services
             dbContext.SaveChanges();
         }
 
-        public void UpdateUserOptions(string userName, nexRemoteUserOptions options)
+        public void UpdateUserOptions(string userName, nexRemoteFreeUserOptions options)
         {
             using var dbContext = _dbFactory.CreateDbContext();
 
@@ -1951,7 +1951,7 @@ namespace nexRemote.Server.Services
         {
             using var dbContext = _dbFactory.CreateDbContext();
 
-            var hasher = new PasswordHasher<nexRemoteUser>();
+            var hasher = new PasswordHasher<nexRemoteFreeUser>();
             var token = dbContext.ApiTokens.FirstOrDefault(x => x.ID == keyId);
 
 

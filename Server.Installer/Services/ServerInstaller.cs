@@ -1,4 +1,4 @@
-﻿using nexRemote.Shared.Utilities;
+﻿using nexRemoteFree.Shared.Utilities;
 using Server.Installer.Models;
 using System;
 using System.Collections.Generic;
@@ -30,7 +30,7 @@ namespace Server.Installer.Services
 
         public async Task PerformInstall(CliParams cliParams)
         {
-            var zipPath = Path.Combine(Path.GetTempPath(), "nex-Remote_Server.zip");
+            var zipPath = Path.Combine(Path.GetTempPath(), "nex-RemoteFree_Server.zip");
 
             if (cliParams.UsePrebuiltPackage == true)
             {
@@ -39,8 +39,8 @@ namespace Server.Installer.Services
                 int progress = 0;
 
                 var releaseFile = cliParams.WebServer == WebServerType.IisWindows ?
-                    "https://github.com/nexitpl/nex-Remote/releases/latest/download/nex-Remote_Server_Win-x64.zip" :
-                    "https://github.com/nexitpl/nex-Remote/releases/latest/download/nex-Remote_Linux-x64.zip";
+                    "https://github.com/nexitpl/nex-RemoteFree/releases/latest/download/nex-RemoteFree_Server_Win-x64.zip" :
+                    "https://github.com/nexitpl/nex-RemoteFree/releases/latest/download/nex-RemoteFree_Linux-x64.zip";
 
                 using var webClient = new WebClient();
                 webClient.DownloadProgressChanged += (sender, args) =>
@@ -66,7 +66,7 @@ namespace Server.Installer.Services
                     if (!dispatchResult)
                     {
                         ConsoleHelper.WriteError("GitHub API call to trigger build action failed.  Do you have " +
-                            "Actions enabled on your forked nex-Remote repo on the Actions tab?  If not, enable them and try again. " +
+                            "Actions enabled on your forked nex-RemoteFree repo on the Actions tab?  If not, enable them and try again. " +
                             "Otherwise, please check your input parameters.");
                         return;
                     }
@@ -103,8 +103,8 @@ namespace Server.Installer.Services
                 var w3wpProcs = Process.GetProcessesByName("w3wp");
                 if (w3wpProcs.Length > 0)
                 {
-                    Process.Start("powershell.exe", "-Command & \"{ Stop-WebAppPool -Name nexRemote -ErrorAction SilentlyContinue }\"").WaitForExit();
-                    Process.Start("powershell.exe", "-Command & \"{ Stop-Website -Name nexRemote -ErrorAction SilentlyContinue }\"").WaitForExit();
+                    Process.Start("powershell.exe", "-Command & \"{ Stop-WebAppPool -Name nexRemoteFree -ErrorAction SilentlyContinue }\"").WaitForExit();
+                    Process.Start("powershell.exe", "-Command & \"{ Stop-Website -Name nexRemoteFree -ErrorAction SilentlyContinue }\"").WaitForExit();
 
                     ConsoleHelper.WriteLine("Waiting for w3wp processes to close...");
                     foreach (var proc in w3wpProcs)
@@ -127,7 +127,7 @@ namespace Server.Installer.Services
         private async Task LaunchExternalInstaller(CliParams cliParams)
         {
             ConsoleHelper.WriteLine("Launching install script for selected reverse proxy type.");
-            var resourcesPath = "nexRemote.Server.Installer.Resources.";
+            var resourcesPath = "nexRemoteFree.Server.Installer.Resources.";
 
             var fileName = cliParams.WebServer.Value switch
             {
@@ -155,7 +155,7 @@ namespace Server.Installer.Services
             {
                 psi = new ProcessStartInfo("powershell.exe")
                 {
-                    Arguments = $"-f \"{filePath}\" -AppPoolName nex-Remote -SiteName nex-Remote " +
+                    Arguments = $"-f \"{filePath}\" -AppPoolName nex-RemoteFree -SiteName nex-RemoteFree " +
                         $"-SitePath \"{cliParams.InstallDirectory}\" -HostName {cliParams.ServerUrl.Authority} -Quiet",
                     WorkingDirectory = cliParams.InstallDirectory
                 };

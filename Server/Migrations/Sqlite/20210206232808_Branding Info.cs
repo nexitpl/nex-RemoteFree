@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace nexRemote.Server.Migrations.Sqlite
+namespace nexRemoteFree.Server.Migrations.Sqlite
 {
     public partial class BrandingInfo : Migration
     {

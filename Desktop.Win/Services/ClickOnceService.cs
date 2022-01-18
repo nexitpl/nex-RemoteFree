@@ -1,8 +1,8 @@
-﻿using nexRemote.Desktop.Core;
-using nexRemote.Desktop.Core.Services;
-using nexRemote.Shared.Enums;
-using nexRemote.Shared.Models;
-using nexRemote.Shared.Utilities;
+﻿using nexRemoteFree.Desktop.Core;
+using nexRemoteFree.Desktop.Core.Services;
+using nexRemoteFree.Shared.Enums;
+using nexRemoteFree.Shared.Models;
+using nexRemoteFree.Shared.Utilities;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -14,7 +14,7 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Xml;
 
-namespace nexRemote.Desktop.Win.Services
+namespace nexRemoteFree.Desktop.Win.Services
 {
     public interface IClickOnceService
     {

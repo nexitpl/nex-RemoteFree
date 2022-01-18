@@ -1,7 +1,7 @@
-﻿using nexRemote.Desktop.Core.Interfaces;
-using nexRemote.Desktop.Win.ViewModels;
-using nexRemote.Desktop.Win.Views;
-using nexRemote.Shared.Models;
+﻿using nexRemoteFree.Desktop.Core.Interfaces;
+using nexRemoteFree.Desktop.Win.ViewModels;
+using nexRemoteFree.Desktop.Win.Views;
+using nexRemoteFree.Shared.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,7 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace nexRemote.Desktop.Win.Services
+namespace nexRemoteFree.Desktop.Win.Services
 {
     public class ChatUiServiceWin : IChatUiService
     {

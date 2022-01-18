@@ -1,9 +1,9 @@
-﻿using nexRemote.Shared.Utilities;
+﻿using nexRemoteFree.Shared.Utilities;
 using System;
 using System.Collections.Concurrent;
 using System.Timers;
 
-namespace nexRemote.Desktop.Core.Services
+namespace nexRemoteFree.Desktop.Core.Services
 {
     public class IdleTimer
     {

@@ -89,7 +89,7 @@ else
     private async Task CreateNewKey()
     {
         var secret = PasswordGenerator.GeneratePassword(36);
-        var secretHash = new PasswordHasher<nexRemoteUser>().HashPassword(null, secret);
+        var secretHash = new PasswordHasher<nexRemoteFreeUser>().HashPassword(null, secret);
 
         await DataService.CreateApiToken(Username, _createKeyName, secretHash);
         RefreshData();

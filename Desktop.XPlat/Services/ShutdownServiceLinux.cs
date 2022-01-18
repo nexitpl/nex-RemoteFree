@@ -1,13 +1,13 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using nexRemote.Desktop.Core;
-using nexRemote.Desktop.Core.Interfaces;
-using nexRemote.Desktop.Core.Services;
-using nexRemote.Shared.Utilities;
+using nexRemoteFree.Desktop.Core;
+using nexRemoteFree.Desktop.Core.Interfaces;
+using nexRemoteFree.Desktop.Core.Services;
+using nexRemoteFree.Shared.Utilities;
 using System;
 using System.Diagnostics;
 using System.Threading.Tasks;
 
-namespace nexRemote.Desktop.XPlat.Services
+namespace nexRemoteFree.Desktop.XPlat.Services
 {
     public class ShutdownServiceLinux : IShutdownService
     {

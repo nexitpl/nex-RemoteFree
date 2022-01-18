@@ -1,10 +1,10 @@
-﻿using nexRemote.Desktop.Core.Services;
-using nexRemote.Desktop.Core.ViewModels;
+﻿using nexRemoteFree.Desktop.Core.Services;
+using nexRemoteFree.Desktop.Core.ViewModels;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace nexRemote.Desktop.Core.Interfaces
+namespace nexRemoteFree.Desktop.Core.Interfaces
 {
     public interface IFileTransferService
     {

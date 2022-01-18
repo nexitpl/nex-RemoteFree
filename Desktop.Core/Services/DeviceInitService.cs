@@ -1,6 +1,6 @@
-﻿using nexRemote.Desktop.Core.Interfaces;
-using nexRemote.Shared.Utilities;
-using nexRemote.Shared.Models;
+﻿using nexRemoteFree.Desktop.Core.Interfaces;
+using nexRemoteFree.Shared.Utilities;
+using nexRemoteFree.Shared.Models;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -14,7 +14,7 @@ using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
 
-namespace nexRemote.Desktop.Core.Services
+namespace nexRemoteFree.Desktop.Core.Services
 {
     public interface IDeviceInitService
     {

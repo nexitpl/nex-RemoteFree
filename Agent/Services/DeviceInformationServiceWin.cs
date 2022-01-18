@@ -1,14 +1,14 @@
-﻿using nexRemote.Agent.Interfaces;
-using nexRemote.Shared.Models;
-using nexRemote.Shared.Utilities;
-using nexRemote.Shared.Win32;
+﻿using nexRemoteFree.Agent.Interfaces;
+using nexRemoteFree.Shared.Models;
+using nexRemoteFree.Shared.Utilities;
+using nexRemoteFree.Shared.Win32;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace nexRemote.Agent.Services
+namespace nexRemoteFree.Agent.Services
 {
     public class DeviceInformationServiceWin : DeviceInformationServiceBase, IDeviceInformationService
     {

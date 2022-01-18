@@ -1,11 +1,11 @@
-﻿using nexRemote.Desktop.Core.Enums;
-using nexRemote.Shared.Models;
-using nexRemote.Shared.Utilities;
+﻿using nexRemoteFree.Desktop.Core.Enums;
+using nexRemoteFree.Shared.Models;
+using nexRemoteFree.Shared.Utilities;
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 
-namespace nexRemote.Desktop.Core
+namespace nexRemoteFree.Desktop.Core
 {
     public class Conductor
     {

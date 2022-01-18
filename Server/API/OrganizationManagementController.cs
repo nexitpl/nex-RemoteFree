@@ -1,24 +1,24 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.WebUtilities;
-using nexRemote.Server.Auth;
-using nexRemote.Server.Services;
-using nexRemote.Shared.Models;
-using nexRemote.Shared.ViewModels;
+using nexRemoteFree.Server.Auth;
+using nexRemoteFree.Server.Services;
+using nexRemoteFree.Shared.Models;
+using nexRemoteFree.Shared.ViewModels;
 using System.Text;
 using System.Text.Encodings.Web;
 using System.Threading.Tasks;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
-namespace nexRemote.Server.API
+namespace nexRemoteFree.Server.API
 {
     [Route("api/[controller]")]
     [ApiController]
     public class OrganizationManagementController : ControllerBase
     {
         public OrganizationManagementController(IDataService dataService, 
-            UserManager<nexRemoteUser> userManager, 
+            UserManager<nexRemoteFreeUser> userManager, 
             IEmailSenderEx emailSender)
         {
             DataService = dataService;
@@ -28,7 +28,7 @@ namespace nexRemote.Server.API
 
         private IDataService DataService { get; }
         private IEmailSenderEx EmailSender { get; }
-        private UserManager<nexRemoteUser> UserManager { get; }
+        private UserManager<nexRemoteFreeUser> UserManager { get; }
 
 
         [HttpPost("ChangeIsAdmin/{userID}")]
@@ -279,12 +279,12 @@ namespace nexRemote.Server.API
                 var newInvite = DataService.AddInvite(orgID, invite);
 
                 var inviteURL = $"{Request.Scheme}://{Request.Host}/Invite?id={newInvite.ID}";
-                var emailResult = await EmailSender.SendEmailAsync(invite.InvitedUser, "Zaproszenie do nex-Remote",
-                            $@"<img src='{Request.Scheme}://{Request.Host}/images/nex-Remote_Logo.png'/>
+                var emailResult = await EmailSender.SendEmailAsync(invite.InvitedUser, "Zaproszenie do nex-RemoteFree",
+                            $@"<img src='{Request.Scheme}://{Request.Host}/images/nex-RemoteFree_Logo.png'/>
                             <br><br>
                             Witaj!
                             <br><br>
-                            Zostałeś zaproszony do systemu pomocy zdalnej nex-Remote by nex-IT Jakub Potoczny.
+                            Zostałeś zaproszony do systemu pomocy zdalnej nex-RemoteFree by nex-IT Jakub Potoczny.
                             <br><br>
                             Możesz dołaczyć poprzez <a href='{HtmlEncoder.Default.Encode(inviteURL)}'>kliknij tutaj</a>.",
                             orgID);

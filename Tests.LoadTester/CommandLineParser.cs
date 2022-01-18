@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace nexRemote.Tests.LoadTester
+namespace nexRemoteFree.Tests.LoadTester
 {
     public class CommandLineParser
     {

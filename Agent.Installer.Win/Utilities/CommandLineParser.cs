@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Windows;
 
-namespace nexRemote.Agent.Installer.Win.Utilities
+namespace nexRemoteFree.Agent.Installer.Win.Utilities
 {
     public class CommandLineParser
     {

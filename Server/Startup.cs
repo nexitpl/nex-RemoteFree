@@ -14,21 +14,21 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using Npgsql;
-using nexRemote.Server.Data;
-using nexRemote.Server.Hubs;
-using nexRemote.Server.Services;
-using nexRemote.Shared.Models;
-using nexRemote.Server.Areas.Identity;
+using nexRemoteFree.Server.Data;
+using nexRemoteFree.Server.Hubs;
+using nexRemoteFree.Server.Services;
+using nexRemoteFree.Shared.Models;
+using nexRemoteFree.Server.Areas.Identity;
 using System;
 using System.IO;
 using System.Linq;
 using System.Net;
 using Microsoft.AspNetCore.Components.Server.Circuits;
 using Microsoft.AspNetCore.Authorization;
-using nexRemote.Server.Auth;
+using nexRemoteFree.Server.Auth;
 using Microsoft.AspNetCore.Http.Extensions;
 
-namespace nexRemote.Server
+namespace nexRemoteFree.Server
 {
     public class Startup
     {
@@ -101,7 +101,7 @@ namespace nexRemote.Server
                     p.GetRequiredService<IDbContextFactory<PostgreSqlDbContext>>().CreateDbContext());
             }
 
-            services.AddIdentity<nexRemoteUser, IdentityRole>(options =>
+            services.AddIdentity<nexRemoteFreeUser, IdentityRole>(options =>
             {
                 options.Stores.MaxLengthForKeys = 128;
                 options.Password.RequireNonAlphanumeric = false;
@@ -122,7 +122,7 @@ namespace nexRemote.Server
 
             services.AddRazorPages();
             services.AddServerSideBlazor();
-            services.AddScoped<AuthenticationStateProvider, RevalidatingIdentityAuthenticationStateProvider<nexRemoteUser>>();
+            services.AddScoped<AuthenticationStateProvider, RevalidatingIdentityAuthenticationStateProvider<nexRemoteFreeUser>>();
             services.AddDatabaseDeveloperPageExceptionFilter();
 
             var trustedOrigins = Configuration.GetSection("ApplicationOptions:TrustedCorsOrigins").Get<string[]>();
@@ -168,7 +168,7 @@ namespace nexRemote.Server
 
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v2", new OpenApiInfo { Title = "nex-Remote API", Version = "v2" });
+                c.SwaggerDoc("v2", new OpenApiInfo { Title = "nex-RemoteFree API", Version = "v2" });
             });
 
 
@@ -231,7 +231,7 @@ namespace nexRemote.Server
 
             app.UseSwaggerUI(c =>
             {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "nex-Remote API V2");
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "nex-RemoteFree API V2");
             });
 
             app.UseRouting();

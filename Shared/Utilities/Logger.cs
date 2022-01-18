@@ -1,5 +1,5 @@
-﻿using nexRemote.Shared.Enums;
-using nexRemote.Shared.Utilities;
+﻿using nexRemoteFree.Shared.Enums;
+using nexRemoteFree.Shared.Utilities;
 using System;
 using System.Diagnostics;
 using System.IO;
@@ -9,11 +9,11 @@ using System.Runtime.InteropServices;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace nexRemote.Shared.Utilities
+namespace nexRemoteFree.Shared.Utilities
 {
     public static class Logger
     {
-        private static string LogPath => Path.Combine(Path.GetTempPath(), "nex-Remote_Logs.log");
+        private static string LogPath => Path.Combine(Path.GetTempPath(), "nex-RemoteFree_Logs.log");
         private static SemaphoreSlim WriteLock { get; } = new(1, 1);
         public static void Debug(string message, [CallerMemberName] string callerName = "")
         {

@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
-using nexRemote.Shared.Utilities;
+using nexRemoteFree.Shared.Utilities;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -11,7 +11,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Xml;
 
-namespace nexRemote.Server.Services
+namespace nexRemoteFree.Server.Services
 {
     public class ClickOnceMiddleware
     {
@@ -32,13 +32,13 @@ namespace nexRemote.Server.Services
 
             switch (context.Request.Path.Value)
             {
-                case "/Content/Win-x64/ClickOnce/nex-Remote_Desktop.application":
+                case "/Content/Win-x64/ClickOnce/nex-RemoteFree_Desktop.application":
                     architecture = "x64";
-                    appFilePath = Path.Combine(env.WebRootPath, "Content", "Win-x64", "ClickOnce", "nex-Remote_Desktop.application");
+                    appFilePath = Path.Combine(env.WebRootPath, "Content", "Win-x64", "ClickOnce", "nex-RemoteFree_Desktop.application");
                     break;
-                case "/Content/Win-x86/ClickOnce/nex-Remote_Desktop.application":
+                case "/Content/Win-x86/ClickOnce/nex-RemoteFree_Desktop.application":
                     architecture = "x86";
-                    appFilePath = Path.Combine(env.WebRootPath, "Content", "Win-x86", "ClickOnce", "nex-Remote_Desktop.application");
+                    appFilePath = Path.Combine(env.WebRootPath, "Content", "Win-x86", "ClickOnce", "nex-RemoteFree_Desktop.application");
                     break;
                 default:
                     await _next(context);
@@ -80,7 +80,7 @@ namespace nexRemote.Server.Services
                 }
 
                 var deploymentProvider = manifest.GetElementsByTagName("deploymentProvider")[0];
-                var codebaseValue = $"{context.Request.Scheme}://{context.Request.Host}/Content/Win-{architecture}/ClickOnce/nex-Remote_Desktop.application";
+                var codebaseValue = $"{context.Request.Scheme}://{context.Request.Host}/Content/Win-{architecture}/ClickOnce/nex-RemoteFree_Desktop.application";
                 if (!string.IsNullOrWhiteSpace(orgId))
                 {
                     codebaseValue += $"?organizationid={orgId}";

@@ -1,14 +1,14 @@
-﻿using nexRemote.Shared.Models;
+﻿using nexRemoteFree.Shared.Models;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
-using static nexRemote.Shared.Win32.ADVAPI32;
-using static nexRemote.Shared.Win32.User32;
+using static nexRemoteFree.Shared.Win32.ADVAPI32;
+using static nexRemoteFree.Shared.Win32.User32;
 
-namespace nexRemote.Shared.Win32
+namespace nexRemoteFree.Shared.Win32
 {
     // TODO: Use https://github.com/dotnet/pinvoke for all p/invokes.  Remove signatures from this project.
     public class Win32Interop

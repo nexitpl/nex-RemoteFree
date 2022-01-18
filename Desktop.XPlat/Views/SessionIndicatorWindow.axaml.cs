@@ -2,12 +2,12 @@
 using Avalonia.Controls;
 using Avalonia.Markup.Xaml;
 using Microsoft.Extensions.DependencyInjection;
-using nexRemote.Desktop.Core;
-using nexRemote.Desktop.Core.Interfaces;
-using nexRemote.Desktop.XPlat.Controls;
+using nexRemoteFree.Desktop.Core;
+using nexRemoteFree.Desktop.Core.Interfaces;
+using nexRemoteFree.Desktop.XPlat.Controls;
 using System;
 
-namespace nexRemote.Desktop.XPlat.Views
+namespace nexRemoteFree.Desktop.XPlat.Views
 {
     public class SessionIndicatorWindow : Window
     {

@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
-namespace nexRemote.Desktop.Core.ViewModels
+namespace nexRemoteFree.Desktop.Core.ViewModels
 {
     public class ViewModelBase : INotifyPropertyChanged
     {

@@ -1,14 +1,14 @@
 ﻿using Microsoft.Extensions.Logging;
-using nexRemote.Server.Hubs;
-using nexRemote.Shared.Enums;
-using nexRemote.Shared.Models;
-using nexRemote.Shared.Utilities;
+using nexRemoteFree.Server.Hubs;
+using nexRemoteFree.Shared.Enums;
+using nexRemoteFree.Shared.Models;
+using nexRemoteFree.Shared.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace nexRemote.Server.Services
+namespace nexRemoteFree.Server.Services
 {
     public interface IScriptScheduleDispatcher
     {

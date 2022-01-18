@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace nexRemote.Server.Migrations.SqlServer
+namespace nexRemoteFree.Server.Migrations.SqlServer
 {
     public partial class InitialCreate : Migration
     {
@@ -168,7 +168,7 @@ namespace nexRemote.Server.Migrations.SqlServer
                 });
 
             migrationBuilder.CreateTable(
-                name: "nexRemoteUsers",
+                name: "nexRemoteFreeUsers",
                 columns: table => new
                 {
                     Id = table.Column<string>(nullable: false),
@@ -196,9 +196,9 @@ namespace nexRemote.Server.Migrations.SqlServer
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_nexRemoteUsers", x => x.Id);
+                    table.PrimaryKey("PK_nexRemoteFreeUsers", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_nexRemoteUsers_Organizations_OrganizationID",
+                        name: "FK_nexRemoteFreeUsers_Organizations_OrganizationID",
                         column: x => x.OrganizationID,
                         principalTable: "Organizations",
                         principalColumn: "ID",
@@ -287,9 +287,9 @@ namespace nexRemote.Server.Migrations.SqlServer
                 {
                     table.PrimaryKey("PK_AspNetUserClaims", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_AspNetUserClaims_nexRemoteUsers_UserId",
+                        name: "FK_AspNetUserClaims_nexRemoteFreeUsers_UserId",
                         column: x => x.UserId,
-                        principalTable: "nexRemoteUsers",
+                        principalTable: "nexRemoteFreeUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -307,9 +307,9 @@ namespace nexRemote.Server.Migrations.SqlServer
                 {
                     table.PrimaryKey("PK_AspNetUserLogins", x => new { x.LoginProvider, x.ProviderKey });
                     table.ForeignKey(
-                        name: "FK_AspNetUserLogins_nexRemoteUsers_UserId",
+                        name: "FK_AspNetUserLogins_nexRemoteFreeUsers_UserId",
                         column: x => x.UserId,
-                        principalTable: "nexRemoteUsers",
+                        principalTable: "nexRemoteFreeUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -331,9 +331,9 @@ namespace nexRemote.Server.Migrations.SqlServer
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_AspNetUserRoles_nexRemoteUsers_UserId",
+                        name: "FK_AspNetUserRoles_nexRemoteFreeUsers_UserId",
                         column: x => x.UserId,
-                        principalTable: "nexRemoteUsers",
+                        principalTable: "nexRemoteFreeUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -351,9 +351,9 @@ namespace nexRemote.Server.Migrations.SqlServer
                 {
                     table.PrimaryKey("PK_AspNetUserTokens", x => new { x.UserId, x.LoginProvider, x.Name });
                     table.ForeignKey(
-                        name: "FK_AspNetUserTokens_nexRemoteUsers_UserId",
+                        name: "FK_AspNetUserTokens_nexRemoteFreeUsers_UserId",
                         column: x => x.UserId,
-                        principalTable: "nexRemoteUsers",
+                        principalTable: "nexRemoteFreeUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -376,9 +376,9 @@ namespace nexRemote.Server.Migrations.SqlServer
                         principalColumn: "ID",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_PermissionLinks_nexRemoteUsers_UserID",
+                        name: "FK_PermissionLinks_nexRemoteFreeUsers_UserID",
                         column: x => x.UserID,
-                        principalTable: "nexRemoteUsers",
+                        principalTable: "nexRemoteFreeUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
@@ -410,9 +410,9 @@ namespace nexRemote.Server.Migrations.SqlServer
                         principalColumn: "ID",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_Alerts_nexRemoteUsers_UserID",
+                        name: "FK_Alerts_nexRemoteFreeUsers_UserID",
                         column: x => x.UserID,
-                        principalTable: "nexRemoteUsers",
+                        principalTable: "nexRemoteFreeUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
@@ -516,24 +516,24 @@ namespace nexRemote.Server.Migrations.SqlServer
 
             migrationBuilder.CreateIndex(
                 name: "EmailIndex",
-                table: "nexRemoteUsers",
+                table: "nexRemoteFreeUsers",
                 column: "NormalizedEmail");
 
             migrationBuilder.CreateIndex(
                 name: "UserNameIndex",
-                table: "nexRemoteUsers",
+                table: "nexRemoteFreeUsers",
                 column: "NormalizedUserName",
                 unique: true,
                 filter: "[NormalizedUserName] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
-                name: "IX_nexRemoteUsers_OrganizationID",
-                table: "nexRemoteUsers",
+                name: "IX_nexRemoteFreeUsers_OrganizationID",
+                table: "nexRemoteFreeUsers",
                 column: "OrganizationID");
 
             migrationBuilder.CreateIndex(
-                name: "IX_nexRemoteUsers_UserName",
-                table: "nexRemoteUsers",
+                name: "IX_nexRemoteFreeUsers_UserName",
+                table: "nexRemoteFreeUsers",
                 column: "UserName");
 
             migrationBuilder.CreateIndex(
@@ -587,7 +587,7 @@ namespace nexRemote.Server.Migrations.SqlServer
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
-                name: "nexRemoteUsers");
+                name: "nexRemoteFreeUsers");
 
             migrationBuilder.DropTable(
                 name: "DeviceGroups");

@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 
-namespace nexRemote.Agent.Installer.Win
+namespace nexRemoteFree.Agent.Installer.Win
 {
     /// <summary>
     /// Interaction logic for App.xaml

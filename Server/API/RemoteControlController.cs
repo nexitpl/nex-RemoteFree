@@ -1,20 +1,20 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SignalR;
-using nexRemote.Server.Attributes;
-using nexRemote.Server.Hubs;
-using nexRemote.Server.Models;
-using nexRemote.Server.Services;
-using nexRemote.Shared.Utilities;
-using nexRemote.Shared.Models;
+using nexRemoteFree.Server.Attributes;
+using nexRemoteFree.Server.Hubs;
+using nexRemoteFree.Server.Models;
+using nexRemoteFree.Server.Services;
+using nexRemoteFree.Shared.Utilities;
+using nexRemoteFree.Shared.Models;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
-using nexRemote.Server.Auth;
+using nexRemoteFree.Server.Auth;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
-namespace nexRemote.Server.API
+namespace nexRemoteFree.Server.API
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -23,7 +23,7 @@ namespace nexRemote.Server.API
         public RemoteControlController(IDataService dataService,
             IHubContext<AgentHub> agentHub,
             IApplicationConfig appConfig,
-            SignInManager<nexRemoteUser> signInManager)
+            SignInManager<nexRemoteFreeUser> signInManager)
         {
             DataService = dataService;
             AgentHubContext = agentHub;
@@ -34,7 +34,7 @@ namespace nexRemote.Server.API
         public IDataService DataService { get; }
         public IHubContext<AgentHub> AgentHubContext { get; }
         public IApplicationConfig AppConfig { get; }
-        public SignInManager<nexRemoteUser> SignInManager { get; }
+        public SignInManager<nexRemoteFreeUser> SignInManager { get; }
 
         [HttpGet("{deviceID}")]
         [ServiceFilter(typeof(ApiAuthorizationFilter))]

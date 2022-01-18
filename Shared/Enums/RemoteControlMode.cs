@@ -1,4 +1,4 @@
-﻿namespace nexRemote.Shared.Enums
+﻿namespace nexRemoteFree.Shared.Enums
 {
     public enum RemoteControlMode
     {

@@ -1,8 +1,8 @@
-﻿using nexRemote.Desktop.Core.Interfaces;
-using nexRemote.Desktop.Core.Services;
-using nexRemote.Desktop.Core.ViewModels;
-using nexRemote.Desktop.Win.Services;
-using nexRemote.Shared.Win32;
+﻿using nexRemoteFree.Desktop.Core.Interfaces;
+using nexRemoteFree.Desktop.Core.Services;
+using nexRemoteFree.Desktop.Core.ViewModels;
+using nexRemoteFree.Desktop.Win.Services;
+using nexRemoteFree.Shared.Win32;
 using System;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Input;
 
-namespace nexRemote.Desktop.Win.ViewModels
+namespace nexRemoteFree.Desktop.Win.ViewModels
 {
     public class FileTransferWindowViewModel : BrandedViewModelBase
     {
@@ -45,7 +45,7 @@ namespace nexRemote.Desktop.Win.ViewModels
 
             var ofd = new OpenFileDialog()
             {
-                Title = "Transfer Plików via nex-Remote",
+                Title = "Transfer Plików via nex-RemoteFree",
                 Multiselect = true,
                 CheckFileExists = true,
                 InitialDirectory = Directory.Exists(userDir) ? userDir : rootDir

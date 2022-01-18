@@ -13,24 +13,24 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Logging;
-using nexRemote.Server.Services;
-using nexRemote.Shared.Models;
+using nexRemoteFree.Server.Services;
+using nexRemoteFree.Shared.Models;
 
-namespace nexRemote.Server.Areas.Identity.Pages.Account
+namespace nexRemoteFree.Server.Areas.Identity.Pages.Account
 {
     [AllowAnonymous]
     public class RegisterModel : PageModel
     {
-        private readonly SignInManager<nexRemoteUser> _signInManager;
-        private readonly UserManager<nexRemoteUser> _userManager;
+        private readonly SignInManager<nexRemoteFreeUser> _signInManager;
+        private readonly UserManager<nexRemoteFreeUser> _userManager;
         private readonly ILogger<RegisterModel> _logger;
         private readonly IEmailSenderEx _emailSender;
         private readonly IDataService _dataService;
         private readonly IApplicationConfig _appConfig;
 
         public RegisterModel(
-            UserManager<nexRemoteUser> userManager,
-            SignInManager<nexRemoteUser> signInManager,
+            UserManager<nexRemoteFreeUser> userManager,
+            SignInManager<nexRemoteFreeUser> signInManager,
             ILogger<RegisterModel> logger,
             IEmailSenderEx emailSender,
             IDataService dataService,
@@ -89,13 +89,13 @@ namespace nexRemote.Server.Areas.Identity.Pages.Account
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
             if (ModelState.IsValid)
             {
-                var user = new nexRemoteUser
+                var user = new nexRemoteFreeUser
                 {
                     UserName = Input.Email,
                     Email = Input.Email,
                     IsServerAdmin = organizationCount == 0,
                     Organization = new Organization(),
-                    UserOptions = new nexRemoteUserOptions(),
+                    UserOptions = new nexRemoteFreeUserOptions(),
                     IsAdministrator = true
                 };
 

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Input;
 
-namespace nexRemote.Agent.Installer.Win.Services
+namespace nexRemoteFree.Agent.Installer.Win.Services
 {
     public class Executor : ICommand
     {

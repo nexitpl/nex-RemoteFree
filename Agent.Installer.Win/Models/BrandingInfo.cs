@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace nexRemote.Agent.Installer.Win.Models
+namespace nexRemoteFree.Agent.Installer.Win.Models
 {
     public class BrandingInfo
     {
-        public string Product { get; set; } = "nex-Remote";
+        public string Product { get; set; } = "nex-RemoteFree";
 
         public string Icon { get; set; }
 

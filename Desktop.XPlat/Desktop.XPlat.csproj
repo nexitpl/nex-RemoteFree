@@ -3,8 +3,8 @@
     <OutputType>Exe</OutputType>
     <TargetFramework>net5.0</TargetFramework>
     <ApplicationIcon>Assets\favicon.ico</ApplicationIcon>
-    <AssemblyName>nex-Remote_Desktop</AssemblyName>
-    <RootNamespace>nexRemote.Desktop.XPlat</RootNamespace>
+    <AssemblyName>nex-RemoteFree_Desktop</AssemblyName>
+    <RootNamespace>nexRemoteFree.Desktop.XPlat</RootNamespace>
     <Platforms>AnyCPU;x64;x86</Platforms>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -21,7 +21,7 @@
   </PropertyGroup>
   <PropertyGroup>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    <PackageId>nex-Remote Desktop</PackageId>
+    <PackageId>nex-RemoteFree Desktop</PackageId>
     <Authors>Jakub Potoczny</Authors>
     <Company>nex-IT Jakub Potoczny</Company>
     <Product>nex-IT Pomoc Zdalna</Product>
@@ -29,7 +29,7 @@
     <Copyright>nex-IT Jakub Potoczny</Copyright>
     <PackageProjectUrl>https://nex-it.pl</PackageProjectUrl>
     <SignAssembly>false</SignAssembly>
-    <AssemblyOriginatorKeyFile>nex-Remote.pfx</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>nex-RemoteFree.pfx</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
     <Compile Update="**\*.xaml.cs">
@@ -45,13 +45,13 @@
     <None Remove="Models\**" />
   </ItemGroup>
   <ItemGroup>
-    <AvaloniaResource Remove="Assets\nex-Remote_Icon.png" />
+    <AvaloniaResource Remove="Assets\nex-RemoteFree_Icon.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Remove="Assets\nex-Remote_Icon.png" />
+    <None Remove="Assets\nex-RemoteFree_Icon.png" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Assets\nex-Remote_Icon.png" />
+    <EmbeddedResource Include="Assets\nex-RemoteFree_Icon.png" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Avalonia" Version="0.10.6" />

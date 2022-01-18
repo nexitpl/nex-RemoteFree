@@ -1,10 +1,10 @@
 ﻿using Avalonia.Controls;
 using Avalonia.Threading;
-using nexRemote.Desktop.Core.Interfaces;
-using nexRemote.Desktop.XPlat.Controls;
-using nexRemote.Desktop.XPlat.ViewModels;
-using nexRemote.Desktop.XPlat.Views;
-using nexRemote.Shared.Models;
+using nexRemoteFree.Desktop.Core.Interfaces;
+using nexRemoteFree.Desktop.XPlat.Controls;
+using nexRemoteFree.Desktop.XPlat.ViewModels;
+using nexRemoteFree.Desktop.XPlat.Views;
+using nexRemoteFree.Shared.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,7 +14,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace nexRemote.Desktop.XPlat.Services
+namespace nexRemoteFree.Desktop.XPlat.Services
 {
     public class ChatUiServiceLinux : IChatUiService
     {

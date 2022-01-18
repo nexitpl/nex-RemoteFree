@@ -1,10 +1,10 @@
-﻿<Window x:Class="nexRemote.Agent.Installer.Win.MainWindow"
+﻿<Window x:Class="nexRemoteFree.Agent.Installer.Win.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:ViewModels="clr-namespace:nexRemote.Agent.Installer.Win.ViewModels"
-        xmlns:local="clr-namespace:nexRemote.Agent.Installer.Win"
+        xmlns:ViewModels="clr-namespace:nexRemoteFree.Agent.Installer.Win.ViewModels"
+        xmlns:local="clr-namespace:nexRemoteFree.Agent.Installer.Win"
         mc:Ignorable="d"
         WindowStyle="None"
         ResizeMode="CanResizeWithGrip"
@@ -12,7 +12,7 @@
         MouseLeftButtonDown="Window_MouseLeftButtonDown"
         Loaded="Window_Loaded"
         WindowStartupLocation="CenterScreen"
-        Title="nex-Remote Installer" Height="335" Width="500"  Icon="{Binding Icon}">
+        Title="nex-RemoteFree Installer" Height="335" Width="500"  Icon="{Binding Icon}">
     <Window.Resources>
         <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
     </Window.Resources>
@@ -29,8 +29,8 @@
         <Border Height="50">
             <DockPanel Margin="10,0,0,0">
                 <DockPanel>
-                    <Image Height="50" Width="50"  Margin="0,0,10,0" Source="Assets/nex-Remote_Icon.png"/>
-                    <TextBlock Foreground="{Binding TitleForegroundColor}" FontWeight="Bold" FontSize="20" VerticalAlignment="Center" Text="nex-Remote Instalator"/>
+                    <Image Height="50" Width="50"  Margin="0,0,10,0" Source="Assets/nex-RemoteFree_Icon.png"/>
+                    <TextBlock Foreground="{Binding TitleForegroundColor}" FontWeight="Bold" FontSize="20" VerticalAlignment="Center" Text="nex-RemoteFree Instalator"/>
                 </DockPanel>
                 <Button Style="{StaticResource TitlebarButton}" Click="CloseButton_Click" Content="X" Background="Black" />
                 <Button Style="{StaticResource TitlebarButton}" Click="MinimizeButton_Click" Content="____" Background="Black" Foreground="White"/>
@@ -39,7 +39,7 @@
         <Grid Grid.Row="1" Margin="10,15,10,0">
 
             <StackPanel>
-                <TextBlock Style="{StaticResource SectionHeader}" Text="Zainstaluj nex-Remote" Margin="0,0,0,10" Foreground="White"></TextBlock>
+                <TextBlock Style="{StaticResource SectionHeader}" Text="Zainstaluj nex-RemoteFree" Margin="0,0,0,10" Foreground="White"></TextBlock>
                 <Grid Margin="25,5,0,0">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto" />

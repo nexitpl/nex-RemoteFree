@@ -1,14 +1,14 @@
 ﻿using MessagePack;
-using nexRemote.Desktop.Core.Enums;
-using nexRemote.Desktop.Core.Interfaces;
-using nexRemote.Shared.Enums;
-using nexRemote.Shared.Models.RemoteControlDtos;
-using nexRemote.Shared.Utilities;
+using nexRemoteFree.Desktop.Core.Enums;
+using nexRemoteFree.Desktop.Core.Interfaces;
+using nexRemoteFree.Shared.Enums;
+using nexRemoteFree.Shared.Models.RemoteControlDtos;
+using nexRemoteFree.Shared.Utilities;
 using System;
 using System.Diagnostics;
 using System.Threading.Tasks;
 
-namespace nexRemote.Desktop.Core.Services
+namespace nexRemoteFree.Desktop.Core.Services
 {
     public interface IDtoMessageHandler
     {

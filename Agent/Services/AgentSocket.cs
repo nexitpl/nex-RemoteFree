@@ -1,11 +1,11 @@
 ﻿using Microsoft.AspNetCore.SignalR.Client;
 using Microsoft.Extensions.DependencyInjection;
-using nexRemote.Agent.Extensions;
-using nexRemote.Agent.Interfaces;
-using nexRemote.Shared.Enums;
-using nexRemote.Shared.Models;
-using nexRemote.Shared.Utilities;
-using nexRemote.Shared.Win32;
+using nexRemoteFree.Agent.Extensions;
+using nexRemoteFree.Agent.Interfaces;
+using nexRemoteFree.Shared.Enums;
+using nexRemoteFree.Shared.Models;
+using nexRemoteFree.Shared.Utilities;
+using nexRemoteFree.Shared.Win32;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -17,7 +17,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Timers;
 
-namespace nexRemote.Agent.Services
+namespace nexRemoteFree.Agent.Services
 {
     public class AgentSocket
     {
@@ -453,7 +453,7 @@ namespace nexRemote.Agent.Services
                     }
 
                     Logger.Write($"Przesyłanie pliku rozpoczęte przez {requesterID}.");
-                    var sharedFilePath = Directory.CreateDirectory(Path.Combine(Path.GetTempPath(), "nex-RemoteSharedFiles")).FullName;
+                    var sharedFilePath = Directory.CreateDirectory(Path.Combine(Path.GetTempPath(), "nex-RemoteFreeSharedFiles")).FullName;
 
                     foreach (var fileID in fileIDs)
                     {

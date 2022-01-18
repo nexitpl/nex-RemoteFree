@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace nexRemote.Server.Migrations.Sqlite
+namespace nexRemoteFree.Server.Migrations.Sqlite
 {
     public partial class AddScriptSchedules : Migration
     {
@@ -16,7 +16,7 @@ namespace nexRemote.Server.Migrations.Sqlite
 
             migrationBuilder.DropColumn(
                 name: "DisplayName",
-                table: "nexRemoteUsers");
+                table: "nexRemoteFreeUsers");
 
             migrationBuilder.DropColumn(
                 name: "Token",
@@ -49,9 +49,9 @@ namespace nexRemote.Server.Migrations.Sqlite
                         principalColumn: "ID",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_SavedScripts_nexRemoteUsers_CreatorId",
+                        name: "FK_SavedScripts_nexRemoteFreeUsers_CreatorId",
                         column: x => x.CreatorId,
-                        principalTable: "nexRemoteUsers",
+                        principalTable: "nexRemoteFreeUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
@@ -83,9 +83,9 @@ namespace nexRemote.Server.Migrations.Sqlite
                         principalColumn: "ID",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_ScriptSchedules_nexRemoteUsers_CreatorId",
+                        name: "FK_ScriptSchedules_nexRemoteFreeUsers_CreatorId",
                         column: x => x.CreatorId,
-                        principalTable: "nexRemoteUsers",
+                        principalTable: "nexRemoteFreeUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
@@ -367,7 +367,7 @@ namespace nexRemote.Server.Migrations.Sqlite
 
             migrationBuilder.AddColumn<string>(
                 name: "DisplayName",
-                table: "nexRemoteUsers",
+                table: "nexRemoteFreeUsers",
                 type: "TEXT",
                 maxLength: 100,
                 nullable: true);

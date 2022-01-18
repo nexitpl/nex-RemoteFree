@@ -1,7 +1,7 @@
-﻿using nexRemote.Desktop.Win.ViewModels;
+﻿using nexRemoteFree.Desktop.Win.ViewModels;
 using System.Windows;
 
-namespace nexRemote.Desktop.Win.Views
+namespace nexRemoteFree.Desktop.Win.Views
 {
     /// <summary>
     /// Interaction logic for HostNamePrompt.xaml

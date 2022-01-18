@@ -1,16 +1,16 @@
-﻿using nexRemote.Desktop.Core.Interfaces;
-using nexRemote.Shared.Models;
-using nexRemote.Shared.Utilities;
+﻿using nexRemoteFree.Desktop.Core.Interfaces;
+using nexRemoteFree.Shared.Models;
+using nexRemoteFree.Shared.Utilities;
 using System;
 using System.IO;
 using System.Text.Json;
 
-namespace nexRemote.Desktop.XPlat.Services
+namespace nexRemoteFree.Desktop.XPlat.Services
 {
     public class ConfigServiceLinux : IConfigService
     {
         private static string ConfigFile => Path.Combine(ConfigFolder, "Config.json");
-        private static string ConfigFolder => Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), "nexRemote.json");
+        private static string ConfigFolder => Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), "nexRemoteFree.json");
 
         public DesktopAppConfig GetConfig()
         {

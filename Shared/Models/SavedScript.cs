@@ -1,4 +1,4 @@
-﻿using nexRemote.Shared.Enums;
+﻿using nexRemoteFree.Shared.Enums;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -8,7 +8,7 @@ using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
-namespace nexRemote.Shared.Models
+namespace nexRemoteFree.Shared.Models
 {
     public class SavedScript
     {
@@ -16,7 +16,7 @@ namespace nexRemote.Shared.Models
         public string Content { get; set; }
 
         [JsonIgnore]
-        public nexRemoteUser Creator { get; set; }
+        public nexRemoteFreeUser Creator { get; set; }
 
         public string CreatorId { get; set; }
 

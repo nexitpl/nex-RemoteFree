@@ -1,7 +1,7 @@
-﻿using nexRemote.Desktop.Core.Interfaces;
+﻿using nexRemoteFree.Desktop.Core.Interfaces;
 using System;
 
-namespace nexRemote.Desktop.XPlat.Services
+namespace nexRemoteFree.Desktop.XPlat.Services
 {
     public class AudioCapturerLinux : IAudioCapturer
     {

@@ -2,11 +2,11 @@
 using System.IO;
 using System.Linq;
 
-namespace nexRemote.Agent.Installer.Win.Utilities
+namespace nexRemoteFree.Agent.Installer.Win.Utilities
 {
     public class Logger
     {
-        private static string LogPath => Path.Combine(Path.GetTempPath(), "nex-Remote_Installer.log");
+        private static string LogPath => Path.Combine(Path.GetTempPath(), "nex-RemoteFree_Installer.log");
         private static object WriteLock { get; } = new object();
         public static void Debug(string message)
         {

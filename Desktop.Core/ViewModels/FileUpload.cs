@@ -1,7 +1,7 @@
 ﻿using System.IO;
 using System.Threading;
 
-namespace nexRemote.Desktop.Core.ViewModels
+namespace nexRemoteFree.Desktop.Core.ViewModels
 {
     public class FileUpload : ViewModelBase
     {

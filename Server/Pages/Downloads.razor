@@ -4,15 +4,15 @@
 
 @inject AuthenticationStateProvider AuthProvider
 @inject IDataService DataService
-@inject UserManager<nexRemoteUser> UserManager
+@inject UserManager<nexRemoteFreeUser> UserManager
 @inject IWebHostEnvironment HostEnv
 @inject NavigationManager NavManager
 @inject ILogger<Downloads> Logger 
 
 <div class="row mb-3">
-    <h4>nex-Remote - Portable</h4>
+    <h4>nex-RemoteFree - Portable</h4>
     <div class="text-info col-sm-12 pl-0 mb-2">
-        Przenośna wersja programu nex-Remote.
+        Przenośna wersja programu nex-RemoteFree.
     </div>
     <div class="col-sm-6 mb-3">
         <strong>Windows (64-Bit)</strong>
@@ -46,9 +46,9 @@
 
 
 <div class="row mb-3">
-    <h4>nex-Remote - Instalacja</h4>
+    <h4>nex-RemoteFree - Instalacja</h4>
     <div class="text-info col-sm-12 pl-0 mb-2">
-        Instalator programu nex-Remote.
+        Instalator programu nex-RemoteFree.
     </div>
 
     @if (!_isServerUrlEmbedded)
@@ -81,7 +81,7 @@
 </div>
 
 <div class="row">
-    <h4>nex-Remote - Host</h4>
+    <h4>nex-RemoteFree - Host</h4>
     <div class="text-info col-sm-12 pl-0 mb-2">
         Instalacja wykonywana przez administratora systemu.
     </div>
@@ -103,16 +103,16 @@
             <p>
                 <a target="_blank" href="/API/ClientDownloads/WindowsInstaller">Windows Instalator (x64/x86)</a>
                 <br />
-                <a target="_blank" href="/Content/nex-Remote-Win10-x64.zip">Windows x64 Pliki</a>
+                <a target="_blank" href="/Content/nex-RemoteFree-Win10-x64.zip">Windows x64 Pliki</a>
                 <br />
-                <a target="_blank" href="/Content/nex-Remote-Win10-x86.zip">Windows x86 Pliki</a>
+                <a target="_blank" href="/Content/nex-RemoteFree-Win10-x86.zip">Windows x86 Pliki</a>
             </p>
 
             <p>
                 <div class="small">Przykład instalacji - Silent:</div>
                 
                 <code class="label label-default small">
-                    nex-Remote.exe
+                    nex-RemoteFree.exe
                     -install
                     -quiet
                     -organizationid "e979e953-375f-4373-802f-655fb63aeb0c"
@@ -122,25 +122,25 @@
             <p>
                 <div class="small">Przykład deinstalacji - Silent:</div>
 
-                <code class="label label-default small">nex-Remote.exe -uninstall -quiet</code>
+                <code class="label label-default small">nex-RemoteFree.exe -uninstall -quiet</code>
             </p>
             <p>
                 <div class="small">Przykład instalacji - Lokalnie:</div>
                
                 <code class="label label-default small">
-                    nex-Remote.exe
+                    nex-RemoteFree.exe
                     -install
                     -quiet
                     -organizationid "e979e953-375f-4373-802f-655fb63aeb0c"
                     -serverurl "https://remote.nex-it.pl"
-                    -path "[path]\nex-Remote-Win10-x64.zip"
+                    -path "[path]\nex-RemoteFree-Win10-x64.zip"
                 </code>
             </p>
             <p>
                 <div class="small">Wszystkie Opcje:</div>
                 
                 <code class="label label-default small">
-                    nex-Remote_Installer.exe -install -quiet -supportshortcut
+                    nex-RemoteFree_Installer.exe -install -quiet -supportshortcut
                     -organizationid "e979e953-375f-4373-802f-655fb63aeb0c"
                     -serverurl "https://remote.nex-it.pl"
                     -devicegroup "Grupa"
@@ -157,7 +157,7 @@
                 <br />
                 <a target="_blank" href="/API/ClientDownloads/ManjaroInstaller-x64">Manjaro x64 Bash Installer</a>
                 <br />
-                <a target="_blank" href="/Content/nex-Remote-Linux.zip">Linux x64 Files Only</a>
+                <a target="_blank" href="/Content/nex-RemoteFree-Linux.zip">Linux x64 Files Only</a>
             </p>
             <p>
                 <div class="small">Przykład Instalacji:</div>
@@ -167,7 +167,7 @@
             <p>
                 <div class="small">Przykład Instalacji - Lokalnie:</div>
               
-                <code class="label label-default small">sudo [path]/Install-Ubuntu-x64.sh --path [path]/nex-Remote-Linux.zip</code>
+                <code class="label label-default small">sudo [path]/Install-Ubuntu-x64.sh --path [path]/nex-RemoteFree-Linux.zip</code>
             </p>
             <p>
                 <div class="small">Deinstalacja:</div>
@@ -181,14 +181,14 @@
             <p>
                 <a target="_blank" href="/API/ClientDownloads/MacOSInstaller-x64">macOS x64 Bash Installer</a>
                 <br />
-                <a target="_blank" href="/Content/nex-Remote-MacOS-x64.zip">macOS x64 Files Only</a>
+                <a target="_blank" href="/Content/nex-RemoteFree-MacOS-x64.zip">macOS x64 Files Only</a>
             </p>
 
             @*<strong>macOS arm64 (11.01)</strong>
         <p>
             <a target="_blank" href="/API/ClientDownloads/MacOSInstaller-arm64">macOS arm64 Bash Installer</a>
             <br />
-            <a target="_blank" href="/Content/nex-Remote-MacOS-arm64.zip">macOS arm64 Files Only</a>
+            <a target="_blank" href="/Content/nex-RemoteFree-MacOS-arm64.zip">macOS arm64 Files Only</a>
         </p>*@
 
             <p>
@@ -199,7 +199,7 @@
             <p>
                 <div class="small">Przykład Instalacji - Lokalnie:</div>
 
-                <code class="label label-default small">sudo [path]/Install-MacOS-x64.sh --path [path]/nex-Remote-MacOS-x64.zip</code>
+                <code class="label label-default small">sudo [path]/Install-MacOS-x64.sh --path [path]/nex-RemoteFree-MacOS-x64.zip</code>
             </p>
             <p>
                 <div class="small">Przykład Deinstalacji:</div>
@@ -238,7 +238,7 @@
             "Content",
             "Win-x64",
             "ClickOnce",
-            "nex-Remote_Desktop.application");
+            "nex-RemoteFree_Desktop.application");
 
         try
         {

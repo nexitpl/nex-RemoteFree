@@ -1,11 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.Extensions.Caching.Memory;
-using nexRemote.Server.Services;
-using nexRemote.Shared.Utilities;
+using nexRemoteFree.Server.Services;
+using nexRemoteFree.Shared.Utilities;
 using System;
 
-namespace nexRemote.Server.Auth
+namespace nexRemoteFree.Server.Auth
 {
     public class RemoteControlFilterAttribute : ActionFilterAttribute, IAuthorizationFilter
     {

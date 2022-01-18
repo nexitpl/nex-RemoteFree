@@ -1,6 +1,6 @@
 ﻿using System.IO.Pipes;
 
-namespace nexRemote.Agent.Models
+namespace nexRemoteFree.Agent.Models
 {
     public class ChatSession
     {

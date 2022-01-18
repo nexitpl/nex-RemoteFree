@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using nexRemote.Server.Services;
+using nexRemoteFree.Server.Services;
 
-namespace nexRemote.Server.Pages
+namespace nexRemoteFree.Server.Pages
 {
     [Authorize]
     public class InviteModel : PageModel

@@ -1,12 +1,12 @@
 ﻿using Avalonia;
 using Avalonia.Controls;
 using Avalonia.ReactiveUI;
-using nexRemote.Desktop.Core;
-using nexRemote.Shared.Utilities;
+using nexRemoteFree.Desktop.Core;
+using nexRemoteFree.Shared.Utilities;
 using System;
 using System.Threading;
 
-namespace nexRemote.Desktop.XPlat
+namespace nexRemoteFree.Desktop.XPlat
 {
     class Program
     {

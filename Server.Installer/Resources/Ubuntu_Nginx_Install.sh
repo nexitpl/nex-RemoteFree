@@ -1,5 +1,5 @@
 #!/bin/bash
-echo "Thanks for trying nex-Remote!"
+echo "Thanks for trying nex-RemoteFree!"
 echo
 
 Args=( "$@" )
@@ -15,9 +15,9 @@ do
 done
 
 if [ -z "$AppRoot" ]; then
-    read -p "Enter path where the nex-Remote server files should be installed (typically /var/www/nex-Remote): " AppRoot
+    read -p "Enter path where the nex-RemoteFree server files should be installed (typically /var/www/nex-RemoteFree): " AppRoot
     if [ -z "$AppRoot" ]; then
-        AppRoot="/var/www/nex-Remote"
+        AppRoot="/var/www/nex-RemoteFree"
     fi
 fi
 
@@ -25,9 +25,9 @@ if [ -z "$HostName" ]; then
     read -p "Enter server host (e.g. https://remote.nex-it.pl): " HostName
 fi
 
-chmod +x "$AppRoot/nex-Remote_Server"
+chmod +x "$AppRoot/nex-RemoteFree_Server"
 
-echo "Using $AppRoot as the nex-Remote website's content directory."
+echo "Using $AppRoot as the nex-RemoteFree website's content directory."
 
 UbuntuVersion=$(lsb_release -r -s)
 
@@ -52,10 +52,10 @@ apt-get -y install libc6-dev
 apt-get -y install libgdiplus
 
 
-# Set permissions on nex-Remote files.
+# Set permissions on nex-RemoteFree files.
 setfacl -R -m u:www-data:rwx $AppRoot
 chown -R "$USER":www-data $AppRoot
-chmod +x "$AppRoot/nex-Remote_Server"
+chmod +x "$AppRoot/nex-RemoteFree_Server"
 
 
 # Install Nginx
@@ -124,9 +124,9 @@ server {
     }
 }"
 
-echo "$nginxConfig" > /etc/nginx/sites-available/nexRemote
+echo "$nginxConfig" > /etc/nginx/sites-available/nexRemoteFree
 
-ln -s /etc/nginx/sites-available/nexRemote /etc/nginx/sites-enabled/nexRemote
+ln -s /etc/nginx/sites-available/nexRemoteFree /etc/nginx/sites-enabled/nexRemoteFree
 
 # Test config.
 nginx -t
@@ -140,15 +140,15 @@ nginx -s reload
 # Create service.
 
 serviceConfig="[Unit]
-Description=nex-Remote Server
+Description=nex-RemoteFree Server
 
 [Service]
 WorkingDirectory=$AppRoot
-ExecStart=/usr/bin/dotnet $AppRoot/nex-Remote_Server.dll
+ExecStart=/usr/bin/dotnet $AppRoot/nex-RemoteFree_Server.dll
 Restart=always
 # Restart service after 10 seconds if the dotnet service crashes:
 RestartSec=10
-SyslogIdentifier=nexRemote
+SyslogIdentifier=nexRemoteFree
 User=www-data
 Environment=ASPNETCORE_ENVIRONMENT=Production
 Environment=DOTNET_PRINT_TELEMETRY_MESSAGE=false
@@ -156,13 +156,13 @@ Environment=DOTNET_PRINT_TELEMETRY_MESSAGE=false
 [Install]
 WantedBy=multi-user.target"
 
-echo "$serviceConfig" > /etc/systemd/system/nex-Remote.service
+echo "$serviceConfig" > /etc/systemd/system/nex-RemoteFree.service
 
 
 # Enable service.
-systemctl enable nex-Remote.service
+systemctl enable nex-RemoteFree.service
 # Start service.
-systemctl restart nex-Remote.service
+systemctl restart nex-RemoteFree.service
 
 
 # Install Certbot and get SSL cert.

@@ -1,4 +1,4 @@
-﻿namespace nexRemote.Agent.Services
+﻿namespace nexRemoteFree.Agent.Services
 {
     partial class WindowsService
     {

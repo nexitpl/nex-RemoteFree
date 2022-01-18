@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Input;
 
-namespace nexRemote.Desktop.XPlat.Services
+namespace nexRemoteFree.Desktop.XPlat.Services
 {
     public class Executor : ICommand
     {

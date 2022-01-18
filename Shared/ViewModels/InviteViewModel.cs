@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace nexRemote.Shared.ViewModels
+namespace nexRemoteFree.Shared.ViewModels
 {
     public class InviteViewModel
     {

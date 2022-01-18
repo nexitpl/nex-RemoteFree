@@ -1,11 +1,11 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Identity;
-using nexRemote.Server.Services;
-using nexRemote.Shared.Models;
+using nexRemoteFree.Server.Services;
+using nexRemoteFree.Shared.Models;
 using System.Threading.Tasks;
 
-namespace nexRemote.Server.Components
+namespace nexRemoteFree.Server.Components
 {
     public class AuthComponentBase : ComponentBase
     {
@@ -19,7 +19,7 @@ namespace nexRemote.Server.Components
 
         public bool IsAuthenticated { get; private set; }
 
-        public nexRemoteUser User { get; private set; }
+        public nexRemoteFreeUser User { get; private set; }
 
         public string Username { get; private set; }
 

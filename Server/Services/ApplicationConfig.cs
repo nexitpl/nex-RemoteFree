@@ -1,9 +1,9 @@
 ﻿using Microsoft.Extensions.Configuration;
-using nexRemote.Shared.Enums;
-using nexRemote.Shared.Models;
+using nexRemoteFree.Shared.Enums;
+using nexRemoteFree.Shared.Models;
 using System;
 
-namespace nexRemote.Server.Services
+namespace nexRemoteFree.Server.Services
 {
     public interface IApplicationConfig
     {

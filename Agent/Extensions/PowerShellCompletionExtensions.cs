@@ -1,5 +1,5 @@
-﻿using nexRemote.Shared.Models;
-using nexRemote.Shared.Utilities;
+﻿using nexRemoteFree.Shared.Models;
+using nexRemoteFree.Shared.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +7,7 @@ using System.Management.Automation;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace nexRemote.Agent.Extensions
+namespace nexRemoteFree.Agent.Extensions
 {
     public static class PowerShellCompletionExtensions
     {

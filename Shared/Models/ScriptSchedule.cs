@@ -1,5 +1,5 @@
-﻿using nexRemote.Shared.Enums;
-using nexRemote.Shared.Utilities;
+﻿using nexRemoteFree.Shared.Enums;
+using nexRemoteFree.Shared.Utilities;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -9,14 +9,14 @@ using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
-namespace nexRemote.Shared.Models
+namespace nexRemoteFree.Shared.Models
 {
     public class ScriptSchedule
     {
         public DateTimeOffset CreatedAt { get; set; }
 
         [JsonIgnore]
-        public nexRemoteUser Creator { get; set; }
+        public nexRemoteFreeUser Creator { get; set; }
 
         public string CreatorId { get; set; }
 

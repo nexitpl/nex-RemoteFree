@@ -1,6 +1,6 @@
-﻿using nexRemote.Desktop.Core.ViewModels;
+﻿using nexRemoteFree.Desktop.Core.ViewModels;
 
-namespace nexRemote.Desktop.Win.ViewModels
+namespace nexRemoteFree.Desktop.Win.ViewModels
 {
     public class HostNamePromptViewModel : BrandedViewModelBase
     {

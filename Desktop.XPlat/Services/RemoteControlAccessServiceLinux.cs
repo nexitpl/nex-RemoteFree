@@ -1,15 +1,15 @@
 ﻿using Avalonia.Threading;
-using nexRemote.Desktop.Core.Interfaces;
-using nexRemote.Desktop.XPlat.ViewModels;
-using nexRemote.Desktop.XPlat.Views;
-using nexRemote.Shared.Utilities;
+using nexRemoteFree.Desktop.Core.Interfaces;
+using nexRemoteFree.Desktop.XPlat.ViewModels;
+using nexRemoteFree.Desktop.XPlat.Views;
+using nexRemoteFree.Shared.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace nexRemote.Desktop.XPlat.Services
+namespace nexRemoteFree.Desktop.XPlat.Services
 {
     public class RemoteControlAccessServiceLinux : IRemoteControlAccessService
     {

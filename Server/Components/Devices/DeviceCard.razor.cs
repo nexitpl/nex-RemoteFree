@@ -3,15 +3,15 @@ using Microsoft.AspNetCore.Components.Forms;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.SignalR;
 using Microsoft.Extensions.Logging;
-using nexRemote.Server.Auth;
-using nexRemote.Server.Enums;
-using nexRemote.Server.Hubs;
-using nexRemote.Server.Models;
-using nexRemote.Server.Services;
-using nexRemote.Shared.Enums;
-using nexRemote.Shared.Models;
-using nexRemote.Shared.Utilities;
-using nexRemote.Shared.ViewModels;
+using nexRemoteFree.Server.Auth;
+using nexRemoteFree.Server.Enums;
+using nexRemoteFree.Server.Hubs;
+using nexRemoteFree.Server.Models;
+using nexRemoteFree.Server.Services;
+using nexRemoteFree.Shared.Enums;
+using nexRemoteFree.Shared.Models;
+using nexRemoteFree.Shared.Utilities;
+using nexRemoteFree.Shared.ViewModels;
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
@@ -19,7 +19,7 @@ using System.Linq;
 using System.Text.Json;
 using System.Threading.Tasks;
 
-namespace nexRemote.Server.Components.Devices
+namespace nexRemoteFree.Server.Components.Devices
 {
     public partial class DeviceCard : AuthComponentBase, IDisposable
     {

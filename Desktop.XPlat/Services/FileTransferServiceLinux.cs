@@ -1,11 +1,11 @@
 ﻿using Avalonia.Threading;
-using nexRemote.Desktop.Core.Interfaces;
-using nexRemote.Desktop.Core.Services;
-using nexRemote.Desktop.Core.ViewModels;
-using nexRemote.Desktop.XPlat.Controls;
-using nexRemote.Desktop.XPlat.ViewModels;
-using nexRemote.Desktop.XPlat.Views;
-using nexRemote.Shared.Utilities;
+using nexRemoteFree.Desktop.Core.Interfaces;
+using nexRemoteFree.Desktop.Core.Services;
+using nexRemoteFree.Desktop.Core.ViewModels;
+using nexRemoteFree.Desktop.XPlat.Controls;
+using nexRemoteFree.Desktop.XPlat.ViewModels;
+using nexRemoteFree.Desktop.XPlat.Views;
+using nexRemoteFree.Shared.Utilities;
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
@@ -13,7 +13,7 @@ using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace nexRemote.Desktop.XPlat.Services
+namespace nexRemoteFree.Desktop.XPlat.Services
 {
     public class FileTransferServiceLinux : IFileTransferService
     {
@@ -32,7 +32,7 @@ namespace nexRemote.Desktop.XPlat.Services
                 return desktopDir;
             }
 
-            return Directory.CreateDirectory(Path.Combine(Path.GetTempPath(), "nex-Remote_Shared")).FullName;
+            return Directory.CreateDirectory(Path.Combine(Path.GetTempPath(), "nex-RemoteFree_Shared")).FullName;
         }
 
         public void OpenFileTransferWindow(Viewer viewer)

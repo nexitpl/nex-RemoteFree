@@ -1,7 +1,7 @@
-﻿using nexRemote.Desktop.Core.Enums;
-using nexRemote.Desktop.Core.Services;
+﻿using nexRemoteFree.Desktop.Core.Enums;
+using nexRemoteFree.Desktop.Core.Services;
 
-namespace nexRemote.Desktop.Core.Interfaces
+namespace nexRemoteFree.Desktop.Core.Interfaces
 {
     public interface IKeyboardMouseInput
     {

@@ -1,16 +1,16 @@
-﻿using nexRemote.Desktop.Core.Enums;
-using nexRemote.Desktop.Core.Interfaces;
-using nexRemote.Desktop.Core.Services;
-using nexRemote.Shared.Utilities;
-using nexRemote.Shared.Win32;
+﻿using nexRemoteFree.Desktop.Core.Enums;
+using nexRemoteFree.Desktop.Core.Interfaces;
+using nexRemoteFree.Desktop.Core.Services;
+using nexRemoteFree.Shared.Utilities;
+using nexRemoteFree.Shared.Win32;
 using System;
 using System.Collections.Concurrent;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static nexRemote.Shared.Win32.User32;
+using static nexRemoteFree.Shared.Win32.User32;
 
-namespace nexRemote.Desktop.Win.Services
+namespace nexRemoteFree.Desktop.Win.Services
 {
     public class KeyboardMouseInputWin : IKeyboardMouseInput
     {

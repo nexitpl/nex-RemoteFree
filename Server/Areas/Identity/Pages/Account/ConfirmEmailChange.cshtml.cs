@@ -8,17 +8,17 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
-using nexRemote.Shared.Models;
+using nexRemoteFree.Shared.Models;
 
-namespace nexRemote.Server.Areas.Identity.Pages.Account
+namespace nexRemoteFree.Server.Areas.Identity.Pages.Account
 {
     [AllowAnonymous]
     public class ConfirmEmailChangeModel : PageModel
     {
-        private readonly UserManager<nexRemoteUser> _userManager;
-        private readonly SignInManager<nexRemoteUser> _signInManager;
+        private readonly UserManager<nexRemoteFreeUser> _userManager;
+        private readonly SignInManager<nexRemoteFreeUser> _signInManager;
 
-        public ConfirmEmailChangeModel(UserManager<nexRemoteUser> userManager, SignInManager<nexRemoteUser> signInManager)
+        public ConfirmEmailChangeModel(UserManager<nexRemoteFreeUser> userManager, SignInManager<nexRemoteFreeUser> signInManager)
         {
             _userManager = userManager;
             _signInManager = signInManager;

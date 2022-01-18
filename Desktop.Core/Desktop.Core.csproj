@@ -2,11 +2,11 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
-    <RootNamespace>nexRemote.Desktop.Core</RootNamespace>
-    <AssemblyName>nex-Remote_Desktop.Core</AssemblyName>
+    <RootNamespace>nexRemoteFree.Desktop.Core</RootNamespace>
+    <AssemblyName>nex-RemoteFree_Desktop.Core</AssemblyName>
     <Platforms>AnyCPU;x64;x86</Platforms>
     <SignAssembly>false</SignAssembly>
-    <AssemblyOriginatorKeyFile>nex-Remote.pfx</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>nex-RemoteFree.pfx</AssemblyOriginatorKeyFile>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -34,11 +34,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Assets\nex-Remote_Icon.png" />
+    <None Remove="Assets\nex-RemoteFreeRemoteFree_Icon.png" />
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="Assets\nex-Remote_Icon.png" />
+    <EmbeddedResource Include="Assets\nex-RemoteFree_Icon.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -58,7 +58,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Assets\nex-Remote_Icon.png" />
+    <Resource Include="Assets\nex-RemoteFree_Icon.png" />
   </ItemGroup>
 
 </Project>

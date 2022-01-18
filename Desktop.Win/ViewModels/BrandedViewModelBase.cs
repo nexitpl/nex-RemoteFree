@@ -1,9 +1,9 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using nexRemote.Desktop.Core;
-using nexRemote.Desktop.Core.Services;
-using nexRemote.Desktop.Core.ViewModels;
-using nexRemote.Shared.Models;
-using nexRemote.Shared.Utilities;
+using nexRemoteFree.Desktop.Core;
+using nexRemoteFree.Desktop.Core.Services;
+using nexRemoteFree.Desktop.Core.ViewModels;
+using nexRemoteFree.Shared.Models;
+using nexRemoteFree.Shared.Utilities;
 using System;
 using System.IO;
 using System.Linq;
@@ -11,7 +11,7 @@ using System.Reflection;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 
-namespace nexRemote.Desktop.Win.ViewModels
+namespace nexRemoteFree.Desktop.Win.ViewModels
 {
     public class BrandedViewModelBase : ViewModelBase
     {
@@ -28,7 +28,7 @@ namespace nexRemote.Desktop.Win.ViewModels
             {
                 var brandingInfo = DeviceInitService?.BrandingInfo ?? new BrandingInfo();
 
-                ProductName = "nex-Remote";
+                ProductName = "nex-RemoteFree";
 
                 if (!string.IsNullOrWhiteSpace(brandingInfo?.Product))
                 {
@@ -79,7 +79,7 @@ namespace nexRemote.Desktop.Win.ViewModels
             }
             else
             {
-                imageStream = Assembly.GetExecutingAssembly().GetManifestResourceStream("nexRemote.Desktop.Win.Assets.nex-Remote_Icon.png");
+                imageStream = Assembly.GetExecutingAssembly().GetManifestResourceStream("nexRemoteFree.Desktop.Win.Assets.nex-RemoteFree_Icon.png");
             }
 
             var bitmap = new BitmapImage();

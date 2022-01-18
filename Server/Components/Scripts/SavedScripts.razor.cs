@@ -1,16 +1,16 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Forms;
-using nexRemote.Server.Pages;
-using nexRemote.Server.Services;
-using nexRemote.Shared.Models;
+using nexRemoteFree.Server.Pages;
+using nexRemoteFree.Server.Services;
+using nexRemoteFree.Shared.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace nexRemote.Server.Components.Scripts
+namespace nexRemoteFree.Server.Components.Scripts
 {
     [Authorize]
     public partial class SavedScripts : AuthComponentBase

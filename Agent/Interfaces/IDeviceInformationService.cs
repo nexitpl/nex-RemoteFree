@@ -1,11 +1,11 @@
-﻿using nexRemote.Shared.Models;
+﻿using nexRemoteFree.Shared.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace nexRemote.Agent.Interfaces
+namespace nexRemoteFree.Agent.Interfaces
 {
     public interface IDeviceInformationService
     {

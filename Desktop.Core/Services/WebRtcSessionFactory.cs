@@ -1,4 +1,4 @@
-﻿namespace nexRemote.Desktop.Core.Services
+﻿namespace nexRemoteFree.Desktop.Core.Services
 {
     public interface IWebRtcSessionFactory
     {

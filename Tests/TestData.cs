@@ -1,16 +1,16 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.DependencyInjection;
 using Moq;
-using nexRemote.Server.Areas.Identity.Pages.Account.Manage;
-using nexRemote.Server.Data;
-using nexRemote.Server.Services;
-using nexRemote.Shared.Models;
+using nexRemoteFree.Server.Areas.Identity.Pages.Account.Manage;
+using nexRemoteFree.Server.Data;
+using nexRemoteFree.Server.Services;
+using nexRemoteFree.Shared.Models;
 using System;
 using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
 
-namespace nexRemote.Tests
+namespace nexRemoteFree.Tests
 {
     public class TestData
     {
@@ -19,16 +19,16 @@ namespace nexRemote.Tests
             Init().Wait();
         }
 
-        public nexRemoteUser Admin1 { get; } = new nexRemoteUser()
+        public nexRemoteFreeUser Admin1 { get; } = new nexRemoteFreeUser()
         {
             UserName = "admin1@test.com",
             IsAdministrator = true,
             IsServerAdmin = true,
             Organization = new Organization(),
-            UserOptions = new nexRemoteUserOptions()
+            UserOptions = new nexRemoteFreeUserOptions()
         };
 
-        public nexRemoteUser Admin2 { get; private set; } 
+        public nexRemoteFreeUser Admin2 { get; private set; } 
 
         public Device Device1 { get; private set; } = new Device()
         {
@@ -54,9 +54,9 @@ namespace nexRemote.Tests
 
         public string OrganizationID { get; private set; }
 
-        public nexRemoteUser User1 { get; private set; }
+        public nexRemoteFreeUser User1 { get; private set; }
 
-        public nexRemoteUser User2 { get; private set; }
+        public nexRemoteFreeUser User2 { get; private set; }
 
         public void ClearData()
         {
@@ -74,7 +74,7 @@ namespace nexRemote.Tests
             ClearData();
 
             var dataService = IoCActivator.ServiceProvider.GetRequiredService<IDataService>();
-            var userManager = IoCActivator.ServiceProvider.GetRequiredService<UserManager<nexRemoteUser>>();
+            var userManager = IoCActivator.ServiceProvider.GetRequiredService<UserManager<nexRemoteFreeUser>>();
             var emailSender = IoCActivator.ServiceProvider.GetRequiredService<IEmailSenderEx>();
 
             await userManager.CreateAsync(Admin1);

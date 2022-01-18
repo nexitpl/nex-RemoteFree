@@ -2,12 +2,12 @@
 using Microsoft.AspNetCore.Components;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
-using nexRemote.Server.Enums;
-using nexRemote.Server.Hubs;
-using nexRemote.Server.Models;
-using nexRemote.Server.Services;
-using nexRemote.Shared.Attributes;
-using nexRemote.Shared.Models;
+using nexRemoteFree.Server.Enums;
+using nexRemoteFree.Server.Hubs;
+using nexRemoteFree.Server.Models;
+using nexRemoteFree.Server.Services;
+using nexRemoteFree.Shared.Attributes;
+using nexRemoteFree.Shared.Models;
 using System;
 using System.Collections;
 using System.Collections.Concurrent;
@@ -18,7 +18,7 @@ using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
 
-namespace nexRemote.Server.Components.Devices
+namespace nexRemoteFree.Server.Components.Devices
 {
     [Authorize]
     public partial class DevicesFrame : AuthComponentBase, IDisposable

@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace nexRemote.Server.Migrations.PostgreSql
+namespace nexRemoteFree.Server.Migrations.PostgreSql
 {
     public partial class AddAlertDetails : Migration
     {

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace nexRemote.Server.Installer.Models
+namespace nexRemoteFree.Server.Installer.Models
 {
 
     public class GitHubReleasesResponsePayload

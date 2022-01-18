@@ -1,8 +1,8 @@
 ﻿using IWshRuntimeLibrary;
 using Microsoft.VisualBasic.FileIO;
 using Microsoft.Win32;
-using nexRemote.Agent.Installer.Win.Utilities;
-using nexRemote.Shared.Models;
+using nexRemoteFree.Agent.Installer.Win.Utilities;
+using nexRemoteFree.Shared.Models;
 using System;
 using System.Configuration.Install;
 using System.Diagnostics;
@@ -18,14 +18,14 @@ using System.Web.Script.Serialization;
 using System.Windows;
 using FileIO = System.IO.File;
 
-namespace nexRemote.Agent.Installer.Win.Services
+namespace nexRemoteFree.Agent.Installer.Win.Services
 {
     public class InstallerService
     {
         public event EventHandler<string> ProgressMessageChanged;
         public event EventHandler<int> ProgressValueChanged;
 
-        private string InstallPath => Path.Combine(Path.GetPathRoot(Environment.SystemDirectory), "Program Files", "nex-Remote");
+        private string InstallPath => Path.Combine(Path.GetPathRoot(Environment.SystemDirectory), "Program Files", "nex-RemoteFree");
         private string Platform => Environment.Is64BitOperatingSystem ? "x64" : "x86";
         private JavaScriptSerializer Serializer { get; } = new JavaScriptSerializer();
         public async Task<bool> Install(string serverUrl,
@@ -53,11 +53,11 @@ namespace nexRemote.Agent.Installer.Win.Services
 
                 ClearInstallDirectory();
 
-                await DownloadnexRemoteAgent(serverUrl);
+                await DownloadnexRemoteFreeAgent(serverUrl);
 
                 FileIO.WriteAllText(Path.Combine(InstallPath, "ConnectionInfo.json"), Serializer.Serialize(connectionInfo));
 
-                FileIO.Copy(Assembly.GetExecutingAssembly().Location, Path.Combine(InstallPath, "nex-Remote_Installer.exe"));
+                FileIO.Copy(Assembly.GetExecutingAssembly().Location, Path.Combine(InstallPath, "nex-RemoteFree_Installer.exe"));
 
                 await CreateDeviceOnServer(connectionInfo.DeviceID, serverUrl, deviceGroup, deviceAlias, organizationId);
 
@@ -91,7 +91,7 @@ namespace nexRemote.Agent.Installer.Win.Services
 
                 StopService();
 
-                ProcessEx.StartHidden("cmd.exe", "/c sc delete nex-Remote_Service").WaitForExit();
+                ProcessEx.StartHidden("cmd.exe", "/c sc delete nex-RemoteFree_Service").WaitForExit();
 
                 await StopProcesses();
 
@@ -99,9 +99,9 @@ namespace nexRemote.Agent.Installer.Win.Services
                 ClearInstallDirectory();
                 ProcessEx.StartHidden("cmd.exe", $"/c timeout 5 & rd /s /q \"{InstallPath}\"");
 
-                ProcessEx.StartHidden("netsh", "advfirewall firewall delete rule name=\"nex-Remote Desktop Unattended\"").WaitForExit();
+                ProcessEx.StartHidden("netsh", "advfirewall firewall delete rule name=\"nex-RemoteFree Desktop Unattended\"").WaitForExit();
 
-                GetRegistryBaseKey().DeleteSubKeyTree(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\nex-Remote", false);
+                GetRegistryBaseKey().DeleteSubKeyTree(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\nex-RemoteFree", false);
 
                 return true;
             }
@@ -114,9 +114,9 @@ namespace nexRemote.Agent.Installer.Win.Services
 
         private void AddFirewallRule()
         {
-            var desktopExePath = Path.Combine(InstallPath, "Desktop", "nex-Remote_Desktop.exe");
-            ProcessEx.StartHidden("netsh", "advfirewall firewall delete rule name=\"nex-Remote Desktop Unattended\"").WaitForExit();
-            ProcessEx.StartHidden("netsh", $"advfirewall firewall add rule name=\"nex-Remote Desktop Unattended\" program=\"{desktopExePath}\" protocol=any dir=in enable=yes action=allow description=\"Agent, który umożliwia udostępnianie ekranu i zdalne sterowanie dla nex-Remote.\"").WaitForExit();
+            var desktopExePath = Path.Combine(InstallPath, "Desktop", "nex-RemoteFree_Desktop.exe");
+            ProcessEx.StartHidden("netsh", "advfirewall firewall delete rule name=\"nex-RemoteFree Desktop Unattended\"").WaitForExit();
+            ProcessEx.StartHidden("netsh", $"advfirewall firewall add rule name=\"nex-RemoteFree Desktop Unattended\" program=\"{desktopExePath}\" protocol=any dir=in enable=yes action=allow description=\"Agent, który umożliwia udostępnianie ekranu i zdalne sterowanie dla nex-RemoteFree.\"").WaitForExit();
         }
 
         private void BackupDirectory()
@@ -125,7 +125,7 @@ namespace nexRemote.Agent.Installer.Win.Services
             {
                 Logger.Write("Tworzenie kopii zapasowej bieżącej instalacji.");
                 ProgressMessageChanged?.Invoke(this, "Tworzenie kopii zapasowej bieżącej instalacji.");
-                var backupPath = Path.Combine(Path.GetTempPath(), "nex-Remote_Backup.zip");
+                var backupPath = Path.Combine(Path.GetTempPath(), "nex-RemoteFree_Backup.zip");
                 if (FileIO.Exists(backupPath))
                 {
                     FileIO.Delete(backupPath);
@@ -218,40 +218,40 @@ namespace nexRemote.Agent.Installer.Win.Services
         private void CreateSupportShortcut(string serverUrl, string deviceUuid, bool createSupportShortcut)
         {
             var shell = new WshShell();
-            var shortcutLocation = Path.Combine(InstallPath, "nex-Remote Uzyskaj Wsparcie.lnk");
+            var shortcutLocation = Path.Combine(InstallPath, "nex-RemoteFree Uzyskaj Wsparcie.lnk");
             var shortcut = (IWshShortcut)shell.CreateShortcut(shortcutLocation);
-            shortcut.Description = "nex-Remote Wsparcie";
-            shortcut.IconLocation = Path.Combine(InstallPath, "nex-Remote_Agent.exe");
+            shortcut.Description = "nex-RemoteFree Wsparcie";
+            shortcut.IconLocation = Path.Combine(InstallPath, "nex-RemoteFree_Agent.exe");
             shortcut.TargetPath = serverUrl.TrimEnd('/') + $"/GetSupport?deviceID={deviceUuid}";
             shortcut.Save();
 
             if (createSupportShortcut)
             {
                 var systemRoot = Path.GetPathRoot(Environment.SystemDirectory);
-                var publicDesktop = Path.Combine(systemRoot, "Users", "Public", "Desktop", "nex-Remote Uzyskaj Wsparcie.lnk");
+                var publicDesktop = Path.Combine(systemRoot, "Users", "Public", "Desktop", "nex-RemoteFree Uzyskaj Wsparcie.lnk");
                 FileIO.Copy(shortcutLocation, publicDesktop, true);
             }
         }
         private void CreateUninstallKey()
         {
-            var version = FileVersionInfo.GetVersionInfo(Path.Combine(InstallPath, "nex-Remote_Agent.exe"));
+            var version = FileVersionInfo.GetVersionInfo(Path.Combine(InstallPath, "nex-RemoteFree_Agent.exe"));
             var baseKey = GetRegistryBaseKey();
 
-            var nexRemoteKey = baseKey.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\nex-Remote", true);
-            nexRemoteKey.SetValue("DisplayIcon", Path.Combine(InstallPath, "nex-Remote_Agent.exe"));
-            nexRemoteKey.SetValue("DisplayName", "nex-Remote");
-            nexRemoteKey.SetValue("DisplayVersion", version.FileVersion);
-            nexRemoteKey.SetValue("InstallDate", DateTime.Now.ToShortDateString());
-            nexRemoteKey.SetValue("Publisher", "nex-IT Jakub Potoczny");
-            nexRemoteKey.SetValue("VersionMajor", version.FileMajorPart.ToString(), RegistryValueKind.DWord);
-            nexRemoteKey.SetValue("VersionMinor", version.FileMinorPart.ToString(), RegistryValueKind.DWord);
-            nexRemoteKey.SetValue("UninstallString", Path.Combine(InstallPath, "nex-Remote_Installer.exe -uninstall -quiet"));
-            nexRemoteKey.SetValue("QuietUninstallString", Path.Combine(InstallPath, "nex-Remote_Installer.exe -uninstall -quiet"));
+            var nexRemoteFreeKey = baseKey.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\nex-RemoteFree", true);
+            nexRemoteFreeKey.SetValue("DisplayIcon", Path.Combine(InstallPath, "nex-RemoteFree_Agent.exe"));
+            nexRemoteFreeKey.SetValue("DisplayName", "nex-RemoteFree");
+            nexRemoteFreeKey.SetValue("DisplayVersion", version.FileVersion);
+            nexRemoteFreeKey.SetValue("InstallDate", DateTime.Now.ToShortDateString());
+            nexRemoteFreeKey.SetValue("Publisher", "nex-IT Jakub Potoczny");
+            nexRemoteFreeKey.SetValue("VersionMajor", version.FileMajorPart.ToString(), RegistryValueKind.DWord);
+            nexRemoteFreeKey.SetValue("VersionMinor", version.FileMinorPart.ToString(), RegistryValueKind.DWord);
+            nexRemoteFreeKey.SetValue("UninstallString", Path.Combine(InstallPath, "nex-RemoteFree_Installer.exe -uninstall -quiet"));
+            nexRemoteFreeKey.SetValue("QuietUninstallString", Path.Combine(InstallPath, "nex-RemoteFree_Installer.exe -uninstall -quiet"));
         }
 
-        private async Task DownloadnexRemoteAgent(string serverUrl)
+        private async Task DownloadnexRemoteFreeAgent(string serverUrl)
         {
-            var targetFile = Path.Combine(Path.GetTempPath(), $"nex-Remote-Agent.zip");
+            var targetFile = Path.Combine(Path.GetTempPath(), $"nex-RemoteFree-Agent.zip");
 
             if (CommandLineParser.CommandLineArgs.TryGetValue("path", out var result) &&
                 FileIO.Exists(result))
@@ -260,7 +260,7 @@ namespace nexRemote.Agent.Installer.Win.Services
             }
             else
             {
-                ProgressMessageChanged.Invoke(this, "Pobieranie nex-Remote.");
+                ProgressMessageChanged.Invoke(this, "Pobieranie nex-RemoteFree.");
                 using (var client = new WebClient())
                 {
                     client.DownloadProgressChanged += (sender, args) =>
@@ -268,14 +268,14 @@ namespace nexRemote.Agent.Installer.Win.Services
                         ProgressValueChanged?.Invoke(this, args.ProgressPercentage);
                     };
 
-                    await client.DownloadFileTaskAsync($"{serverUrl}/Content/nex-Remote-Win10-{Platform}.zip", targetFile);
+                    await client.DownloadFileTaskAsync($"{serverUrl}/Content/nex-RemoteFree-Win10-{Platform}.zip", targetFile);
                 }
             }
 
-            ProgressMessageChanged.Invoke(this, "Rozpakowywanie nex-Remote agent.");
+            ProgressMessageChanged.Invoke(this, "Rozpakowywanie nex-RemoteFree agent.");
             ProgressValueChanged?.Invoke(this, 0);
 
-            var tempDir = Path.Combine(Path.GetTempPath(), "nex-Remote_Update");
+            var tempDir = Path.Combine(Path.GetTempPath(), "nex-RemoteFree_Update");
             if (Directory.Exists(tempDir))
             {
                 Directory.Delete(tempDir, true);
@@ -287,7 +287,7 @@ namespace nexRemote.Agent.Installer.Win.Services
                 await Task.Delay(10);
             }
 
-            var wr = WebRequest.CreateHttp($"{serverUrl}/Content/nex-Remote-Win10-{Platform}.zip");
+            var wr = WebRequest.CreateHttp($"{serverUrl}/Content/nex-RemoteFree-Win10-{Platform}.zip");
             wr.Method = "Head";
             using (var response = (HttpWebResponse)await wr.GetResponseAsync())
             {
@@ -366,18 +366,18 @@ namespace nexRemote.Agent.Installer.Win.Services
         private void InstallService()
         {
             Logger.Write("Instalacja usług.");
-            ProgressMessageChanged?.Invoke(this, "Instalacja usług nex-Remote.");
-            var serv = ServiceController.GetServices().FirstOrDefault(ser => ser.ServiceName == "nex-Remote_Service");
+            ProgressMessageChanged?.Invoke(this, "Instalacja usług nex-RemoteFree.");
+            var serv = ServiceController.GetServices().FirstOrDefault(ser => ser.ServiceName == "nex-RemoteFree_Service");
             if (serv == null)
             {
-                var command = new string[] { "/assemblypath=" + Path.Combine(InstallPath, "nex-Remote_Agent.exe") };
+                var command = new string[] { "/assemblypath=" + Path.Combine(InstallPath, "nex-RemoteFree_Agent.exe") };
                 var context = new InstallContext("", command);
                 var serviceInstaller = new ServiceInstaller()
                 {
                     Context = context,
-                    DisplayName = "nex-Remote_Service",
-                    Description = "Usługa działająca w tle, która utrzymuje połączenie z serwerem nex-Remote.  Usługa służy do zdalnego wsparcia systemu nex-Remote - nex-IT Jakub Potoczny.",
-                    ServiceName = "nex-Remote_Service",
+                    DisplayName = "nex-RemoteFree_Service",
+                    Description = "Usługa działająca w tle, która utrzymuje połączenie z serwerem nex-RemoteFree.  Usługa służy do zdalnego wsparcia systemu nex-RemoteFree - nex-IT Jakub Potoczny.",
+                    ServiceName = "nex-RemoteFree_Service",
                     StartType = ServiceStartMode.Automatic,
                     DelayedAutoStart = true,
                     Parent = new ServiceProcessInstaller()
@@ -386,9 +386,9 @@ namespace nexRemote.Agent.Installer.Win.Services
                 var state = new System.Collections.Specialized.ListDictionary();
                 serviceInstaller.Install(state);
                 Logger.Write("Usługa Zainstalowana.");
-                serv = ServiceController.GetServices().FirstOrDefault(ser => ser.ServiceName == "nex-Remote_Service");
+                serv = ServiceController.GetServices().FirstOrDefault(ser => ser.ServiceName == "nex-RemoteFree_Service");
 
-                ProcessEx.StartHidden("cmd.exe", "/c sc.exe failure \"nex-Remote_Service\" reset= 5 actions= restart/5000");
+                ProcessEx.StartHidden("cmd.exe", "/c sc.exe failure \"nex-RemoteFree_Service\" reset= 5 actions= restart/5000");
             }
             if (serv.Status != ServiceControllerStatus.Running)
             {
@@ -401,13 +401,13 @@ namespace nexRemote.Agent.Installer.Win.Services
         {
             try
             {
-                var backupPath = Path.Combine(Path.GetTempPath(), "nex-Remote_Backup.zip");
+                var backupPath = Path.Combine(Path.GetTempPath(), "nex-RemoteFree_Backup.zip");
                 if (FileIO.Exists(backupPath))
                 {
                     Logger.Write("Odtwarzanie kopii.");
                     ClearInstallDirectory();
                     ZipFile.ExtractToDirectory(backupPath, InstallPath);
-                    var serv = ServiceController.GetServices().FirstOrDefault(ser => ser.ServiceName == "nex-Remote_Service");
+                    var serv = ServiceController.GetServices().FirstOrDefault(ser => ser.ServiceName == "nex-RemoteFree_Service");
                     if (serv?.Status != ServiceControllerStatus.Running)
                     {
                         serv?.Start();
@@ -422,8 +422,8 @@ namespace nexRemote.Agent.Installer.Win.Services
 
         private async Task StopProcesses()
         {
-            ProgressMessageChanged?.Invoke(this, "Zatrzymywanie procesów nex-Remote.");
-            var procs = Process.GetProcessesByName("nex-Remote_Agent").Concat(Process.GetProcessesByName("nex-Remote_Desktop"));
+            ProgressMessageChanged?.Invoke(this, "Zatrzymywanie procesów nex-RemoteFree.");
+            var procs = Process.GetProcessesByName("nex-RemoteFree_Agent").Concat(Process.GetProcessesByName("nex-RemoteFree_Desktop"));
 
             foreach (var proc in procs)
             {
@@ -436,13 +436,13 @@ namespace nexRemote.Agent.Installer.Win.Services
         {
             try
             {
-                var nexRemoteService = ServiceController.GetServices().FirstOrDefault(x => x.ServiceName == "nex-Remote_Service");
-                if (nexRemoteService != null)
+                var nexRemoteFreeService = ServiceController.GetServices().FirstOrDefault(x => x.ServiceName == "nex-RemoteFree_Service");
+                if (nexRemoteFreeService != null)
                 {
-                    Logger.Write("Zatrzymywanie istniejących usług nex-Remote.");
-                    ProgressMessageChanged?.Invoke(this, "Zatrzymywanie bieżacych usług nex-Remote.");
-                    nexRemoteService.Stop();
-                    nexRemoteService.WaitForStatus(ServiceControllerStatus.Stopped);
+                    Logger.Write("Zatrzymywanie istniejących usług nex-RemoteFree.");
+                    ProgressMessageChanged?.Invoke(this, "Zatrzymywanie bieżacych usług nex-RemoteFree.");
+                    nexRemoteFreeService.Stop();
+                    nexRemoteFreeService.WaitForStatus(ServiceControllerStatus.Stopped);
                 }
             }
             catch (Exception ex)

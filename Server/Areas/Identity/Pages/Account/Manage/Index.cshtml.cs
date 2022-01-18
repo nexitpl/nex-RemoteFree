@@ -6,18 +6,18 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using nexRemote.Shared.Models;
+using nexRemoteFree.Shared.Models;
 
-namespace nexRemote.Server.Areas.Identity.Pages.Account.Manage
+namespace nexRemoteFree.Server.Areas.Identity.Pages.Account.Manage
 {
     public partial class IndexModel : PageModel
     {
-        private readonly UserManager<nexRemoteUser> _userManager;
-        private readonly SignInManager<nexRemoteUser> _signInManager;
+        private readonly UserManager<nexRemoteFreeUser> _userManager;
+        private readonly SignInManager<nexRemoteFreeUser> _signInManager;
 
         public IndexModel(
-            UserManager<nexRemoteUser> userManager,
-            SignInManager<nexRemoteUser> signInManager)
+            UserManager<nexRemoteFreeUser> userManager,
+            SignInManager<nexRemoteFreeUser> signInManager)
         {
             _userManager = userManager;
             _signInManager = signInManager;
@@ -38,7 +38,7 @@ namespace nexRemote.Server.Areas.Identity.Pages.Account.Manage
             public string PhoneNumber { get; set; }
         }
 
-        private async Task LoadAsync(nexRemoteUser user)
+        private async Task LoadAsync(nexRemoteFreeUser user)
         {
             var userName = await _userManager.GetUserNameAsync(user);
             var phoneNumber = await _userManager.GetPhoneNumberAsync(user);

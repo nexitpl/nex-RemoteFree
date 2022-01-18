@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 
-namespace nexRemote.Shared.Models
+namespace nexRemoteFree.Shared.Models
 {
-    public class nexRemoteUser : IdentityUser
+    public class nexRemoteFreeUser : IdentityUser
     {
         public ICollection<Alert> Alerts { get; set; }
 
@@ -23,6 +23,6 @@ namespace nexRemote.Shared.Models
 
         public string TempPassword { get; set; }
 
-        public nexRemoteUserOptions UserOptions { get; set; }
+        public nexRemoteFreeUserOptions UserOptions { get; set; }
     }
 }

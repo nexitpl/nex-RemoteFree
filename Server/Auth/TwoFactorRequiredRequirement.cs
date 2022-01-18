@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace nexRemote.Server.Auth
+namespace nexRemoteFree.Server.Auth
 {
     public class TwoFactorRequiredRequirement : IAuthorizationRequirement
     {

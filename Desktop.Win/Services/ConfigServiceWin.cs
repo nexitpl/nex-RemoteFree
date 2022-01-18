@@ -1,16 +1,16 @@
-﻿using nexRemote.Desktop.Core.Interfaces;
-using nexRemote.Shared.Models;
-using nexRemote.Shared.Utilities;
+﻿using nexRemoteFree.Desktop.Core.Interfaces;
+using nexRemoteFree.Shared.Models;
+using nexRemoteFree.Shared.Utilities;
 using System;
 using System.IO;
 using System.Text.Json;
 
-namespace nexRemote.Desktop.Win.Services
+namespace nexRemoteFree.Desktop.Win.Services
 {
 
     public class ConfigServiceWin : IConfigService
     {
-        private static readonly string _configFolder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "nex-Remote");
+        private static readonly string _configFolder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "nex-RemoteFree");
         private static readonly string _configFile = Path.Combine(_configFolder, "Config.json");
 
         public DesktopAppConfig GetConfig()

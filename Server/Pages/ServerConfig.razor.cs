@@ -5,11 +5,11 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.SignalR;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
-using nexRemote.Server.Components;
-using nexRemote.Server.Hubs;
-using nexRemote.Server.Services;
-using nexRemote.Shared.Enums;
-using nexRemote.Shared.Models;
+using nexRemoteFree.Server.Components;
+using nexRemoteFree.Server.Hubs;
+using nexRemoteFree.Server.Services;
+using nexRemoteFree.Shared.Enums;
+using nexRemoteFree.Shared.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -19,7 +19,7 @@ using System.Text.Json.Serialization;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace nexRemote.Server.Pages
+namespace nexRemoteFree.Server.Pages
 {
     public class AppSettingsModel
     {
@@ -137,7 +137,7 @@ namespace nexRemote.Server.Pages
         private string _trustedCorsOriginSelected;
         private string _trustedCorsOriginToAdd;
 
-        private readonly List<nexRemoteUser> _userList = new();
+        private readonly List<nexRemoteFreeUser> _userList = new();
 
 
         [Inject]
@@ -170,7 +170,7 @@ namespace nexRemote.Server.Pages
         [Inject]
         private IToastService ToastService { get; set; }
         private int TotalDevices => DataService.GetTotalDevices();
-        private IEnumerable<nexRemoteUser> UserList
+        private IEnumerable<nexRemoteFreeUser> UserList
         {
             get
             {
@@ -318,7 +318,7 @@ namespace nexRemote.Server.Pages
         {
             await SaveInputToAppSettings();
 
-            var success = await EmailSender.SendEmailAsync(User.Email, "nex-Remote Test Email", "Congratulations! Your SMTP settings are working!", User.OrganizationID);
+            var success = await EmailSender.SendEmailAsync(User.Email, "nex-RemoteFree Test Email", "Congratulations! Your SMTP settings are working!", User.OrganizationID);
             if (success)
             {
                 ToastService.ShowToast($"Test email sent to {User.Email}.  Check your inbox (or spam folder).");
@@ -362,7 +362,7 @@ namespace nexRemote.Server.Pages
 
             await System.IO.File.WriteAllTextAsync(savePath, JsonSerializer.Serialize(settingsJson, new JsonSerializerOptions() { WriteIndented = true }));
         }
-        private void SetIsServerAdmin(ChangeEventArgs ev, nexRemoteUser user)
+        private void SetIsServerAdmin(ChangeEventArgs ev, nexRemoteFreeUser user)
         {
             var isAdmin = (bool)ev.Value;
             DataService.SetIsServerAdmin(user.Id, isAdmin, User.Id);

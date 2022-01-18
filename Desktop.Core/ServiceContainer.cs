@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace nexRemote.Desktop.Core
+namespace nexRemoteFree.Desktop.Core
 {
     public class ServiceContainer
     {

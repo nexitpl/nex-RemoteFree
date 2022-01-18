@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace nexRemote.Shared.Enums
+namespace nexRemoteFree.Shared.Enums
 {
 
     public enum DbProvider

@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text.Json.Serialization;
 
-namespace nexRemote.Shared.Models
+namespace nexRemoteFree.Shared.Models
 {
     public class DeviceGroup
     {
@@ -24,7 +24,7 @@ namespace nexRemote.Shared.Models
         public string OrganizationID { get; set; }
 
         [JsonIgnore]
-        public List<nexRemoteUser> Users { get; set; }
+        public List<nexRemoteFreeUser> Users { get; set; }
 
         [JsonIgnore]
         public List<ScriptSchedule> ScriptSchedules { get; set; }

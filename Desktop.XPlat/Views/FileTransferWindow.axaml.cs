@@ -3,7 +3,7 @@ using Avalonia.Controls;
 using Avalonia.Markup.Xaml;
 using System;
 
-namespace nexRemote.Desktop.XPlat.Views
+namespace nexRemoteFree.Desktop.XPlat.Views
 {
     public class FileTransferWindow : Window
     {

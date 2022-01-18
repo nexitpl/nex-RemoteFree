@@ -1,5 +1,5 @@
 #!/bin/bash
-echo "nex-Remote Serwer by nex-IT Jakub Potoczny"
+echo "nex-RemoteFree Serwer by nex-IT Jakub Potoczny"
 echo
 
 Args=( "$@" )
@@ -15,9 +15,9 @@ do
 done
 
 if [ -z "$AppRoot" ]; then
-    read -p "Podaj œcie¿kê, w której powinny zostaæ zainstalowane pliki serwera nex-Remote (zazwyczaj /var/www/nex-Remote): " AppRoot
+    read -p "Podaj œcie¿kê, w której powinny zostaæ zainstalowane pliki serwera nex-RemoteFree (zazwyczaj /var/www/nex-RemoteFree): " AppRoot
     if [ -z "$AppRoot" ]; then
-        AppRoot="/var/www/nex-Remote"
+        AppRoot="/var/www/nex-RemoteFree"
     fi
 fi
 
@@ -25,9 +25,9 @@ if [ -z "$HostName" ]; then
     read -p "Wpisz nazwê hosta serwera (np. remote.nex-it.pl): " HostName
 fi
 
-chmod +x "$AppRoot/nex-Remote_Server"
+chmod +x "$AppRoot/nex-RemoteFree_Server"
 
-echo "Using $AppRoot jako katalog zawartoœci witryny nex-Remote."
+echo "Using $AppRoot jako katalog zawartoœci witryny nex-RemoteFree."
 
 UbuntuVersion=$(lsb_release -r -s)
 
@@ -70,31 +70,31 @@ $HostName {
 echo "$caddyConfig" > /etc/caddy/Caddyfile
 
 
-# Create nex-Remote service.
+# Create nex-RemoteFree service.
 
 serviceConfig="[Unit]
-Description=nex-Remote
+Description=nex-RemoteFree
 
 [Service]
 WorkingDirectory=$AppRoot
-ExecStart=/usr/bin/dotnet $AppRoot/nex-Remote_Server.dll
+ExecStart=/usr/bin/dotnet $AppRoot/nex-RemoteFree_Server.dll
 Restart=always
 # Restart service after 10 seconds if the dotnet service crashes:
 RestartSec=10
-SyslogIdentifier=nex-Remote
+SyslogIdentifier=nex-RemoteFree
 Environment=ASPNETCORE_ENVIRONMENT=Production
 Environment=DOTNET_PRINT_TELEMETRY_MESSAGE=false
 
 [Install]
 WantedBy=multi-user.target"
 
-echo "$serviceConfig" > /etc/systemd/system/nex-Remote.service
+echo "$serviceConfig" > /etc/systemd/system/nex-RemoteFree.service
 
 
 # Enable service.
-systemctl enable nex-Remote.service
+systemctl enable nex-RemoteFree.service
 # Start service.
-systemctl restart nex-Remote.service
+systemctl restart nex-RemoteFree.service
 
 
 # Restart caddy

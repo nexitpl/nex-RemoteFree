@@ -1,4 +1,4 @@
-﻿using nexRemote.Desktop.Win.ViewModels;
+﻿using nexRemoteFree.Desktop.Win.ViewModels;
 using System;
 using System.ComponentModel;
 using System.Threading.Tasks;
@@ -8,7 +8,7 @@ using System.Windows.Controls.Primitives;
 using System.Windows.Input;
 using System.Windows.Media.Animation;
 
-namespace nexRemote.Desktop.Win.Views
+namespace nexRemoteFree.Desktop.Win.Views
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml

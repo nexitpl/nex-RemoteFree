@@ -1,11 +1,11 @@
 ﻿using Microsoft.AspNetCore.SignalR.Client;
-using nexRemote.Agent.Services;
+using nexRemoteFree.Agent.Services;
 using System;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace nexRemote.Tests.LoadTester
+namespace nexRemoteFree.Tests.LoadTester
 {
     internal class Program
     {
@@ -35,7 +35,7 @@ namespace nexRemote.Tests.LoadTester
                 {
                     Console.WriteLine("Command line arguments must include all of the following: ");
                     Console.WriteLine();
-                    Console.WriteLine("-serverurl [full URL of the nexRemote server]");
+                    Console.WriteLine("-serverurl [full URL of the nexRemoteFree server]");
                     Console.WriteLine();
                     Console.WriteLine("-organizationid [organization ID that the device will belong to]");
                     Console.WriteLine();

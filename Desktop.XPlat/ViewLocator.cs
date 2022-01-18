@@ -1,9 +1,9 @@
 using Avalonia.Controls;
 using Avalonia.Controls.Templates;
-using nexRemote.Desktop.XPlat.ViewModels;
+using nexRemoteFree.Desktop.XPlat.ViewModels;
 using System;
 
-namespace nexRemote.Desktop.XPlat
+namespace nexRemoteFree.Desktop.XPlat
 {
     public class ViewLocator : IDataTemplate
     {

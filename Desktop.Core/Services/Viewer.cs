@@ -1,10 +1,10 @@
-﻿using nexRemote.Desktop.Core.Interfaces;
-using nexRemote.Desktop.Core.Models;
-using nexRemote.Desktop.Core.ViewModels;
-using nexRemote.Shared.Utilities;
-using nexRemote.Shared.Models;
-using nexRemote.Shared.Models.RemoteControlDtos;
-using nexRemote.Shared.Win32;
+﻿using nexRemoteFree.Desktop.Core.Interfaces;
+using nexRemoteFree.Desktop.Core.Models;
+using nexRemoteFree.Desktop.Core.ViewModels;
+using nexRemoteFree.Shared.Utilities;
+using nexRemoteFree.Shared.Models;
+using nexRemoteFree.Shared.Models.RemoteControlDtos;
+using nexRemoteFree.Shared.Win32;
 using System;
 using System.Collections.Concurrent;
 using System.Drawing.Imaging;
@@ -17,7 +17,7 @@ using System.Diagnostics;
 using System.Collections;
 using System.Collections.Generic;
 
-namespace nexRemote.Desktop.Core.Services
+namespace nexRemoteFree.Desktop.Core.Services
 {
     public class Viewer : IDisposable
     {

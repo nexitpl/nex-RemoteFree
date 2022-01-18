@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace nexRemote.Desktop.Core.Models
+namespace nexRemoteFree.Desktop.Core.Models
 {
     public class CaptureFrame
     {

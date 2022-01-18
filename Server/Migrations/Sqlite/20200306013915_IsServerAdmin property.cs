@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace nexRemote.Server.Migrations.Sqlite
+namespace nexRemoteFree.Server.Migrations.Sqlite
 {
     public partial class IsServerAdminproperty : Migration
     {
@@ -8,7 +8,7 @@ namespace nexRemote.Server.Migrations.Sqlite
         {
             migrationBuilder.AddColumn<bool>(
                 name: "IsServerAdmin",
-                table: "nexRemoteUsers",
+                table: "nexRemoteFreeUsers",
                 nullable: true);
         }
 
@@ -16,7 +16,7 @@ namespace nexRemote.Server.Migrations.Sqlite
         {
             migrationBuilder.DropColumn(
                 name: "IsServerAdmin",
-                table: "nexRemoteUsers");
+                table: "nexRemoteFreeUsers");
         }
     }
 }

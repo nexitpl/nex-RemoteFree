@@ -1,14 +1,14 @@
 ﻿using Avalonia.Controls;
 using ReactiveUI;
-using nexRemote.Desktop.XPlat.Services;
-using nexRemote.Shared.Models;
+using nexRemoteFree.Desktop.XPlat.Services;
+using nexRemoteFree.Shared.Models;
 using System.Collections.ObjectModel;
 using System.IO;
 using System.Text.Json;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace nexRemote.Desktop.XPlat.ViewModels
+namespace nexRemoteFree.Desktop.XPlat.ViewModels
 {
     public class ChatWindowViewModel : BrandedViewModelBase
     {

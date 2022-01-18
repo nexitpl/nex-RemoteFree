@@ -11,9 +11,9 @@ ArgLength=${#Args[@]}
 for (( i=0; i<${ArgLength}; i+=2 ));
 do
     if [ "${Args[$i]}" = "--uninstall" ]; then
-        systemctl stop nex-Remote-agent
-        rm -r -f /usr/local/bin/nex-Remote
-        rm -f /etc/systemd/system/nex-Remote-agent.service
+        systemctl stop nex-RemoteFree-agent
+        rm -r -f /usr/local/bin/nex-RemoteFree
+        rm -f /etc/systemd/system/nex-RemoteFree-agent.service
         systemctl daemon-reload
         exit
     elif [ "${Args[$i]}" = "--path" ]; then
@@ -32,32 +32,32 @@ pacman -S xclip --noconfirm
 pacman -S jq --noconfirm
 pacman -S curl --noconfirm
 
-if [ -f "/usr/local/bin/nex-Remote/ConnectionInfo.json" ]; then
-    SavedGUID=`cat "/usr/local/bin/nex-Remote/ConnectionInfo.json" | jq -r '.DeviceID'`
+if [ -f "/usr/local/bin/nex-RemoteFree/ConnectionInfo.json" ]; then
+    SavedGUID=`cat "/usr/local/bin/nex-RemoteFree/ConnectionInfo.json" | jq -r '.DeviceID'`
     if [[ "$SavedGUID" != "null" && -n "$SavedGUID" ]]; then
         GUID="$SavedGUID"
     fi
 fi
 
-rm -r -f /usr/local/bin/nex-Remote
-rm -f /etc/systemd/system/nex-Remote-agent.service
+rm -r -f /usr/local/bin/nex-RemoteFree
+rm -f /etc/systemd/system/nex-RemoteFree-agent.service
 
-mkdir -p /usr/local/bin/nex-Remote/
-cd /usr/local/bin/nex-Remote/
+mkdir -p /usr/local/bin/nex-RemoteFree/
+cd /usr/local/bin/nex-RemoteFree/
 
 if [ -z "$UpdatePackagePath" ]; then
-    echo  "Pobieranie Klienta..." >> /tmp/nex-Remote_Install.log
-    wget $HostName/Content/nex-Remote-Linux.zip
+    echo  "Pobieranie Klienta..." >> /tmp/nex-RemoteFree_Install.log
+    wget $HostName/Content/nex-RemoteFree-Linux.zip
 else
-    echo  "Kopiowanie plików..." >> /tmp/nex-Remote_Install.log
-    cp "$UpdatePackagePath" /usr/local/bin/nex-Remote/nex-Remote-Linux.zip
+    echo  "Kopiowanie plików..." >> /tmp/nex-RemoteFree_Install.log
+    cp "$UpdatePackagePath" /usr/local/bin/nex-RemoteFree/nex-RemoteFree-Linux.zip
     rm -f "$UpdatePackagePath"
 fi
 
-unzip ./nex-Remote-Linux.zip
-rm -f ./nex-Remote-Linux.zip
-chmod +x ./nex-Remote_Agent
-chmod +x ./Desktop/nex-Remote_Desktop
+unzip ./nex-RemoteFree-Linux.zip
+rm -f ./nex-RemoteFree-Linux.zip
+chmod +x ./nex-RemoteFree_Agent
+chmod +x ./Desktop/nex-RemoteFree_Desktop
 
 
 connectionInfo="{
@@ -69,16 +69,16 @@ connectionInfo="{
 
 echo "$connectionInfo" > ./ConnectionInfo.json
 
-curl --head $HostName/Content/nex-Remote-Linux.zip | grep -i "etag" | cut -d' ' -f 2 > ./etag.txt
+curl --head $HostName/Content/nex-RemoteFree-Linux.zip | grep -i "etag" | cut -d' ' -f 2 > ./etag.txt
 
-echo Creating service... >> /tmp/nex-Remote_Install.log
+echo Creating service... >> /tmp/nex-RemoteFree_Install.log
 
 serviceConfig="[Unit]
-Description=The nex-Remote agent used for remote access.
+Description=The nex-RemoteFree agent used for remote access.
 
 [Service]
-WorkingDirectory=/usr/local/bin/nex-Remote/
-ExecStart=/usr/local/bin/nex-Remote/nex-Remote_Agent
+WorkingDirectory=/usr/local/bin/nex-RemoteFree/
+ExecStart=/usr/local/bin/nex-RemoteFree/nex-RemoteFree_Agent
 Restart=always
 StartLimitIntervalSec=0
 RestartSec=10
@@ -86,9 +86,9 @@ RestartSec=10
 [Install]
 WantedBy=graphical.target"
 
-echo "$serviceConfig" > /etc/systemd/system/nex-Remote-agent.service
+echo "$serviceConfig" > /etc/systemd/system/nex-RemoteFree-agent.service
 
-systemctl enable nex-Remote-agent
-systemctl restart remotnex-Remoteely-agent
+systemctl enable nex-RemoteFree-agent
+systemctl restart remotnex-RemoteFreeely-agent
 
-echo Install complete. >> /tmp/nex-Remote_Install.log
+echo Install complete. >> /tmp/nex-RemoteFree_Install.log

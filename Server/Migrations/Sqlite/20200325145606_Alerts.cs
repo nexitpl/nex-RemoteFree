@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace nexRemote.Server.Migrations.Sqlite
+namespace nexRemoteFree.Server.Migrations.Sqlite
 {
     public partial class Alerts : Migration
     {
@@ -33,9 +33,9 @@ namespace nexRemote.Server.Migrations.Sqlite
                         principalColumn: "ID",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_Alerts_nexRemoteUsers_UserID",
+                        name: "FK_Alerts_nexRemoteFreeUsers_UserID",
                         column: x => x.UserID,
-                        principalTable: "nexRemoteUsers",
+                        principalTable: "nexRemoteFreeUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });

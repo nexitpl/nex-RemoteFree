@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace nexRemote.Server.Migrations.SqlServer
+namespace nexRemoteFree.Server.Migrations.SqlServer
 {
     public partial class Remove3rdPartyServices : Migration
     {

@@ -2,18 +2,18 @@
 using Microsoft.AspNetCore.Components.Rendering;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.Extensions.Logging;
-using nexRemote.Server.Components.ModalContents;
-using nexRemote.Server.Hubs;
-using nexRemote.Server.Services;
-using nexRemote.Shared.Enums;
-using nexRemote.Shared.Models;
-using nexRemote.Shared.Utilities;
+using nexRemoteFree.Server.Components.ModalContents;
+using nexRemoteFree.Server.Hubs;
+using nexRemoteFree.Server.Services;
+using nexRemoteFree.Shared.Enums;
+using nexRemoteFree.Shared.Models;
+using nexRemoteFree.Shared.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace nexRemote.Server.Components.Devices
+namespace nexRemoteFree.Server.Components.Devices
 {
     public partial class Terminal : AuthComponentBase, IDisposable
     {

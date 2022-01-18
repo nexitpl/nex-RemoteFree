@@ -1,22 +1,22 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SignalR;
-using nexRemote.Server.Hubs;
-using nexRemote.Server.Models;
-using nexRemote.Server.Services;
-using nexRemote.Shared.Models;
+using nexRemoteFree.Server.Hubs;
+using nexRemoteFree.Server.Models;
+using nexRemoteFree.Server.Services;
+using nexRemoteFree.Shared.Models;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace nexRemote.Server.API
+namespace nexRemoteFree.Server.API
 {
     [Route("api/[controller]")]
     [ApiController]
     [Obsolete("This controller is here only for legacy purposes.  For new integrations, use API tokens.")]
     public class LoginController : ControllerBase
     {
-        public LoginController(SignInManager<nexRemoteUser> signInManager,
+        public LoginController(SignInManager<nexRemoteFreeUser> signInManager,
             IDataService dataService,
             IApplicationConfig appConfig,
             IHubContext<CasterHub> casterHubContext,
@@ -29,7 +29,7 @@ namespace nexRemote.Server.API
             ViewerHubContext = viewerHubContext;
         }
 
-        private SignInManager<nexRemoteUser> SignInManager { get; }
+        private SignInManager<nexRemoteFreeUser> SignInManager { get; }
         private IDataService DataService { get; }
         public IApplicationConfig AppConfig { get; }
         private IHubContext<CasterHub> CasterHubContext { get; }

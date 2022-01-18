@@ -1,10 +1,10 @@
-﻿using nexRemote.Shared.Enums;
+﻿using nexRemoteFree.Shared.Enums;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace nexRemote.Shared.Models
+namespace nexRemoteFree.Shared.Models
 {
     public class Organization
     {
@@ -40,7 +40,7 @@ namespace nexRemote.Shared.Models
 
         public string RelayCode { get; set; }
 
-        public ICollection<nexRemoteUser> nexRemoteUsers { get; set; }
+        public ICollection<nexRemoteFreeUser> nexRemoteFreeUsers { get; set; }
         public ICollection<SharedFile> SharedFiles { get; set; }
     }
 }

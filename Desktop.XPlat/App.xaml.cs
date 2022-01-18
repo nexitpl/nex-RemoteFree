@@ -5,18 +5,18 @@ using Avalonia.Markup.Xaml;
 using Avalonia.Threading;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using nexRemote.Desktop.Core;
-using nexRemote.Desktop.Core.Interfaces;
-using nexRemote.Desktop.Core.Services;
-using nexRemote.Desktop.XPlat.Services;
-using nexRemote.Desktop.XPlat.Views;
-using nexRemote.Shared.Utilities;
+using nexRemoteFree.Desktop.Core;
+using nexRemoteFree.Desktop.Core.Interfaces;
+using nexRemoteFree.Desktop.Core.Services;
+using nexRemoteFree.Desktop.XPlat.Services;
+using nexRemoteFree.Desktop.XPlat.Views;
+using nexRemoteFree.Shared.Utilities;
 using System;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace nexRemote.Desktop.XPlat
+namespace nexRemoteFree.Desktop.XPlat
 {
     public class App : Application
     {

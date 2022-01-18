@@ -1,9 +1,9 @@
-﻿using nexRemote.Desktop.Core.Interfaces;
-using nexRemote.Desktop.Core.Services;
-using nexRemote.Desktop.Core.ViewModels;
-using nexRemote.Desktop.Win.ViewModels;
-using nexRemote.Desktop.Win.Views;
-using nexRemote.Shared.Utilities;
+﻿using nexRemoteFree.Desktop.Core.Interfaces;
+using nexRemoteFree.Desktop.Core.Services;
+using nexRemoteFree.Desktop.Core.ViewModels;
+using nexRemoteFree.Desktop.Win.ViewModels;
+using nexRemoteFree.Desktop.Win.Views;
+using nexRemoteFree.Shared.Utilities;
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
@@ -15,7 +15,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace nexRemote.Desktop.Win.Services
+namespace nexRemoteFree.Desktop.Win.Services
 {
     public class FileTransferServiceWin : IFileTransferService
     {
@@ -31,7 +31,7 @@ namespace nexRemote.Desktop.Win.Services
         public string GetBaseDirectory()
         {
             var programDataPath = Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData);
-            return Directory.CreateDirectory(Path.Combine(programDataPath, "nex-Remote", "Shared")).FullName;
+            return Directory.CreateDirectory(Path.Combine(programDataPath, "nex-RemoteFree", "Shared")).FullName;
         }
 
         public void OpenFileTransferWindow(Viewer viewer)

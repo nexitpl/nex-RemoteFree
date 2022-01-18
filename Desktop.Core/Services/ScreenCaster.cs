@@ -1,10 +1,10 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using nexRemote.Desktop.Core.Enums;
-using nexRemote.Desktop.Core.Interfaces;
-using nexRemote.Desktop.Core.Models;
-using nexRemote.Desktop.Core.Utilities;
-using nexRemote.Shared.Utilities;
-using nexRemote.Shared.Models;
+using nexRemoteFree.Desktop.Core.Enums;
+using nexRemoteFree.Desktop.Core.Interfaces;
+using nexRemoteFree.Desktop.Core.Models;
+using nexRemoteFree.Desktop.Core.Utilities;
+using nexRemoteFree.Shared.Utilities;
+using nexRemoteFree.Shared.Models;
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
@@ -16,7 +16,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 
-namespace nexRemote.Desktop.Core.Services
+namespace nexRemoteFree.Desktop.Core.Services
 {
     public interface IScreenCaster
     {

@@ -1,6 +1,6 @@
-﻿using nexRemote.Shared.Models;
-using nexRemote.Shared.Services;
-using nexRemote.Shared.Utilities;
+﻿using nexRemoteFree.Shared.Models;
+using nexRemoteFree.Shared.Services;
+using nexRemoteFree.Shared.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace nexRemote.Agent.Services
+namespace nexRemoteFree.Agent.Services
 {
     public class DeviceInformationServiceBase
     {
@@ -73,9 +73,9 @@ namespace nexRemote.Agent.Services
         {
             try
             {
-                if (File.Exists("nex-Remote_Agent.dll"))
+                if (File.Exists("nex-RemoteFree_Agent.dll"))
                 {
-                    return FileVersionInfo.GetVersionInfo("nex-Remote_Agent.dll").FileVersion.ToString().Trim();
+                    return FileVersionInfo.GetVersionInfo("nex-RemoteFree_Agent.dll").FileVersion.ToString().Trim();
                 }
             }
             catch (Exception ex)

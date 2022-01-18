@@ -1,10 +1,10 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using nexRemote.Server.Auth;
-using nexRemote.Server.Services;
-using nexRemote.Shared.Models;
+using nexRemoteFree.Server.Auth;
+using nexRemoteFree.Server.Services;
+using nexRemoteFree.Shared.Models;
 
-namespace nexRemote.Server.Pages
+namespace nexRemoteFree.Server.Pages
 {
     [ServiceFilter(typeof(RemoteControlFilterAttribute))]
     public class RemoteControlModel : PageModel
@@ -15,12 +15,12 @@ namespace nexRemote.Server.Pages
             _dataService = dataService;
         }
 
-        public nexRemoteUser nexRemoteUser { get; private set; }
+        public nexRemoteFreeUser nexRemoteFreeUser { get; private set; }
         public void OnGet()
         {
             if (User.Identity.IsAuthenticated)
             {
-                nexRemoteUser = _dataService.GetUserByNameWithOrg(base.User.Identity.Name);
+                nexRemoteFreeUser = _dataService.GetUserByNameWithOrg(base.User.Identity.Name);
             }
         }
     }

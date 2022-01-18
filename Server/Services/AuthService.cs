@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Identity;
-using nexRemote.Shared.Models;
+using nexRemoteFree.Shared.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,12 +8,12 @@ using System.Security.Claims;
 using System.Security.Principal;
 using System.Threading.Tasks;
 
-namespace nexRemote.Server.Services
+namespace nexRemoteFree.Server.Services
 {
     public interface IAuthService
     {
         Task<bool> IsAuthenticated();
-        Task<nexRemoteUser> GetUser();
+        Task<nexRemoteFreeUser> GetUser();
     }
 
     public class AuthService : IAuthService
@@ -35,7 +35,7 @@ namespace nexRemote.Server.Services
             return principal?.User?.Identity?.IsAuthenticated ?? false;
         }
 
-        public async Task<nexRemoteUser> GetUser()
+        public async Task<nexRemoteFreeUser> GetUser()
         {
             var principal = await _authProvider.GetAuthenticationStateAsync();
 

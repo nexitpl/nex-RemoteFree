@@ -11,23 +11,23 @@ using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
-using nexRemote.Shared.Models;
-using nexRemote.Server.Services;
+using nexRemoteFree.Shared.Models;
+using nexRemoteFree.Server.Services;
 using Microsoft.AspNetCore.WebUtilities;
 using System.Text;
 
-namespace nexRemote.Server.Areas.Identity.Pages.Account
+namespace nexRemoteFree.Server.Areas.Identity.Pages.Account
 {
     [AllowAnonymous]
     public class LoginModel : PageModel
     {
-        private readonly UserManager<nexRemoteUser> _userManager;
-        private readonly SignInManager<nexRemoteUser> _signInManager;
+        private readonly UserManager<nexRemoteFreeUser> _userManager;
+        private readonly SignInManager<nexRemoteFreeUser> _signInManager;
         private readonly ILogger<LoginModel> _logger;
         private readonly IDataService _dataService;
 
-        public LoginModel(SignInManager<nexRemoteUser> signInManager, 
-            UserManager<nexRemoteUser> userManager,
+        public LoginModel(SignInManager<nexRemoteFreeUser> signInManager, 
+            UserManager<nexRemoteFreeUser> userManager,
             ILogger<LoginModel> logger,
             IDataService dataService)
         {

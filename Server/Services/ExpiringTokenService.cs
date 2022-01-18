@@ -1,11 +1,11 @@
 ﻿using Microsoft.Extensions.Caching.Memory;
-using nexRemote.Shared.Utilities;
+using nexRemoteFree.Shared.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace nexRemote.Server.Services
+namespace nexRemoteFree.Server.Services
 {
     public interface IExpiringTokenService
     {

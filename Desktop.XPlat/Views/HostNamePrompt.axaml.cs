@@ -1,10 +1,10 @@
 ﻿using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Markup.Xaml;
-using nexRemote.Desktop.XPlat.ViewModels;
-using nexRemote.Desktop.XPlat.Views;
+using nexRemoteFree.Desktop.XPlat.ViewModels;
+using nexRemoteFree.Desktop.XPlat.Views;
 
-namespace nexRemote.Desktop.XPlat.Views
+namespace nexRemoteFree.Desktop.XPlat.Views
 {
     public class HostNamePrompt : Window
     {

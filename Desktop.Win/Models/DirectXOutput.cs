@@ -1,9 +1,9 @@
-﻿using nexRemote.Shared.Utilities;
+﻿using nexRemoteFree.Shared.Utilities;
 using SharpDX.Direct3D11;
 using SharpDX.DXGI;
 using System;
 
-namespace nexRemote.Desktop.Win.Models
+namespace nexRemoteFree.Desktop.Win.Models
 {
     public class DirectXOutput : IDisposable
     {

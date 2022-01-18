@@ -4,12 +4,12 @@ using Microsoft.AspNetCore.Components.Server.Circuits;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.SignalR;
 using Microsoft.Extensions.Logging;
-using nexRemote.Server.Auth;
-using nexRemote.Server.Models;
-using nexRemote.Server.Services;
-using nexRemote.Shared.Enums;
-using nexRemote.Shared.Models;
-using nexRemote.Shared.Utilities;
+using nexRemoteFree.Server.Auth;
+using nexRemoteFree.Server.Models;
+using nexRemoteFree.Server.Services;
+using nexRemoteFree.Shared.Enums;
+using nexRemoteFree.Shared.Models;
+using nexRemoteFree.Shared.Utilities;
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
@@ -18,12 +18,12 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace nexRemote.Server.Hubs
+namespace nexRemoteFree.Server.Hubs
 {
     public interface ICircuitConnection
     {
         event EventHandler<CircuitEvent> MessageReceived;
-        nexRemoteUser User { get; }
+        nexRemoteFreeUser User { get; }
 
         Task DeleteRemoteLogs(string deviceId);
 
@@ -92,7 +92,7 @@ namespace nexRemote.Server.Hubs
         public event EventHandler<CircuitEvent> MessageReceived;
 
         public string ConnectionId { get; set; }
-        public nexRemoteUser User { get; set; }
+        public nexRemoteFreeUser User { get; set; }
 
 
         public Task DeleteRemoteLogs(string deviceId)
@@ -254,7 +254,7 @@ namespace nexRemote.Server.Hubs
             string username;
             if (runAsHostedService)
             {
-                username = "nexRemote Server";
+                username = "nexRemoteFree Server";
             }
             else
             {

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Runtime.InteropServices;
 
-namespace nexRemote.Desktop.XPlat.Native.Linux
+namespace nexRemoteFree.Desktop.XPlat.Native.Linux
 {
     public class LibXtst
     {

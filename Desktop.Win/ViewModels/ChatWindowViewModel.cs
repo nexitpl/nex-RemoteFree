@@ -1,10 +1,10 @@
-﻿using nexRemote.Shared.Models;
+﻿using nexRemoteFree.Shared.Models;
 using System.Collections.ObjectModel;
 using System.IO;
 using System.Text.Json;
 using System.Threading.Tasks;
 
-namespace nexRemote.Desktop.Win.ViewModels
+namespace nexRemoteFree.Desktop.Win.ViewModels
 {
     public class ChatWindowViewModel : BrandedViewModelBase
     {

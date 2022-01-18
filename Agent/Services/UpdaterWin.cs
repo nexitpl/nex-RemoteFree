@@ -1,5 +1,5 @@
-﻿using nexRemote.Agent.Interfaces;
-using nexRemote.Shared.Utilities;
+﻿using nexRemoteFree.Agent.Interfaces;
+using nexRemoteFree.Shared.Utilities;
 using System;
 using System.Diagnostics;
 using System.IO;
@@ -7,7 +7,7 @@ using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace nexRemote.Agent.Services
+namespace nexRemoteFree.Agent.Services
 {
     public class UpdaterWin : IUpdater
     {
@@ -60,7 +60,7 @@ namespace nexRemote.Agent.Services
                 var serverUrl = _configService.GetConnectionInfo().Host;
 
                 var platform = Environment.Is64BitOperatingSystem ? "x64" : "x86";
-                var fileUrl = serverUrl + $"/Content/nex-Remote-Win10-{platform}.zip";
+                var fileUrl = serverUrl + $"/Content/nex-RemoteFree-Win10-{platform}.zip";
 
                 var lastEtag = string.Empty;
 
@@ -119,13 +119,13 @@ namespace nexRemote.Agent.Services
                 Logger.Write("Service Updater: Pobieranie pakietu instalacyjnego.");
 
                 var downloadId = Guid.NewGuid().ToString();
-                var zipPath = Path.Combine(Path.GetTempPath(), "nex-RemoteUpdate.zip");
+                var zipPath = Path.Combine(Path.GetTempPath(), "nex-RemoteFreeUpdate.zip");
 
-                var installerPath = Path.Combine(Path.GetTempPath(), "nex-Remote_Installer.exe");
+                var installerPath = Path.Combine(Path.GetTempPath(), "nex-RemoteFree_Installer.exe");
                 var platform = Environment.Is64BitOperatingSystem ? "x64" : "x86";
 
                 await _webClientEx.DownloadFileTaskAsync(
-                     serverUrl + $"/Content/nex-Remote_Installer.exe",
+                     serverUrl + $"/Content/nex-RemoteFree_Installer.exe",
                      installerPath);
 
                 await _webClientEx.DownloadFileTaskAsync(
@@ -135,7 +135,7 @@ namespace nexRemote.Agent.Services
                 (await WebRequest.CreateHttp(serverUrl + $"/api/AgentUpdate/ClearDownload/{downloadId}").GetResponseAsync()).Dispose();
 
 
-                foreach (var proc in Process.GetProcessesByName("nex-Remote_Installer"))
+                foreach (var proc in Process.GetProcessesByName("nex-RemoteFree_Installer"))
                 {
                     proc.Kill();
                 }

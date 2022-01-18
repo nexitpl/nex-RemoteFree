@@ -1,19 +1,19 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SignalR;
-using nexRemote.Server.Hubs;
-using nexRemote.Server.Services;
-using nexRemote.Shared.Utilities;
-using nexRemote.Shared.Models;
+using nexRemoteFree.Server.Hubs;
+using nexRemoteFree.Server.Services;
+using nexRemoteFree.Shared.Utilities;
+using nexRemoteFree.Shared.Models;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-using nexRemote.Shared.Enums;
-using nexRemote.Server.Auth;
+using nexRemoteFree.Shared.Enums;
+using nexRemoteFree.Server.Auth;
 
-namespace nexRemote.Server.API
+namespace nexRemoteFree.Server.API
 {
     [ApiController]
     [Route("api/[controller]")]
@@ -25,9 +25,9 @@ namespace nexRemote.Server.API
 
         private readonly IExpiringTokenService _expiringTokenService;
 
-        private readonly UserManager<nexRemoteUser> _userManager;
+        private readonly UserManager<nexRemoteFreeUser> _userManager;
 
-        public ScriptingController(UserManager<nexRemoteUser> userManager,
+        public ScriptingController(UserManager<nexRemoteFreeUser> userManager,
                                             IDataService dataService,
             IExpiringTokenService expiringTokenService,
             IHubContext<AgentHub> agentHub)

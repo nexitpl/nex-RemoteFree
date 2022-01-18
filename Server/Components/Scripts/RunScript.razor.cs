@@ -1,21 +1,21 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.SignalR;
-using nexRemote.Server.Hubs;
-using nexRemote.Server.Migrations.PostgreSql;
-using nexRemote.Server.Migrations.Sqlite;
-using nexRemote.Server.Migrations.SqlServer;
-using nexRemote.Server.Pages;
-using nexRemote.Server.Services;
-using nexRemote.Shared.Enums;
-using nexRemote.Shared.Models;
-using nexRemote.Shared.Utilities;
+using nexRemoteFree.Server.Hubs;
+using nexRemoteFree.Server.Migrations.PostgreSql;
+using nexRemoteFree.Server.Migrations.Sqlite;
+using nexRemoteFree.Server.Migrations.SqlServer;
+using nexRemoteFree.Server.Pages;
+using nexRemoteFree.Server.Services;
+using nexRemoteFree.Shared.Enums;
+using nexRemoteFree.Shared.Models;
+using nexRemoteFree.Shared.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace nexRemote.Server.Components.Scripts
+namespace nexRemoteFree.Server.Components.Scripts
 {
     [Authorize]
     public partial class RunScript : AuthComponentBase

@@ -5,9 +5,9 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
-using nexRemote.Server.Data;
+using nexRemoteFree.Server.Data;
 
-namespace nexRemote.Server.Migrations.PostgreSql
+namespace nexRemoteFree.Server.Migrations.PostgreSql
 {
     [DbContext(typeof(PostgreSqlDbContext))]
     [Migration("20210417155843_Add Alert Details")]
@@ -21,7 +21,7 @@ namespace nexRemote.Server.Migrations.PostgreSql
                 .HasAnnotation("ProductVersion", "5.0.5")
                 .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
-            modelBuilder.Entity("DeviceGroupnexRemoteUser", b =>
+            modelBuilder.Entity("DeviceGroupnexRemoteFreeUser", b =>
                 {
                     b.Property<string>("DeviceGroupsID")
                         .HasColumnType("text");
@@ -33,7 +33,7 @@ namespace nexRemote.Server.Migrations.PostgreSql
 
                     b.HasIndex("UsersId");
 
-                    b.ToTable("DeviceGroupnexRemoteUser");
+                    b.ToTable("DeviceGroupnexRemoteFreeUser");
                 });
 
             modelBuilder.Entity("DeviceGroupScriptSchedule", b =>
@@ -211,7 +211,7 @@ namespace nexRemote.Server.Migrations.PostgreSql
                         .IsUnique()
                         .HasDatabaseName("UserNameIndex");
 
-                    b.ToTable("nexRemoteUsers");
+                    b.ToTable("nexRemoteFreeUsers");
 
                     b.HasDiscriminator<string>("Discriminator").HasValue("IdentityUser");
                 });
@@ -300,7 +300,7 @@ namespace nexRemote.Server.Migrations.PostgreSql
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("nexRemote.Shared.Models.Alert", b =>
+            modelBuilder.Entity("nexRemoteFree.Shared.Models.Alert", b =>
                 {
                     b.Property<string>("ID")
                         .ValueGeneratedOnAdd()
@@ -335,7 +335,7 @@ namespace nexRemote.Server.Migrations.PostgreSql
                     b.ToTable("Alerts");
                 });
 
-            modelBuilder.Entity("nexRemote.Shared.Models.ApiToken", b =>
+            modelBuilder.Entity("nexRemoteFree.Shared.Models.ApiToken", b =>
                 {
                     b.Property<string>("ID")
                         .ValueGeneratedOnAdd()
@@ -361,7 +361,7 @@ namespace nexRemote.Server.Migrations.PostgreSql
                     b.ToTable("ApiTokens");
                 });
 
-            modelBuilder.Entity("nexRemote.Shared.Models.BrandingInfo", b =>
+            modelBuilder.Entity("nexRemoteFree.Shared.Models.BrandingInfo", b =>
                 {
                     b.Property<string>("Id")
                         .ValueGeneratedOnAdd()
@@ -406,7 +406,7 @@ namespace nexRemote.Server.Migrations.PostgreSql
                     b.ToTable("BrandingInfo");
                 });
 
-            modelBuilder.Entity("nexRemote.Shared.Models.Device", b =>
+            modelBuilder.Entity("nexRemoteFree.Shared.Models.Device", b =>
                 {
                     b.Property<string>("ID")
                         .HasColumnType("text");
@@ -497,7 +497,7 @@ namespace nexRemote.Server.Migrations.PostgreSql
                     b.ToTable("Devices");
                 });
 
-            modelBuilder.Entity("nexRemote.Shared.Models.DeviceGroup", b =>
+            modelBuilder.Entity("nexRemoteFree.Shared.Models.DeviceGroup", b =>
                 {
                     b.Property<string>("ID")
                         .ValueGeneratedOnAdd()
@@ -517,7 +517,7 @@ namespace nexRemote.Server.Migrations.PostgreSql
                     b.ToTable("DeviceGroups");
                 });
 
-            modelBuilder.Entity("nexRemote.Shared.Models.EventLog", b =>
+            modelBuilder.Entity("nexRemoteFree.Shared.Models.EventLog", b =>
                 {
                     b.Property<string>("ID")
                         .ValueGeneratedOnAdd()
@@ -548,7 +548,7 @@ namespace nexRemote.Server.Migrations.PostgreSql
                     b.ToTable("EventLogs");
                 });
 
-            modelBuilder.Entity("nexRemote.Shared.Models.InviteLink", b =>
+            modelBuilder.Entity("nexRemoteFree.Shared.Models.InviteLink", b =>
                 {
                     b.Property<string>("ID")
                         .ValueGeneratedOnAdd()
@@ -576,7 +576,7 @@ namespace nexRemote.Server.Migrations.PostgreSql
                     b.ToTable("InviteLinks");
                 });
 
-            modelBuilder.Entity("nexRemote.Shared.Models.Organization", b =>
+            modelBuilder.Entity("nexRemoteFree.Shared.Models.Organization", b =>
                 {
                     b.Property<string>("ID")
                         .ValueGeneratedOnAdd()
@@ -602,7 +602,7 @@ namespace nexRemote.Server.Migrations.PostgreSql
                     b.ToTable("Organizations");
                 });
 
-            modelBuilder.Entity("nexRemote.Shared.Models.SavedScript", b =>
+            modelBuilder.Entity("nexRemoteFree.Shared.Models.SavedScript", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -654,7 +654,7 @@ namespace nexRemote.Server.Migrations.PostgreSql
                     b.ToTable("SavedScripts");
                 });
 
-            modelBuilder.Entity("nexRemote.Shared.Models.ScriptResult", b =>
+            modelBuilder.Entity("nexRemoteFree.Shared.Models.ScriptResult", b =>
                 {
                     b.Property<string>("ID")
                         .ValueGeneratedOnAdd()
@@ -718,7 +718,7 @@ namespace nexRemote.Server.Migrations.PostgreSql
                     b.ToTable("ScriptResults");
                 });
 
-            modelBuilder.Entity("nexRemote.Shared.Models.ScriptRun", b =>
+            modelBuilder.Entity("nexRemoteFree.Shared.Models.ScriptRun", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -758,7 +758,7 @@ namespace nexRemote.Server.Migrations.PostgreSql
                     b.ToTable("ScriptRuns");
                 });
 
-            modelBuilder.Entity("nexRemote.Shared.Models.ScriptSchedule", b =>
+            modelBuilder.Entity("nexRemoteFree.Shared.Models.ScriptSchedule", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -804,7 +804,7 @@ namespace nexRemote.Server.Migrations.PostgreSql
                     b.ToTable("ScriptSchedules");
                 });
 
-            modelBuilder.Entity("nexRemote.Shared.Models.SharedFile", b =>
+            modelBuilder.Entity("nexRemoteFree.Shared.Models.SharedFile", b =>
                 {
                     b.Property<string>("ID")
                         .ValueGeneratedOnAdd()
@@ -832,7 +832,7 @@ namespace nexRemote.Server.Migrations.PostgreSql
                     b.ToTable("SharedFiles");
                 });
 
-            modelBuilder.Entity("nexRemote.Shared.Models.nexRemoteUser", b =>
+            modelBuilder.Entity("nexRemoteFree.Shared.Models.nexRemoteFreeUser", b =>
                 {
                     b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityUser");
 
@@ -855,18 +855,18 @@ namespace nexRemote.Server.Migrations.PostgreSql
 
                     b.HasIndex("UserName");
 
-                    b.HasDiscriminator().HasValue("nexRemoteUser");
+                    b.HasDiscriminator().HasValue("nexRemoteFreeUser");
                 });
 
-            modelBuilder.Entity("DeviceGroupnexRemoteUser", b =>
+            modelBuilder.Entity("DeviceGroupnexRemoteFreeUser", b =>
                 {
-                    b.HasOne("nexRemote.Shared.Models.DeviceGroup", null)
+                    b.HasOne("nexRemoteFree.Shared.Models.DeviceGroup", null)
                         .WithMany()
                         .HasForeignKey("DeviceGroupsID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("nexRemote.Shared.Models.nexRemoteUser", null)
+                    b.HasOne("nexRemoteFree.Shared.Models.nexRemoteFreeUser", null)
                         .WithMany()
                         .HasForeignKey("UsersId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -875,13 +875,13 @@ namespace nexRemote.Server.Migrations.PostgreSql
 
             modelBuilder.Entity("DeviceGroupScriptSchedule", b =>
                 {
-                    b.HasOne("nexRemote.Shared.Models.DeviceGroup", null)
+                    b.HasOne("nexRemoteFree.Shared.Models.DeviceGroup", null)
                         .WithMany()
                         .HasForeignKey("DeviceGroupsID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("nexRemote.Shared.Models.ScriptSchedule", null)
+                    b.HasOne("nexRemoteFree.Shared.Models.ScriptSchedule", null)
                         .WithMany()
                         .HasForeignKey("ScriptSchedulesId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -890,13 +890,13 @@ namespace nexRemote.Server.Migrations.PostgreSql
 
             modelBuilder.Entity("DeviceScriptRun", b =>
                 {
-                    b.HasOne("nexRemote.Shared.Models.Device", null)
+                    b.HasOne("nexRemoteFree.Shared.Models.Device", null)
                         .WithMany()
                         .HasForeignKey("DevicesID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("nexRemote.Shared.Models.ScriptRun", null)
+                    b.HasOne("nexRemoteFree.Shared.Models.ScriptRun", null)
                         .WithMany()
                         .HasForeignKey("ScriptRunsId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -905,13 +905,13 @@ namespace nexRemote.Server.Migrations.PostgreSql
 
             modelBuilder.Entity("DeviceScriptRun1", b =>
                 {
-                    b.HasOne("nexRemote.Shared.Models.Device", null)
+                    b.HasOne("nexRemoteFree.Shared.Models.Device", null)
                         .WithMany()
                         .HasForeignKey("DevicesCompletedID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("nexRemote.Shared.Models.ScriptRun", null)
+                    b.HasOne("nexRemoteFree.Shared.Models.ScriptRun", null)
                         .WithMany()
                         .HasForeignKey("ScriptRunsCompletedId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -920,13 +920,13 @@ namespace nexRemote.Server.Migrations.PostgreSql
 
             modelBuilder.Entity("DeviceScriptSchedule", b =>
                 {
-                    b.HasOne("nexRemote.Shared.Models.Device", null)
+                    b.HasOne("nexRemoteFree.Shared.Models.Device", null)
                         .WithMany()
                         .HasForeignKey("DevicesID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("nexRemote.Shared.Models.ScriptSchedule", null)
+                    b.HasOne("nexRemoteFree.Shared.Models.ScriptSchedule", null)
                         .WithMany()
                         .HasForeignKey("ScriptSchedulesId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -984,17 +984,17 @@ namespace nexRemote.Server.Migrations.PostgreSql
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("nexRemote.Shared.Models.Alert", b =>
+            modelBuilder.Entity("nexRemoteFree.Shared.Models.Alert", b =>
                 {
-                    b.HasOne("nexRemote.Shared.Models.Device", "Device")
+                    b.HasOne("nexRemoteFree.Shared.Models.Device", "Device")
                         .WithMany("Alerts")
                         .HasForeignKey("DeviceID");
 
-                    b.HasOne("nexRemote.Shared.Models.Organization", "Organization")
+                    b.HasOne("nexRemoteFree.Shared.Models.Organization", "Organization")
                         .WithMany("Alerts")
                         .HasForeignKey("OrganizationID");
 
-                    b.HasOne("nexRemote.Shared.Models.nexRemoteUser", "User")
+                    b.HasOne("nexRemoteFree.Shared.Models.nexRemoteFreeUser", "User")
                         .WithMany("Alerts")
                         .HasForeignKey("UserID");
 
@@ -1005,22 +1005,22 @@ namespace nexRemote.Server.Migrations.PostgreSql
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("nexRemote.Shared.Models.ApiToken", b =>
+            modelBuilder.Entity("nexRemoteFree.Shared.Models.ApiToken", b =>
                 {
-                    b.HasOne("nexRemote.Shared.Models.Organization", "Organization")
+                    b.HasOne("nexRemoteFree.Shared.Models.Organization", "Organization")
                         .WithMany("ApiTokens")
                         .HasForeignKey("OrganizationID");
 
                     b.Navigation("Organization");
                 });
 
-            modelBuilder.Entity("nexRemote.Shared.Models.Device", b =>
+            modelBuilder.Entity("nexRemoteFree.Shared.Models.Device", b =>
                 {
-                    b.HasOne("nexRemote.Shared.Models.DeviceGroup", "DeviceGroup")
+                    b.HasOne("nexRemoteFree.Shared.Models.DeviceGroup", "DeviceGroup")
                         .WithMany("Devices")
                         .HasForeignKey("DeviceGroupID");
 
-                    b.HasOne("nexRemote.Shared.Models.Organization", "Organization")
+                    b.HasOne("nexRemoteFree.Shared.Models.Organization", "Organization")
                         .WithMany("Devices")
                         .HasForeignKey("OrganizationID");
 
@@ -1029,49 +1029,49 @@ namespace nexRemote.Server.Migrations.PostgreSql
                     b.Navigation("Organization");
                 });
 
-            modelBuilder.Entity("nexRemote.Shared.Models.DeviceGroup", b =>
+            modelBuilder.Entity("nexRemoteFree.Shared.Models.DeviceGroup", b =>
                 {
-                    b.HasOne("nexRemote.Shared.Models.Organization", "Organization")
+                    b.HasOne("nexRemoteFree.Shared.Models.Organization", "Organization")
                         .WithMany("DeviceGroups")
                         .HasForeignKey("OrganizationID");
 
                     b.Navigation("Organization");
                 });
 
-            modelBuilder.Entity("nexRemote.Shared.Models.EventLog", b =>
+            modelBuilder.Entity("nexRemoteFree.Shared.Models.EventLog", b =>
                 {
-                    b.HasOne("nexRemote.Shared.Models.Organization", "Organization")
+                    b.HasOne("nexRemoteFree.Shared.Models.Organization", "Organization")
                         .WithMany("EventLogs")
                         .HasForeignKey("OrganizationID");
 
                     b.Navigation("Organization");
                 });
 
-            modelBuilder.Entity("nexRemote.Shared.Models.InviteLink", b =>
+            modelBuilder.Entity("nexRemoteFree.Shared.Models.InviteLink", b =>
                 {
-                    b.HasOne("nexRemote.Shared.Models.Organization", "Organization")
+                    b.HasOne("nexRemoteFree.Shared.Models.Organization", "Organization")
                         .WithMany("InviteLinks")
                         .HasForeignKey("OrganizationID");
 
                     b.Navigation("Organization");
                 });
 
-            modelBuilder.Entity("nexRemote.Shared.Models.Organization", b =>
+            modelBuilder.Entity("nexRemoteFree.Shared.Models.Organization", b =>
                 {
-                    b.HasOne("nexRemote.Shared.Models.BrandingInfo", "BrandingInfo")
+                    b.HasOne("nexRemoteFree.Shared.Models.BrandingInfo", "BrandingInfo")
                         .WithMany()
                         .HasForeignKey("BrandingInfoId");
 
                     b.Navigation("BrandingInfo");
                 });
 
-            modelBuilder.Entity("nexRemote.Shared.Models.SavedScript", b =>
+            modelBuilder.Entity("nexRemoteFree.Shared.Models.SavedScript", b =>
                 {
-                    b.HasOne("nexRemote.Shared.Models.nexRemoteUser", "Creator")
+                    b.HasOne("nexRemoteFree.Shared.Models.nexRemoteFreeUser", "Creator")
                         .WithMany("SavedScripts")
                         .HasForeignKey("CreatorId");
 
-                    b.HasOne("nexRemote.Shared.Models.Organization", "Organization")
+                    b.HasOne("nexRemoteFree.Shared.Models.Organization", "Organization")
                         .WithMany("SavedScripts")
                         .HasForeignKey("OrganizationID");
 
@@ -1080,21 +1080,21 @@ namespace nexRemote.Server.Migrations.PostgreSql
                     b.Navigation("Organization");
                 });
 
-            modelBuilder.Entity("nexRemote.Shared.Models.ScriptResult", b =>
+            modelBuilder.Entity("nexRemoteFree.Shared.Models.ScriptResult", b =>
                 {
-                    b.HasOne("nexRemote.Shared.Models.Device", "Device")
+                    b.HasOne("nexRemoteFree.Shared.Models.Device", "Device")
                         .WithMany("ScriptResults")
                         .HasForeignKey("DeviceID");
 
-                    b.HasOne("nexRemote.Shared.Models.Organization", "Organization")
+                    b.HasOne("nexRemoteFree.Shared.Models.Organization", "Organization")
                         .WithMany("ScriptResults")
                         .HasForeignKey("OrganizationID");
 
-                    b.HasOne("nexRemote.Shared.Models.ScriptSchedule", "Schedule")
+                    b.HasOne("nexRemoteFree.Shared.Models.ScriptSchedule", "Schedule")
                         .WithMany()
                         .HasForeignKey("ScheduleId");
 
-                    b.HasOne("nexRemote.Shared.Models.ScriptRun", null)
+                    b.HasOne("nexRemoteFree.Shared.Models.ScriptRun", null)
                         .WithMany("Results")
                         .HasForeignKey("ScriptRunId");
 
@@ -1105,26 +1105,26 @@ namespace nexRemote.Server.Migrations.PostgreSql
                     b.Navigation("Schedule");
                 });
 
-            modelBuilder.Entity("nexRemote.Shared.Models.ScriptRun", b =>
+            modelBuilder.Entity("nexRemoteFree.Shared.Models.ScriptRun", b =>
                 {
-                    b.HasOne("nexRemote.Shared.Models.Organization", "Organization")
+                    b.HasOne("nexRemoteFree.Shared.Models.Organization", "Organization")
                         .WithMany("ScriptRuns")
                         .HasForeignKey("OrganizationID");
 
-                    b.HasOne("nexRemote.Shared.Models.ScriptSchedule", null)
+                    b.HasOne("nexRemoteFree.Shared.Models.ScriptSchedule", null)
                         .WithMany("ScriptRuns")
                         .HasForeignKey("ScriptScheduleId");
 
                     b.Navigation("Organization");
                 });
 
-            modelBuilder.Entity("nexRemote.Shared.Models.ScriptSchedule", b =>
+            modelBuilder.Entity("nexRemoteFree.Shared.Models.ScriptSchedule", b =>
                 {
-                    b.HasOne("nexRemote.Shared.Models.nexRemoteUser", "Creator")
+                    b.HasOne("nexRemoteFree.Shared.Models.nexRemoteFreeUser", "Creator")
                         .WithMany("ScriptSchedules")
                         .HasForeignKey("CreatorId");
 
-                    b.HasOne("nexRemote.Shared.Models.Organization", "Organization")
+                    b.HasOne("nexRemoteFree.Shared.Models.Organization", "Organization")
                         .WithMany("ScriptSchedules")
                         .HasForeignKey("OrganizationID");
 
@@ -1133,37 +1133,37 @@ namespace nexRemote.Server.Migrations.PostgreSql
                     b.Navigation("Organization");
                 });
 
-            modelBuilder.Entity("nexRemote.Shared.Models.SharedFile", b =>
+            modelBuilder.Entity("nexRemoteFree.Shared.Models.SharedFile", b =>
                 {
-                    b.HasOne("nexRemote.Shared.Models.Organization", "Organization")
+                    b.HasOne("nexRemoteFree.Shared.Models.Organization", "Organization")
                         .WithMany("SharedFiles")
                         .HasForeignKey("OrganizationID");
 
                     b.Navigation("Organization");
                 });
 
-            modelBuilder.Entity("nexRemote.Shared.Models.nexRemoteUser", b =>
+            modelBuilder.Entity("nexRemoteFree.Shared.Models.nexRemoteFreeUser", b =>
                 {
-                    b.HasOne("nexRemote.Shared.Models.Organization", "Organization")
-                        .WithMany("nexRemoteUsers")
+                    b.HasOne("nexRemoteFree.Shared.Models.Organization", "Organization")
+                        .WithMany("nexRemoteFreeUsers")
                         .HasForeignKey("OrganizationID");
 
                     b.Navigation("Organization");
                 });
 
-            modelBuilder.Entity("nexRemote.Shared.Models.Device", b =>
+            modelBuilder.Entity("nexRemoteFree.Shared.Models.Device", b =>
                 {
                     b.Navigation("Alerts");
 
                     b.Navigation("ScriptResults");
                 });
 
-            modelBuilder.Entity("nexRemote.Shared.Models.DeviceGroup", b =>
+            modelBuilder.Entity("nexRemoteFree.Shared.Models.DeviceGroup", b =>
                 {
                     b.Navigation("Devices");
                 });
 
-            modelBuilder.Entity("nexRemote.Shared.Models.Organization", b =>
+            modelBuilder.Entity("nexRemoteFree.Shared.Models.Organization", b =>
                 {
                     b.Navigation("Alerts");
 
@@ -1177,7 +1177,7 @@ namespace nexRemote.Server.Migrations.PostgreSql
 
                     b.Navigation("InviteLinks");
 
-                    b.Navigation("nexRemoteUsers");
+                    b.Navigation("nexRemoteFreeUsers");
 
                     b.Navigation("SavedScripts");
 
@@ -1190,17 +1190,17 @@ namespace nexRemote.Server.Migrations.PostgreSql
                     b.Navigation("SharedFiles");
                 });
 
-            modelBuilder.Entity("nexRemote.Shared.Models.ScriptRun", b =>
+            modelBuilder.Entity("nexRemoteFree.Shared.Models.ScriptRun", b =>
                 {
                     b.Navigation("Results");
                 });
 
-            modelBuilder.Entity("nexRemote.Shared.Models.ScriptSchedule", b =>
+            modelBuilder.Entity("nexRemoteFree.Shared.Models.ScriptSchedule", b =>
                 {
                     b.Navigation("ScriptRuns");
                 });
 
-            modelBuilder.Entity("nexRemote.Shared.Models.nexRemoteUser", b =>
+            modelBuilder.Entity("nexRemoteFree.Shared.Models.nexRemoteFreeUser", b =>
                 {
                     b.Navigation("Alerts");
 

@@ -1,6 +1,6 @@
 ﻿using System.IO;
 
-namespace nexRemote.Shared.Models
+namespace nexRemoteFree.Shared.Models
 {
     public class Drive
     {

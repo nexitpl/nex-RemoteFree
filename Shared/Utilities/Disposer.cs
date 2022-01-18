@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace nexRemote.Shared.Utilities
+namespace nexRemoteFree.Shared.Utilities
 {
     public static class Disposer
     {

@@ -22,19 +22,19 @@ RUN \
   apt-get -y install aspnetcore-runtime-5.0
 
 RUN \
-  mkdir -p /var/www/nex-Remote && \
+  mkdir -p /var/www/nex-RemoteFree && \
   mkdir /config && \
-  wget -q https://github.com/nexitpl/nex-Remote/releases/latest/download/nex-Remote_Server_Linux-x64.zip && \
-  unzip -o nex-Remote_Server_Linux-x64.zip -d /var/www/nex-Remote && \
-  rm nex-Remote_Server_Linux-x64.zip
+  wget -q https://github.com/nexitpl/nex-RemoteFree/releases/latest/download/nex-RemoteFree_Server_Linux-x64.zip && \
+  unzip -o nex-RemoteFree_Server_Linux-x64.zip -d /var/www/nex-RemoteFree && \
+  rm nex-RemoteFree_Server_Linux-x64.zip
 
 RUN \
-  mkdir -p /nexRemote-data && \
-  sed -i 's/DataSource=nexRemote.db/DataSource=\/nexRemote-data\/nexRemote.db/' /var/www/nex-Remote/appsettings.json
+  mkdir -p /nexRemoteFree-data && \
+  sed -i 's/DataSource=nexRemoteFree.db/DataSource=\/nexRemoteFree-data\/nexRemoteFree.db/' /var/www/nex-RemoteFree/appsettings.json
 
-VOLUME "/nexRemote-data"
+VOLUME "/nexRemoteFree-data"
 
-WORKDIR /var/www/nex-Remote
+WORKDIR /var/www/nex-RemoteFree
 
 COPY DockerMain.sh /
 

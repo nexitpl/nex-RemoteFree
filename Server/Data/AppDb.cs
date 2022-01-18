@@ -5,14 +5,14 @@ using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Microsoft.EntityFrameworkCore.Diagnostics;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Microsoft.Extensions.Logging;
-using nexRemote.Shared.Models;
-using nexRemote.Shared.Utilities;
+using nexRemoteFree.Shared.Models;
+using nexRemoteFree.Shared.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.Json;
 
-namespace nexRemote.Server.Data
+namespace nexRemoteFree.Server.Data
 {
     public class AppDb : IdentityDbContext
     {
@@ -40,7 +40,7 @@ namespace nexRemote.Server.Data
         public DbSet<ScriptSchedule> ScriptSchedules { get; set; }
         public DbSet<ScriptResult> ScriptResults { get; set; }
         public DbSet<SharedFile> SharedFiles { get; set; }
-        public new DbSet<nexRemoteUser> Users { get; set; }
+        public new DbSet<nexRemoteFreeUser> Users { get; set; }
 
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
@@ -54,13 +54,13 @@ namespace nexRemote.Server.Data
 
             base.OnModelCreating(builder);
 
-            builder.Entity<IdentityUser>().ToTable("nexRemoteUsers");
+            builder.Entity<IdentityUser>().ToTable("nexRemoteFreeUsers");
 
             builder.Entity<Organization>()
                 .HasMany(x => x.Devices)
                 .WithOne(x => x.Organization);
             builder.Entity<Organization>()
-                .HasMany(x => x.nexRemoteUsers)
+                .HasMany(x => x.nexRemoteFreeUsers)
                 .WithOne(x => x.Organization);
             builder.Entity<Organization>()
                 .HasMany(x => x.EventLogs)
@@ -93,29 +93,29 @@ namespace nexRemote.Server.Data
                 .HasMany(x => x.SavedScripts)
                 .WithOne(x => x.Organization);
 
-            builder.Entity<nexRemoteUser>()
+            builder.Entity<nexRemoteFreeUser>()
                .HasOne(x => x.Organization)
-               .WithMany(x => x.nexRemoteUsers);
+               .WithMany(x => x.nexRemoteFreeUsers);
 
-            builder.Entity<nexRemoteUser>()
+            builder.Entity<nexRemoteFreeUser>()
                 .HasMany(x => x.DeviceGroups)
                 .WithMany(x => x.Users);
-            builder.Entity<nexRemoteUser>()
+            builder.Entity<nexRemoteFreeUser>()
                 .HasMany(x => x.Alerts)
                 .WithOne(x => x.User);
-            builder.Entity<nexRemoteUser>()
+            builder.Entity<nexRemoteFreeUser>()
                 .Property(x => x.UserOptions)
                 .HasConversion(
                     x => JsonSerializer.Serialize(x, null),
-                    x => JsonSerializer.Deserialize<nexRemoteUserOptions>(x, null));
-            builder.Entity<nexRemoteUser>()
+                    x => JsonSerializer.Deserialize<nexRemoteFreeUserOptions>(x, null));
+            builder.Entity<nexRemoteFreeUser>()
                 .HasMany(x => x.SavedScripts)
                 .WithOne(x => x.Creator);
-            builder.Entity<nexRemoteUser>()
+            builder.Entity<nexRemoteFreeUser>()
                 .HasMany(x => x.ScriptSchedules)
                 .WithOne(x => x.Creator);
 
-            builder.Entity<nexRemoteUser>()
+            builder.Entity<nexRemoteFreeUser>()
                 .HasIndex(x => x.UserName);
 
             builder.Entity<Device>()

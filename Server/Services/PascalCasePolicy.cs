@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using System.Text.Json;
 
-namespace nexRemote.Server.Services
+namespace nexRemoteFree.Server.Services
 {
     public class PascalCasePolicy : JsonNamingPolicy
     {

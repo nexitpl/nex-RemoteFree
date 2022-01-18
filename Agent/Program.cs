@@ -1,10 +1,10 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using nexRemote.Agent.Interfaces;
-using nexRemote.Agent.Services;
-using nexRemote.Shared.Enums;
-using nexRemote.Shared.Utilities;
-using nexRemote.Shared.Services;
+using nexRemoteFree.Agent.Interfaces;
+using nexRemoteFree.Agent.Services;
+using nexRemoteFree.Shared.Enums;
+using nexRemoteFree.Shared.Utilities;
+using nexRemoteFree.Shared.Services;
 using System;
 using System.Diagnostics;
 using System.IO;
@@ -12,7 +12,7 @@ using System.ServiceProcess;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace nexRemote.Agent
+namespace nexRemoteFree.Agent
 {
     public class Program
     {

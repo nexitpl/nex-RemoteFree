@@ -1,5 +1,5 @@
 ﻿using NAudio.Wave;
-using nexRemote.Desktop.Core.Interfaces;
+using nexRemoteFree.Desktop.Core.Interfaces;
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
@@ -7,7 +7,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 
-namespace nexRemote.Desktop.Win.Services
+namespace nexRemoteFree.Desktop.Win.Services
 {
     public class AudioCapturerWin : IAudioCapturer
     {

@@ -1,12 +1,12 @@
-﻿using nexRemote.Desktop.Core.Interfaces;
-using nexRemote.Desktop.Win.ViewModels;
-using nexRemote.Desktop.Win.Views;
+﻿using nexRemoteFree.Desktop.Core.Interfaces;
+using nexRemoteFree.Desktop.Win.ViewModels;
+using nexRemoteFree.Desktop.Win.Views;
 using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace nexRemote.Desktop.Win.Services
+namespace nexRemoteFree.Desktop.Win.Services
 {
     public class RemoteControlAccessServiceWin : IRemoteControlAccessService
     {

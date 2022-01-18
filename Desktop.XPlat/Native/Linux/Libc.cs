@@ -5,7 +5,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace nexRemote.Desktop.XPlat.Native.Linux
+namespace nexRemoteFree.Desktop.XPlat.Native.Linux
 {
     public class Libc
     {

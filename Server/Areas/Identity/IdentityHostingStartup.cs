@@ -5,11 +5,11 @@ using Microsoft.AspNetCore.Identity.UI;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using nexRemote.Server.Data;
-using nexRemote.Shared.Models;
+using nexRemoteFree.Server.Data;
+using nexRemoteFree.Shared.Models;
 
-[assembly: HostingStartup(typeof(nexRemote.Server.Areas.Identity.IdentityHostingStartup))]
-namespace nexRemote.Server.Areas.Identity
+[assembly: HostingStartup(typeof(nexRemoteFree.Server.Areas.Identity.IdentityHostingStartup))]
+namespace nexRemoteFree.Server.Areas.Identity
 {
     public class IdentityHostingStartup : IHostingStartup
     {

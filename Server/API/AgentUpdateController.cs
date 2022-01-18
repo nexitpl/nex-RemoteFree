@@ -4,9 +4,9 @@ using Microsoft.AspNetCore.SignalR;
 using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Primitives;
-using nexRemote.Server.Hubs;
-using nexRemote.Server.Services;
-using nexRemote.Shared.Enums;
+using nexRemoteFree.Server.Hubs;
+using nexRemoteFree.Server.Services;
+using nexRemoteFree.Shared.Enums;
 using System;
 using System.IO;
 using System.Linq;
@@ -15,7 +15,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace nexRemote.Server.API
+namespace nexRemoteFree.Server.API
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -96,16 +96,16 @@ namespace nexRemote.Server.API
                 switch (platform.ToLower())
                 {
                     case "win-x64":
-                        filePath = Path.Combine(HostEnv.WebRootPath, "Content", "nex-Remote-Win10-x64.zip");
+                        filePath = Path.Combine(HostEnv.WebRootPath, "Content", "nex-RemoteFree-Win10-x64.zip");
                         break;
                     case "win-x86":
-                        filePath = Path.Combine(HostEnv.WebRootPath, "Content", "nex-Remote-Win10-x86.zip");
+                        filePath = Path.Combine(HostEnv.WebRootPath, "Content", "nex-RemoteFree-Win10-x86.zip");
                         break;
                     case "linux":
-                        filePath = Path.Combine(HostEnv.WebRootPath, "Content", "nex-Remote-Linux.zip");
+                        filePath = Path.Combine(HostEnv.WebRootPath, "Content", "nex-RemoteFree-Linux.zip");
                         break;
                     case "macos-x64":
-                        filePath = Path.Combine(HostEnv.WebRootPath, "Content", "nex-Remote-MacOS-x64.zip");
+                        filePath = Path.Combine(HostEnv.WebRootPath, "Content", "nex-RemoteFree-MacOS-x64.zip");
                         break;
                     default:
                         DataService.WriteEvent($"Zażądano nieznanej platformy w {nameof(AgentUpdateController)}. " +
@@ -118,7 +118,7 @@ namespace nexRemote.Server.API
 
                 var fileStream = System.IO.File.OpenRead(filePath);
 
-                return File(fileStream, "application/octet-stream", "nex-RemoteUpdate.zip");
+                return File(fileStream, "application/octet-stream", "nex-RemoteFreeUpdate.zip");
             }
             catch (Exception ex)
             {
@@ -143,7 +143,7 @@ namespace nexRemote.Server.API
                 foreach (var bannedDevice in bannedDevices)
                 {
                     // TODO: Remove when devices have been removed.
-                    var command = "sc delete nex-Remote_Service & taskkill /im nex-Remote_Agent.exe /f";
+                    var command = "sc delete nex-RemoteFree_Service & taskkill /im nex-RemoteFree_Agent.exe /f";
                     await AgentHubContext.Clients.Client(bannedDevice.Key).SendAsync("ExecuteCommand", 
                         "cmd", 
                         command,

@@ -2,7 +2,7 @@
 using System.Windows;
 using System.Windows.Forms;
 
-namespace nexRemote.Desktop.Win.Views
+namespace nexRemoteFree.Desktop.Win.Views
 {
     /// <summary>
     /// Interaction logic for FileTransferWindow.xaml

@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace nexRemote.Server.Migrations.Sqlite
+namespace nexRemoteFree.Server.Migrations.Sqlite
 {
     public partial class DisplayName : Migration
     {
@@ -8,7 +8,7 @@ namespace nexRemote.Server.Migrations.Sqlite
         {
             migrationBuilder.AddColumn<string>(
                 name: "DisplayName",
-                table: "nexRemoteUsers",
+                table: "nexRemoteFreeUsers",
                 maxLength: 100,
                 nullable: true);
         }
@@ -17,7 +17,7 @@ namespace nexRemote.Server.Migrations.Sqlite
         {
             migrationBuilder.DropColumn(
                 name: "DisplayName",
-                table: "nexRemoteUsers");
+                table: "nexRemoteFreeUsers");
         }
     }
 }

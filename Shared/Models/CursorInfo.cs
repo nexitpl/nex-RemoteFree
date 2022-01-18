@@ -1,6 +1,6 @@
 ﻿using System.Drawing;
 
-namespace nexRemote.Shared.Models
+namespace nexRemoteFree.Shared.Models
 {
     public class CursorInfo
     {

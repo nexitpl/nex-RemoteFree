@@ -5,9 +5,9 @@
 
     <IsPackable>false</IsPackable>
 
-    <RootNamespace>nexRemote.Tests</RootNamespace>
+    <RootNamespace>nexRemoteFree.Tests</RootNamespace>
 
-    <AssemblyName>nex-Remote_Tests</AssemblyName>
+    <AssemblyName>nex-RemoteFree_Tests</AssemblyName>
 
     <Platforms>AnyCPU;x64;x86</Platforms>
   </PropertyGroup>

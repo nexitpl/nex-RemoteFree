@@ -1,6 +1,6 @@
-﻿using nexRemote.Desktop.Core.Interfaces;
-using nexRemote.Shared.Models;
-using nexRemote.Shared.Utilities;
+﻿using nexRemoteFree.Desktop.Core.Interfaces;
+using nexRemoteFree.Shared.Models;
+using nexRemoteFree.Shared.Utilities;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -11,7 +11,7 @@ using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace nexRemote.Desktop.Core.Services
+namespace nexRemoteFree.Desktop.Core.Services
 {
     public class ChatHostService : IChatClientService
     {
@@ -28,7 +28,7 @@ namespace nexRemote.Desktop.Core.Services
 
         public async Task StartChat(string requesterID, string organizationName)
         {
-            NamedPipeStream = new NamedPipeServerStream("nex-Remote_Chat" + requesterID, PipeDirection.InOut, 10, PipeTransmissionMode.Byte, PipeOptions.Asynchronous);
+            NamedPipeStream = new NamedPipeServerStream("nex-RemoteFree_Chat" + requesterID, PipeDirection.InOut, 10, PipeTransmissionMode.Byte, PipeOptions.Asynchronous);
             Writer = new StreamWriter(NamedPipeStream);
             Reader = new StreamReader(NamedPipeStream);
 

@@ -1,15 +1,15 @@
 ﻿using MessagePack;
 using Microsoft.MixedReality.WebRTC;
-using nexRemote.Shared.Utilities;
-using nexRemote.Shared.Models;
-using nexRemote.Shared.Models.RemoteControlDtos;
+using nexRemoteFree.Shared.Utilities;
+using nexRemoteFree.Shared.Models;
+using nexRemoteFree.Shared.Models.RemoteControlDtos;
 using System;
 using System.Drawing;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Threading;
 
-namespace nexRemote.Desktop.Core.Services
+namespace nexRemoteFree.Desktop.Core.Services
 {
     public class WebRtcSession : IDisposable
     {

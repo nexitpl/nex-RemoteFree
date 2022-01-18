@@ -1,5 +1,5 @@
-using nexRemote.Agent.Interfaces;
-using nexRemote.Shared.Utilities;
+using nexRemoteFree.Agent.Interfaces;
+using nexRemoteFree.Shared.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -12,7 +12,7 @@ using System.Threading;
 using System.Threading.Tasks;
 
 
-namespace nexRemote.Agent.Services
+namespace nexRemoteFree.Agent.Services
 {
     public class UpdaterMac : IUpdater
     {
@@ -65,7 +65,7 @@ namespace nexRemote.Agent.Services
                 var connectionInfo = _configService.GetConnectionInfo();
                 var serverUrl = _configService.GetConnectionInfo().Host;
 
-                var fileUrl = serverUrl + $"/Content/nex-Remote-MacOS-{_achitecture}.zip";
+                var fileUrl = serverUrl + $"/Content/nex-RemoteFree-MacOS-{_achitecture}.zip";
 
                 var lastEtag = string.Empty;
 
@@ -124,9 +124,9 @@ namespace nexRemote.Agent.Services
                 Logger.Write("Service Updater: Pobieranie pakietu instalacyjnego.");
 
                 var downloadId = Guid.NewGuid().ToString();
-                var zipPath = Path.Combine(Path.GetTempPath(), "nex-RemoteUpdate.zip");
+                var zipPath = Path.Combine(Path.GetTempPath(), "nex-RemoteFreeUpdate.zip");
 
-                var installerPath = Path.Combine(Path.GetTempPath(), "nex-RemoteUpdate.sh");
+                var installerPath = Path.Combine(Path.GetTempPath(), "nex-RemoteFreeUpdate.sh");
 
                 await _webClientEx.DownloadFileTaskAsync(
                        serverUrl + $"/API/ClientDownloads/{connectionInfo.OrganizationID}/MacOSInstaller-{_achitecture}",

@@ -1,10 +1,10 @@
 ﻿@using Microsoft.AspNetCore.Identity
-@using nexRemote.Shared.Models
+@using nexRemoteFree.Shared.Models
 
-@inject SignInManager<nexRemoteUser> SignInManager
-@inject UserManager<nexRemoteUser> UserManager
-@inject nexRemote.Server.Services.IApplicationConfig AppConfig
-@inject nexRemote.Server.Services.IDataService DataService 
+@inject SignInManager<nexRemoteFreeUser> SignInManager
+@inject UserManager<nexRemoteFreeUser> UserManager
+@inject nexRemoteFree.Server.Services.IApplicationConfig AppConfig
+@inject nexRemoteFree.Server.Services.IDataService DataService 
 
 <ul class="navbar-nav">
     @if (SignInManager.IsSignedIn(User))

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace nexRemote.Server.Components.TreeView
+namespace nexRemoteFree.Server.Components.TreeView
 {
     public enum TreeItemType
     {

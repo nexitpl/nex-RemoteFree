@@ -1,9 +1,9 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using nexRemote.Desktop.Core;
-using nexRemote.Desktop.Core.Interfaces;
-using nexRemote.Desktop.Core.Services;
-using nexRemote.Desktop.Core.Utilities;
-using nexRemote.Shared.Utilities;
+using nexRemoteFree.Desktop.Core;
+using nexRemoteFree.Desktop.Core.Interfaces;
+using nexRemoteFree.Desktop.Core.Services;
+using nexRemoteFree.Desktop.Core.Utilities;
+using nexRemoteFree.Shared.Utilities;
 using System;
 using System.ComponentModel;
 using System.Drawing;
@@ -12,7 +12,7 @@ using System.Linq;
 using System.Windows.Forms;
 using System.Windows.Media.Imaging;
 
-namespace nexRemote.Desktop.Win.Services
+namespace nexRemoteFree.Desktop.Win.Services
 {
     public class SessionIndicatorWin : ISessionIndicator
     {

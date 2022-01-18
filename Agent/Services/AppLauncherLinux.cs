@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.SignalR.Client;
-using nexRemote.Agent.Interfaces;
-using nexRemote.Shared.Models;
-using nexRemote.Shared.Services;
-using nexRemote.Shared.Utilities;
+using nexRemoteFree.Agent.Interfaces;
+using nexRemoteFree.Shared.Models;
+using nexRemoteFree.Shared.Services;
+using nexRemoteFree.Shared.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -10,7 +10,7 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace nexRemote.Agent.Services
+namespace nexRemoteFree.Agent.Services
 {
 
     public class AppLauncherLinux : IAppLauncher

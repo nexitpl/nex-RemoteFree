@@ -4,17 +4,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace nexRemote.Shared.Utilities
+namespace nexRemoteFree.Shared.Utilities
 {
     public class AppConstants
     {
-        public const string DefaultProductName = "nex-Remote";
+        public const string DefaultProductName = "nex-RemoteFree";
         public const string DefaultPublisherName = "nex-IT Jakub Potoczny";
         public const long MaxUploadFileSize = 100_000_000;
         public const int RelayCodeLength = 4;
         public const double ScriptRunExpirationMinutes = 30;
 
-        public const string nexRemoteAscii = @"
+        public const string nexRemoteFreeAscii = @"
                          _______  
                       |     |
   ____   ___  \  /    |     |

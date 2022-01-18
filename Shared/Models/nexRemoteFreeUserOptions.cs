@@ -1,9 +1,9 @@
-﻿using nexRemote.Shared.Enums;
+﻿using nexRemoteFree.Shared.Enums;
 using System.ComponentModel.DataAnnotations;
 
-namespace nexRemote.Shared.Models
+namespace nexRemoteFree.Shared.Models
 {
-    public class nexRemoteUserOptions
+    public class nexRemoteFreeUserOptions
     {
         [Display(Name = "Nazwa wyświetlana")]
         [StringLength(100)]
