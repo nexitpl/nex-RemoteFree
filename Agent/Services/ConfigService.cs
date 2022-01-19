@@ -52,7 +52,7 @@ namespace nexRemoteFree.Agent.Services
                 return new ConnectionInfo()
                 {
                     DeviceID = deviceID,
-                    Host = "http://192.168.2.44",
+                    Host = "http://192.168.2.44:5000",
                     OrganizationID = "e979e953-375f-4373-802f-655fb63aeb0c"
                 };
             }
