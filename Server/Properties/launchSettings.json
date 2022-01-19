@@ -15,7 +15,7 @@
         "ASPNETCORE_ENVIRONMENT": "Production"
       },
       "dotnetRunMessages": "true",
-      "applicationUrl": "http://192.168.2.44:5002;http://nex-remote.pl:5002"
+      "applicationUrl": "http://192.168.2.44:5000;http://nex-remote.pl:5000"
     },
     "IIS Express": {
       "commandName": "IISExpress",
